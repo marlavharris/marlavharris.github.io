@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <style>
-    /* REUSING MAIN STYLES FOR CONSISTENCY */
+    /* REUSING MAIN STYLES */
     :root {
       --ink: #111111;
       --paper: #ffffff;
@@ -83,14 +83,28 @@
     .creative-hero h1 { font-size: 4rem; margin-bottom: 1.5rem; }
     .creative-hero p { font-size: 1.1rem; color: var(--neutral-600); max-width: 600px; margin: 0 auto; }
 
-    /* --- THE SUBJECT LINE TICKER (MARQUEE) --- */
-    .ticker-label {
-      text-align: center;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--neutral-600);
-      margin-bottom: 1rem;
+
+    /* --- TICKER SECTION (Integrated Design) --- */
+    .ticker-container {
+      position: relative;
+      width: 100%;
+      margin-bottom: 6rem;
+    }
+
+    /* The "Tag" Label - Looks Structural now */
+    .ticker-tag {
+        position: absolute;
+        top: -1.2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--accent);
+        color: white;
+        padding: 0.4rem 1.5rem;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        z-index: 10;
+        border-radius: 2px 2px 0 0; /* Tab shape */
     }
 
     .ticker-wrap {
@@ -98,27 +112,19 @@
       background-color: var(--accent);
       overflow: hidden;
       white-space: nowrap;
-      padding: 1.2rem 0;
-      margin-bottom: 6rem;
+      padding: 1.5rem 0;
       cursor: default;
+      position: relative;
     }
 
-    /* STOP ON HOVER */
-    .ticker-wrap:hover .ticker {
-      animation-play-state: paused;
-    }
+    .ticker-wrap:hover .ticker { animation-play-state: paused; }
 
-    .ticker {
-      display: inline-block;
-      animation: marquee 40s linear infinite;
-    }
+    .ticker { display: inline-block; animation: marquee 40s linear infinite; }
 
     .ticker-item {
       display: inline-block;
       padding: 0 4rem;
-      /* PLAIN TEXT STYLE */
       font-family: 'Inter', sans-serif; 
-      font-style: normal;
       font-weight: 400;
       font-size: 1.1rem;
       color: white;
@@ -137,11 +143,10 @@
       100% { transform: translateX(-100%); }
     }
 
-    /* --- PORTRAIT SCROLLING CARDS --- */
+    /* --- PORTFOLIO CARDS --- */
     .creative-grid {
       display: grid;
-      /* 350px min-width makes them feel substantial */
-      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); 
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); 
       gap: 4rem;
       padding-bottom: 8rem;
     }
@@ -150,29 +155,28 @@
       background: white;
       border: 1px solid var(--neutral-200);
       transition: border-color 0.4s ease;
+      display: flex;
+      flex-direction: column;
     }
 
-    .creative-card:hover {
-      border-color: var(--accent);
-    }
+    .creative-card:hover { border-color: var(--accent); }
 
-    /* The Scrolling Visual Container - PORTRAIT RATIO */
+    /* Visual Scroller (4:5 Ratio) */
     .card-visual-scroller {
       width: 100%;
-      /* 4:5 Aspect Ratio (Editorial Portrait) */
       aspect-ratio: 4/5; 
       display: flex;
-      overflow-x: auto; /* Enables Horizontal Scroll */
+      overflow-x: auto; 
       scroll-snap-type: x mandatory; 
       -webkit-overflow-scrolling: touch; 
       background: var(--neutral-200);
       scrollbar-width: none; 
       position: relative;
+      border-bottom: 1px solid var(--neutral-200);
     }
     
     .card-visual-scroller::-webkit-scrollbar { display: none; }
 
-    /* The Image/Content inside the scroller */
     .scroller-item {
       flex: 0 0 100%; 
       width: 100%;
@@ -185,34 +189,48 @@
       position: relative;
     }
     
-    .scroller-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* Ensures image fills the portrait box */
-        display: block;
-    }
+    .scroller-img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-    /* Scroll Indicator Hint */
     .scroll-hint {
-        position: absolute;
-        bottom: 1rem;
-        right: 1rem;
-        background: rgba(255,255,255,0.9);
-        color: var(--ink);
-        padding: 0.3rem 0.8rem;
-        font-size: 0.7rem;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        border-radius: 99px;
-        pointer-events: none;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        z-index: 10;
+        position: absolute; bottom: 1rem; right: 1rem;
+        background: rgba(255,255,255,0.9); color: var(--ink);
+        padding: 0.3rem 0.8rem; font-size: 0.7rem; text-transform: uppercase;
+        letter-spacing: 0.1em; border-radius: 99px; pointer-events: none;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 10;
     }
 
-    .card-content { padding: 2rem; }
+    .card-content { padding: 2.5rem 2rem; flex-grow: 1; display: flex; flex-direction: column; }
+    
     .card-tags { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--neutral-600); margin-bottom: 1rem; }
-    .card-title { font-size: 1.4rem; margin-bottom: 0.5rem; }
-    .card-desc { font-size: 0.9rem; color: var(--neutral-600); }
+    .card-title { font-size: 1.6rem; margin-bottom: 0.5rem; font-family: 'Playfair Display', serif; }
+    .card-desc { font-size: 0.95rem; color: var(--neutral-600); margin-bottom: 2rem; line-height: 1.6; }
+
+    /* --- NEW COPYWRITING BLOCK --- */
+    .copy-block {
+        margin-top: auto; /* Pushes to bottom if card stretches */
+        background: #fcfcfc; /* Light paper color */
+        border-left: 3px solid var(--accent);
+        padding: 1.5rem;
+        position: relative;
+    }
+
+    .copy-label {
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--neutral-600);
+        margin-bottom: 0.8rem;
+        display: block;
+        font-weight: 600;
+    }
+
+    .copy-text {
+        font-family: 'Playfair Display', serif; /* Serif for "Editorial" feel */
+        font-size: 1rem;
+        color: var(--ink);
+        line-height: 1.6;
+        font-style: italic;
+    }
 
     /* Mobile */
     .mobile-menu-btn { display: none; background:none; border:none; font-size:1.5rem; }
@@ -261,25 +279,25 @@
     </div>
   </section>
 
-  <div class="container">
-      <div class="ticker-label">// High-Performing Subject Lines (Hover to Pause)</div>
-  </div>
-  
-  <div class="ticker-wrap">
-    <div class="ticker">
-      <span class="ticker-item">This $300 bra changed my mind</span>
-      <span class="ticker-item">Your data is lying to you</span>
-      <span class="ticker-item">Stop selling, start storytelling</span>
-      <span class="ticker-item">The one metric that actually matters</span>
-      <span class="ticker-item">Luxury is a feeling, not a price point</span>
-      <span class="ticker-item">Why we got banned from Facebook</span>
-      
-      <span class="ticker-item">This $300 bra changed my mind</span>
-      <span class="ticker-item">Your data is lying to you</span>
-      <span class="ticker-item">Stop selling, start storytelling</span>
-      <span class="ticker-item">The one metric that actually matters</span>
-      <span class="ticker-item">Luxury is a feeling, not a price point</span>
-      <span class="ticker-item">Why we got banned from Facebook</span>
+  <div class="ticker-container">
+    <div class="ticker-tag">High-Performing Subject Lines</div>
+    
+    <div class="ticker-wrap">
+        <div class="ticker">
+        <span class="ticker-item">This $300 bra changed my mind</span>
+        <span class="ticker-item">Your data is lying to you</span>
+        <span class="ticker-item">Stop selling, start storytelling</span>
+        <span class="ticker-item">The one metric that actually matters</span>
+        <span class="ticker-item">Luxury is a feeling, not a price point</span>
+        <span class="ticker-item">Why we got banned from Facebook</span>
+        
+        <span class="ticker-item">This $300 bra changed my mind</span>
+        <span class="ticker-item">Your data is lying to you</span>
+        <span class="ticker-item">Stop selling, start storytelling</span>
+        <span class="ticker-item">The one metric that actually matters</span>
+        <span class="ticker-item">Luxury is a feeling, not a price point</span>
+        <span class="ticker-item">Why we got banned from Facebook</span>
+        </div>
     </div>
   </div>
 
@@ -288,57 +306,67 @@
       
       <div class="creative-card">
         <div class="card-visual-scroller">
-            
-            <div class="scroll-hint">Swipe for More</div>
-
+            <div class="scroll-hint">Swipe Images</div>
             <div class="scroller-item">
-                <img src="https://placehold.co/800x1000/e5e5e5/990049?text=Rolling+Stone+Email+1" class="scroller-img" alt="Campaign Visual 1">
+                <img src="https://placehold.co/800x1000/e5e5e5/990049?text=Rolling+Stone+Email" class="scroller-img" alt="Campaign Visual 1">
             </div>
-            
             <div class="scroller-item">
-                <img src="https://placehold.co/800x1000/e5e5e5/990049?text=Mobile+View" class="scroller-img" alt="Campaign Visual 2">
+                <img src="https://placehold.co/800x1000/e5e5e5/990049?text=Mobile+Variant" class="scroller-img" alt="Campaign Visual 2">
             </div>
-
-            <div class="scroller-item">
-                <img src="https://placehold.co/800x1000/e5e5e5/990049?text=Subject+Line+Test" class="scroller-img" alt="Campaign Visual 3">
-            </div>
-
         </div>
+
         <div class="card-content">
           <div class="card-tags">Email Strategy • Voice</div>
           <h3 class="card-title">The Legacy Voice</h3>
-          <p class="card-desc">Translating 50 years of rock journalism into subscription emails. Scroll right to see the campaign flow.</p>
+          <p class="card-desc">Translating 50 years of rock journalism into subscription emails.</p>
+          
+          <div class="copy-block">
+            <span class="copy-label">Key Copy Sample</span>
+            <div class="copy-text">
+                "The music hasn't stopped. It just got louder. <br><br>
+                Subscribe to the definitive voice in music journalism."
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="creative-card">
         <div class="card-visual-scroller">
-             <div class="scroll-hint">Swipe for More</div>
-             
             <div class="scroller-item">
-                <img src="https://placehold.co/800x1000/e5e5e5/990049?text=Museum+of+Sex+Ad" class="scroller-img" alt="MoS Visual 1">
-            </div>
-            <div class="scroller-item">
-                <img src="https://placehold.co/800x1000/e5e5e5/990049?text=Compliant+Copy" class="scroller-img" alt="MoS Visual 2">
+                <img src="https://placehold.co/800x1000/e5e5e5/990049?text=MoS+Ad+Creative" class="scroller-img" alt="MoS Visual 1">
             </div>
         </div>
         <div class="card-content">
           <div class="card-tags">Ad Copy • Compliance</div>
           <h3 class="card-title">Taboo Compliance</h3>
           <p class="card-desc">Writing compliant ad copy for restricted goods that still drives high-intent clicks.</p>
+
+          <div class="copy-block">
+            <span class="copy-label">Ad Headline</span>
+            <div class="copy-text">
+                "Curated for the curious. Explore the history of human desire."
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="creative-card">
         <div class="card-visual-scroller">
             <div class="scroller-item">
-                <img src="https://placehold.co/800x1000/e5e5e5/990049?text=Luxury+Minimalism" class="scroller-img" alt="Bao Bao Visual">
+                <img src="https://placehold.co/800x1000/e5e5e5/990049?text=Minimalist+Layout" class="scroller-img" alt="Bao Bao Visual">
             </div>
         </div>
         <div class="card-content">
           <div class="card-tags">A/B Testing • Copy</div>
           <h3 class="card-title">The Minimalist Winner</h3>
           <p class="card-desc">Proof that stripping back the sales pitch increased luxury conversions by 14%.</p>
+
+          <div class="copy-block">
+            <span class="copy-label">Winning Subject Line</span>
+            <div class="copy-text">
+                "It speaks for itself."
+            </div>
+          </div>
         </div>
       </div>
 
@@ -352,6 +380,13 @@
           <div class="card-tags">Merchandising • Creative</div>
           <h3 class="card-title">Visual Merchandising</h3>
           <p class="card-desc">Aligning visual hierarchy with email copy to guide the user eye toward high-margin items.</p>
+
+          <div class="copy-block">
+            <span class="copy-label">Merchandising Strategy</span>
+            <div class="copy-text">
+                "Placed the highest margin item (The Platinum Tote) at the 'Fold' with the header: <em>Investment Pieces</em>."
+            </div>
+          </div>
         </div>
       </div>
 
