@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-869S7ZPXQH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-869S7ZPXQH');
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Marla Harris - Data-Driven Storyteller. Marketing leader bridging creative vision with technical execution.">
+  <title>Marla Harris — Data-Driven Storyteller</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --ink: #111111;
+      --paper: #ffffff;
+      /* Your Pink */
+      --accent: #990049; 
+      /* A softer version for hovers */
+      --accent-light: #b2005f;
+      /* Very faint pink for subtle backgrounds */
+      --accent-mist: rgba(153, 0, 73, 0.03); 
+      --neutral-200: #eaeaea;
+      --neutral-600: #757575;
+      --neutral-700: #4a4a4a;
+      --gold: #b4a582;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.7;
+      overflow-x: hidden;
+      font-weight: 300; /* Lighter weight looks more premium */
+    }
+    
+    .container {
+      max-width: 1100px; /* Slightly narrower for a more curated look */
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--ink);
+    }
+
+    /* Upscale Typography Details */
+    h2 {
+        font-size: 2.8rem;
+        letter-spacing: -0.02em;
+    }
+    
+    .bar {
+      width: 40px;
+      height: 1px;
+      background: var(--accent);
+      margin: 2rem auto;
+    }
+    
+    .star-decoration {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      color: var(--accent);
+      opacity: 0.6;
+    }
+    
+    /* Header - Minimalist */
+    header {
+      background: rgba(255, 255, 255, 0.98);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: all 0.4s ease;
+      padding: 1rem 0;
+    }
+    
+    header.scrolled {
+      padding: 0.5rem 0;
+      box-shadow: 0 1px 0px rgba(0,0,0,0.05);
+    }
+    
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      z-index: 1001;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+    }
+    
+    .nav-link {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--neutral-600);
+      text-decoration: none;
+      font-weight: 400;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+    
+    .nav-link:hover {
+      color: var(--accent);
+    }
+    
+    /* Hero - High Fashion Editorial Style */
+    .hero {
+      padding: 14rem 0 8rem;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      background: radial-gradient(circle at 50% 50%, var(--accent-mist) 0%, transparent 70%);
+    }
+    
+    .hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .hero h1 {
+      font-size: clamp(3rem, 5vw, 5.5rem);
+      margin-bottom: 2rem;
+      font-weight: 400;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--neutral-600);
+      max-width: 480px;
+      margin: 0 auto 3.5rem;
+      font-style: italic;
+      font-family: 'Playfair Display', serif;
+    }
+    
+    .btn-group {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+    
+    .btn {
+      padding: 1rem 2.5rem;
+      border-radius: 2px; /* Sharper corners are more "upscale" than round pills */
+      font-weight: 500;
+      text-decoration: none;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: all 0.4s ease;
+      display: inline-block;
+    }
+    
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+      border: 1px solid var(--accent);
+    }
+    
+    .btn-primary:hover {
+      background: transparent;
+      color: var(--accent);
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid var(--neutral-200);
+      color: var(--ink);
+    }
+    
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    
+    /* Results Banner - Clean & Airy */
+    .results-banner {
+      background: white;
+      padding: 6rem 0;
+      border-top: 1px solid var(--neutral-200);
+      border-bottom: 1px solid var(--neutral-200);
+    }
+    
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      /* Add vertical dividers between items */
+    }
+    
+    .result-item {
+      text-align: center;
+      position: relative;
+    }
+
+    /* Vertical lines between stats for desktop */
+    @media (min-width: 769px) {
+        .result-item:not(:last-child):after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 10%;
+            height: 80%;
+            width: 1px;
+            background: var(--neutral-200);
+        }
+    }
+    
+    .result-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem; /* Larger, thinner */
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-weight: 400;
+    }
+    
+    .result-label {
+      font-family: 'Inter', sans-serif;
+      color: var(--ink);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      line-height: 1.6;
+    }
+    
+    .result-label em {
+      display: block;
+      margin-top: 0.5rem;
+      font-family: 'Playfair Display', serif;
+      text-transform: none;
+      letter-spacing: 0;
+      color: var(--neutral-600);
+      font-size: 0.95rem;
+    }
+    
+    /* Methodology - Elegant Cards */
+    .methodology {
+      padding: 8rem 0;
+      background: var(--paper);
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 6rem;
+    }
+    
+    .section-header p {
+      color: var(--neutral-600);
+      font-size: 1.1rem;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+    }
+    
+    .methodology-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4rem; /* More space */
+    }
+    
+    .methodology-card {
+      padding: 0 1rem;
+      text-align: center;
+      /* Removed the box shadow/border for a cleaner look */
+    }
+    
+    .methodology-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+      color: var(--accent);
+    }
+    
+    .methodology-card p {
+      color: var(--neutral-600);
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+    }
+    
+    .methodology-features {
+      list-style: none;
+      text-align: center; /* Center the list */
+    }
+    
+    .methodology-features li {
+      padding: 0.5rem 0;
+      color: var(--neutral-700);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    /* Work - Refined */
+    .work {
+      padding: 8rem 0;
+      background: var(--accent-mist); /* Very subtle tint */
+    }
+    
+    .work-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 6rem;
+    }
+    
+    .work-item {
+      background: white;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 450px;
+      /* Subtle shadow instead of heavy one */
+      box-shadow: 0 10px 40px rgba(0,0,0,0.03); 
+    }
+    
+    .work-content {
+      padding: 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .work-meta {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--neutral-600);
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--accent);
+      display: inline-block;
+      padding-bottom: 0.5rem;
+      width: fit-content;
+    }
+    
+    .work-item h3 {
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+    }
+    
+    .work-quote {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--neutral-700);
+      margin: 1rem 0 2rem;
+      line-height: 1.6;
+    }
+    
+    .work-stats {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-top: auto;
+    }
+    
+    .stat {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+    }
+    
+    /* The Visual Side - Upscale Edit */
+    .work-visual {
+      /* Removed the solid pink background */
+      background: white; 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem;
+      position: relative;
+      border-left: 1px solid var(--neutral-200);
+    }
+
+    .work-item.reverse .work-visual {
+        border-left: none;
+        border-right: 1px solid var(--neutral-200);
+    }
+    
+    /* Create a decorative frame instead of a fill */
+    .work-visual::before {
+        content: '';
+        position: absolute;
+        top: 2rem;
+        left: 2rem;
+        right: 2rem;
+        bottom: 2rem;
+        border: 1px solid var(--accent);
+        opacity: 0.3;
+    }
+
+    .work-visual-content {
+      text-align: center;
+      z-index: 2;
+    }
+    
+    .work-visual-large {
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    
+    .work-visual-small {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--ink);
+    }
+    
+    .work-item.reverse {
+      grid-template-columns: 1fr 1fr;
+      direction: rtl;
+    }
+    
+    .work-item.reverse > * {
+      direction: ltr;
+    }
+
+    /* Brands - The "Vogue" List */
+    .brands {
+      padding: 8rem 0;
+      background: white;
+    }
+    
+    .brand-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 3rem 5rem; /* Large gaps */
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .brand-item {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--neutral-200); /* Start faint */
+      cursor: default;
+      transition: all 0.5s ease;
+      /* Removing the box/border */
+      background: none;
+      border: none;
+      padding: 0;
+    }
+    
+    .brand-item:hover {
+      color: var(--accent); /* Light up on hover */
+      transform: translateY(-5px);
+    }
+    
+    /* Philosophy */
+    .philosophy {
+      padding: 10rem 0;
+      text-align: center;
+      background: var(--paper);
+    }
+    
+    .bra-quote-hero {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 3.8rem; /* Bigger */
+      color: var(--accent);
+      margin: 4rem 0;
+      line-height: 1.1;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .philosophy p {
+        max-width: 600px;
+        margin: 0 auto 1.5rem;
+        font-size: 1.1rem;
+        color: var(--neutral-600);
+    }
+
+    /* Leadership - Refined */
+    .leadership {
+        background: var(--accent-mist);
+        padding: 8rem 0;
+    }
+
+    .leadership-item {
+        background: white;
+        padding: 4rem;
+        border: none;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        border-top: 1px solid var(--accent); /* Minimal accent */
+        text-align: center;
+    }
+    
+    /* Contact */
+    .contact {
+      padding: 8rem 0;
+      text-align: center;
+      background: white;
+    }
+
+    .social-link {
+        color: var(--accent);
+        background: transparent;
+        border: 1px solid var(--neutral-200);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s;
+    }
+
+    .social-link:hover {
+        border-color: var(--accent);
+        transform: scale(1.05);
+    }
+    
+    /* Mobile Responsive Tweeks */
+    .mobile-menu-btn { display: none; background:none; border:none; font-size:1.5rem; }
+    .mobile-menu { display: none; } /* Keeping your existing mobile logic structure, just hidden for desktop */
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .mobile-menu-btn { display: block; }
+      .hero { padding: 8rem 0 4rem; }
+      .hero h1 { font-size: 3rem; }
+      .results-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+      .result-item:after { display: none; } /* Hide dividers on mobile */
+      .methodology-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .work-item, .work-item.reverse { grid-template-columns: 1fr; }
+      .work-content { padding: 2.5rem; }
+      .work-visual { min-height: 250px; border-left: none; border-bottom: 1px solid var(--neutral-200); order: -1; }
+      .work-item.reverse .work-visual { border-right: none; }
+      .bra-quote-hero { font-size: 2.5rem; }
+      .brand-grid { gap: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="logo">Marla Harris</a>
+        <div class="nav-links">
+          <a href="#" class="nav-link">Home</a>
+          <a href="#work" class="nav-link">Work</a>
+          <a href="#methodology" class="nav-link">Methodology</a>
+          <a href="#brands" class="nav-link">Brands</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </div>
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+      </nav>
+    </div>
+    <div class="mobile-menu">
+        <button class="close-menu"><i class="fas fa-times"></i></button>
+        <div class="mobile-nav-links">
+            <a href="#" class="mobile-nav-link">Home</a>
+            <a href="#work" class="mobile-nav-link">Work</a>
+            <a href="#brands" class="mobile-nav-link">Brands</a>
+            <a href="#contact" class="mobile-nav-link">Contact</a>
+        </div>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Data-Driven Storyteller<br><span style="font-family:'Playfair Display'; font-style:italic; font-size: 0.9em; color: var(--accent);">Where Insights Become Stories.</span></h1>
+        <p>What does your data have to say?</p>
+        <div class="btn-group">
+          <a href="#work" class="btn btn-primary">View Work</a>
+          <a href="#contact" class="btn btn-secondary">Let's Talk</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="results-banner">
+    <div class="container">
+      <div class="results-grid">
+        <div class="result-item">
+          <div class="result-value">2.5M+</div>
+          <div class="result-label">Subscribers Engaged<br><em>in a difficult media landscape</em></div>
+        </div>
+        <div class="result-item">
+          <div class="result-value">59%</div>
+          <div class="result-label">Of All Web Sales<br><em>despite platform bans</em></div>
+        </div>
+        <div class="result-item">
+          <div class="result-value">69%</div>
+          <div class="result-label">Campaign ROI<br><em>in restricted markets</em></div>
+        </div>
+        <div class="result-item">
+          <div class="result-value">+14%</div>
+          <div class="result-label">Conversions<br><em>year over year growth</em></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="methodology" class="methodology">
+    <div class="container">
+      <div class="section-header">
+        <div class="star-decoration">✦</div>
+        <h2>My Methodology</h2>
+        <p>Bridging human insight with technical execution</p>
+      </div>
+      <div class="methodology-grid">
+        <div class="methodology-card">
+          <h3>Human Truth</h3>
+          <p>Understanding what drives real behavior—whether it's a $300 bra or a subscription.</p>
+          <ul class="methodology-features">
+            <li>Consumer Psychology</li>
+            <li>Behavioral Insights</li>
+            <li>Luxury Positioning</li>
+          </ul>
+        </div>
+        
+        <div class="methodology-card">
+          <h3>Scalable Systems</h3>
+          <p>Technical infrastructure that connects insight to execution across platforms.</p>
+          <ul class="methodology-features">
+            <li>Marketing Automation</li>
+            <li>Data Integration</li>
+            <li>Journey Architecture</li>
+          </ul>
+        </div>
+        
+        <div class="methodology-card">
+          <h3>Business Results</h3>
+          <p>Connecting creative vision to measurable revenue and growth.</p>
+          <ul class="methodology-features">
+            <li>Performance Optimization</li>
+            <li>ROI Measurement</li>
+            <li>Revenue Optimization</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" class="work">
+    <div class="container">
+      <div class="section-header">
+        <div class="star-decoration">✦</div>
+        <h2>Selected Work</h2>
+        <p>Strategic marketing systems for premium brands</p>
+      </div>
+
+      <div class="work-grid">
+        <div class="work-item fade-in">
+          <div class="work-content">
+            <div class="work-meta">Penske Media Corporation</div>
+            <h3>Media Empire Strategy</h3>
+            <p class="work-quote">"Architected subscription email marketing systems for Rolling Stone, Billboard, and WWD—maintaining editorial voice while driving conversions."</p>
+            <div class="work-stats">
+              <span class="stat">Copywriting</span>
+              <span class="stat">Journey Architecture</span>
+              <span class="stat">Salesforce</span>
+            </div>
+          </div>
+          <div class="work-visual">
+            <div class="work-visual-content">
+              <div class="work-visual-large">2.5M</div>
+              <div class="work-visual-small">Subscribers</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="work-item reverse fade-in">
+          <div class="work-content">
+            <div class="work-meta">Museum of Sex</div>
+            <h3>Complex Market Navigation</h3>
+            <p class="work-quote">"Navigated platform compliance restrictions while driving 59% of all web sales through strategic campaign management."</p>
+            <div class="work-stats">
+              <span class="stat">DTC Revenue</span>
+              <span class="stat">Campaign Strategy</span>
+              <span class="stat">Compliance</span>
+            </div>
+          </div>
+          <div class="work-visual">
+            <div class="work-visual-content">
+              <div class="work-visual-large">59%</div>
+              <div class="work-visual-small">Of All Web Sales</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="work-item fade-in">
+          <div class="work-content">
+            <div class="work-meta">Bao Bao Issey Miyake</div>
+            <h3>Luxury E-commerce</h3>
+            <p class="work-quote">"Optimized luxury email creative through rigorous A/B testing, proving minimalist visuals drive engagement."</p>
+            <div class="work-stats">
+              <span class="stat">A/B Testing</span>
+              <span class="stat">Luxury CRM</span>
+              <span class="stat">Creative Analytics</span>
+            </div>
+          </div>
+          <div class="work-visual">
+            <div class="work-visual-content">
+              <div class="work-visual-large">+14%</div>
+              <div class="work-visual-small">YoY Conversions</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="brands" class="brands">
+    <div class="container">
+      <div class="section-header">
+        <h2>Collaborations</h2>
+      </div>
+      <div class="brand-grid">
+        <div class="brand-item">Rolling Stone</div>
+        <div class="brand-item">Billboard</div>
+        <div class="brand-item">Women's Wear Daily</div>
+        <div class="brand-item">Bao Bao Issey Miyake</div>
+        <div class="brand-item">AJ Madison</div>
+        <div class="brand-item">Museum of Sex</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="philosophy" class="philosophy">
+    <div class="container">
+        <p>From covering fashion shows at Mercedes Benz Fashion Week to subscription marketing for media empires, I bridge the gap between human desire and technical execution.</p>
+        
+        <p class="bra-quote-hero">If I can sell a $300 bra, I can sell anything.</p>
+        
+        <a href="mailto:va.mvharris@gmail.com" class="btn btn-secondary" style="margin-top: 2rem;">Prove It To Me</a>
+    </div>
+  </section>
+
+  <section id="leadership" class="leadership">
+    <div class="container">
+      <div class="section-header">
+        <div class="star-decoration">✦</div>
+        <h2>Leadership</h2>
+      </div>
+      <div class="leadership-item">
+          <h3>Community Fridge Project</h3>
+          <p style="margin: 1.5rem 0; color: var(--neutral-600);">Built a national circular-economy initiative from scratch—convincing skeptical executives and mobilizing cross-functional teams to establish the company's first CSR program.</p>
+          <a href="https://true-residential.com/the-art-of-cold/true-manufacturing-in-partnership-with-aj-madison-donates-commercial-refrigerator-to-community-free-food-fridge-project/" class="btn btn-secondary" target="_blank">View Project</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="star-decoration">✦</div>
+      <h2>Let's Build Systems That Scale</h2>
+      <div class="btn-group" style="margin-top: 2rem;">
+        <a href="mailto:va.mvharris@gmail.com" class="btn btn-primary">Get in Touch</a>
+      </div>
+      
+      <div class="social-links" style="display:flex; justify-content:center; gap:1rem; margin-top:2rem;">
+        <a href="https://linkedin.com/in/marla-harris-047b2946" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.instagram.com/marlavharris/" class="social-link"><i class="fab fa-instagram"></i></a>
+      </div>
+      
+      <div style="margin-top: 3rem; font-size: 0.8rem; color: var(--neutral-600);">
+        <p>Marla Harris — Brooklyn, NY</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            const headerOffset = 80;
+            const elementPosition = target.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth"
+            });
+        }
+      });
+    });
+
+    // Header scroll styling
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
+    });
+
+    // Mobile menu toggle
+    const mobileBtn = document.querySelector('.mobile-menu-btn');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const closeBtn = document.querySelector('.close-menu');
+
+    if(mobileBtn) {
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.style.display = 'flex';
+            mobileMenu.style.position = 'fixed';
+            mobileMenu.style.top = '0';
+            mobileMenu.style.left = '0';
+            mobileMenu.style.width = '100%';
+            mobileMenu.style.height = '100vh';
+            mobileMenu.style.background = 'white';
+            mobileMenu.style.zIndex = '2000';
+            mobileMenu.style.flexDirection = 'column';
+            mobileMenu.style.alignItems = 'center';
+            mobileMenu.style.justifyContent = 'center';
+            mobileMenu.style.gap = '2rem';
+        });
+    }
+    
+    if(closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            mobileMenu.style.display = 'none';
+        });
+    }
+
+    // Close menu when link clicked
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.style.display = 'none';
+        });
+    });
+  </script>
+</body>
+</html>
