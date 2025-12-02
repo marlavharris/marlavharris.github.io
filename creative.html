@@ -236,56 +236,60 @@
         color: var(--neutral-600);
     }
 
-    /* --- THE SUBJECT LINE INDEX (Elevated) --- */
+    /* --- THE SUBJECT LINE INDEX (MINIMALIST MENU) --- */
     .hook-section {
-        padding: 10rem 0;
-        background: var(--accent-mist); /* distinct background */
+        padding: 8rem 0;
+        background: white; /* Clean white background */
+        border-top: 1px solid var(--neutral-200);
     }
 
     .hook-header-group {
         text-align: center;
-        margin-bottom: 4rem;
+        margin-bottom: 3rem;
     }
     
     .hook-header-label {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
         text-transform: uppercase;
         letter-spacing: 0.2em;
         color: var(--accent);
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
         display: block;
     }
 
+    /* The "Menu" Container */
     .hook-list {
         list-style: none;
-        max-width: 900px;
+        max-width: 700px; /* Narrower for elegance */
         margin: 0 auto;
-        background: white;
-        padding: 2rem 4rem;
-        box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+        padding: 0;
     }
 
     .hook-item {
-        border-bottom: 1px solid var(--neutral-200);
-        padding: 2.5rem 0;
+        padding: 1.5rem 0;
+        text-align: center;
         transition: all 0.3s ease;
-        position: relative;
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
+        border-bottom: 1px solid transparent; /* Invisible border until hover */
     }
-    
-    .hook-item:last-child { border-bottom: none; }
 
     .hook-item:hover {
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-        background: #fcfcfc;
+        border-bottom: 1px solid var(--accent-light);
+    }
+
+    /* The "Type" Tag (Replaces Metric) */
+    .hook-type {
+        display: block;
+        font-family: 'Inter', sans-serif;
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: var(--neutral-600);
+        margin-bottom: 0.5rem;
     }
 
     .hook-text {
         font-family: 'Playfair Display', serif;
-        font-size: 1.8rem;
+        font-size: 1.5rem;
         color: var(--ink);
         font-style: italic;
         transition: color 0.3s;
@@ -293,14 +297,6 @@
 
     .hook-item:hover .hook-text { color: var(--accent); }
 
-    .hook-metric {
-        font-family: 'Inter', sans-serif;
-        color: var(--accent);
-        font-size: 0.85rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-    }
 
     /* Footer */
     .contact { padding: 8rem 0; text-align: center; background: white; border-top: 1px solid var(--neutral-200); }
@@ -323,9 +319,7 @@
       .project-section:nth-child(even) .project-grid { direction: ltr; }
       .hero h1 { font-size: 3rem; }
       .project-title { font-size: 2rem; }
-      .hook-list { padding: 2rem; }
-      .hook-item { flex-direction: column; gap: 0.5rem; align-items: flex-start; }
-      .hook-text { font-size: 1.4rem; }
+      .hook-text { font-size: 1.3rem; }
     }
   </style>
 </head>
@@ -452,29 +446,29 @@
     <div class="container">
         <div class="hook-header-group">
             <span class="hook-header-label">// The Archive</span>
-            <h2 style="margin-bottom: 0;">High-Performing Subject Lines</h2>
+            <h2 style="margin-bottom: 0;">Select Subject Lines</h2>
         </div>
         
         <ul class="hook-list">
             <li class="hook-item">
+                <span class="hook-type">The Pattern Interrupt</span>
                 <span class="hook-text">"This $300 bra changed my mind"</span>
-                <span class="hook-metric">68% Open Rate</span>
             </li>
             <li class="hook-item">
+                <span class="hook-type">The B2B Pivot</span>
                 <span class="hook-text">"Your data is lying to you"</span>
-                <span class="hook-metric">Top B2B Campaign</span>
             </li>
             <li class="hook-item">
+                <span class="hook-type">Luxury Positioning</span>
                 <span class="hook-text">"Luxury is a feeling, not a price point"</span>
-                <span class="hook-metric">2.5x Conversion</span>
             </li>
             <li class="hook-item">
+                <span class="hook-type">Curiosity Gap</span>
                 <span class="hook-text">"Why we got banned from Facebook"</span>
-                <span class="hook-metric">12% Click Rate</span>
             </li>
             <li class="hook-item">
+                <span class="hook-type">The Manifesto</span>
                 <span class="hook-text">"Stop selling, start storytelling"</span>
-                <span class="hook-metric">Most Shared</span>
             </li>
         </ul>
     </div>
