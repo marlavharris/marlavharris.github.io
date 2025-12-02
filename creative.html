@@ -53,7 +53,7 @@
 
     h2 { font-size: 2.5rem; letter-spacing: -0.02em; }
 
-    /* Header (Transparent logic) */
+    /* Header */
     header {
       background: rgba(255, 255, 255, 0.98);
       position: fixed; top: 0; width: 100%; z-index: 1000; padding: 1rem 0; border-bottom: 1px solid var(--neutral-200);
@@ -84,38 +84,64 @@
     .creative-hero p { font-size: 1.1rem; color: var(--neutral-600); max-width: 600px; margin: 0 auto; }
 
     /* --- THE SUBJECT LINE TICKER (MARQUEE) --- */
+    .ticker-label {
+      text-align: center;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--neutral-600);
+      margin-bottom: 1rem;
+    }
+
     .ticker-wrap {
       width: 100%;
       background-color: var(--accent);
       overflow: hidden;
       white-space: nowrap;
-      padding: 1rem 0;
+      padding: 1.2rem 0;
       margin-bottom: 6rem;
+      cursor: default;
+    }
+
+    /* STOP ON HOVER */
+    .ticker-wrap:hover .ticker {
+      animation-play-state: paused;
     }
 
     .ticker {
       display: inline-block;
-      animation: marquee 30s linear infinite;
+      animation: marquee 40s linear infinite;
     }
 
     .ticker-item {
       display: inline-block;
-      padding: 0 3rem;
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: 1.5rem;
+      padding: 0 4rem;
+      /* PLAIN TEXT STYLE */
+      font-family: 'Inter', sans-serif; 
+      font-style: normal;
+      font-weight: 400;
+      font-size: 1.1rem;
       color: white;
+      position: relative;
+    }
+
+    .ticker-item::after {
+      content: '•';
+      position: absolute;
+      right: 0;
+      opacity: 0.5;
     }
 
     @keyframes marquee {
       0% { transform: translateX(0); }
-      100% { transform: translateX(-100%); } /* Shift entire width left */
+      100% { transform: translateX(-100%); }
     }
 
-    /* --- RECTANGULAR SCROLLING CARDS --- */
+    /* --- PORTRAIT SCROLLING CARDS --- */
     .creative-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(450px, 1fr)); /* Wider columns for rectangular format */
+      /* 350px min-width makes them feel substantial */
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); 
       gap: 4rem;
       padding-bottom: 8rem;
     }
@@ -130,50 +156,40 @@
       border-color: var(--accent);
     }
 
-    /* The Scrolling Visual Container */
+    /* The Scrolling Visual Container - PORTRAIT RATIO */
     .card-visual-scroller {
       width: 100%;
-      aspect-ratio: 16/9; /* RECTANGULAR RATIO */
+      /* 4:5 Aspect Ratio (Editorial Portrait) */
+      aspect-ratio: 4/5; 
       display: flex;
       overflow-x: auto; /* Enables Horizontal Scroll */
-      scroll-snap-type: x mandatory; /* Makes images snap into place */
-      -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
+      scroll-snap-type: x mandatory; 
+      -webkit-overflow-scrolling: touch; 
       background: var(--neutral-200);
-      /* Hide scrollbar visually but keep functionality */
       scrollbar-width: none; 
+      position: relative;
     }
     
-    .card-visual-scroller::-webkit-scrollbar { 
-        display: none; 
-    }
+    .card-visual-scroller::-webkit-scrollbar { display: none; }
 
     /* The Image/Content inside the scroller */
     .scroller-item {
-      flex: 0 0 100%; /* Each item takes full width of card */
+      flex: 0 0 100%; 
       width: 100%;
       height: 100%;
       scroll-snap-align: center;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: var(--accent-mist);
+      background: var(--neutral-200);
       position: relative;
-      border-right: 1px solid white; /* Subtle divider between slides */
     }
     
-    /* Using real images? Use this class on <img> tags */
     .scroller-img {
         width: 100%;
         height: 100%;
-        object-fit: cover; /* Ensures image fills the rectangle */
-    }
-
-    .visual-text {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      text-align: center;
-      color: var(--accent);
-      font-style: italic;
+        object-fit: cover; /* Ensures image fills the portrait box */
+        display: block;
     }
 
     /* Scroll Indicator Hint */
@@ -181,14 +197,16 @@
         position: absolute;
         bottom: 1rem;
         right: 1rem;
-        background: rgba(255,255,255,0.8);
-        padding: 0.2rem 0.6rem;
-        font-size: 0.6rem;
+        background: rgba(255,255,255,0.9);
+        color: var(--ink);
+        padding: 0.3rem 0.8rem;
+        font-size: 0.7rem;
         text-transform: uppercase;
         letter-spacing: 0.1em;
         border-radius: 99px;
         pointer-events: none;
-        opacity: 0.7;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        z-index: 10;
     }
 
     .card-content { padding: 2rem; }
@@ -205,6 +223,7 @@
       .mobile-menu-btn { display: block; }
       .creative-grid { grid-template-columns: 1fr; }
       .creative-hero h1 { font-size: 2.5rem; }
+      .ticker-item { font-size: 0.9rem; padding: 0 2rem; }
     }
   </style>
 </head>
@@ -242,20 +261,25 @@
     </div>
   </section>
 
+  <div class="container">
+      <div class="ticker-label">// High-Performing Subject Lines (Hover to Pause)</div>
+  </div>
+  
   <div class="ticker-wrap">
     <div class="ticker">
-      <span class="ticker-item">"The $300 Bra Philosophy"</span>
-      <span class="ticker-item">"Why your data is lying to you"</span>
-      <span class="ticker-item">"Stop selling, start storytelling"</span>
-      <span class="ticker-item">"Luxury is a feeling, not a price point"</span>
-      <span class="ticker-item">"Open rates are vanity metrics"</span>
-      <span class="ticker-item">"Compliance is just creative constraint"</span>
-      <span class="ticker-item">"The $300 Bra Philosophy"</span>
-      <span class="ticker-item">"Why your data is lying to you"</span>
-      <span class="ticker-item">"Stop selling, start storytelling"</span>
-      <span class="ticker-item">"Luxury is a feeling, not a price point"</span>
-      <span class="ticker-item">"Open rates are vanity metrics"</span>
-      <span class="ticker-item">"Compliance is just creative constraint"</span>
+      <span class="ticker-item">This $300 bra changed my mind</span>
+      <span class="ticker-item">Your data is lying to you</span>
+      <span class="ticker-item">Stop selling, start storytelling</span>
+      <span class="ticker-item">The one metric that actually matters</span>
+      <span class="ticker-item">Luxury is a feeling, not a price point</span>
+      <span class="ticker-item">Why we got banned from Facebook</span>
+      
+      <span class="ticker-item">This $300 bra changed my mind</span>
+      <span class="ticker-item">Your data is lying to you</span>
+      <span class="ticker-item">Stop selling, start storytelling</span>
+      <span class="ticker-item">The one metric that actually matters</span>
+      <span class="ticker-item">Luxury is a feeling, not a price point</span>
+      <span class="ticker-item">Why we got banned from Facebook</span>
     </div>
   </div>
 
@@ -265,34 +289,37 @@
       <div class="creative-card">
         <div class="card-visual-scroller">
             
+            <div class="scroll-hint">Swipe for More</div>
+
             <div class="scroller-item">
-                <div class="visual-text">Rolling Stone</div>
-                <div class="scroll-hint">Swipe →</div>
+                <img src="https://placehold.co/800x1000/e5e5e5/990049?text=Rolling+Stone+Email+1" class="scroller-img" alt="Campaign Visual 1">
             </div>
             
             <div class="scroller-item">
-                 <div class="visual-text" style="font-size: 1rem;">Example Email Header 1</div>
+                <img src="https://placehold.co/800x1000/e5e5e5/990049?text=Mobile+View" class="scroller-img" alt="Campaign Visual 2">
             </div>
 
             <div class="scroller-item">
-                <div class="visual-text" style="font-size: 1rem;">Example Email Footer</div>
+                <img src="https://placehold.co/800x1000/e5e5e5/990049?text=Subject+Line+Test" class="scroller-img" alt="Campaign Visual 3">
             </div>
 
         </div>
         <div class="card-content">
           <div class="card-tags">Email Strategy • Voice</div>
           <h3 class="card-title">The Legacy Voice</h3>
-          <p class="card-desc">Translating 50 years of rock journalism into subscription emails. Scroll above to see the campaign flow.</p>
+          <p class="card-desc">Translating 50 years of rock journalism into subscription emails. Scroll right to see the campaign flow.</p>
         </div>
       </div>
 
       <div class="creative-card">
         <div class="card-visual-scroller">
+             <div class="scroll-hint">Swipe for More</div>
+             
             <div class="scroller-item">
-                <div class="visual-text">Museum of Sex</div>
+                <img src="https://placehold.co/800x1000/e5e5e5/990049?text=Museum+of+Sex+Ad" class="scroller-img" alt="MoS Visual 1">
             </div>
             <div class="scroller-item">
-                <div class="visual-text" style="font-size: 1rem;">Ad Copy Variant A</div>
+                <img src="https://placehold.co/800x1000/e5e5e5/990049?text=Compliant+Copy" class="scroller-img" alt="MoS Visual 2">
             </div>
         </div>
         <div class="card-content">
@@ -305,7 +332,7 @@
       <div class="creative-card">
         <div class="card-visual-scroller">
             <div class="scroller-item">
-                <div class="visual-text">"Less is More"</div>
+                <img src="https://placehold.co/800x1000/e5e5e5/990049?text=Luxury+Minimalism" class="scroller-img" alt="Bao Bao Visual">
             </div>
         </div>
         <div class="card-content">
@@ -318,7 +345,7 @@
       <div class="creative-card">
         <div class="card-visual-scroller">
             <div class="scroller-item">
-                <div class="visual-text">Bao Bao</div>
+                <img src="https://placehold.co/800x1000/e5e5e5/990049?text=Merchandising+Grid" class="scroller-img" alt="Merch Visual">
             </div>
         </div>
         <div class="card-content">
