@@ -55,7 +55,7 @@
 
     /* Header (Transparent logic) */
     header {
-      background: rgba(255, 255, 255, 0.98); /* Solid white header for sub-page clarity */
+      background: rgba(255, 255, 255, 0.98);
       position: fixed; top: 0; width: 100%; z-index: 1000; padding: 1rem 0; border-bottom: 1px solid var(--neutral-200);
     }
     
@@ -75,96 +75,126 @@
 
     /* Creative Page Hero */
     .creative-hero {
-      padding: 10rem 0 6rem;
+      padding: 10rem 0 4rem;
       background: var(--paper);
       text-align: center;
     }
 
-    .creative-hero h1 {
-      font-size: 4rem; margin-bottom: 1.5rem;
+    .creative-hero h1 { font-size: 4rem; margin-bottom: 1.5rem; }
+    .creative-hero p { font-size: 1.1rem; color: var(--neutral-600); max-width: 600px; margin: 0 auto; }
+
+    /* --- THE SUBJECT LINE TICKER (MARQUEE) --- */
+    .ticker-wrap {
+      width: 100%;
+      background-color: var(--accent);
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 1rem 0;
+      margin-bottom: 6rem;
     }
 
-    .creative-hero p {
-      font-size: 1.1rem; color: var(--neutral-600); max-width: 600px; margin: 0 auto;
+    .ticker {
+      display: inline-block;
+      animation: marquee 30s linear infinite;
     }
 
-    /* Copy/Creative Grid */
+    .ticker-item {
+      display: inline-block;
+      padding: 0 3rem;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.5rem;
+      color: white;
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); } /* Shift entire width left */
+    }
+
+    /* --- RECTANGULAR SCROLLING CARDS --- */
     .creative-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-      gap: 3rem;
+      grid-template-columns: repeat(auto-fill, minmax(450px, 1fr)); /* Wider columns for rectangular format */
+      gap: 4rem;
       padding-bottom: 8rem;
     }
 
     .creative-card {
       background: white;
       border: 1px solid var(--neutral-200);
-      transition: transform 0.4s ease;
-      cursor: pointer;
+      transition: border-color 0.4s ease;
     }
 
     .creative-card:hover {
-      transform: translateY(-5px);
       border-color: var(--accent);
     }
 
-    .card-visual {
-      height: 250px;
-      background: var(--accent-mist);
+    /* The Scrolling Visual Container */
+    .card-visual-scroller {
+      width: 100%;
+      aspect-ratio: 16/9; /* RECTANGULAR RATIO */
+      display: flex;
+      overflow-x: auto; /* Enables Horizontal Scroll */
+      scroll-snap-type: x mandatory; /* Makes images snap into place */
+      -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
+      background: var(--neutral-200);
+      /* Hide scrollbar visually but keep functionality */
+      scrollbar-width: none; 
+    }
+    
+    .card-visual-scroller::-webkit-scrollbar { 
+        display: none; 
+    }
+
+    /* The Image/Content inside the scroller */
+    .scroller-item {
+      flex: 0 0 100%; /* Each item takes full width of card */
+      width: 100%;
+      height: 100%;
+      scroll-snap-align: center;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 2rem;
+      background: var(--accent-mist);
       position: relative;
-      overflow: hidden;
+      border-right: 1px solid white; /* Subtle divider between slides */
+    }
+    
+    /* Using real images? Use this class on <img> tags */
+    .scroller-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensures image fills the rectangle */
     }
 
-    /* Visual styles for placeholders */
     .visual-text {
       font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
+      font-size: 2rem;
       text-align: center;
       color: var(--accent);
       font-style: italic;
     }
-    
-    .visual-text.bold {
-        font-family: 'Inter', sans-serif;
-        font-weight: 700;
+
+    /* Scroll Indicator Hint */
+    .scroll-hint {
+        position: absolute;
+        bottom: 1rem;
+        right: 1rem;
+        background: rgba(255,255,255,0.8);
+        padding: 0.2rem 0.6rem;
+        font-size: 0.6rem;
         text-transform: uppercase;
-        font-style: normal;
-        font-size: 2rem;
-        color: var(--ink);
+        letter-spacing: 0.1em;
+        border-radius: 99px;
+        pointer-events: none;
+        opacity: 0.7;
     }
 
-    .card-content {
-      padding: 2rem;
-    }
-
-    .card-tags {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--neutral-600);
-      margin-bottom: 1rem;
-    }
-
-    .card-title {
-      font-size: 1.4rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .card-desc {
-      font-size: 0.9rem;
-      color: var(--neutral-600);
-    }
-
-    /* Manifesto Section */
-    .manifesto {
-        background: var(--accent-mist);
-        padding: 6rem 0;
-        margin-bottom: 6rem;
-    }
+    .card-content { padding: 2rem; }
+    .card-tags { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--neutral-600); margin-bottom: 1rem; }
+    .card-title { font-size: 1.4rem; margin-bottom: 0.5rem; }
+    .card-desc { font-size: 0.9rem; color: var(--neutral-600); }
 
     /* Mobile */
     .mobile-menu-btn { display: none; background:none; border:none; font-size:1.5rem; }
@@ -208,56 +238,88 @@
     <div class="container">
       <div class="star-decoration">✦</div>
       <h1>Opinionated Copywriting</h1>
-      <p>Strategy is the skeleton. Voice is the skin. Here is how I make brands speak.</p>
+      <p>Strategy is the skeleton. Voice is the skin.</p>
     </div>
   </section>
 
-  <section class="manifesto">
-    <div class="container" style="text-align: center; max-width: 800px;">
-        <h2 style="margin-bottom: 2rem;">"Storytelling that sells without sounding like marketing."</h2>
-        <p>I believe in subject lines that tease, body copy that respects the reader's intelligence, and campaigns that understand the nuance of the platform. Whether it's the taboo compliance landscape of the adult industry or the heritage voice of Rolling Stone.</p>
+  <div class="ticker-wrap">
+    <div class="ticker">
+      <span class="ticker-item">"The $300 Bra Philosophy"</span>
+      <span class="ticker-item">"Why your data is lying to you"</span>
+      <span class="ticker-item">"Stop selling, start storytelling"</span>
+      <span class="ticker-item">"Luxury is a feeling, not a price point"</span>
+      <span class="ticker-item">"Open rates are vanity metrics"</span>
+      <span class="ticker-item">"Compliance is just creative constraint"</span>
+      <span class="ticker-item">"The $300 Bra Philosophy"</span>
+      <span class="ticker-item">"Why your data is lying to you"</span>
+      <span class="ticker-item">"Stop selling, start storytelling"</span>
+      <span class="ticker-item">"Luxury is a feeling, not a price point"</span>
+      <span class="ticker-item">"Open rates are vanity metrics"</span>
+      <span class="ticker-item">"Compliance is just creative constraint"</span>
     </div>
-  </section>
+  </div>
 
   <section class="container">
     <div class="creative-grid">
       
       <div class="creative-card">
-        <div class="card-visual">
-          <div class="visual-text bold">Rolling Stone</div>
+        <div class="card-visual-scroller">
+            
+            <div class="scroller-item">
+                <div class="visual-text">Rolling Stone</div>
+                <div class="scroll-hint">Swipe →</div>
+            </div>
+            
+            <div class="scroller-item">
+                 <div class="visual-text" style="font-size: 1rem;">Example Email Header 1</div>
+            </div>
+
+            <div class="scroller-item">
+                <div class="visual-text" style="font-size: 1rem;">Example Email Footer</div>
+            </div>
+
         </div>
         <div class="card-content">
           <div class="card-tags">Email Strategy • Voice</div>
           <h3 class="card-title">The Legacy Voice</h3>
-          <p class="card-desc">Translating 50 years of rock journalism into subscription emails that convert without losing cool.</p>
+          <p class="card-desc">Translating 50 years of rock journalism into subscription emails. Scroll above to see the campaign flow.</p>
         </div>
       </div>
 
       <div class="creative-card">
-        <div class="card-visual">
-          <div class="visual-text">"Taboo"</div>
+        <div class="card-visual-scroller">
+            <div class="scroller-item">
+                <div class="visual-text">Museum of Sex</div>
+            </div>
+            <div class="scroller-item">
+                <div class="visual-text" style="font-size: 1rem;">Ad Copy Variant A</div>
+            </div>
         </div>
         <div class="card-content">
           <div class="card-tags">Ad Copy • Compliance</div>
-          <h3 class="card-title">Museum of Sex</h3>
+          <h3 class="card-title">Taboo Compliance</h3>
           <p class="card-desc">Writing compliant ad copy for restricted goods that still drives high-intent clicks.</p>
         </div>
       </div>
 
       <div class="creative-card">
-        <div class="card-visual">
-          <div class="visual-text" style="font-family: monospace;">[Subject Line A/B]</div>
+        <div class="card-visual-scroller">
+            <div class="scroller-item">
+                <div class="visual-text">"Less is More"</div>
+            </div>
         </div>
         <div class="card-content">
           <div class="card-tags">A/B Testing • Copy</div>
           <h3 class="card-title">The Minimalist Winner</h3>
-          <p class="card-desc">Proof that "Less is More." How stripping back the sales pitch increased luxury conversions by 14%.</p>
+          <p class="card-desc">Proof that stripping back the sales pitch increased luxury conversions by 14%.</p>
         </div>
       </div>
 
       <div class="creative-card">
-        <div class="card-visual">
-          <div class="visual-text bold">Bao Bao</div>
+        <div class="card-visual-scroller">
+            <div class="scroller-item">
+                <div class="visual-text">Bao Bao</div>
+            </div>
         </div>
         <div class="card-content">
           <div class="card-tags">Merchandising • Creative</div>
