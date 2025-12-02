@@ -21,26 +21,16 @@
     :root {
       --ink: #111111;
       --paper: #ffffff;
-      /* Your Pink */
       --accent: #990049; 
-      /* A softer version for hovers */
       --accent-light: #b2005f;
-      /* Very faint pink for subtle backgrounds */
       --accent-mist: rgba(153, 0, 73, 0.03); 
       --neutral-200: #eaeaea;
       --neutral-600: #757575;
       --neutral-700: #4a4a4a;
     }
     
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    html {
-      scroll-behavior: smooth;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     
     body {
       font-family: 'Inter', sans-serif;
@@ -51,11 +41,7 @@
       font-weight: 300;
     }
     
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
     
     h1, h2, h3, h4 {
       font-family: 'Playfair Display', serif;
@@ -64,17 +50,9 @@
       color: var(--ink);
     }
 
-    h2 {
-        font-size: 2.8rem;
-        letter-spacing: -0.02em;
-    }
+    h2 { font-size: 2.8rem; letter-spacing: -0.02em; }
     
-    .bar {
-      width: 40px;
-      height: 1px;
-      background: var(--accent);
-      margin: 2rem auto;
-    }
+    .bar { width: 40px; height: 1px; background: var(--accent); margin: 2rem auto; }
     
     .star-decoration {
       text-align: center;
@@ -101,11 +79,7 @@
       box-shadow: 0 1px 0px rgba(0,0,0,0.05);
     }
     
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+    nav { display: flex; justify-content: space-between; align-items: center; }
     
     .logo {
       font-family: 'Playfair Display', serif;
@@ -117,10 +91,7 @@
       z-index: 1001;
     }
     
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-    }
+    .nav-links { display: flex; gap: 2.5rem; }
     
     .nav-link {
       font-size: 0.75rem;
@@ -133,9 +104,7 @@
       position: relative;
     }
     
-    .nav-link:hover {
-      color: var(--accent);
-    }
+    .nav-link:hover { color: var(--accent); }
     
     /* Hero */
     .hero {
@@ -147,11 +116,7 @@
       background: radial-gradient(circle at 50% 50%, var(--accent-mist) 0%, transparent 70%);
     }
     
-    .hero-content {
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: center;
-    }
+    .hero-content { max-width: 900px; margin: 0 auto; text-align: center; }
     
     .hero h1 {
       font-size: clamp(3rem, 5vw, 5.5rem);
@@ -171,11 +136,7 @@
     }
     
     /* Buttons */
-    .btn-group {
-      display: flex;
-      gap: 1.5rem;
-      justify-content: center;
-    }
+    .btn-group { display: flex; gap: 1.5rem; justify-content: center; }
     
     .btn {
       padding: 1rem 2.5rem;
@@ -189,27 +150,11 @@
       display: inline-block;
     }
     
-    .btn-primary {
-      background: var(--accent);
-      color: white;
-      border: 1px solid var(--accent);
-    }
+    .btn-primary { background: var(--accent); color: white; border: 1px solid var(--accent); }
+    .btn-primary:hover { background: transparent; color: var(--accent); }
     
-    .btn-primary:hover {
-      background: transparent;
-      color: var(--accent);
-    }
-    
-    .btn-secondary {
-      background: transparent;
-      border: 1px solid var(--neutral-200);
-      color: var(--ink);
-    }
-    
-    .btn-secondary:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
+    .btn-secondary { background: transparent; border: 1px solid var(--neutral-200); color: var(--ink); }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
     
     /* Results */
     .results-banner {
@@ -219,26 +164,13 @@
       border-bottom: 1px solid var(--neutral-200);
     }
     
-    .results-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-    }
+    .results-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
     
-    .result-item {
-      text-align: center;
-      position: relative;
-    }
+    .result-item { text-align: center; position: relative; }
 
     @media (min-width: 769px) {
         .result-item:not(:last-child):after {
-            content: '';
-            position: absolute;
-            right: 0;
-            top: 10%;
-            height: 80%;
-            width: 1px;
-            background: var(--neutral-200);
+            content: ''; position: absolute; right: 0; top: 10%; height: 80%; width: 1px; background: var(--neutral-200);
         }
     }
     
@@ -260,282 +192,93 @@
     }
     
     .result-label em {
-      display: block;
-      margin-top: 0.5rem;
-      font-family: 'Playfair Display', serif;
-      text-transform: none;
-      letter-spacing: 0;
-      color: var(--neutral-600);
-      font-size: 0.95rem;
+      display: block; margin-top: 0.5rem; font-family: 'Playfair Display', serif; text-transform: none; letter-spacing: 0; color: var(--neutral-600); font-size: 0.95rem;
     }
     
     /* Methodology */
-    .methodology {
-      padding: 8rem 0;
-      background: var(--paper);
-    }
+    .methodology { padding: 8rem 0; background: var(--paper); }
+    .section-header { text-align: center; margin-bottom: 6rem; }
+    .section-header p { color: var(--neutral-600); font-size: 1.1rem; font-family: 'Playfair Display', serif; font-style: italic; }
     
-    .section-header {
-      text-align: center;
-      margin-bottom: 6rem;
-    }
-    
-    .section-header p {
-      color: var(--neutral-600);
-      font-size: 1.1rem;
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-    }
-    
-    .methodology-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 4rem;
-    }
-    
-    .methodology-card {
-      padding: 0 1rem;
-      text-align: center;
-    }
-    
-    .methodology-card h3 {
-      font-size: 1.4rem;
-      margin-bottom: 1.5rem;
-      color: var(--accent);
-    }
-    
-    .methodology-card p {
-      color: var(--neutral-600);
-      margin-bottom: 2rem;
-      font-size: 0.95rem;
-    }
-    
-    .methodology-features {
-      list-style: none;
-      text-align: center;
-    }
-    
-    .methodology-features li {
-      padding: 0.5rem 0;
-      color: var(--neutral-700);
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
+    .methodology-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4rem; }
+    .methodology-card { padding: 0 1rem; text-align: center; }
+    .methodology-card h3 { font-size: 1.4rem; margin-bottom: 1.5rem; color: var(--accent); }
+    .methodology-card p { color: var(--neutral-600); margin-bottom: 2rem; font-size: 0.95rem; }
+    .methodology-features { list-style: none; text-align: center; }
+    .methodology-features li { padding: 0.5rem 0; color: var(--neutral-700); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
     
     /* Work */
-    .work {
-      padding: 8rem 0;
-      background: var(--accent-mist);
-    }
-    
-    .work-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 6rem;
-    }
+    .work { padding: 8rem 0; background: var(--accent-mist); }
+    .work-grid { display: flex; flex-direction: column; gap: 6rem; }
     
     .work-item {
       background: white;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: grid; grid-template-columns: 1fr 1fr;
       min-height: 450px;
       box-shadow: 0 10px 40px rgba(0,0,0,0.03); 
     }
     
-    .work-content {
-      padding: 4rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
+    .work-content { padding: 4rem; display: flex; flex-direction: column; justify-content: center; }
     
     .work-meta {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.25em;
-      color: var(--neutral-600);
-      margin-bottom: 1.5rem;
-      border-bottom: 1px solid var(--accent);
-      display: inline-block;
-      padding-bottom: 0.5rem;
-      width: fit-content;
+      font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.25em; color: var(--neutral-600);
+      margin-bottom: 1.5rem; border-bottom: 1px solid var(--accent); display: inline-block; padding-bottom: 0.5rem; width: fit-content;
     }
     
-    .work-item h3 {
-      font-size: 2.2rem;
-      margin-bottom: 1.5rem;
-      font-weight: 400;
-    }
+    .work-item h3 { font-size: 2.2rem; margin-bottom: 1.5rem; font-weight: 400; }
+    .work-quote { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; color: var(--neutral-700); margin: 1rem 0 2rem; line-height: 1.6; }
     
-    .work-quote {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: 1.1rem;
-      color: var(--neutral-700);
-      margin: 1rem 0 2rem;
-      line-height: 1.6;
-    }
-    
-    .work-stats {
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      margin-top: auto;
-    }
-    
-    .stat {
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--accent);
-    }
+    .work-stats { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: auto; }
+    .stat { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); }
     
     .work-visual {
-      background: white; 
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 3rem;
-      position: relative;
-      border-left: 1px solid var(--neutral-200);
+      background: white; display: flex; align-items: center; justify-content: center; padding: 3rem; position: relative; border-left: 1px solid var(--neutral-200);
     }
 
-    .work-item.reverse .work-visual {
-        border-left: none;
-        border-right: 1px solid var(--neutral-200);
-    }
+    .work-item.reverse .work-visual { border-left: none; border-right: 1px solid var(--neutral-200); }
     
     .work-visual::before {
-        content: '';
-        position: absolute;
-        top: 2rem;
-        left: 2rem;
-        right: 2rem;
-        bottom: 2rem;
-        border: 1px solid var(--accent);
-        opacity: 0.3;
+        content: ''; position: absolute; top: 2rem; left: 2rem; right: 2rem; bottom: 2rem; border: 1px solid var(--accent); opacity: 0.3;
     }
 
-    .work-visual-content {
-      text-align: center;
-      z-index: 2;
-    }
+    .work-visual-content { text-align: center; z-index: 2; }
+    .work-visual-large { font-family: 'Playfair Display', serif; font-size: 5rem; color: var(--accent); line-height: 1; margin-bottom: 1rem; }
+    .work-visual-small { font-family: 'Inter', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--ink); }
     
-    .work-visual-large {
-      font-family: 'Playfair Display', serif;
-      font-size: 5rem;
-      color: var(--accent);
-      line-height: 1;
-      margin-bottom: 1rem;
-    }
-    
-    .work-visual-small {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--ink);
-    }
-    
-    .work-item.reverse {
-      grid-template-columns: 1fr 1fr;
-      direction: rtl;
-    }
-    
-    .work-item.reverse > * {
-      direction: ltr;
-    }
+    .work-item.reverse { grid-template-columns: 1fr 1fr; direction: rtl; }
+    .work-item.reverse > * { direction: ltr; }
 
     /* Brands */
-    .brands {
-      padding: 8rem 0;
-      background: white;
-    }
-    
-    .brand-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 3rem 5rem;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    
+    .brands { padding: 8rem 0; background: white; }
+    .brand-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 3rem 5rem; max-width: 1000px; margin: 0 auto; }
     .brand-item {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      color: var(--neutral-200);
-      cursor: default;
-      transition: all 0.5s ease;
-      background: none;
-      border: none;
-      padding: 0;
+      font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--neutral-200); cursor: default;
+      transition: all 0.5s ease; background: none; border: none; padding: 0;
     }
-    
-    .brand-item:hover {
-      color: var(--accent);
-      transform: translateY(-5px);
-    }
+    .brand-item:hover { color: var(--accent); transform: translateY(-5px); }
 
     /* About Section */
-    .about {
-      padding: 10rem 0;
-      background: var(--paper);
-    }
+    .about { padding: 10rem 0; background: var(--paper); }
 
     /* The Manifesto Quote */
     .bra-quote-hero {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: 5.5rem; /* The Massive Size You Requested */
-      color: var(--accent);
-      margin: 8rem auto;
-      line-height: 1.05;
-      max-width: 1000px;
-      text-align: center;
+      font-family: 'Playfair Display', serif; font-style: italic; font-size: 5.5rem; /* Massive */
+      color: var(--accent); margin: 8rem auto; line-height: 1.05; max-width: 1000px; text-align: center;
     }
     
     /* Leadership */
-    .leadership {
-        background: var(--accent-mist);
-        padding: 8rem 0;
-    }
-
+    .leadership { background: var(--accent-mist); padding: 8rem 0; }
     .leadership-item {
-        background: white;
-        padding: 4rem;
-        border: none;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-        border-top: 1px solid var(--accent);
-        text-align: center;
+        background: white; padding: 4rem; border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.03); border-top: 1px solid var(--accent); text-align: center;
     }
     
     /* Contact */
-    .contact {
-      padding: 8rem 0;
-      text-align: center;
-      background: white;
-    }
-
+    .contact { padding: 8rem 0; text-align: center; background: white; }
     .social-link {
-        color: var(--accent);
-        background: transparent;
-        border: 1px solid var(--neutral-200);
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.3s;
+        color: var(--accent); background: transparent; border: 1px solid var(--neutral-200);
+        width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s;
     }
-
-    .social-link:hover {
-        border-color: var(--accent);
-        transform: scale(1.05);
-    }
+    .social-link:hover { border-color: var(--accent); transform: scale(1.05); }
     
     /* Mobile */
     .mobile-menu-btn { display: none; background:none; border:none; font-size:1.5rem; }
@@ -566,13 +309,11 @@
         <div class="nav-links">
           <a href="#" class="nav-link">Home</a>
           <a href="#work" class="nav-link">Work</a>
+          <a href="creative.html" class="nav-link">Creative & Copy</a>
           <a href="#about" class="nav-link">About</a>
-          <a href="#brands" class="nav-link">Brands</a>
           <a href="#contact" class="nav-link">Contact</a>
         </div>
-        <button class="mobile-menu-btn">
-            <i class="fas fa-bars"></i>
-        </button>
+        <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
       </nav>
     </div>
     <div class="mobile-menu">
@@ -580,6 +321,7 @@
         <div class="mobile-nav-links">
             <a href="#" class="mobile-nav-link">Home</a>
             <a href="#work" class="mobile-nav-link">Work</a>
+            <a href="creative.html" class="mobile-nav-link">Creative & Copy</a>
             <a href="#about" class="mobile-nav-link">About</a>
             <a href="#contact" class="mobile-nav-link">Contact</a>
         </div>
@@ -593,7 +335,7 @@
         <p>What does your data have to say?</p>
         <div class="btn-group">
           <a href="#work" class="btn btn-primary">View Work</a>
-          <a href="#contact" class="btn btn-secondary">Let's Talk</a>
+          <a href="creative.html" class="btn btn-secondary">Creative Portfolio</a>
         </div>
       </div>
     </div>
@@ -651,12 +393,12 @@
         </div>
         
         <div class="methodology-card">
-          <h3>Business Results</h3>
-          <p>Connecting creative vision to measurable revenue and growth.</p>
+          <h3>Commercial Growth</h3>
+          <p>Turning market analysis into profitable plans. I don't just build engagement; I build revenue.</p>
           <ul class="methodology-features">
-            <li>Performance Optimization</li>
-            <li>ROI Measurement</li>
             <li>Revenue Optimization</li>
+            <li>ROI Measurement</li>
+            <li>High-Value Conversion</li>
           </ul>
         </div>
       </div>
@@ -786,7 +528,10 @@
             I am an ex–fashion design student turned luxury marketer who is obsessed with making everything look more expensive, even a $5.99 subscription. 
           </p>
           <p style="color: var(--neutral-600);">
-            After 8+ years turning messy spreadsheets into multi-million-dollar portfolios for brands like <strong>Rolling Stone</strong> and <strong>Samsung</strong>, I went back to school for my Master’s in Public Administration. Why? To combine analytics and storytelling in ways that strengthen the relationship between audiences and businesses.
+            After 8+ years turning messy spreadsheets into multi-million-dollar portfolios for brands like <strong>Rolling Stone</strong> and <strong>Samsung</strong>, I went back to school for my Master’s in Public Administration. 
+          </p>
+          <p style="color: var(--ink); font-weight: 500; margin-top: 1rem;">
+            Why? To master the intersection of analytics and storytelling—transforming audience engagement into <strong>sustainable, scalable revenue.</strong>
           </p>
         </div>
 
@@ -946,7 +691,6 @@
         });
     }
 
-    // Close menu when link clicked
     document.querySelectorAll('.mobile-nav-link').forEach(link => {
         link.addEventListener('click', () => {
             mobileMenu.style.display = 'none';
@@ -971,15 +715,10 @@
     // Add simple fade-in styles dynamically
     const style = document.createElement('style');
     style.innerHTML = `
-      .fade-in {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.6s ease, transform 0.6s ease;
-      }
+      .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
     `;
     document.head.appendChild(style);
     
-    // Trigger once on load
     fadeInOnScroll();
   </script>
 </body>
