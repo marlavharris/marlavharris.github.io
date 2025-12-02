@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-869S7ZPXQH"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -12,433 +13,438 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Marla Harris - Copywriting & Creative Portfolio.">
-  <title>Marla Harris — Copy & Creative</title>
+  <title>Marla Harris — The Work</title>
   
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Space+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <style>
-    /* REUSING MAIN STYLES */
     :root {
-      --ink: #111111;
+      --ink: #0a0a0a;
       --paper: #ffffff;
       --accent: #990049; 
-      --accent-light: #b2005f;
-      --accent-mist: rgba(153, 0, 73, 0.03); 
-      --neutral-200: #eaeaea;
-      --neutral-600: #757575;
-      --neutral-700: #4a4a4a;
+      --gray-light: #f4f4f4;
+      --gray-med: #e0e0e0;
+      --mono-font: 'Space Mono', monospace; /* The Writer's Font */
+      --serif-font: 'Playfair Display', serif;
+      --sans-font: 'Inter', sans-serif;
     }
     
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
     
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: var(--sans-font);
       color: var(--ink);
       background: var(--paper);
-      line-height: 1.7;
+      line-height: 1.6;
       overflow-x: hidden;
       font-weight: 300;
     }
     
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
     
-    h1, h2, h3, h4 {
-      font-family: 'Playfair Display', serif;
-      font-weight: 400;
-      line-height: 1.2;
-      color: var(--ink);
-    }
-
-    h2 { font-size: 2.5rem; letter-spacing: -0.02em; }
-
-    /* Header */
+    a { text-decoration: none; color: inherit; transition: color 0.3s ease; }
+    
+    /* --- HEADER (Minimal) --- */
     header {
-      background: rgba(255, 255, 255, 0.98);
-      position: fixed; top: 0; width: 100%; z-index: 1000; padding: 1rem 0; border-bottom: 1px solid var(--neutral-200);
+      padding: 2rem 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.95);
+      z-index: 1000;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
     }
     
-    nav { display: flex; justify-content: space-between; align-items: center; }
+    header.scrolled { border-bottom: 1px solid var(--gray-med); }
+
+    .nav-wrapper { display: flex; justify-content: space-between; align-items: center; }
     
-    .logo {
-      font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--ink); text-decoration: none; font-weight: 500; letter-spacing: -0.01em;
-    }
+    .logo { font-family: var(--serif-font); font-size: 1.2rem; font-weight: 500; letter-spacing: -0.02em; }
     
-    .nav-links { display: flex; gap: 2.5rem; }
-    
-    .nav-link {
-      font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--neutral-600); text-decoration: none; font-weight: 400; transition: color 0.3s ease;
-    }
-    
+    .nav-links { display: flex; gap: 3rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; }
     .nav-link:hover { color: var(--accent); }
 
-    /* Creative Page Hero */
-    .creative-hero {
-      padding: 10rem 0 4rem;
-      background: var(--paper);
-      text-align: center;
-    }
-
-    .creative-hero h1 { font-size: 4rem; margin-bottom: 1.5rem; }
-    .creative-hero p { font-size: 1.1rem; color: var(--neutral-600); max-width: 600px; margin: 0 auto; }
-
-
-    /* --- THE "HIT LIST" (Replaces Ticker) --- */
-    .hit-list {
-        max-width: 800px;
-        margin: 0 auto 8rem auto;
-        border-top: 1px solid var(--ink); /* Strong top line */
-    }
-
-    .hit-list-header {
+    /* --- HERO: The Manifesto --- */
+    .hero {
+        min-height: 70vh;
         display: flex;
-        justify-content: space-between;
-        padding: 1rem 0;
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        letter-spacing: 0.15em;
-        color: var(--neutral-600);
-        border-bottom: 1px solid var(--neutral-200);
-    }
-
-    .hit-row {
-        display: flex;
-        justify-content: space-between;
+        flex-direction: column;
+        justify-content: center;
         align-items: center;
-        padding: 1.5rem 0;
-        border-bottom: 1px solid var(--neutral-200);
-        transition: background 0.3s ease;
-    }
-    
-    .hit-row:hover {
-        background: var(--accent-mist);
-        padding-left: 1rem; /* Indent on hover */
-        padding-right: 1rem;
+        text-align: center;
+        padding-top: 6rem;
     }
 
-    .hit-subject {
-        font-family: 'Playfair Display', serif;
-        font-size: 1.3rem;
-        color: var(--ink);
-        font-style: italic;
+    .hero h1 {
+        font-family: var(--serif-font);
+        font-size: clamp(3rem, 6vw, 6rem);
+        line-height: 1;
+        margin-bottom: 2rem;
     }
 
-    .hit-result {
-        font-family: 'Inter', sans-serif;
-        font-size: 0.85rem;
+    .hero-sub {
+        font-family: var(--mono-font);
+        font-size: 0.8rem;
         color: var(--accent);
-        font-weight: 500;
         text-transform: uppercase;
-        letter-spacing: 0.05em;
-        white-space: nowrap;
-        margin-left: 2rem;
+        letter-spacing: 0.1em;
+        margin-bottom: 1rem;
     }
 
-
-    /* --- PORTFOLIO CARDS --- */
-    .creative-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); 
-      gap: 4rem;
-      padding-bottom: 8rem;
+    .hero p {
+        max-width: 500px;
+        color: #555;
+        font-size: 1.1rem;
     }
 
-    .creative-card {
-      background: white;
-      border: 1px solid var(--neutral-200);
-      transition: border-color 0.4s ease;
-      display: flex;
-      flex-direction: column;
+    /* --- THE WORK: Asymmetrical Layout --- */
+    .project-section {
+        padding: 8rem 0;
+        border-top: 1px solid var(--gray-med);
     }
 
-    .creative-card:hover { border-color: var(--accent); }
-
-    /* Visual Scroller (4:5 Ratio) */
-    .card-visual-scroller {
-      width: 100%;
-      aspect-ratio: 4/5; 
-      display: flex;
-      overflow-x: auto; 
-      scroll-snap-type: x mandatory; 
-      -webkit-overflow-scrolling: touch; 
-      background: var(--neutral-200);
-      scrollbar-width: none; 
-      position: relative;
-      border-bottom: 1px solid var(--neutral-200);
+    .project-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6rem;
+        align-items: center;
     }
-    
-    .card-visual-scroller::-webkit-scrollbar { display: none; }
 
-    .scroller-item {
-      flex: 0 0 100%; 
-      width: 100%;
-      height: 100%;
-      scroll-snap-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--neutral-200);
-      position: relative;
+    /* Alternate layout for even children */
+    .project-section:nth-child(even) .project-grid {
+        direction: rtl; /* Swaps columns visually */
+    }
+    .project-section:nth-child(even) .project-content {
+        direction: ltr; /* Reset text direction */
+    }
+
+    /* The Image Side */
+    .project-visual {
+        position: relative;
+        /* 4:5 Portrait Ratio */
+        aspect-ratio: 4/5;
+        background: var(--gray-light);
+        overflow: hidden;
+    }
+
+    .project-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.7s ease;
     }
     
-    .scroller-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .project-visual:hover .project-img { transform: scale(1.03); }
 
-    .scroll-hint {
-        position: absolute; bottom: 1rem; right: 1rem;
-        background: rgba(255,255,255,0.9); color: var(--ink);
-        padding: 0.3rem 0.8rem; font-size: 0.7rem; text-transform: uppercase;
-        letter-spacing: 0.1em; border-radius: 99px; pointer-events: none;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 10;
+    /* The Copy Side */
+    .project-content {
+        padding: 2rem 0;
     }
 
-    .card-content { padding: 2.5rem 2rem; flex-grow: 1; display: flex; flex-direction: column; }
-    
-    .card-tags { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--neutral-600); margin-bottom: 1rem; }
-    .card-title { font-size: 1.6rem; margin-bottom: 0.5rem; font-family: 'Playfair Display', serif; }
-    .card-desc { font-size: 0.95rem; color: var(--neutral-600); margin-bottom: 2rem; line-height: 1.6; }
+    .project-client {
+        font-family: var(--mono-font);
+        color: var(--accent);
+        font-size: 0.8rem;
+        margin-bottom: 1rem;
+        display: block;
+    }
 
-    /* --- COPYWRITING BLOCK --- */
-    .copy-block {
-        margin-top: auto; 
-        background: #fcfcfc;
-        border-left: 3px solid var(--accent);
-        padding: 1.5rem;
+    .project-title {
+        font-family: var(--serif-font);
+        font-size: 3rem;
+        line-height: 1.1;
+        margin-bottom: 2rem;
+    }
+
+    .project-desc {
+        color: #555;
+        margin-bottom: 3rem;
+        max-width: 400px;
+    }
+
+    /* The "Manuscript" Box */
+    .copy-sample {
+        background: #f9f9f9;
+        padding: 2rem;
+        border-left: 2px solid var(--accent);
         position: relative;
     }
 
-    .copy-label {
-        font-size: 0.65rem;
-        text-transform: uppercase;
-        letter-spacing: 0.15em;
-        color: var(--neutral-600);
-        margin-bottom: 0.8rem;
-        display: block;
-        font-weight: 600;
+    .copy-sample::before {
+        content: "COPY SAMPLE";
+        position: absolute;
+        top: -10px;
+        left: 0;
+        background: var(--accent);
+        color: white;
+        font-size: 0.6rem;
+        padding: 2px 8px;
+        font-family: var(--sans-font);
+        letter-spacing: 0.1em;
     }
 
     .copy-text {
-        font-family: 'Playfair Display', serif;
-        font-size: 1rem;
-        color: var(--ink);
-        line-height: 1.6;
-        font-style: italic;
+        font-family: var(--mono-font);
+        font-size: 0.9rem;
+        color: #333;
+        white-space: pre-line; /* Preserves line breaks */
     }
 
-    /* Mobile */
-    .mobile-menu-btn { display: none; background:none; border:none; font-size:1.5rem; }
-    .mobile-menu { display: none; }
+    /* --- THE HOOK INDEX (Subject Lines) --- */
+    .hook-section {
+        padding: 10rem 0;
+        background: var(--ink); /* Dark mode section for contrast */
+        color: white;
+    }
 
+    .hook-header {
+        font-family: var(--mono-font);
+        color: var(--accent);
+        font-size: 0.9rem;
+        margin-bottom: 4rem;
+        display: block;
+        border-bottom: 1px solid #333;
+        padding-bottom: 1rem;
+    }
+
+    .hook-list {
+        list-style: none;
+    }
+
+    .hook-item {
+        border-bottom: 1px solid #333;
+        padding: 2rem 0;
+        transition: all 0.3s ease;
+        position: relative;
+        cursor: default;
+    }
+
+    .hook-item:hover {
+        padding-left: 2rem;
+        background: #1a1a1a;
+    }
+
+    .hook-text {
+        font-family: var(--serif-font);
+        font-size: 2.5rem; /* Massive */
+        color: #888;
+        transition: color 0.3s;
+    }
+
+    .hook-item:hover .hook-text { color: white; }
+
+    /* The Hidden Metric */
+    .hook-metric {
+        position: absolute;
+        right: 2rem;
+        top: 50%;
+        transform: translateY(-50%);
+        font-family: var(--mono-font);
+        color: var(--accent);
+        font-size: 1rem;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .hook-item:hover .hook-metric { opacity: 1; }
+
+
+    /* --- FOOTER --- */
+    footer { padding: 4rem 0; text-align: center; border-top: 1px solid var(--gray-med); }
+    
+    /* Mobile */
+    .mobile-menu-btn { display: none; }
+    
     @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .mobile-menu-btn { display: block; }
-      .creative-grid { grid-template-columns: 1fr; }
-      .creative-hero h1 { font-size: 2.5rem; }
-      .hit-row { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
-      .hit-result { margin-left: 0; font-size: 0.75rem; }
+        .nav-links { display: none; }
+        .mobile-menu-btn { display: block; font-size: 1.5rem; background: none; border: none; }
+        
+        .project-grid { grid-template-columns: 1fr; gap: 3rem; }
+        .project-section:nth-child(even) .project-grid { direction: ltr; }
+        
+        .hero h1 { font-size: 3.5rem; }
+        .project-title { font-size: 2rem; }
+        
+        .hook-text { font-size: 1.5rem; }
+        .hook-metric { position: static; display: block; margin-top: 1rem; transform: none; opacity: 1; font-size: 0.8rem; }
     }
   </style>
 </head>
 <body>
-  
+
+  <!-- Navigation -->
   <header>
-    <div class="container">
-      <nav>
-        <a href="index.html" class="logo">Marla Harris</a>
-        <div class="nav-links">
-          <a href="index.html" class="nav-link">Home</a>
-          <a href="index.html#work" class="nav-link">Strategy Work</a>
-          <a href="#" class="nav-link" style="color: var(--accent);">Creative & Copy</a>
-          <a href="index.html#contact" class="nav-link">Contact</a>
-        </div>
-        <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
-      </nav>
-    </div>
-    <div class="mobile-menu">
-        <button class="close-menu"><i class="fas fa-times"></i></button>
-        <div class="mobile-nav-links">
-            <a href="index.html" class="mobile-nav-link">Home</a>
-            <a href="index.html#work" class="mobile-nav-link">Strategy Work</a>
-            <a href="#" class="mobile-nav-link">Creative & Copy</a>
-            <a href="index.html#contact" class="mobile-nav-link">Contact</a>
-        </div>
+    <div class="container nav-wrapper">
+      <a href="index.html" class="logo">Marla Harris</a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Strategy</a>
+        <a href="#" class="nav-link" style="color: var(--accent);">The Work</a>
+        <a href="index.html#contact" class="nav-link">Contact</a>
+      </div>
+      <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
     </div>
   </header>
 
-  <section class="creative-hero">
+  <!-- Hero -->
+  <section class="hero">
     <div class="container">
-      <div class="star-decoration">✦</div>
-      <h1>Opinionated Copywriting</h1>
-      <p>Strategy is the skeleton. Voice is the skin.</p>
+      <div class="hero-sub">// Creative & Copywriting</div>
+      <h1>Voice is the Skin.</h1>
+      <p style="margin-top: 2rem;">Strategy is the skeleton. But without voice, it's just a machine. Here is how I make brands speak.</p>
     </div>
   </section>
 
-  <section class="container">
-    <div class="hit-list">
-        <div class="hit-list-header">
-            <span>Subject Line</span>
-            <span>Result / KPI</span>
-        </div>
-        
-        <div class="hit-row">
-            <span class="hit-subject">"This $300 bra changed my mind"</span>
-            <span class="hit-result">68% Open Rate</span>
-        </div>
-
-        <div class="hit-row">
-            <span class="hit-subject">"Your data is lying to you"</span>
-            <span class="hit-result">Top Performing B2B</span>
-        </div>
-
-        <div class="hit-row">
-            <span class="hit-subject">"Luxury is a feeling, not a price point"</span>
-            <span class="hit-result">2.5x Conv. Rate</span>
-        </div>
-
-        <div class="hit-row">
-            <span class="hit-subject">"Why we got banned from Facebook"</span>
-            <span class="hit-result">Highest CTR (12%)</span>
-        </div>
-
-        <div class="hit-row">
-            <span class="hit-subject">"The one metric that actually matters"</span>
-            <span class="hit-result">Subscriber Retention</span>
-        </div>
-    </div>
-  </section>
-
-  <section class="container">
-    <div class="creative-grid">
+  <!-- Project 1: Rolling Stone -->
+  <section class="project-section">
+    <div class="container project-grid">
+      <!-- Visual Side (Portrait) -->
+      <div class="project-visual">
+         <!-- Placeholder for Portrait Image -->
+         <img src="https://placehold.co/800x1000/e5e5e5/990049?text=Rolling+Stone+Email" class="project-img" alt="Rolling Stone Creative">
+      </div>
       
-      <div class="creative-card">
-        <div class="card-visual-scroller">
-            <div class="scroll-hint">Swipe Images</div>
-            <div class="scroller-item">
-                <img src="https://placehold.co/800x1000/e5e5e5/990049?text=Rolling+Stone+Email" class="scroller-img" alt="Campaign Visual 1">
-            </div>
-            <div class="scroller-item">
-                <img src="https://placehold.co/800x1000/e5e5e5/990049?text=Mobile+Variant" class="scroller-img" alt="Campaign Visual 2">
-            </div>
-        </div>
+      <!-- Copy Side -->
+      <div class="project-content">
+        <span class="project-client">01 — ROLLING STONE</span>
+        <h2 class="project-title">The Legacy Voice</h2>
+        <p class="project-desc">How do you ask a digital native to pay for journalism? By reminding them that some things—like rock & roll history—can't be aggregated.</p>
+        
+        <div class="copy-sample">
+          <div class="copy-text">
+SUBJECT: The music hasn’t stopped.
 
-        <div class="card-content">
-          <div class="card-tags">Email Strategy • Voice</div>
-          <h3 class="card-title">The Legacy Voice</h3>
-          <p class="card-desc">Translating 50 years of rock journalism into subscription emails.</p>
-          
-          <div class="copy-block">
-            <span class="copy-label">Key Copy Sample</span>
-            <div class="copy-text">
-                "The music hasn't stopped. It just got louder. <br><br>
-                Subscribe to the definitive voice in music journalism."
-            </div>
+[Body]
+It just got louder. 
+
+For 50 years, we’ve been on the tour bus, backstage, and in the front row. 
+
+You don’t read Rolling Stone to know what happened. You read it to understand why it mattered.
+
+Subscribe to the definitive voice.
           </div>
         </div>
       </div>
-
-      <div class="creative-card">
-        <div class="card-visual-scroller">
-            <div class="scroller-item">
-                <img src="https://placehold.co/800x1000/e5e5e5/990049?text=MoS+Ad+Creative" class="scroller-img" alt="MoS Visual 1">
-            </div>
-        </div>
-        <div class="card-content">
-          <div class="card-tags">Ad Copy • Compliance</div>
-          <h3 class="card-title">Taboo Compliance</h3>
-          <p class="card-desc">Writing compliant ad copy for restricted goods that still drives high-intent clicks.</p>
-
-          <div class="copy-block">
-            <span class="copy-label">Ad Headline</span>
-            <div class="copy-text">
-                "Curated for the curious. Explore the history of human desire."
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="creative-card">
-        <div class="card-visual-scroller">
-            <div class="scroller-item">
-                <img src="https://placehold.co/800x1000/e5e5e5/990049?text=Minimalist+Layout" class="scroller-img" alt="Bao Bao Visual">
-            </div>
-        </div>
-        <div class="card-content">
-          <div class="card-tags">A/B Testing • Copy</div>
-          <h3 class="card-title">The Minimalist Winner</h3>
-          <p class="card-desc">Proof that stripping back the sales pitch increased luxury conversions by 14%.</p>
-
-          <div class="copy-block">
-            <span class="copy-label">Winning Subject Line</span>
-            <div class="copy-text">
-                "It speaks for itself."
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="creative-card">
-        <div class="card-visual-scroller">
-            <div class="scroller-item">
-                <img src="https://placehold.co/800x1000/e5e5e5/990049?text=Merchandising+Grid" class="scroller-img" alt="Merch Visual">
-            </div>
-        </div>
-        <div class="card-content">
-          <div class="card-tags">Merchandising • Creative</div>
-          <h3 class="card-title">Visual Merchandising</h3>
-          <p class="card-desc">Aligning visual hierarchy with email copy to guide the user eye toward high-margin items.</p>
-
-          <div class="copy-block">
-            <span class="copy-label">Merchandising Strategy</span>
-            <div class="copy-text">
-                "Placed the highest margin item (The Platinum Tote) at the 'Fold' with the header: <em>Investment Pieces</em>."
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
   </section>
 
-  <section style="padding: 6rem 0; text-align: center; border-top: 1px solid var(--neutral-200);">
+  <!-- Project 2: Museum of Sex -->
+  <section class="project-section">
+    <div class="container project-grid">
+      <!-- Visual Side (Portrait) -->
+      <div class="project-visual">
+         <img src="https://placehold.co/800x1000/e5e5e5/990049?text=Compliance+Creative" class="project-img" alt="MoS Creative">
+      </div>
+      
+      <!-- Copy Side -->
+      <div class="project-content">
+        <span class="project-client">02 — MUSEUM OF SEX</span>
+        <h2 class="project-title">Taboo Compliance</h2>
+        <p class="project-desc">Navigating strict platform bans requires a "dog whistle" strategy: copy that signals intent to the right user without triggering the algorithm.</p>
+        
+        <div class="copy-sample">
+          <div class="copy-text">
+HEADLINE: Curated for the curious.
+
+[Caption]
+Explore the history of human connection. From the archives to the avant-garde. 
+
+What happens when art meets instinct?
+
+[Button]
+Discover the Collection
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project 3: Bao Bao -->
+  <section class="project-section">
+    <div class="container project-grid">
+      <!-- Visual Side (Portrait) -->
+      <div class="project-visual">
+         <img src="https://placehold.co/800x1000/e5e5e5/990049?text=Luxury+Email" class="project-img" alt="Bao Bao Creative">
+      </div>
+      
+      <!-- Copy Side -->
+      <div class="project-content">
+        <span class="project-client">03 — BAO BAO ISSEY MIYAKE</span>
+        <h2 class="project-title">The Silent Sell</h2>
+        <p class="project-desc">Luxury consumers don't want to be sold to. They want to be inspired. This campaign stripped away 80% of the copy, resulting in a 14% conversion lift.</p>
+        
+        <div class="copy-sample">
+          <div class="copy-text">
+SUBJECT: It speaks for itself.
+
+[Image: The Platinum Tote]
+
+[Body]
+Structure. Fluidity. 
+The contradiction of design.
+
+[Button]
+View the Series
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Hook Index (Replaces Ticker) -->
+  <section class="hook-section">
     <div class="container">
-      <h2>Let's Find Your Voice</h2>
-      <div class="btn-group" style="margin-top: 2rem;">
-        <a href="mailto:va.mvharris@gmail.com" class="btn btn-primary">Get in Touch</a>
-      </div>
-      <div style="margin-top: 3rem; font-size: 0.8rem; color: var(--neutral-600);">
-        <p>Marla Harris — Brooklyn, NY</p>
-      </div>
+        <span class="hook-header">// THE INDEX: HIGH-PERFORMING SUBJECT LINES</span>
+        
+        <ul class="hook-list">
+            <li class="hook-item">
+                <span class="hook-text">"This $300 bra changed my mind"</span>
+                <span class="hook-metric">68% Open Rate</span>
+            </li>
+            <li class="hook-item">
+                <span class="hook-text">"Your data is lying to you"</span>
+                <span class="hook-metric">Top B2B Campaign</span>
+            </li>
+            <li class="hook-item">
+                <span class="hook-text">"Luxury is a feeling, not a price"</span>
+                <span class="hook-metric">2.5x Conversion</span>
+            </li>
+            <li class="hook-item">
+                <span class="hook-text">"Why we got banned from Facebook"</span>
+                <span class="hook-metric">12% Click Rate</span>
+            </li>
+            <li class="hook-item">
+                <span class="hook-text">"Stop selling, start storytelling"</span>
+                <span class="hook-metric">Most Shared</span>
+            </li>
+        </ul>
     </div>
   </section>
+
+  <footer>
+    <div class="container">
+      <h2 style="font-family: var(--serif-font); font-size: 2rem; margin-bottom: 2rem;">Let's make something iconic.</h2>
+      <a href="mailto:va.mvharris@gmail.com" style="border-bottom: 1px solid var(--accent); padding-bottom: 5px; font-size: 1rem;">va.mvharris@gmail.com</a>
+    </div>
+  </footer>
 
   <script>
-    // Mobile Menu Logic
-    const mobileBtn = document.querySelector('.mobile-menu-btn');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    const closeBtn = document.querySelector('.close-menu');
+    // Header Scroll Effect
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
+    });
 
-    if(mobileBtn) {
-        mobileBtn.addEventListener('click', () => {
-            mobileMenu.style.display = 'flex';
-            mobileMenu.style.position = 'fixed';
-            mobileMenu.style.top = '0';
-            mobileMenu.style.left = '0';
-            mobileMenu.style.width = '100%';
-            mobileMenu.style.height = '100vh';
-            mobileMenu.style.background = 'white';
-            mobileMenu.style.zIndex = '2000';
-            mobileMenu.style.flexDirection = 'column';
-            mobileMenu.style.alignItems = 'center';
-            mobileMenu.style.justifyContent = 'center';
-            mobileMenu.style.gap = '2rem';
-        });
-    }
-    
-    if(closeBtn) {
-        closeBtn.addEventListener('click', () => {
-            mobileMenu.style.display = 'none';
+    // Simple Mobile Menu Toggle Logic (if needed later)
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    if(menuBtn) {
+        menuBtn.addEventListener('click', () => {
+            alert('Mobile menu to be implemented');
         });
     }
   </script>
+
 </body>
 </html>
