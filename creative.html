@@ -14,20 +14,19 @@
   <meta name="description" content="Marla Harris - Copywriting & Creative Portfolio.">
   <title>Marla Harris — The Work</title>
    
-  <!-- Use a slightly higher weight Inter for better readability at small sizes, but keep it clean -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
    
   <style>
     /* --- BRAND DNA: EDITORIAL LUXURY --- */
     :root {
-      --ink: #0a0a0a;       /* Softer, richer black */
-      --charcoal: #333333;  /* For secondary text */
-      --neutral-600: #757575; /* Restored for Nav Match */
+      --ink: #0a0a0a;       
+      --charcoal: #333333;  
+      --neutral-600: #757575;
       --paper: #ffffff;
       --accent: #990049; 
       --accent-dim: rgba(153, 0, 73, 0.6);
-      --line: rgba(0, 0, 0, 0.06); /* Barely there borders */
+      --line: rgba(0, 0, 0, 0.06); 
       --bg-subtle: #fafafa;
     }
     
@@ -38,7 +37,7 @@
       font-family: 'Inter', sans-serif;
       color: var(--charcoal);
       background: var(--paper);
-      line-height: 1.8; /* Looser leading for elegance */
+      line-height: 1.8;
       overflow-x: hidden;
       font-weight: 300;
       font-size: 16px;
@@ -46,7 +45,6 @@
     
     .container { max-width: 1200px; margin: 0 auto; padding: 0 3rem; }
     
-    /* Typography System */
     h1, h2, h3, h4 {
       font-family: 'Playfair Display', serif;
       font-weight: 400;
@@ -57,18 +55,16 @@
     h1 { font-size: clamp(3.5rem, 6vw, 5.5rem); letter-spacing: -0.03em; }
     h2 { font-size: clamp(2.5rem, 4vw, 3.5rem); letter-spacing: -0.02em; }
     
-    /* The "Luxury" Meta Tag style */
     .meta {
         font-family: 'Inter', sans-serif;
         font-size: 0.65rem;
         text-transform: uppercase;
-        letter-spacing: 0.25em; /* Extreme tracking */
+        letter-spacing: 0.25em; 
         font-weight: 500;
         color: var(--charcoal);
         display: block;
     }
 
-    /* Buttons: Minimalist & Editorial */
     .btn-group { display: flex; gap: 3rem; justify-content: center; margin-top: 4rem; align-items: center; }
     
     .btn {
@@ -82,7 +78,6 @@
       font-weight: 400;
     }
     
-    /* Underline animation for buttons */
     .btn::after {
         content: '';
         position: absolute;
@@ -100,7 +95,6 @@
     .btn-secondary { color: var(--charcoal); opacity: 0.7; }
     .btn-secondary:hover { opacity: 1; }
 
-    /* Header (Exact Clone of Home) */
     header {
       background: transparent;
       position: fixed;
@@ -144,15 +138,14 @@
     
     .nav-link:hover { color: var(--accent); }
 
-    /* Hero: Pure Whitespace */
     .hero {
       padding: 0;
-      height: 100vh; /* Full height */
+      height: 100vh; 
       display: flex;
       flex-direction: column;
       justify-content: center;
       text-align: center;
-      background: var(--paper); /* Removed gradient for cleaner look */
+      background: var(--paper); 
     }
     
     .hero-content {
@@ -182,38 +175,72 @@
 
     /* --- THE WORK: Gallery Style --- */
     .project-section {
-        padding: 10rem 0; /* Significant vertical breathing room */
+        padding: 10rem 0; 
         border-top: 1px solid var(--line);
     }
 
     .project-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 8rem; /* Wide gap */
+        gap: 8rem; 
         align-items: center;
     }
 
-    /* Asymmetry */
     .project-section:nth-child(even) .project-grid { direction: rtl; }
     .project-section:nth-child(even) .project-content { direction: ltr; }
 
-    /* Visual Side */
+    /* --- CSS iPAD DEVICE FRAME --- */
     .project-visual {
         position: relative;
-        aspect-ratio: 3/4; /* Slightly taller, more editorial */
+        /* Matches Portrait iPad ratio approx 3:4 */
+        aspect-ratio: 3/4; 
+        /* Removed background color to let the device float */
+    }
+
+    .ipad-bezel {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background: #111; /* Dark Bezel */
+        border-radius: 20px;
+        padding: 12px; /* Bezel Thickness */
+        box-shadow: 
+            0 25px 50px -12px rgba(0,0,0,0.3), /* Deep float shadow */
+            inset 0 0 0 1px rgba(255,255,255,0.1); /* Subtle hardware gloss */
+        transition: transform 1.5s cubic-bezier(0.2, 1, 0.3, 1);
+    }
+
+    .ipad-camera {
+        position: absolute;
+        top: 6px; /* Inside top bezel */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 4px;
+        height: 4px;
+        background: #333;
+        border-radius: 50%;
+        z-index: 2;
+    }
+
+    .ipad-screen {
+        width: 100%;
+        height: 100%;
+        background: white;
+        border-radius: 12px; /* Screen corner radius */
         overflow: hidden;
-        background: var(--bg-subtle);
+        position: relative;
     }
 
     .project-img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: transform 1.5s cubic-bezier(0.2, 1, 0.3, 1);
-        filter: grayscale(10%); /* Slight desaturation for mood */
+        /* Slight zoom effect for interaction */
+        transition: transform 1.5s ease;
     }
     
-    .project-visual:hover .project-img { transform: scale(1.05); filter: grayscale(0%); }
+    .ipad-bezel:hover { transform: scale(1.02) translateY(-10px); }
+    .ipad-bezel:hover .project-img { transform: scale(1.05); }
 
     /* Content Side */
     .project-content { padding: 1rem 0; }
@@ -236,11 +263,10 @@
         opacity: 0.9;
     }
 
-    /* The "Copy" - Magazine Style Pull Quote */
     .copy-sample {
         position: relative;
-        padding-left: 2rem; /* Indent */
-        border-left: 1px solid var(--accent); /* Thin elegant line */
+        padding-left: 2rem; 
+        border-left: 1px solid var(--accent); 
     }
 
     .copy-label {
@@ -276,7 +302,7 @@
     }
     .copy-link:hover { border-color: var(--accent); color: var(--accent); }
 
-    /* --- THE ARCHIVE (Refined List) --- */
+    /* --- THE ARCHIVE --- */
     .hook-section {
         padding: 12rem 0;
         background: var(--paper);
@@ -308,14 +334,13 @@
 
     .hook-item {
         position: relative;
-        padding: 3rem 0; /* Huge vertical spacing */
+        padding: 3rem 0; 
         text-align: center;
         transition: all 0.5s ease;
-        border-bottom: 1px solid var(--line); /* Very faint dividers */
+        border-bottom: 1px solid var(--line); 
         cursor: default;
     }
 
-    /* Remove the first border for a cleaner top */
     .hook-item:first-child { border-top: 1px solid var(--line); }
 
     .hook-type {
@@ -331,7 +356,7 @@
 
     .hook-text {
         font-family: 'Playfair Display', serif;
-        font-size: 2.2rem; /* Larger, statement text */
+        font-size: 2.2rem; 
         color: var(--ink);
         font-style: italic;
         transition: color 0.4s ease;
@@ -342,7 +367,6 @@
 
     .hook-item:hover .hook-text { color: var(--accent); }
 
-    /* The Hidden Insight */
     .hook-insight {
         max-height: 0;
         overflow: hidden;
@@ -369,7 +393,6 @@
         border-bottom: 1px solid var(--accent-dim);
     }
 
-    /* Footer */
     .contact { padding: 10rem 0; text-align: center; background: var(--paper); border-top: 1px solid var(--line); }
     .star-decoration { font-size: 1.5rem; color: var(--accent); margin-bottom: 2rem; display: block; }
     
@@ -382,7 +405,6 @@
     }
     .social-link:hover { color: var(--accent); opacity: 1; transform: translateY(-3px); }
 
-    /* Mobile */
     .mobile-menu-btn { display: none; background:none; border:none; font-size:1.5rem; cursor: pointer; color: var(--ink); }
     .mobile-menu { display: none; }
     .close-menu { background: none; border: none; font-size: 2rem; color: var(--ink); cursor: pointer; position: absolute; top: 2rem; right: 2rem; }
@@ -403,10 +425,9 @@
       .project-title { font-size: 2rem; }
       .hook-text { font-size: 1.5rem; }
       .hook-item { padding: 2rem 0; }
-      
-      /* Mobile optimization for insights */
       .hook-insight { max-height: 200px; opacity: 1; margin-top: 1rem; transform: translateY(0); }
       .btn-group { flex-direction: column; gap: 1.5rem; margin-top: 3rem; }
+      .ipad-bezel { box-shadow: 0 10px 20px -5px rgba(0,0,0,0.2); }
     }
   </style>
 </head>
@@ -455,9 +476,16 @@
 
   <section class="project-section fade-in">
     <div class="container project-grid">
+      <!-- iPAD WRAPPER START -->
       <div class="project-visual">
-         <img src="https://placehold.co/900x1200/f0f0f0/333333?text=Rolling+Stone" class="project-img" alt="Rolling Stone Creative">
+         <div class="ipad-bezel">
+            <div class="ipad-camera"></div>
+            <div class="ipad-screen">
+                <img src="https://placehold.co/900x1200/f0f0f0/333333?text=Rolling+Stone" class="project-img" alt="Rolling Stone Creative">
+            </div>
+         </div>
       </div>
+      <!-- iPAD WRAPPER END -->
        
       <div class="project-content">
         <span class="project-client meta">01 — Rolling Stone</span>
@@ -479,9 +507,16 @@
 
   <section class="project-section fade-in">
     <div class="container project-grid">
+      <!-- iPAD WRAPPER START -->
       <div class="project-visual">
-         <img src="https://placehold.co/900x1200/f0f0f0/333333?text=Compliance+Copy" class="project-img" alt="MoS Creative">
+         <div class="ipad-bezel">
+            <div class="ipad-camera"></div>
+            <div class="ipad-screen">
+                <img src="https://placehold.co/900x1200/f0f0f0/333333?text=Compliance+Copy" class="project-img" alt="MoS Creative">
+            </div>
+         </div>
       </div>
+      <!-- iPAD WRAPPER END -->
        
       <div class="project-content">
         <span class="project-client meta">02 — Museum of Sex</span>
@@ -502,9 +537,16 @@
 
   <section class="project-section fade-in">
     <div class="container project-grid">
+      <!-- iPAD WRAPPER START -->
       <div class="project-visual">
-         <img src="https://placehold.co/900x1200/f0f0f0/333333?text=Luxury+Email" class="project-img" alt="Bao Bao Creative">
+         <div class="ipad-bezel">
+            <div class="ipad-camera"></div>
+            <div class="ipad-screen">
+                <img src="https://placehold.co/900x1200/f0f0f0/333333?text=Luxury+Email" class="project-img" alt="Bao Bao Creative">
+            </div>
+         </div>
       </div>
+      <!-- iPAD WRAPPER END -->
        
       <div class="project-content">
         <span class="project-client meta">03 — Bao Bao Issey Miyake</span>
