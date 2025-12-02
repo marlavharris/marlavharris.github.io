@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google Analytics - Optimized loading -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-869S7ZPXQH"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -9,1037 +8,307 @@
   gtag('js', new Date());
   gtag('config', 'G-869S7ZPXQH');
 </script>
-<!-- End Google Analytics -->
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Marla Harris - Creative Portfolio: Visual storytelling and brand identity work">
-  <title>Creative Portfolio | Marla Harris</title>
+  <meta name="description" content="Marla Harris - Copywriting & Creative Portfolio.">
+  <title>Marla Harris — Copy & Creative</title>
   
-  <!-- Preconnect for performance -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-  
-  <!-- Fonts with optimized loading -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  </noscript>
-  
-  <!-- Icons with optimized loading -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-  <noscript>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  </noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <style>
+    /* REUSING MAIN STYLES FOR CONSISTENCY */
     :root {
-      --ink: #0b0b0b;
+      --ink: #111111;
       --paper: #ffffff;
-      --accent: #990049;
+      --accent: #990049; 
       --accent-light: #b2005f;
-      --accent-lighter: rgba(178,0,95,0.08);
-      --neutral-200: #e5e5e5;
-      --neutral-600: #666666;
-      --neutral-700: #404040;
-      --charcoal: #1a1a1a;
-      --gold: #b4a582;
-      --gold-light: rgba(180, 165, 130, 0.1);
+      --accent-mist: rgba(153, 0, 73, 0.03); 
+      --neutral-200: #eaeaea;
+      --neutral-600: #757575;
+      --neutral-700: #4a4a4a;
     }
     
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    html {
-      scroll-behavior: smooth;
-      overflow-x: hidden;
-      scrollbar-gutter: stable;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     
     body {
       font-family: 'Inter', sans-serif;
       color: var(--ink);
       background: var(--paper);
-      line-height: 1.6;
+      line-height: 1.7;
       overflow-x: hidden;
-      -webkit-text-size-adjust: 100%;
-      padding-right: calc(100vw - 100%);
+      font-weight: 300;
     }
     
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
     
-    h1, h2, h3 {
+    h1, h2, h3, h4 {
       font-family: 'Playfair Display', serif;
       font-weight: 400;
       line-height: 1.2;
+      color: var(--ink);
     }
-    
-    .bar {
-      width: 60px;
-      height: 1px;
-      background: var(--accent);
-      margin: 1.5rem auto;
-    }
-    
-    .star-decoration {
-      text-align: center;
-      margin-bottom: 1rem;
-      font-size: 1.2rem;
-      color: var(--gold);
-      letter-spacing: 0.3em;
-    }
-    
+
+    h2 { font-size: 2.5rem; letter-spacing: -0.02em; }
+
+    /* Header (Transparent logic) */
     header {
-      background: rgba(255, 255, 255, 0.98);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      border-bottom: none;
-      transition: all 0.3s ease;
+      background: rgba(255, 255, 255, 0.98); /* Solid white header for sub-page clarity */
+      position: fixed; top: 0; width: 100%; z-index: 1000; padding: 1rem 0; border-bottom: 1px solid var(--neutral-200);
     }
     
-    header.scrolled {
-      box-shadow: 0 2px 20px rgba(0,0,0,0.05);
-      border-bottom: 1px solid var(--accent-lighter);
-    }
-    
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.25rem 0;
-    }
+    nav { display: flex; justify-content: space-between; align-items: center; }
     
     .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      color: var(--ink);
-      text-decoration: none;
-      font-weight: 400;
-      letter-spacing: 0.1em;
-      z-index: 1001;
+      font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--ink); text-decoration: none; font-weight: 500; letter-spacing: -0.01em;
     }
     
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-    }
+    .nav-links { display: flex; gap: 2.5rem; }
     
     .nav-link {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--neutral-700);
-      text-decoration: none;
-      font-weight: 400;
-      transition: color 0.3s ease;
-      position: relative;
+      font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--neutral-600); text-decoration: none; font-weight: 400; transition: color 0.3s ease;
     }
     
-    .nav-link:hover {
-      color: var(--accent);
-    }
-    
-    .nav-link:after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 1px;
-      bottom: -5px;
-      left: 0;
-      background: var(--accent);
-      transition: width 0.3s ease;
-    }
-    
-    .nav-link:hover:after {
-      width: 100%;
-    }
-    
-    .mobile-menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: var(--ink);
-      cursor: pointer;
-      z-index: 1001;
-      padding: 0.25rem;
-    }
-    
-    .mobile-menu {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
+    .nav-link:hover { color: var(--accent); }
+
+    /* Creative Page Hero */
+    .creative-hero {
+      padding: 10rem 0 6rem;
       background: var(--paper);
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-      opacity: 0;
-      transform: translateY(-20px);
-      transition: all 0.3s ease;
-      padding-right: calc(100vw - 100%);
-    }
-    
-    .mobile-menu.active {
-      display: flex;
-      opacity: 1;
-      transform: translateY(0);
-    }
-    
-    .mobile-nav-links {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
       text-align: center;
     }
-    
-    .mobile-nav-link {
-      font-size: 1.2rem;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--neutral-700);
-      text-decoration: none;
-      font-weight: 400;
-      transition: color 0.3s ease;
+
+    .creative-hero h1 {
+      font-size: 4rem; margin-bottom: 1.5rem;
     }
-    
-    .mobile-nav-link:hover {
-      color: var(--accent);
+
+    .creative-hero p {
+      font-size: 1.1rem; color: var(--neutral-600); max-width: 600px; margin: 0 auto;
     }
-    
-    .close-menu {
-      position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: var(--ink);
-      cursor: pointer;
-      padding: 0.25rem;
-    }
-    
-    .page-hero {
-      padding: 10rem 0 4rem;
-      min-height: 60vh;
-      display: flex;
-      align-items: center;
-      position: relative;
-    }
-    
-    .page-hero-content {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    
-    .page-hero h1 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      margin-bottom: 2rem;
-      font-weight: 300;
-      line-height: 1.1;
-    }
-    
-    .page-hero p {
-      font-size: 1.25rem;
-      color: var(--neutral-700);
-      max-width: 600px;
-      margin: 0 auto 3rem;
-    }
-    
-    .btn-group {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    
-    .btn {
-      padding: 1rem 2rem;
-      border-radius: 999px;
-      font-weight: 500;
-      text-decoration: none;
-      font-size: 0.875rem;
-      transition: all 0.3s ease;
-      letter-spacing: 0.05em;
-      display: inline-block;
-      border: none;
-      cursor: pointer;
-      text-align: center;
-    }
-    
-    .btn-primary {
-      background: var(--accent);
-      color: white;
-      box-shadow: 0 4px 14px rgba(153, 0, 73, 0.2);
-    }
-    
-    .btn-primary:hover {
-      background: var(--accent-light);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(153, 0, 73, 0.3);
-    }
-    
-    .btn-secondary {
-      border: 1px solid var(--neutral-200);
-      color: var(--ink);
-      background: transparent;
-    }
-    
-    .btn-secondary:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      transform: translateY(-2px);
-    }
-    
-    .content-section {
-      padding: 4rem 0;
-      background: var(--paper);
-    }
-    
-    .section-header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-    
-    .section-header h2 {
-      font-size: 2.25rem;
-      margin-bottom: 1rem;
-      font-weight: 300;
-      color: var(--charcoal);
-    }
-    
-    .section-header p {
-      color: var(--neutral-600);
-      font-size: 1.125rem;
-    }
-    
-    /* LUXURY SINGLE IMAGE LAYOUT */
-    .content-grid {
+
+    /* Copy/Creative Grid */
+    .creative-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
       gap: 3rem;
-      max-width: 1000px;
-      margin: 0 auto;
+      padding-bottom: 8rem;
     }
-    
-    .content-item {
+
+    .creative-card {
       background: white;
-      border-radius: 0;
-      overflow: hidden;
-      box-shadow: none;
-      transition: all 0.3s ease;
-      display: flex;
-      flex-direction: column;
       border: 1px solid var(--neutral-200);
+      transition: transform 0.4s ease;
+      cursor: pointer;
     }
-    
-    .content-item:hover {
+
+    .creative-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      border-color: var(--accent);
     }
-    
-    /* SCROLLABLE IMAGE GALLERY */
-    .content-image {
-      width: 100%;
-      background: var(--paper);
+
+    .card-visual {
+      height: 250px;
+      background: var(--accent-mist);
       display: flex;
       align-items: center;
-      overflow-x: auto;
-      overflow-y: hidden;
-      position: relative;
+      justify-content: center;
       padding: 2rem;
-      min-height: 500px;
-      scrollbar-width: thin;
-      scrollbar-color: var(--accent) var(--neutral-200);
-      scroll-behavior: smooth;
-      -webkit-overflow-scrolling: touch;
+      position: relative;
+      overflow: hidden;
     }
-    
-    /* Custom scrollbar for webkit browsers */
-    .content-image::-webkit-scrollbar {
-      height: 8px;
-    }
-    
-    .content-image::-webkit-scrollbar-track {
-      background: var(--neutral-200);
-      border-radius: 4px;
-    }
-    
-    .content-image::-webkit-scrollbar-thumb {
-      background: var(--accent);
-      border-radius: 4px;
-    }
-    
-    .content-image::-webkit-scrollbar-thumb:hover {
-      background: var(--accent-light);
-    }
-    
-    .image-gallery {
-      display: flex;
-      gap: 2rem;
-      padding: 0 1rem;
-      align-items: center;
-    }
-    
-    /* CLEAN SINGLE IMAGE STYLING */
-    .content-image img {
-      width: auto;
-      max-width: 100%;
-      height: auto;
-      max-height: 450px;
-      object-fit: contain;
-      transition: transform 0.3s ease;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      border-radius: 2px;
-      flex-shrink: 0;
-    }
-    
-    .content-item:hover .content-image img {
-      transform: scale(1.02);
-    }
-    
-    .content-details {
-      padding: 2.5rem;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      border-top: 1px solid var(--neutral-200);
-    }
-    
-    .content-details h3 {
+
+    /* Visual styles for placeholders */
+    .visual-text {
+      font-family: 'Playfair Display', serif;
       font-size: 1.5rem;
-      margin-bottom: 1rem;
-      font-weight: 400;
-    }
-    
-    .content-details p {
-      color: var(--neutral-700);
-      margin-bottom: 1.5rem;
-      flex-grow: 1;
-      line-height: 1.7;
-    }
-    
-    .content-meta {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.85rem;
-      color: var(--neutral-600);
-      margin-top: auto;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--neutral-200);
-    }
-    
-    .role-badge {
-      background: var(--gold-light);
-      color: var(--gold);
-      padding: 0.25rem 0.75rem;
-      border-radius: 4px;
-      font-size: 0.75rem;
-      font-weight: 500;
-      display: inline-block;
-      margin-bottom: 0.5rem;
-    }
-    
-    .contact {
-      padding: 4rem 0;
       text-align: center;
-      background: #f8f8f8;
-    }
-    
-    .contact h2 {
-      font-size: 2.25rem;
-      margin-bottom: 1rem;
-      font-weight: 300;
-      color: var(--charcoal);
-    }
-    
-    .contact p {
-      font-size: 1.125rem;
-      color: var(--neutral-700);
-      max-width: 500px;
-      margin: 0 auto 2rem;
-    }
-    
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin: 2rem 0;
-    }
-    
-    .social-link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: var(--accent-lighter);
       color: var(--accent);
-      text-decoration: none;
-      transition: all 0.3s ease;
+      font-style: italic;
     }
     
-    .social-link:hover {
-      background: var(--accent);
-      color: white;
-      transform: translateY(-2px);
+    .visual-text.bold {
+        font-family: 'Inter', sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-style: normal;
+        font-size: 2rem;
+        color: var(--ink);
     }
-    
-    .contact-info {
+
+    .card-content {
+      padding: 2rem;
+    }
+
+    .card-tags {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--neutral-600);
+      margin-bottom: 1rem;
+    }
+
+    .card-title {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-desc {
+      font-size: 0.9rem;
       color: var(--neutral-600);
     }
-    
-    .contact-info p {
-      margin-bottom: 0.5rem;
-      font-size: 0.9rem;
+
+    /* Manifesto Section */
+    .manifesto {
+        background: var(--accent-mist);
+        padding: 6rem 0;
+        margin-bottom: 6rem;
     }
-    
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    
-    /* Image loading states */
-    .content-image img {
-      opacity: 0;
-      transition: opacity 0.3s ease, transform 0.3s ease;
-    }
-    
-    .content-image img.loaded {
-      opacity: 1;
-    }
-    
+
+    /* Mobile */
+    .mobile-menu-btn { display: none; background:none; border:none; font-size:1.5rem; }
+    .mobile-menu { display: none; }
+
     @media (max-width: 768px) {
-      .container {
-        padding: 0 1.25rem;
-      }
-      
-      .nav-links {
-        display: none;
-      }
-      
-      .mobile-menu-btn {
-        display: block;
-      }
-      
-      .content-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-      
-      .page-hero {
-        padding: 8rem 0 3rem;
-        min-height: 50vh;
-      }
-      
-      .btn-group {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.75rem;
-      }
-      
-      .btn {
-        width: 100%;
-        max-width: 280px;
-        text-align: center;
-        padding: 0.875rem 1.5rem;
-      }
-      
-      .content-image {
-        padding: 1.5rem;
-        min-height: 400px;
-      }
-      
-      .content-image img {
-        max-height: 350px;
-      }
-      
-      .content-details {
-        padding: 2rem;
-      }
-      
-      .image-gallery {
-        gap: 1.5rem;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .content-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .content-image img {
-        max-height: 300px;
-      }
-      
-      .page-hero {
-        padding: 7rem 0 2rem;
-      }
-      
-      .content-section {
-        padding: 3rem 0;
-      }
-      
-      .content-image {
-        min-height: 350px;
-        padding: 1rem;
-      }
-      
-      .image-gallery {
-        gap: 1rem;
-      }
+      .nav-links { display: none; }
+      .mobile-menu-btn { display: block; }
+      .creative-grid { grid-template-columns: 1fr; }
+      .creative-hero h1 { font-size: 2.5rem; }
     }
   </style>
 </head>
 <body>
-  <!-- Single Header Section -->
+  
   <header>
     <div class="container">
       <nav>
         <a href="index.html" class="logo">Marla Harris</a>
         <div class="nav-links">
           <a href="index.html" class="nav-link">Home</a>
-          <a href="creative.html" class="nav-link">Creative</a>
-          <a href="copywriting.html" class="nav-link">Copywriting</a>
-          <a href="csr.html" class="nav-link">CSR</a>
-          <a href="myjourney.html" class="nav-link">My Journey</a>
+          <a href="index.html#work" class="nav-link">Strategy Work</a>
+          <a href="#" class="nav-link" style="color: var(--accent);">Creative & Copy</a>
           <a href="index.html#contact" class="nav-link">Contact</a>
         </div>
-        <button class="mobile-menu-btn" aria-label="Toggle menu">
-          <i class="fas fa-bars"></i>
-        </button>
+        <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
       </nav>
     </div>
-    <!-- Mobile Menu -->
     <div class="mobile-menu">
-      <button class="close-menu" aria-label="Close menu">
-        <i class="fas fa-times"></i>
-      </button>
-      <div class="mobile-nav-links">
-        <a href="index.html" class="mobile-nav-link">Home</a>
-        <a href="creative.html" class="mobile-nav-link">Creative</a>
-        <a href="copywriting.html" class="mobile-nav-link">Copywriting</a>
-        <a href="csr.html" class="mobile-nav-link">CSR</a>
-        <a href="myjourney.html" class="mobile-nav-link">My Journey</a>
-        <a href="index.html#contact" class="mobile-nav-link">Contact</a>
-      </div>
+        <button class="close-menu"><i class="fas fa-times"></i></button>
+        <div class="mobile-nav-links">
+            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="index.html#work" class="mobile-nav-link">Strategy Work</a>
+            <a href="#" class="mobile-nav-link">Creative & Copy</a>
+            <a href="index.html#contact" class="mobile-nav-link">Contact</a>
+        </div>
     </div>
   </header>
 
-  <section class="page-hero">
-    <div class="container">
-      <div class="page-hero-content">
-        <div class="star-decoration">✦</div>
-        <h1>Creative<br><span style="font-style: italic; color: var(--accent);">Email Design</span><br>& Visual Campaigns</h1>
-        <div class="bar"></div>
-        <p>Strategic email marketing and visual campaigns that drive engagement and conversion.</p>
-        <div class="btn-group">
-          <a href="#portfolio" class="btn btn-primary">View Creative Work</a>
-          <a href="index.html#contact" class="btn btn-secondary">Contact Me</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="portfolio" class="content-section">
-    <div class="container">
-      <div class="section-header">
-        <div class="star-decoration">✦</div>
-        <h2>Email Campaign Portfolio</h2>
-        <p>Strategic visual campaigns for premium brands and media empires</p>
-      </div>
-      
-      <div class="content-grid">
-        <!-- Billboard Pro Email -->
-        <div class="content-item fade-in">
-          <div class="content-image">
-            <div class="image-gallery">
-              <img 
-                src="HALSEY - BB BAU (2) (3).gif" 
-                alt="Billboard Pro Email Campaign"
-                loading="lazy"
-                width="800"
-                height="600"
-                onload="this.classList.add('loaded')"
-              >
-              <img 
-                src="5.4 - ENDS SOON - Country Campaign 2.gif" 
-                alt="Billboard Pro Email Campaign Additional Image 1"
-                loading="lazy"
-                width="800"
-                height="600"
-                onload="this.classList.add('loaded')"
-              >
-              <img 
-                src="Early Access - Ends Soon - BB BLACK FRIDAY.gif" 
-                alt="Billboard Pro Email Campaign Additional Image 2"
-                loading="lazy"
-                width="800"
-                height="600"
-                onload="this.classList.add('loaded')"
-              >
-            </div>
-          </div>
-          <div class="content-details">
-            <h3>Billboard Pro Launch</h3>
-            <p>Created visual system for Billboard's premium subscription product, establishing clear visual hierarchy and conversion pathways.</p>
-            <div class="content-meta">
-              <span>Client: Penske Media</span>
-              <span>2020</span>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Bao Bao Email -->
-        <div class="content-item fade-in">
-          <div class="content-image">
-            <div class="image-gallery">
-              <img 
-                src="bao_bao_email_3.jpg" 
-                alt="Bao Bao Issey Miyake Email Campaign"
-                loading="lazy"
-                width="800"
-                height="600"
-                onload="this.classList.add('loaded')"
-              >
-              <img 
-                src="bao_bao_email_SS17.jpg" 
-                alt="Bao Bao Issey Miyake Email Campaign Additional Image 1"
-                loading="lazy"
-                width="800"
-                height="600"
-                onload="this.classList.add('loaded')"
-              >
-              <img 
-                src="bao_bao_email_2.jpg" 
-                alt="Bao Bao Issey Miyake Email Campaign Additional Image 2"
-                loading="lazy"
-                width="800"
-                height="600"
-                onload="this.classList.add('loaded')"
-              >
-            </div>
-          </div>
-          <div class="content-details">
-            <h3>Bao Bao Luxury Campaign</h3>
-            <p>Art directed minimalist product photography that increased engagement by 47% while maintaining brand prestige.</p>
-            <div class="content-meta">
-              <span>Client: Issey Miyake</span>
-              <span>2021</span>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Rolling Stone Email -->
-        <div class="content-item fade-in">
-          <div class="content-image">
-            <div class="image-gallery">
-              <img 
-                src="2.29 BAU (Karol G) (1).gif" 
-                alt="Rolling Stone Rebrand Email"
-                loading="lazy"
-                width="800"
-                height="600"
-                onload="this.classList.add('loaded')"
-              >
-              <img 
-                src="11.15 Revolutionary Artist's (2).gif" 
-                alt="Rolling Stone Email Additional Image 1"
-                loading="lazy"
-                width="800"
-                height="600"
-                onload="this.classList.add('loaded')"
-              >
-              <img 
-                src="Ends Tomorrow 3.19 - RS SALE - updated (2) (1).gif" 
-                alt="Rolling Stone Rebrand Email Additional Image 2"
-                loading="lazy"
-                width="800"
-                height="600"
-                onload="this.classList.add('loaded')"
-              >
-            </div>
-          </div>
-          <div class="content-details">
-            <h3>Rolling Stone Campaigns</h3>
-            <p>Developed e-mail campaigns for Rolling Stone's digital subscription, increasing subscription sales.</p>
-            <div class="content-meta">
-              <span>Client: Penske Media</span>
-              <span>2022</span>
-            </div>
-          </div>
-        </div>
-        
-        <!-- WWD Fashion Week Email -->
-        <div class="content-item fade-in">
-          <div class="content-image">
-            <div class="image-gallery">
-              <img 
-                src="WWD BF - DAY 3.gif" 
-                alt="WWD Email"
-                loading="lazy"
-                width="800"
-                height="600"
-                onload="this.classList.add('loaded')"
-              >
-              <img 
-                src="wwd-global.gif" 
-                alt="WWD Email Additional Image 1"
-                loading="lazy"
-                width="800"
-                height="600"
-                onload="this.classList.add('loaded')"
-              >
-              <img 
-                src="wwd-sustainability.gif" 
-                alt="WWD Email Additional Image 2"
-                loading="lazy"
-                width="800"
-                height="600"
-                onload="this.classList.add('loaded')"
-              >
-            </div>
-          </div>
-          <div class="content-details">
-            <h3>WWD Fashion Week</h3>
-            <p>Developed e-mail campaigns for Women's Wear Daily digital subscriptions, increasing subscription sales</p>
-            <div class="content-meta">
-              <span>Client: Penske Media</span>
-              <span>2019-2022</span>
-            </div>
-          </div>
-        </div>
-        
-        <!-- AJ Madison Digital Lookbook -->
-        <div class="content-item fade-in">
-          <div class="content-image">
-            <div class="image-gallery">
-              <img 
-                src="AjMadison_ApplianceJournal.jpg" 
-                alt="AJ Madison Digital Lookbook"
-                loading="lazy"
-                width="800"
-                height="600"
-                onload="this.classList.add('loaded')"
-              >
-              <img 
-                src="2.jpg" 
-                alt="AJ Madison Digital Lookbook Additional Image 1"
-                loading="lazy"
-                width="800"
-                height="600"
-                onload="this.classList.add('loaded')"
-              >
-              <img 
-                src="3.jpg" 
-                alt="AJ Madison Digital Lookbook Additional Image 2"
-                loading="lazy"
-                width="800"
-                height="600"
-                onload="this.classList.add('loaded')"
-              >
-            </div>
-          </div>
-          <div class="content-details">
-            <div class="role-badge">Editorial Operations Manager</div>
-            <h3>AJ Madison Digital Lookbook</h3>
-            <p>Directed the creation of comprehensive digital lookbooks and editorial content, managing the end-to-end production process from concept to publication.</p>
-            <div class="content-meta">
-              <span>Client: AJ Madison</span>
-              <span>2018</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="contact">
+  <section class="creative-hero">
     <div class="container">
       <div class="star-decoration">✦</div>
-      <h2>Let's Create Impactful Email Campaigns</h2>
-      <p>Ready to develop strategic email designs that convert?</p>
-      <div class="btn-group">
-        <a href="mailto:va.mvharris@gmail.com" class="btn btn-primary">Start a Project</a>
-        <a href="index.html#contact" class="btn btn-secondary">Contact Me</a>
-      </div>
+      <h1>Opinionated Copywriting</h1>
+      <p>Strategy is the skeleton. Voice is the skin. Here is how I make brands speak.</p>
+    </div>
+  </section>
+
+  <section class="manifesto">
+    <div class="container" style="text-align: center; max-width: 800px;">
+        <h2 style="margin-bottom: 2rem;">"Storytelling that sells without sounding like marketing."</h2>
+        <p>I believe in subject lines that tease, body copy that respects the reader's intelligence, and campaigns that understand the nuance of the platform. Whether it's the taboo compliance landscape of the adult industry or the heritage voice of Rolling Stone.</p>
+    </div>
+  </section>
+
+  <section class="container">
+    <div class="creative-grid">
       
-      <div class="social-links">
-        <a href="https://linkedin.com/in/marla-harris-047b2946" class="social-link" aria-label="LinkedIn">
-          <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a href="https://www.instagram.com/marlavharris/" class="social-link" aria-label="Instagram">
-          <i class="fab fa-instagram"></i>
-        </a>
+      <div class="creative-card">
+        <div class="card-visual">
+          <div class="visual-text bold">Rolling Stone</div>
+        </div>
+        <div class="card-content">
+          <div class="card-tags">Email Strategy • Voice</div>
+          <h3 class="card-title">The Legacy Voice</h3>
+          <p class="card-desc">Translating 50 years of rock journalism into subscription emails that convert without losing cool.</p>
+        </div>
       </div>
-      
-      <div class="contact-info">
-        <p>Marla Harris</p>
-        <p><a href="mailto:va.mvharris@gmail.com" style="color: var(--accent);">va.mvharris@gmail.com</a></p>
-        <p>Brooklyn, NY</p>
+
+      <div class="creative-card">
+        <div class="card-visual">
+          <div class="visual-text">"Taboo"</div>
+        </div>
+        <div class="card-content">
+          <div class="card-tags">Ad Copy • Compliance</div>
+          <h3 class="card-title">Museum of Sex</h3>
+          <p class="card-desc">Writing compliant ad copy for restricted goods that still drives high-intent clicks.</p>
+        </div>
+      </div>
+
+      <div class="creative-card">
+        <div class="card-visual">
+          <div class="visual-text" style="font-family: monospace;">[Subject Line A/B]</div>
+        </div>
+        <div class="card-content">
+          <div class="card-tags">A/B Testing • Copy</div>
+          <h3 class="card-title">The Minimalist Winner</h3>
+          <p class="card-desc">Proof that "Less is More." How stripping back the sales pitch increased luxury conversions by 14%.</p>
+        </div>
+      </div>
+
+      <div class="creative-card">
+        <div class="card-visual">
+          <div class="visual-text bold">Bao Bao</div>
+        </div>
+        <div class="card-content">
+          <div class="card-tags">Merchandising • Creative</div>
+          <h3 class="card-title">Visual Merchandising</h3>
+          <p class="card-desc">Aligning visual hierarchy with email copy to guide the user eye toward high-margin items.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section style="padding: 6rem 0; text-align: center; border-top: 1px solid var(--neutral-200);">
+    <div class="container">
+      <h2>Let's Find Your Voice</h2>
+      <div class="btn-group" style="margin-top: 2rem;">
+        <a href="mailto:va.mvharris@gmail.com" class="btn btn-primary">Get in Touch</a>
+      </div>
+      <div style="margin-top: 3rem; font-size: 0.8rem; color: var(--neutral-600);">
+        <p>Marla Harris — Brooklyn, NY</p>
       </div>
     </div>
   </section>
 
   <script>
-    // Header scroll effect
-    window.addEventListener('scroll', function() {
-      const header = document.querySelector('header');
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    });
-
-    // Mobile menu functionality
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const closeMenuBtn = document.querySelector('.close-menu');
+    // Mobile Menu Logic
+    const mobileBtn = document.querySelector('.mobile-menu-btn');
     const mobileMenu = document.querySelector('.mobile-menu');
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    const closeBtn = document.querySelector('.close-menu');
 
-    if (mobileMenuBtn) {
-      mobileMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.add('active');
-        document.documentElement.style.overflow = 'hidden';
-        document.body.style.overflow = 'hidden';
-        
-        // Track GA event
-        if (typeof gtag !== 'undefined') {
-          gtag('event', 'mobile_menu_open', {
-            'event_category': 'Navigation'
-          });
-        }
-      });
+    if(mobileBtn) {
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.style.display = 'flex';
+            mobileMenu.style.position = 'fixed';
+            mobileMenu.style.top = '0';
+            mobileMenu.style.left = '0';
+            mobileMenu.style.width = '100%';
+            mobileMenu.style.height = '100vh';
+            mobileMenu.style.background = 'white';
+            mobileMenu.style.zIndex = '2000';
+            mobileMenu.style.flexDirection = 'column';
+            mobileMenu.style.alignItems = 'center';
+            mobileMenu.style.justifyContent = 'center';
+            mobileMenu.style.gap = '2rem';
+        });
     }
-
-    if (closeMenuBtn) {
-      closeMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.remove('active');
-        document.documentElement.style.overflow = '';
-        document.body.style.overflow = '';
-      });
+    
+    if(closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            mobileMenu.style.display = 'none';
+        });
     }
-
-    mobileNavLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('active');
-        document.documentElement.style.overflow = '';
-        document.body.style.overflow = '';
-        
-        // Track GA event
-        if (typeof gtag !== 'undefined') {
-          gtag('event', 'mobile_nav_click', {
-            'event_category': 'Navigation',
-            'event_label': link.getAttribute('href')
-          });
-        }
-      });
-    });
-
-    // Enhanced smooth scrolling for creative page
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        
-        const target = document.querySelector(targetId);
-        if (target) {
-          const headerHeight = document.querySelector('header').offsetHeight;
-          const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-          
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-          });
-          
-          // Track GA event
-          if (typeof gtag !== 'undefined') {
-            gtag('event', 'nav_click', {
-              'event_category': 'Navigation',
-              'event_label': targetId
-            });
-          }
-        }
-      });
-    });
-
-    // Fade in on scroll with Intersection Observer (better performance)
-    const fadeElements = document.querySelectorAll('.fade-in');
-    
-    const fadeObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          fadeObserver.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.1
-    });
-    
-    fadeElements.forEach(element => {
-      fadeObserver.observe(element);
-    });
-
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', (e) => {
-      if (mobileMenu.classList.contains('active') && 
-          !e.target.closest('.mobile-menu') && 
-          !e.target.closest('.mobile-menu-btn')) {
-        mobileMenu.classList.remove('active');
-        document.documentElement.style.overflow = '';
-        document.body.style.overflow = '';
-      }
-    });
-
-    // Track outbound links
-    document.querySelectorAll('a[href^="http"]').forEach(link => {
-      link.addEventListener('click', (e) => {
-        if (link.hostname !== window.location.hostname) {
-          if (typeof gtag !== 'undefined') {
-            gtag('event', 'outbound_click', {
-              'event_category': 'Outbound',
-              'event_label': link.href
-            });
-          }
-        }
-      });
-    });
-
-    // Track email clicks
-    document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
-      link.addEventListener('click', () => {
-        if (typeof gtag !== 'undefined') {
-          gtag('event', 'email_click', {
-            'event_category': 'Contact'
-          });
-        }
-      });
-    });
   </script>
 </body>
 </html>
