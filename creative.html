@@ -84,64 +84,57 @@
     .creative-hero p { font-size: 1.1rem; color: var(--neutral-600); max-width: 600px; margin: 0 auto; }
 
 
-    /* --- TICKER SECTION (Integrated Design) --- */
-    .ticker-container {
-      position: relative;
-      width: 100%;
-      margin-bottom: 6rem;
+    /* --- THE "HIT LIST" (Replaces Ticker) --- */
+    .hit-list {
+        max-width: 800px;
+        margin: 0 auto 8rem auto;
+        border-top: 1px solid var(--ink); /* Strong top line */
     }
 
-    /* The "Tag" Label - Looks Structural now */
-    .ticker-tag {
-        position: absolute;
-        top: -1.2rem;
-        left: 50%;
-        transform: translateX(-50%);
-        background: var(--accent);
-        color: white;
-        padding: 0.4rem 1.5rem;
-        font-size: 0.7rem;
+    .hit-list-header {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 0;
+        font-size: 0.75rem;
         text-transform: uppercase;
         letter-spacing: 0.15em;
-        z-index: 10;
-        border-radius: 2px 2px 0 0; /* Tab shape */
+        color: var(--neutral-600);
+        border-bottom: 1px solid var(--neutral-200);
     }
 
-    .ticker-wrap {
-      width: 100%;
-      background-color: var(--accent);
-      overflow: hidden;
-      white-space: nowrap;
-      padding: 1.5rem 0;
-      cursor: default;
-      position: relative;
+    .hit-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 0;
+        border-bottom: 1px solid var(--neutral-200);
+        transition: background 0.3s ease;
+    }
+    
+    .hit-row:hover {
+        background: var(--accent-mist);
+        padding-left: 1rem; /* Indent on hover */
+        padding-right: 1rem;
     }
 
-    .ticker-wrap:hover .ticker { animation-play-state: paused; }
-
-    .ticker { display: inline-block; animation: marquee 40s linear infinite; }
-
-    .ticker-item {
-      display: inline-block;
-      padding: 0 4rem;
-      font-family: 'Inter', sans-serif; 
-      font-weight: 400;
-      font-size: 1.1rem;
-      color: white;
-      position: relative;
+    .hit-subject {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.3rem;
+        color: var(--ink);
+        font-style: italic;
     }
 
-    .ticker-item::after {
-      content: '•';
-      position: absolute;
-      right: 0;
-      opacity: 0.5;
+    .hit-result {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.85rem;
+        color: var(--accent);
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        white-space: nowrap;
+        margin-left: 2rem;
     }
 
-    @keyframes marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-100%); }
-    }
 
     /* --- PORTFOLIO CARDS --- */
     .creative-grid {
@@ -205,10 +198,10 @@
     .card-title { font-size: 1.6rem; margin-bottom: 0.5rem; font-family: 'Playfair Display', serif; }
     .card-desc { font-size: 0.95rem; color: var(--neutral-600); margin-bottom: 2rem; line-height: 1.6; }
 
-    /* --- NEW COPYWRITING BLOCK --- */
+    /* --- COPYWRITING BLOCK --- */
     .copy-block {
-        margin-top: auto; /* Pushes to bottom if card stretches */
-        background: #fcfcfc; /* Light paper color */
+        margin-top: auto; 
+        background: #fcfcfc;
         border-left: 3px solid var(--accent);
         padding: 1.5rem;
         position: relative;
@@ -225,7 +218,7 @@
     }
 
     .copy-text {
-        font-family: 'Playfair Display', serif; /* Serif for "Editorial" feel */
+        font-family: 'Playfair Display', serif;
         font-size: 1rem;
         color: var(--ink);
         line-height: 1.6;
@@ -241,7 +234,8 @@
       .mobile-menu-btn { display: block; }
       .creative-grid { grid-template-columns: 1fr; }
       .creative-hero h1 { font-size: 2.5rem; }
-      .ticker-item { font-size: 0.9rem; padding: 0 2rem; }
+      .hit-row { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+      .hit-result { margin-left: 0; font-size: 0.75rem; }
     }
   </style>
 </head>
@@ -279,27 +273,39 @@
     </div>
   </section>
 
-  <div class="ticker-container">
-    <div class="ticker-tag">High-Performing Subject Lines</div>
-    
-    <div class="ticker-wrap">
-        <div class="ticker">
-        <span class="ticker-item">This $300 bra changed my mind</span>
-        <span class="ticker-item">Your data is lying to you</span>
-        <span class="ticker-item">Stop selling, start storytelling</span>
-        <span class="ticker-item">The one metric that actually matters</span>
-        <span class="ticker-item">Luxury is a feeling, not a price point</span>
-        <span class="ticker-item">Why we got banned from Facebook</span>
+  <section class="container">
+    <div class="hit-list">
+        <div class="hit-list-header">
+            <span>Subject Line</span>
+            <span>Result / KPI</span>
+        </div>
         
-        <span class="ticker-item">This $300 bra changed my mind</span>
-        <span class="ticker-item">Your data is lying to you</span>
-        <span class="ticker-item">Stop selling, start storytelling</span>
-        <span class="ticker-item">The one metric that actually matters</span>
-        <span class="ticker-item">Luxury is a feeling, not a price point</span>
-        <span class="ticker-item">Why we got banned from Facebook</span>
+        <div class="hit-row">
+            <span class="hit-subject">"This $300 bra changed my mind"</span>
+            <span class="hit-result">68% Open Rate</span>
+        </div>
+
+        <div class="hit-row">
+            <span class="hit-subject">"Your data is lying to you"</span>
+            <span class="hit-result">Top Performing B2B</span>
+        </div>
+
+        <div class="hit-row">
+            <span class="hit-subject">"Luxury is a feeling, not a price point"</span>
+            <span class="hit-result">2.5x Conv. Rate</span>
+        </div>
+
+        <div class="hit-row">
+            <span class="hit-subject">"Why we got banned from Facebook"</span>
+            <span class="hit-result">Highest CTR (12%)</span>
+        </div>
+
+        <div class="hit-row">
+            <span class="hit-subject">"The one metric that actually matters"</span>
+            <span class="hit-result">Subscriber Retention</span>
         </div>
     </div>
-  </div>
+  </section>
 
   <section class="container">
     <div class="creative-grid">
