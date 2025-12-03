@@ -62,21 +62,21 @@
       opacity: 0.6;
     }
     
-    /* Header - Luxury Style: Transparent to White */
+    /* Header - Solid White Fix */
     header {
-      background: transparent;
+      background: #ffffff; 
       position: fixed;
       top: 0;
       width: 100%;
       z-index: 1000;
       transition: all 0.4s ease;
       padding: 1.5rem 0;
+      box-shadow: 0 1px 0px rgba(0,0,0,0.05); 
     }
     
     header.scrolled {
-      background: rgba(255, 255, 255, 0.98);
       padding: 0.5rem 0;
-      box-shadow: 0 1px 0px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     }
     
     nav { display: flex; justify-content: space-between; align-items: center; }
@@ -204,8 +204,6 @@
     .methodology-card { padding: 0 1rem; text-align: center; }
     .methodology-card h3 { font-size: 1.4rem; margin-bottom: 1.5rem; color: var(--accent); }
     .methodology-card p { color: var(--neutral-600); margin-bottom: 2rem; font-size: 0.95rem; }
-    .methodology-features { list-style: none; text-align: center; }
-    .methodology-features li { padding: 0.5rem 0; color: var(--neutral-700); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
     
     /* Work */
     .work { padding: 8rem 0; background: var(--accent-mist); }
@@ -216,6 +214,12 @@
       display: grid; grid-template-columns: 1fr 1fr;
       min-height: 450px;
       box-shadow: 0 10px 40px rgba(0,0,0,0.03); 
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .work-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 60px rgba(0,0,0,0.06);
     }
     
     .work-content { padding: 4rem; display: flex; flex-direction: column; justify-content: center; }
@@ -266,23 +270,53 @@
       color: var(--accent); margin: 8rem auto; line-height: 1.05; max-width: 1000px; text-align: center;
     }
     
-    /* Corporate Responsibility (Formerly Leadership) */
-    .csr { background: var(--accent-mist); padding: 8rem 0; }
-    .csr-item {
-        background: white; padding: 4rem; border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.03); border-top: 1px solid var(--accent); text-align: center;
-    }
-    
     /* Contact */
-    .contact { padding: 8rem 0; text-align: center; background: white; }
+    .contact { padding: 8rem 0 6rem; text-align: center; background: white; }
+    .social-links { display: flex; justify-content: center; gap: 2rem; margin-top: 3rem; }
     .social-link {
         color: var(--accent); background: transparent; border: 1px solid var(--neutral-200);
         width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s;
+        text-decoration: none;
     }
-    .social-link:hover { border-color: var(--accent); transform: scale(1.05); }
+    .social-link:hover { border-color: var(--accent); transform: scale(1.05); color: white; background: var(--accent); }
+
+    /* Footer (New) */
+    footer {
+        background: var(--paper);
+        border-top: 1px solid var(--neutral-200);
+        padding: 3rem 0;
+        text-align: center;
+    }
+
+    .footer-text {
+        color: var(--neutral-600);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
     
     /* Mobile */
-    .mobile-menu-btn { display: none; background:none; border:none; font-size:1.5rem; }
-    .mobile-menu { display: none; }
+    .mobile-menu-btn { display: none; background:none; border:none; font-size:1.5rem; cursor: pointer; color: var(--ink); }
+    
+    /* Mobile Menu CSS */
+    .mobile-menu { 
+        display: none; 
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: white;
+        z-index: 2000;
+        padding-top: 5rem;
+    }
+    
+    .close-menu { background: none; border: none; font-size: 2rem; color: var(--ink); cursor: pointer; position: absolute; top: 2rem; right: 2rem; }
+    
+    .mobile-nav-links { display: flex; flex-direction: column; align-items: center; gap: 2rem; }
+    .mobile-nav-link { 
+        font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--ink); text-decoration: none; 
+    }
 
     @media (max-width: 768px) {
       .nav-links { display: none; }
@@ -307,7 +341,7 @@
       <nav>
         <a href="#" class="logo">Marla Harris</a>
         <div class="nav-links">
-          <a href="#" class="nav-link">Home</a>
+          <a href="#" class="nav-link" style="color: var(--accent);">Home</a>
           <a href="#work" class="nav-link">Work</a>
           <a href="creative.html" class="nav-link">Creative & Copy</a>
           <a href="#about" class="nav-link">About</a>
@@ -332,7 +366,7 @@
     <div class="container">
       <div class="hero-content">
         <h1>Data-Driven Storyteller<br><span style="font-family:'Playfair Display'; font-style:italic; font-size: 0.9em; color: var(--accent);">Where Insights Become Stories.</span></h1>
-        <p>What does your data have to say?</p>
+        <p>The Bridge Between Quant & Qual</p>
         <div class="btn-group">
           <a href="#work" class="btn btn-primary">View Work</a>
           <a href="creative.html" class="btn btn-secondary">Creative Portfolio</a>
@@ -341,24 +375,25 @@
     </div>
   </section>
 
+  <!-- UPDATED RESULTS BANNER WITH SPECIFIC METRICS -->
   <section class="results-banner">
     <div class="container">
       <div class="results-grid">
         <div class="result-item">
-          <div class="result-value">2.5M+</div>
-          <div class="result-label">Subscribers Engaged<br><em>in a difficult media landscape</em></div>
+          <div class="result-value">49.5M+</div>
+          <div class="result-label">Total Sent<br><em>emails at scale</em></div>
         </div>
         <div class="result-item">
-          <div class="result-value">59%</div>
-          <div class="result-label">Of All Web Sales<br><em>despite platform bans</em></div>
+          <div class="result-value">20.95%</div>
+          <div class="result-label">Avg. Open Rate<br><em>consistent engagement</em></div>
         </div>
         <div class="result-item">
-          <div class="result-value">69%</div>
-          <div class="result-label">Campaign ROI<br><em>in restricted markets</em></div>
+          <div class="result-value">80k+</div>
+          <div class="result-label">Unique Clicks<br><em>high-intent traffic</em></div>
         </div>
         <div class="result-item">
-          <div class="result-value">+14%</div>
-          <div class="result-label">Conversions<br><em>year over year growth</em></div>
+          <div class="result-value">$120k+</div>
+          <div class="result-label">Revenue<br><em>generated directly</em></div>
         </div>
       </div>
     </div>
@@ -375,31 +410,16 @@
         <div class="methodology-card">
           <h3>Human Truth</h3>
           <p>Understanding what drives real behavior—whether it's a $300 bra or a subscription.</p>
-          <ul class="methodology-features">
-            <li>Consumer Psychology</li>
-            <li>Behavioral Insights</li>
-            <li>Luxury Positioning</li>
-          </ul>
         </div>
         
         <div class="methodology-card">
           <h3>Scalable Systems</h3>
           <p>Technical infrastructure that connects insight to execution across platforms.</p>
-          <ul class="methodology-features">
-            <li>Marketing Automation</li>
-            <li>Data Integration</li>
-            <li>Journey Architecture</li>
-          </ul>
         </div>
         
         <div class="methodology-card">
           <h3>Commercial Growth</h3>
           <p>Turning market analysis into profitable plans. I don't just build engagement; I build revenue.</p>
-          <ul class="methodology-features">
-            <li>Revenue Optimization</li>
-            <li>ROI Measurement</li>
-            <li>High-Value Conversion</li>
-          </ul>
         </div>
       </div>
     </div>
@@ -492,8 +512,8 @@
 
   <section id="about" class="about">
     <div class="container">
-      
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 5rem; margin-bottom: 6rem;">
+      <!-- UPDATED SPACING: Reduced gap to 4rem for better fit on laptops -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4rem; margin-bottom: 6rem;">
         
         <div>
           <h2 style="margin-bottom: 2rem; font-size: 3rem;">The Story</h2>
@@ -524,190 +544,75 @@
         </div>
       </div>
 
-      <div class="bar" style="width: 100%; opacity: 0.2; margin: 4rem 0;"></div>
-
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem;">
-        
-        <div>
-          <h4 style="font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 1rem; color: var(--accent);">Storytelling</h4>
-          <ul style="list-style: none; color: var(--neutral-600); font-size: 0.9rem; line-height: 2;">
-            <li>Copywriting</li>
-            <li>Content Strategy</li>
-            <li>Brand Voice Development</li>
-            <li>"Storytelling that Sells"</li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 style="font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 1rem; color: var(--accent);">Analytics</h4>
-          <ul style="list-style: none; color: var(--neutral-600); font-size: 0.9rem; line-height: 2;">
-            <li>Customer Psychology</li>
-            <li>Data-Backed Insights</li>
-            <li>A/B & Multivariate Testing</li>
-            <li>Market Research</li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 style="font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 1rem; color: var(--accent);">Strategy</h4>
-          <ul style="list-style: none; color: var(--neutral-600); font-size: 0.9rem; line-height: 2;">
-            <li>Luxury Branding & Merchandising</li>
-            <li>Lifecycle Marketing</li>
-            <li>Corporate Responsibility</li>
-            <li>Community-Centered Thinking</li>
-          </ul>
-        </div>
-      </div>
+      <!-- SKILLS GRID REMOVED HERE -->
 
       <p class="bra-quote-hero">If I can sell a $300 bra, I can sell anything.</p>
 
     </div>
   </section>
 
-  <!-- Corporate Responsibility Section (New) -->
-  <section id="csr" class="csr">
-    <div class="container">
-      <div class="section-header">
-        <div class="star-decoration">✦</div>
-        <h2>Corporate Responsibility</h2>
-        <p>Sustainable impact beyond the bottom line.</p>
-      </div>
-
-      <!-- Intro Copy Block -->
-      <div style="max-width: 800px; margin: 0 auto 4rem auto; text-align: center;">
-         <p style="font-size: 1.1rem; color: var(--ink); line-height: 1.8;">
-         AjMadison and True Residential donated NYC's 55th Community Refrigerator in Harlem. Marla Harris, Operations Manager at AjMadison, led the charge on the initiative. "The AjMadison Community Fridge Initiative seeks to bring more visibility to food insecurity and celebrate these grassroots groups' amazing work. The amount of support we have received from partner brands, activists, and influencers exceeded anything I could have imagined." Influencers @CheapOldHouses, @FareIsle, @Manscapers, and @Brownstone Boys agreed to spread the word, and every day the project gains more momentum and support.
-
-
-         </p>
-      </div>
-
-      <div class="csr-item">
-          <div style="margin-bottom: 2rem;">
-            <span style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.25em; color: var(--neutral-600); border-bottom: 1px solid var(--accent); padding-bottom: 0.5rem;">Featured Initiative</span>
-          </div>
-          <h3>The Community Fridge Project</h3>
-          <p style="margin: 1.5rem 0 2rem 0; color: var(--neutral-600); max-width: 800px; margin-left: auto; margin-right: auto;">
-            Built a national circular-economy initiative from scratch—convincing skeptical executives and mobilizing cross-functional teams to establish the company's first CSR program. This wasn't just a donation; it was a sustainable food rescue system powered by brand assets.
-          </p>
-          
-          <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
-            <a href="https://www.modernluxury.com/community-fridge-ajmadison/" target="_blank" style="text-decoration: none; border-bottom: 1px solid var(--neutral-200); padding-bottom: 2px; font-size: 0.9rem; color: var(--accent);">
-              Read Feature: Modern Luxe DC ↗
-            </a>
-            <a href="https://patch.com/new-york/bed-stuy/bed-stuy-get-free-community-fridge-earth-day-campaign" target="_blank" style="text-decoration: none; border-bottom: 1px solid var(--neutral-200); padding-bottom: 2px; font-size: 0.9rem; color: var(--accent);">
-              Read Feature: Patch ↗
-            </a>
-            <a href="https://true-residential.com/the-art-of-cold/true-manufacturing-in-partnership-with-aj-madison-donates-commercial-refrigerator-to-community-free-food-fridge-project" target="_blank" style="text-decoration: none; border-bottom: 1px solid var(--neutral-200); padding-bottom: 2px; font-size: 0.9rem; color: var(--accent);">
-              Project Overview ↗
-            </a>
-          </div>
-      </div>
-    </div>
-  </section>
-
   <section id="contact" class="contact">
     <div class="container">
-      <div class="star-decoration">✦</div>
-      <h2>Let's Build Systems That Scale</h2>
-      <div class="btn-group" style="margin-top: 2rem;">
+      <span class="star-decoration">✦</span>
+      <h2>Let's Get To Work</h2>
+      <div class="btn-group" style="margin-top: 3rem;">
         <a href="mailto:va.mvharris@gmail.com" class="btn btn-primary">Get in Touch</a>
       </div>
       
-      <div class="social-links" style="display:flex; justify-content:center; gap:1rem; margin-top:2rem;">
-        <a href="https://linkedin.com/in/marla-harris-047b2946" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://www.instagram.com/marlavharris/" class="social-link"><i class="fab fa-instagram"></i></a>
-      </div>
-      
-      <div style="margin-top: 3rem; font-size: 0.8rem; color: var(--neutral-600);">
-        <p>Marla Harris — Brooklyn, NY</p>
+      <div class="social-links">
+        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-link"><i class="far fa-envelope"></i></a>
       </div>
     </div>
   </section>
 
+  <!-- ADDED FOOTER -->
+  <footer>
+    <div class="container">
+        <p class="footer-text">&copy; 2024 Marla Harris. All Rights Reserved.</p>
+    </div>
+  </footer>
+
   <script>
-    // Smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            const headerOffset = 80;
-            const elementPosition = target.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-          
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: "smooth"
+    document.addEventListener('DOMContentLoaded', () => {
+        // Sticky/Scrolled Header Logic
+        const header = document.querySelector('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Logic
+        const mobileBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const closeBtn = document.querySelector('.close-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+        if(mobileBtn) {
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.style.display = 'block';
             });
         }
-      });
-    });
-
-    // Header scroll styling
-    window.addEventListener('scroll', function() {
-      const header = document.querySelector('header');
-      if (window.scrollY > 50) header.classList.add('scrolled');
-      else header.classList.remove('scrolled');
-    });
-
-    // Mobile menu toggle
-    const mobileBtn = document.querySelector('.mobile-menu-btn');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    const closeBtn = document.querySelector('.close-menu');
-
-    if(mobileBtn) {
-        mobileBtn.addEventListener('click', () => {
-            mobileMenu.style.display = 'flex';
-            mobileMenu.style.position = 'fixed';
-            mobileMenu.style.top = '0';
-            mobileMenu.style.left = '0';
-            mobileMenu.style.width = '100%';
-            mobileMenu.style.height = '100vh';
-            mobileMenu.style.background = 'white';
-            mobileMenu.style.zIndex = '2000';
-            mobileMenu.style.flexDirection = 'column';
-            mobileMenu.style.alignItems = 'center';
-            mobileMenu.style.justifyContent = 'center';
-            mobileMenu.style.gap = '2rem';
-        });
-    }
-    
-    if(closeBtn) {
-        closeBtn.addEventListener('click', () => {
-            mobileMenu.style.display = 'none';
-        });
-    }
-
-    document.querySelectorAll('.mobile-nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.style.display = 'none';
-        });
-    });
-
-    // Fade-in animation
-    const fadeElements = document.querySelectorAll('.fade-in');
-    const fadeInOnScroll = () => {
-      fadeElements.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 150;
-        if (elementTop < window.innerHeight - elementVisible) {
-          element.classList.add('visible');
-          element.style.opacity = "1";
-          element.style.transform = "translateY(0)";
+        
+        if(closeBtn) {
+            closeBtn.addEventListener('click', () => {
+                mobileMenu.style.display = 'none';
+            });
         }
-      });
-    };
-    window.addEventListener('scroll', fadeInOnScroll);
-    
-    // Add simple fade-in styles dynamically
-    const style = document.createElement('style');
-    style.innerHTML = `
-      .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    `;
-    document.head.appendChild(style);
-    
-    fadeInOnScroll();
+
+        // Close mobile menu when a link is clicked
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.style.display = 'none';
+            });
+        });
+    });
   </script>
+
 </body>
 </html>
