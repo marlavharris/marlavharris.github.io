@@ -142,7 +142,7 @@
 
     .hero {
       padding: 0;
-      height: 100vh; 
+      height: 90vh; /* Reduced slightly to allow peek at process */
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -174,6 +174,99 @@
         font-style: italic;
         font-weight: 400;
         opacity: 0.8;
+    }
+
+    /* --- NEW PROCESS SECTION STYLES --- */
+    .process-section {
+        padding: 6rem 0;
+        border-top: 1px solid var(--line);
+        background: var(--bg-subtle);
+    }
+
+    .process-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0; /* Removing gap for borders */
+    }
+
+    .process-step {
+        padding: 3rem 2rem;
+        border-right: 1px solid var(--line);
+        position: relative;
+        transition: all 0.4s ease;
+        background: var(--bg-subtle);
+        cursor: default;
+        min-height: 250px;
+        display: flex;
+        flex-direction: column;
+        
+        /* Initial state for staggered animation */
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    /* Staggered Delay Classes */
+    .process-step.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .process-step:nth-child(1) { transition-delay: 0.1s; }
+    .process-step:nth-child(2) { transition-delay: 0.3s; }
+    .process-step:nth-child(3) { transition-delay: 0.5s; }
+    .process-step:nth-child(4) { transition-delay: 0.7s; border-right: none; }
+
+    /* Connector Line Logic - UPDATED FOR VISIBILITY */
+    .process-step::after {
+        content: '';
+        position: absolute;
+        top: 3.5rem; /* Align with number */
+        right: -10px; /* Slight overlap */
+        width: 20px;
+        height: 2px; /* Thicker */
+        background: var(--accent); /* Uses accent color for visibility */
+        opacity: 0.3; /* Subtle but visible */
+        z-index: 10;
+    }
+    .process-step:last-child::after { display: none; }
+
+    .process-num {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.75rem;
+        color: var(--accent);
+        margin-bottom: 1.5rem;
+        opacity: 0.6;
+        display: block;
+    }
+
+    .process-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.5rem;
+        color: var(--ink);
+        margin-bottom: 1rem;
+        line-height: 1.2;
+    }
+
+    .process-desc {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.9rem;
+        color: var(--charcoal);
+        opacity: 0; /* Hidden by default */
+        transform: translateY(10px);
+        transition: all 0.4s ease;
+        line-height: 1.6;
+    }
+
+    /* HOVER INTERACTION */
+    .process-step:hover {
+        background: #ffffff;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        z-index: 2; /* Bring forward */
+    }
+
+    .process-step:hover .process-desc {
+        opacity: 1;
+        transform: translateY(0);
     }
 
     /* --- ANIMATION LOGIC --- */
@@ -468,7 +561,7 @@
         font-family: 'Playfair Display', serif;
         font-size: 2.2rem; 
         color: var(--ink);
-        font-style: italic;
+        font-style: normal; /* UPDATED: No longer italic */
         transition: color 0.4s ease;
         display: block;
         margin-bottom: 0.5rem;
@@ -490,7 +583,7 @@
     }
 
     .hook-item:hover .hook-insight {
-        max-height: 150px;
+        max-height: 350px; /* Increased to accommodate copy blocks */
         opacity: 1;
         margin-top: 1.5rem;
         transform: translateY(0);
@@ -548,13 +641,20 @@
       .nav-links { display: none; }
       .mobile-menu-btn { display: block; }
       .hero { padding: 6rem 0; height: auto; min-height: 90vh; }
+      
+      /* PROCESS SECTION MOBILE */
+      .process-grid { grid-template-columns: 1fr; }
+      .process-step { border-right: none; border-bottom: 1px solid var(--line); min-height: auto; }
+      .process-step::after { display: none; } /* Hide connectors on mobile */
+      .process-desc { opacity: 1; transform: translateY(0); margin-top: 1rem; } /* Always show on mobile */
+
       .project-grid { grid-template-columns: 1fr; gap: 5rem; }
       .project-section:nth-child(even) .project-grid { direction: ltr; }
       .hero h1 { font-size: 3rem; }
       .project-title { font-size: 2rem; }
       .hook-text { font-size: 1.5rem; }
       .hook-item { padding: 2rem 0; }
-      .hook-insight { max-height: 200px; opacity: 1; margin-top: 1rem; transform: translateY(0); }
+      .hook-insight { max-height: 300px; opacity: 1; margin-top: 1rem; transform: translateY(0); }
       .btn-group { flex-direction: column; gap: 1.5rem; margin-top: 3rem; }
       .ipad-bezel { box-shadow: 0 10px 20px -5px rgba(0,0,0,0.2); }
       .metrics-row { gap: 3rem; }
@@ -600,8 +700,60 @@
       <p>I make sense of the data to find the hidden story within it.</p>
        
       <div class="btn-group">
-        <a href="#projects" class="btn btn-primary">Featured Projects</a>
-        <a href="#index" class="btn btn-secondary">The Subject Line Index</a>
+        <a href="#process" class="btn btn-primary">The Process</a>
+        <a href="#projects" class="btn btn-secondary">Featured Projects</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW INTERACTIVE PROCESS SECTION -->
+  <section id="process" class="process-section fade-in">
+    <div class="container">
+        <div class="process-grid">
+            <div class="process-step">
+                <span class="process-num">01.</span>
+                <h3 class="process-title">The Data</h3>
+                <p class="process-desc">I analyze behavior, not just vanity metrics. Finding the truth behind the click.</p>
+            </div>
+            <div class="process-step">
+                <span class="process-num">02.</span>
+                <h3 class="process-title">The Audience</h3>
+                <p class="process-desc">I find who they actually are, not who we want them to be. Empathy over ego.</p>
+            </div>
+            <div class="process-step">
+                <span class="process-num">03.</span>
+                <h3 class="process-title">The Strategy</h3>
+                <p class="process-desc">I build the bridge between business goals and human interest. The plan before the pen.</p>
+            </div>
+            <div class="process-step">
+                <span class="process-num">04.</span>
+                <h3 class="process-title">The Creative</h3>
+                <p class="process-desc">I craft the voice that makes them click. Words that work, not just words that sound nice.</p>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- METRICS ROW MOVED HERE -->
+  <section class="metrics-section fade-in" style="padding: 4rem 0; border-bottom: 1px solid var(--line);">
+    <div class="container">
+      <div class="metrics-row" style="margin-bottom: 0; padding-bottom: 0; border-bottom: none;">
+          <div class="metric-item">
+              <span class="metric-value">49.5M+</span>
+              <span class="metric-label">Total Sent</span>
+          </div>
+          <div class="metric-item">
+              <span class="metric-value">20.95%</span>
+              <span class="metric-label">Avg. Open Rate</span>
+          </div>
+          <div class="metric-item">
+              <span class="metric-value">80k+</span>
+              <span class="metric-label">Total Unique Clicks</span>
+          </div>
+          <div class="metric-item">
+              <span class="metric-value highlight">$120k+</span>
+              <span class="metric-label">Revenue Generated</span>
+          </div>
       </div>
     </div>
   </section>
@@ -631,21 +783,7 @@
          
         <div class="case-study-block">
           
-          <!-- METRICS GRID (Moved to Top) -->
-          <div class="metrics-row" style="border-bottom: 1px solid var(--line); margin-bottom: 2.5rem; padding-bottom: 2rem; justify-content: flex-start; gap: 3rem;">
-            <div class="metric-item" style="flex: 0 1 auto; text-align: left;">
-                <span class="metric-value" style="font-size: 2.5rem;">2.5M</span>
-                <span class="metric-label">Subscribers</span>
-            </div>
-            <div class="metric-item" style="flex: 0 1 auto; text-align: left;">
-                <span class="metric-value" style="font-size: 2.5rem;">21%</span>
-                <span class="metric-label">Avg. Open Rate</span>
-            </div>
-            <div class="metric-item" style="flex: 0 1 auto; text-align: left;">
-                <span class="metric-value" style="font-size: 2.5rem;">$120k+</span>
-                <span class="metric-label">Revenue</span>
-            </div>
-          </div>
+          <!-- METRICS GRID REMOVED PER REQUEST -->
 
           <div class="cs-grid">
              <div class="cs-item">
@@ -662,45 +800,6 @@
              </div>
           </div>
           
-          <!-- COPY ARCHIVE: 3 DISTINCT CAMPAIGNS (Styled to Match) -->
-          <div style="margin-top: 4rem;">
-            <span class="cs-label" style="border-bottom: 1px solid var(--line); padding-bottom: 10px; margin-bottom: 2rem; display:block;">Selected Copy: Campaign Archive</span>
-            
-            <!-- Campaign 1: Brand Anthem -->
-            <div style="margin-bottom: 3rem;">
-                <span class="meta" style="color: var(--accent); margin-bottom: 0.8rem; display: block;">01. The Brand Anthem</span>
-                <div style="margin-bottom: 1rem;">
-                    <p style="font-family: 'Inter', sans-serif; font-size: 0.9rem; color: var(--ink); font-weight: 500;">SL: Always Evolving and Forever Bold.</p>
-                </div>
-                <p style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; line-height: 1.6; color: var(--charcoal); opacity: 0.9;">
-                    "Rolling Stone has been at the forefront of American culture since 1967... Find out why Yoga to the People’s business model was too good to be true. Discover the true risk of rainbow fentanyl. Follow the latest developments in the ongoing battle for reproductive rights. And keep tabs on the absolute worst people in American politics."
-                </p>
-            </div>
-
-            <!-- Campaign 2: Future of Music -->
-            <div style="margin-bottom: 3rem;">
-                <span class="meta" style="color: var(--accent); margin-bottom: 0.8rem; display: block;">02. Future of Music</span>
-                <div style="margin-bottom: 1rem;">
-                    <p style="font-family: 'Inter', sans-serif; font-size: 0.9rem; color: var(--ink); font-weight: 500;">SL: Did you miss this? Your chance to save ends today.</p>
-                </div>
-                <p style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; line-height: 1.6; color: var(--charcoal); opacity: 0.9;">
-                    "Dig deeper than ever into the trends, technology and artists shaping the music of the future. Find out how snippets, mere seconds of music, are changing how we think about songs. Check out 21 stats that predict future threats and opportunities. And watch a Grammy-winning songwriter create a song using AI."
-                </p>
-            </div>
-
-            <!-- Campaign 3: Student Offer -->
-            <div style="margin-bottom: 1rem;">
-                <span class="meta" style="color: var(--accent); margin-bottom: 0.8rem; display: block;">03. The Edu Offer</span>
-                <div style="margin-bottom: 1rem;">
-                    <p style="font-family: 'Inter', sans-serif; font-size: 0.9rem; color: var(--ink); font-weight: 500;">SL: Students Only! $1 for a FULL YEAR.</p>
-                </div>
-                <p style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; line-height: 1.6; color: var(--charcoal); opacity: 0.9;">
-                    "From Doja Cat to Megan Thee Stallion, Rolling Stone tells the stories of the moment’s most provocative personalities. Get closer to your favorite artists. Gain an understanding of the best and worst people in politics. And immerse yourself in iconic culture reporting, from sex to TikTok to psilocybin."
-                </p>
-            </div>
-
-          </div>
-
         </div>
       </div>
     </div>
@@ -787,95 +886,73 @@
     </div>
   </section>
 
+  <!-- NEW CONSOLIDATED ARCHIVE SECTION -->
   <section id="index" class="hook-section fade-in">
     <div class="container">
         <div class="hook-header-group">
-            <h2 style="margin-bottom: 0; color: var(--accent);">// The Archive</h2>
-            <span class="hook-header-sub">Select Subject Lines</span>
+            <!-- UPDATED HEADER FOR CLARITY -->
+            <h2 style="margin-bottom: 0; color: var(--accent);">// The Archive: Writing Samples</h2>
+            <span class="hook-header-sub">Campaign Copy & Subject Lines</span>
         </div>
 
-        <!-- NEW METRICS ROW -->
-        <div class="metrics-row">
-            <div class="metric-item">
-                <span class="metric-value">49.5M+</span>
-                <span class="metric-label">Total Sent</span>
-            </div>
-            <div class="metric-item">
-                <span class="metric-value">20.95%</span>
-                <span class="metric-label">Avg. Open Rate</span>
-            </div>
-            <div class="metric-item">
-                <span class="metric-value">80k+</span>
-                <span class="metric-label">Total Unique Clicks</span>
-            </div>
-            <div class="metric-item">
-                <span class="metric-value highlight">$120k+</span>
-                <span class="metric-label">Revenue Generated</span>
-            </div>
-        </div>
-         
         <ul class="hook-list">
-            <!-- Rolling Stone -->
+            
+            <!-- SECTION 1: CAMPAIGN COPY - UPDATED FONT STYLE -->
             <li class="hook-item">
                 <span class="hook-type meta">Rolling Stone</span>
-                <span class="hook-text">"Turn up the volume with Rolling Stone. 🎧"</span>
+                <span class="hook-text" style="font-family: 'Playfair Display', serif; font-size: 2rem;">"Always Evolving and Forever Bold."</span>
                 <div class="hook-insight">
-                    Captures reader curiosity and excitement around music; strong open engagement.
-                </div>
-            </li>
-            <li class="hook-item">
-                <span class="hook-type meta">Rolling Stone</span>
-                <span class="hook-text">"Who’s trending now? Discover the latest artists in Rolling Stone."</span>
-                <div class="hook-insight">
-                    Highlights discovery-focused content; appeals to readers exploring new artists and trends.
+                    <span class="copy-label meta" style="margin-bottom: 0.5rem; color: var(--accent);">Campaign: Brand Anthem</span>
+                    <p style="font-family: 'Playfair Display', serif; font-style: normal; margin-bottom: 1rem; color: var(--ink); font-size: 1.2rem;">
+                        "Rolling Stone has been at the forefront of American culture since 1967... Find out why Yoga to the People’s business model was too good to be true. Discover the true risk of rainbow fentanyl. Follow the latest developments in the ongoing battle for reproductive rights. And keep tabs on the absolute worst people in American politics."
+                    </p>
                 </div>
             </li>
 
-            <!-- WWD -->
             <li class="hook-item">
+                <span class="hook-type meta">Rolling Stone</span>
+                <span class="hook-text" style="font-family: 'Playfair Display', serif; font-size: 2rem;">"Did you miss this? Your chance to save ends today."</span>
+                <div class="hook-insight">
+                    <span class="copy-label meta" style="margin-bottom: 0.5rem; color: var(--accent);">Campaign: Future of Music</span>
+                    <p style="font-family: 'Playfair Display', serif; font-style: normal; margin-bottom: 1rem; color: var(--ink); font-size: 1.2rem;">
+                        "Dig deeper than ever into the trends, technology and artists shaping the music of the future. Find out how snippets, mere seconds of music, are changing how we think about songs. Check out 21 stats that predict future threats and opportunities. And watch a Grammy-winning songwriter create a song using AI."
+                    </p>
+                </div>
+            </li>
+
+            <li class="hook-item">
+                <span class="hook-type meta">Rolling Stone</span>
+                <span class="hook-text" style="font-family: 'Playfair Display', serif; font-size: 2rem;">"Students Only! $1 for a FULL YEAR."</span>
+                <div class="hook-insight">
+                    <span class="copy-label meta" style="margin-bottom: 0.5rem; color: var(--accent);">Campaign: Education Offer</span>
+                    <p style="font-family: 'Playfair Display', serif; font-style: normal; margin-bottom: 1rem; color: var(--ink); font-size: 1.2rem;">
+                        "From Doja Cat to Megan Thee Stallion, Rolling Stone tells the stories of the moment’s most provocative personalities. Get closer to your favorite artists. Gain an understanding of the best and worst people in politics. And immerse yourself in iconic culture reporting, from sex to TikTok to psilocybin."
+                    </p>
+                </div>
+            </li>
+
+            <!-- SECTION 2: SUBJECT LINES - Divider Logic Cleaned -->
+            <li class="hook-item" style="border-top: 3px solid var(--line); margin-top: 3rem; padding-top: 3rem;">
                 <span class="hook-type meta">WWD</span>
-                <span class="hook-text">"Every Red Carpet. Every Look. Every Moment."</span>
+                <span class="hook-text" style="font-family: 'Playfair Display', serif; font-size: 2rem;">"Every Red Carpet. Every Look. Every Moment."</span>
                 <div class="hook-insight">
                     Highly engaging for fashion industry readers; encourages deep interaction with fashion coverage.
                 </div>
             </li>
-            <li class="hook-item">
-                <span class="hook-type meta">WWD</span>
-                <span class="hook-text">"Behind on the latest fashion week news?"</span>
-                <div class="hook-insight">
-                    Targets readers who want expert analysis and timely updates; drives click engagement.
-                </div>
-            </li>
 
-            <!-- Billboard -->
             <li class="hook-item">
                 <span class="hook-type meta">Billboard</span>
-                <span class="hook-text">"From deal-signing to chart-climbing, stay informed with Billboard Pro."</span>
+                <span class="hook-text" style="font-family: 'Playfair Display', serif; font-size: 2rem;">"From deal-signing to chart-climbing, stay informed with Billboard Pro."</span>
                 <div class="hook-insight">
                     Broadly appealing editorial; keeps readers informed about music business and industry trends.
                 </div>
             </li>
-            <li class="hook-item">
-                <span class="hook-type meta">Billboard</span>
-                <span class="hook-text">"Complete coverage of the music business, from a single source."</span>
-                <div class="hook-insight">
-                    High-interest content that draws opens; excellent for awareness of charts and news.
-                </div>
-            </li>
 
-            <!-- NEW ADDITIONS -->
             <li class="hook-item">
                 <span class="hook-type meta">Retail / Fashion</span>
-                <span class="hook-text">“From Runway to Reality: Fall Trends You’ll Love”</span>
+                <span class="hook-text" style="font-family: 'Playfair Display', serif; font-size: 2rem;">“From Runway to Reality: Fall Trends You’ll Love”</span>
                 <div class="hook-insight">
                     <span class="insight-metric">38% Open Rate & 5.3% CTR</span>
-                </div>
-            </li>
-            <li class="hook-item">
-                <span class="hook-type meta">Luxury Lifestyle</span>
-                <span class="hook-text">“Command attention...without even trying.”</span>
-                <div class="hook-insight">
-                    <span class="insight-metric">28% Open Rate & 3.7% CTR</span>
                 </div>
             </li>
 
@@ -947,6 +1024,10 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
+                    // Add staggered delay based on index for process steps
+                    if (entry.target.classList.contains('process-step')) {
+                        // Delay is handled in CSS, just add class
+                    }
                     observer.unobserve(entry.target); // Run once
                 }
             });
@@ -954,6 +1035,10 @@
 
         const hiddenElements = document.querySelectorAll('.fade-in');
         hiddenElements.forEach((el) => observer.observe(el));
+        
+        // Also observe process steps individually for staggered effect
+        const processSteps = document.querySelectorAll('.process-step');
+        processSteps.forEach((el) => observer.observe(el));
     });
   </script>
 
