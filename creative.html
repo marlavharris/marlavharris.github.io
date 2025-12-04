@@ -607,8 +607,9 @@
         color: var(--charcoal);
         margin-top: 0;
         transform: translateY(10px);
-        text-align: left; /* Ensure revealed text is left-aligned */
-        padding: 0 1rem; /* Small internal padding */
+        /* FIX: Center the container block */
+        text-align: center; 
+        padding: 0 1rem; 
     }
 
     .hook-item:hover .hook-insight {
@@ -628,7 +629,8 @@
     /* Sportico specific price styling - REFACTORED FOR HOOK-INSIGHT */
     .sportico-price-group {
         display: flex;
-        justify-content: flex-start; /* Align left in the insight box */
+        /* FIX: Center price group */
+        justify-content: center;
         align-items: center;
         gap: 1rem;
         margin: 0.5rem 0 1rem;
@@ -653,20 +655,9 @@
     }
     
     .sportico-cta {
-        background-color: var(--accent);
-        color: white;
-        text-decoration: none;
-        padding: 0.5rem 1.5rem;
-        border-radius: 4px;
-        font-size: 0.75rem;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        display: inline-block;
-        margin-top: 0.5rem;
-        transition: background-color 0.3s;
+        /* Removed since the CTA is deleted */
+        display: none; 
     }
-    .sportico-cta:hover { background-color: #7a0038; }
 
 
     .contact { padding: 10rem 0; text-align: center; background: var(--paper); border-top: 1px solid var(--line); }
@@ -1018,27 +1009,24 @@
             
             <!-- NEW SPORTICO ENTRY - NOW MATCHING STANDARD HOOK-ITEM STYLE -->
             <li class="hook-item">
-                <span class="hook-type meta">Sportico (Penske Media Corp.)</span>
-                <!-- Main title for hover -->
-                <span class="hook-text">FOLLOW THE MONEY IN SPORTS</span>
+                <!-- 2. Remove Penske Media Corp. -->
+                <span class="hook-type meta">Sportico</span>
+                <!-- 1. Change to Title Case -->
+                <span class="hook-text">Follow the Money in Sports</span>
                 <div class="hook-insight">
                     
-                    <!-- Pricing and CTA formatted inside the hover area -->
-                    <div style="font-family: 'Playfair Display', serif; margin-bottom: 1rem; border-bottom: 1px dashed var(--line); padding-bottom: 1rem;">
-                        <span style="font-size: 1.1rem; color: var(--charcoal); display: block;">Unlock Sportico's 360-degree daily coverage</span>
-                        <div class="sportico-price-group" style="justify-content: center; border-top: none;">
-                            <span class="sportico-old-price">~~ $59.99 ~~</span>
-                            <span class="sportico-new-price" style="font-size: 2rem;">$39.99/MONTH</span>
-                        </div>
-                        <a href="#" class="sportico-cta" style="margin-top: 0;">SUBSCRIBE NOW</a>
-                    </div>
+                    <!-- Pricing and content formatted inside the hover area -->
+                    <!-- Updated section to remove pricing and CTA -->
+                    <p style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--charcoal); display: block; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px dashed var(--line); text-align: center;">
+                        Unlock Sportico's 360-degree daily coverage
+                    </p>
                     
                     <p style="font-family: 'Inter', sans-serif; font-size: 0.85rem; color: var(--charcoal); line-height: 1.7; text-align: left; margin-bottom: 0.75rem;">
                         Sportico's comprehensive coverage keeps you informed on the numbers and what they mean for the sports industry.
                         From newly-named club presidents to chief revenue officers to the latest board appointments, follow the movements of sports' leading business players. 
                         Keep score on the Top 100 Highest-Paid Athletes in the World list, across 10 sports and 23 countries. Gain insight from franchise proprietors and organizational heads on how they are tackling worries about an economic downturn. And stay ahead of the latest SPACs, IPOs and newly-inked endorsement deals.
                     </p>
-                    <p class="text-xs text-neutral-600 font-normal" style="text-align: left;">
+                    <p class="text-xs text-neutral-600 font-normal" style="text-align: center;">
                         Offer ends tomorrow. Subscribe today and save nearly 35% on unlimited access to Sportico, leading news source for the sports industry.
                     </p>
                 </div>
@@ -1051,7 +1039,7 @@
                 <span class="hook-text" style="font-family: 'Playfair Display', serif; font-size: 2rem;">"Always Evolving and Forever Bold."</span>
                 <div class="hook-insight">
                     <span class="copy-label meta" style="margin-bottom: 0.5rem; color: var(--accent);">Campaign: Brand Anthem</span>
-                    <p style="font-family: 'Playfair Display', serif; font-style: normal; margin-bottom: 1rem; color: var(--ink); font-size: 1.2rem;">
+                    <p style="font-family: 'Playfair Display', serif; font-style: normal; margin-bottom: 1rem; color: var(--ink); font-size: 1.2rem; text-align: left;">
                         "Rolling Stone has been at the forefront of American culture since 1967... Find out why Yoga to the People's business model was too good to be true. Discover the true risk of rainbow fentanyl. Follow the latest developments in the ongoing battle for reproductive rights. And keep tabs on the absolute worst people in American politics."
                     </p>
                 </div>
@@ -1062,7 +1050,7 @@
                 <span class="hook-text" style="font-family: 'Playfair Display', serif; font-size: 2rem;">"Did you miss this? Your chance to save ends today."</span>
                 <div class="hook-insight">
                     <span class="copy-label meta" style="margin-bottom: 0.5rem; color: var(--accent);">Campaign: Future of Music</span>
-                    <p style="font-family: 'Playfair Display', serif; font-style: normal; margin-bottom: 1rem; color: var(--ink); font-size: 1.2rem;">
+                    <p style="font-family: 'Playfair Display', serif; font-style: normal; margin-bottom: 1rem; color: var(--ink); font-size: 1.2rem; text-align: left;">
                         "Dig deeper than ever into the trends, technology and artists shaping the music of the future. Find out how snippets, mere seconds of music, are changing how we think about songs. Check out 21 stats that predict future threats and opportunities. And watch a Grammy-winning songwriter create a song using AI."
                     </p>
                 </div>
@@ -1073,7 +1061,7 @@
                 <span class="hook-text" style="font-family: 'Playfair Display', serif; font-size: 2rem;">"Students Only! $1 for a FULL YEAR."</span>
                 <div class="hook-insight">
                     <span class="copy-label meta" style="margin-bottom: 0.5rem; color: var(--accent);">Campaign: Education Offer</span>
-                    <p style="font-family: 'Playfair Display', serif; font-style: normal; margin-bottom: 1rem; color: var(--ink); font-size: 1.2rem;">
+                    <p style="font-family: 'Playfair Display', serif; font-style: normal; margin-bottom: 1rem; color: var(--ink); font-size: 1.2rem; text-align: left;">
                         "From Doja Cat to Megan Thee Stallion, Rolling Stone tells the stories of the moment's most provocative personalities. Get closer to your favorite artists. Gain an understanding of the best and worst people in politics. And immerse yourself in iconic culture reporting, from sex to TikTok to psilocybin."
                     </p>
                 </div>
@@ -1141,6 +1129,11 @@
             return value.toFixed(2) + '%';
         }
         if (format.includes('$')) {
+            // Special handling for the Revenue Generated metric on this page
+            if (format.includes('$k+')) {
+                let kValue = (value / 1000);
+                return `$${kValue.toFixed(0)}k+`;
+            }
             return '$' + formatNumber(value, format.replace('$', ''));
         }
         return value.toFixed(0);
@@ -1161,6 +1154,8 @@
             
             if (progress < 1) {
                 requestAnimationFrame(updateCount);
+            } else {
+                element.textContent = formatNumber(target, format); // Ensure final value is exact
             }
         }
         
