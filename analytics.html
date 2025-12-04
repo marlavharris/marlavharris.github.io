@@ -155,13 +155,13 @@
       justify-content: center;
       text-align: center;
       background: radial-gradient(circle at 50% 50%, #ffffff 0%, #f4f0f2 100%); 
-      padding-top: 80px;
+      padding-top: 80px; /* Add padding to account for fixed header */
     }
     
     .hero-content {
         max-width: 800px;
         margin: 0 auto;
-        opacity: 1;
+        opacity: 1; /* Remove animation for hero - it should be visible immediately */
         transform: none;
     }
 
@@ -463,75 +463,57 @@
   <section class="analytics-section">
     <div class="container analytics-grid">
         
-        <!-- DATA STORY 1: EV vs ICE - USING YOUR ACTUAL DATA -->
+        <!-- DATA STORY 1: Load Forecasting - COPY ADJUSTED -->
         <div class="data-story">
             <div class="chart-container">
-                <canvas id="evChart"></canvas>
+                <canvas id="loadChart"></canvas>
             </div>
             <div class="data-content">
-                <span class="data-label">01 — Economic Modeling</span>
-                <h2 class="data-title">EVs: $8,000 Cheaper Over 10 Years</h2>
+                <span class="data-label">01 — Behavioral Patterns</span>
+                <h2 class="data-title">Peak Demand Mapping</h2>
                 <p class="data-insight">
-                    "Federal incentives make EVs cheaper immediately, saving $8,129 over a decade despite higher sticker prices."
+                    "Energy demand reveals precise daily rhythms. The 3 PM spike is 176% higher than overnight lows."
                 </p>
                 <p class="data-desc">
-                    Net Present Value analysis comparing Chevy Bolt EV ($29,500) vs Honda Civic ($23,500) reveals the true economic story. With the $7,500 federal tax credit, EVs achieve cost parity on day one. Over 10 years at 4% discount rate, total ownership costs are $28,121 for EV vs $36,250 for ICE—an $8,129 advantage driven by 50% lower annual fuel costs ($755 vs $1,572).
+                    Hourly energy consumption data shows predictable daily patterns: minimal usage overnight (2,500 MW at 3 AM), steady climb through morning hours, peak demand at 3 PM (6,900 MW), and evening decline. This pattern identifies optimal timing for demand-response campaigns and reveals behavioral insights about when target audiences are most receptive to communications.
                 </p>
-                <div class="meta">Tools: NPV Analysis, Discounted Cash Flow, Sensitivity Analysis</div>
+                <div class="meta">Tools: Time Series Analysis, Pattern Recognition</div>
             </div>
         </div>
 
-        <!-- DATA STORY 2: Discount Rate Sensitivity -->
+        <!-- DATA STORY 2: Demographics - COPY UNCHANGED -->
         <div class="data-story">
             <div class="chart-container">
-                <canvas id="sensitivityChart"></canvas>
+                <canvas id="demoChart"></canvas>
             </div>
             <div class="data-content">
-                <span class="data-label">02 — Financial Sensitivity</span>
-                <h2 class="data-title">Higher Rates Favor EVs</h2>
+                <span class="data-label">02 — Consumer Segmentation</span>
+                <h2 class="data-title">Income-Wellbeing Correlation</h2>
                 <p class="data-insight">
-                    "At 8% discount rate, EV advantage grows to $6,984. Higher rates amplify the value of lower operating costs."
+                    "Higher income correlates with higher wellbeing, but the relationship isn't linear. After $100k, additional income yields diminishing returns."
                 </p>
                 <p class="data-desc">
-                    Sensitivity analysis reveals a critical insight: higher discount rates weaken the EV economic case. While both vehicles' total costs decrease in present value terms, the EV's advantage shrinks from $8,129 (4% rate) to $6,984 (8% rate). This occurs because EVs' primary benefit—lower future operating costs—gets discounted more heavily at higher rates, making their higher upfront price harder to justify.
+                    Analysis of 1,000+ survey responses shows distinct consumer segments: low-income respondents ($28k-$42k) report wellbeing scores of 40-50, middle-income ($55k-$72k) score 62-70, and high-income ($95k-$150k) reach 78-88. The data reveals income thresholds where wellbeing improvements plateau, enabling more precise targeting of wellbeing-related products and services.
                 </p>
-                <div class="meta">Tools: Sensitivity Analysis, Scenario Modeling, Financial Optimization</div>
+                <div class="meta">Tools: Cluster Analysis, Correlation Studies</div>
             </div>
         </div>
 
-        <!-- DATA STORY 3: Annual Cost Breakdown -->
+        <!-- DATA STORY 3: Simulation - COPY ADJUSTED -->
         <div class="data-story">
             <div class="chart-container">
-                <canvas id="annualChart"></canvas>
+                <canvas id="simChart"></canvas>
             </div>
             <div class="data-content">
-                <span class="data-label">03 — Cost Structure Analysis</span>
-                <h2 class="data-title">The Fuel Cost Differential</h2>
+                <span class="data-label">03 — Statistical Reliability</span>
+                <h2 class="data-title">Sample Size Matters</h2>
                 <p class="data-insight">
-                    "EVs save $817 annually on fuel—paying back the price premium in just 3.5 years without incentives."
+                    "Individual samples vary by 165%, but the aggregate reveals the true population. Never trust a single data point."
                 </p>
                 <p class="data-desc">
-                    Annual cost analysis shows the fundamental economic driver: electricity costs $755/year vs gasoline at $1,572/year for average driving (13,476 miles). This $817 annual savings accumulates rapidly. Even without the $7,500 tax credit, the $6,000 price premium pays back in 7.3 years. With incentives, payback occurs immediately, creating positive cash flow from year one.
+                    Mark-recapture simulation demonstrates sample volatility: five independent samples produced estimates ranging from 170 to 450 (165% variance). However, the aggregated mean stabilizes at 305. This underscores the importance of sufficient sample sizes and repeated measurements before making business decisions, highlighting why "one-off" survey results can be dangerously misleading.
                 </p>
-                <div class="meta">Tools: Cost-Benefit Analysis, Payback Period, Cash Flow Modeling</div>
-            </div>
-        </div>
-
-        <!-- DATA STORY 4: Carbon Impact -->
-        <div class="data-story">
-            <div class="chart-container">
-                <canvas id="carbonChart"></canvas>
-            </div>
-            <div class="data-content">
-                <span class="data-label">04 — Environmental Economics</span>
-                <h2 class="data-title">Clean Air Pays Dividends</h2>
-                <p class="data-insight">
-                    "Each EV prevents 14.3 tons of CO₂ over 10 years while saving $8,129—climate action that pays for itself."
-                </p>
-                <p class="data-desc">
-                    Combined environmental-economic analysis reveals powerful synergy: EVs reduce emissions by 68% (20.8 tons to 6.5 tons over 10 years) while delivering substantial financial savings. This creates a compelling value proposition where environmental benefits and economic advantages reinforce each other. In New York's grid (0.55 tons CO₂/MWh), each EV effectively pays $568 per ton of CO₂ avoided through fuel savings alone.
-                </p>
-                <div class="meta">Tools: Emissions Analysis, Environmental Economics, Lifecycle Assessment</div>
+                <div class="meta">Tools: Statistical Modeling, Confidence Intervals</div>
             </div>
         </div>
 
@@ -542,14 +524,14 @@
       <div class="container">
           <span class="hero-sub meta" style="margin-bottom: 3rem; display: block;">// The Technical Toolkit</span>
           <div class="toolkit-grid">
-              <div class="tool-item stagger-item">NPV Analysis</div>
-              <div class="tool-item stagger-item">Excel Modeling</div>
-              <div class="tool-item stagger-item">Data Visualization</div>
-              <div class="tool-item stagger-item">Sensitivity Analysis</div>
-              <div class="tool-item stagger-item">Cost-Benefit Analysis</div>
+              <div class="tool-item stagger-item">Advanced Excel</div>
+              <div class="tool-item stagger-item">Looker</div>
+              <div class="tool-item stagger-item">Google Analytics</div>
+              <div class="tool-item stagger-item">Power BI</div>
+              <div class="tool-item stagger-item">Pivot Tables</div>
               <div class="tool-item stagger-item">Forecasting Models</div>
-              <div class="tool-item stagger-item">Financial Modeling</div>
-              <div class="tool-item stagger-item">Scenario Analysis</div>
+              <div class="tool-item stagger-item">Regression Analysis</div>
+              <div class="tool-item stagger-item">A/B Testing</div>
               <div class="tool-item stagger-item">Statistical Analysis</div>
           </div>
       </div>
@@ -619,259 +601,33 @@
         }
     });
 
-    // --- CHART.JS CONFIGURATION - USING YOUR ACTUAL DATA ---
+    // --- CHART.JS CONFIGURATION ---
+    // Global defaults for fonts
     Chart.defaults.font.family = "'Inter', sans-serif";
     Chart.defaults.color = '#757575';
     
-    // 1. EV vs ICE Cost Chart - USING YOUR EXACT NUMBERS
-    const ctxEV = document.getElementById('evChart').getContext('2d');
-    new Chart(ctxEV, {
+    // 1. Load Curve Chart - DATA UNCHANGED
+    const ctxLoad = document.getElementById('loadChart').getContext('2d');
+    new Chart(ctxLoad, {
         type: 'bar',
         data: {
-            labels: ['Initial (After Rebate)', 'Year 5', 'Year 10 (4% NPV)', 'Year 10 (8% NPV)'],
-            datasets: [
-                {
-                    label: 'Electric Vehicle',
-                    data: [22000, 25773, 28121, 27064], // Your data: 29500-7500=22000, Year 5 est, 4% NPV, 8% NPV
-                    backgroundColor: '#8B2648',
-                    borderRadius: 2,
-                    barPercentage: 0.6
-                }, 
-                {
-                    label: 'Gas Vehicle',
-                    data: [23500, 31750, 36250, 34048], // Your data: Initial, Year 5 est, 4% NPV, 8% NPV
-                    backgroundColor: '#333333', 
-                    borderRadius: 2,
-                    barPercentage: 0.6
-                }
-            ]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: { 
-                    position: 'bottom', 
-                    labels: { 
-                        usePointStyle: true, 
-                        padding: 20,
-                        font: { family: "'Inter', sans-serif", size: 11 }
-                    } 
-                },
-                tooltip: {
-                    backgroundColor: '#fff',
-                    titleColor: '#000',
-                    bodyColor: '#666',
-                    borderColor: 'rgba(0,0,0,0.1)',
-                    borderWidth: 1,
-                    padding: 10,
-                    displayColors: true,
-                    callbacks: {
-                        label: function(context) {
-                            let label = context.dataset.label || '';
-                            if (label) label += ': $';
-                            label += context.parsed.y.toLocaleString();
-                            if (context.dataIndex === 2) label += ' (4% NPV)';
-                            if (context.dataIndex === 3) label += ' (8% NPV)';
-                            return label;
-                        }
-                    }
-                }
-            },
-            scales: {
-                y: { 
-                    beginAtZero: true,
-                    grid: { color: 'rgba(0,0,0,0.03)' },
-                    ticks: {
-                        callback: function(value) {
-                            return '$' + (value/1000).toFixed(0) + 'k';
-                        },
-                        font: { family: "'Inter', sans-serif", size: 11 }
-                    },
-                    title: {
-                        display: true,
-                        text: 'Cumulative Cost ($)',
-                        font: { family: "'Inter', sans-serif", size: 12, weight: '500' }
-                    }
-                },
-                x: { 
-                    grid: { display: false },
-                    ticks: { font: { family: "'Inter', sans-serif", size: 11 } }
-                }
-            }
-        }
-    });
-
-    // 2. Sensitivity Analysis Chart - YOUR DISCOUNT RATE IMPACT
-    const ctxSensitivity = document.getElementById('sensitivityChart').getContext('2d');
-    new Chart(ctxSensitivity, {
-        type: 'line',
-        data: {
-            labels: ['0%', '2%', '4%', '6%', '8%', '10%'],
-            datasets: [
-                {
-                    label: 'EV Cost Advantage Over ICE',
-                    data: [8500, 8300, 8129, 7500, 6984, 6500], // Estimated from your data
-                    borderColor: '#8B2648',
-                    backgroundColor: 'rgba(139, 38, 72, 0.1)',
-                    pointBackgroundColor: '#8B2648',
-                    pointBorderColor: '#fff',
-                    pointRadius: 6,
-                    borderWidth: 3,
-                    tension: 0.2,
-                    fill: true
-                },
-                {
-                    label: 'Break-even (No Advantage)',
-                    data: [0, 0, 0, 0, 0, 0],
-                    borderColor: '#333333',
-                    borderWidth: 1,
-                    borderDash: [5, 5],
-                    pointRadius: 0,
-                    fill: false
-                }
-            ]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: { 
-                    position: 'bottom',
-                    labels: {
-                        usePointStyle: true,
-                        padding: 20,
-                        font: { family: "'Inter', sans-serif", size: 11 }
-                    }
-                },
-                tooltip: {
-                    backgroundColor: '#fff',
-                    titleColor: '#000',
-                    bodyColor: '#666',
-                    borderColor: 'rgba(0,0,0,0.1)',
-                    borderWidth: 1,
-                    padding: 10,
-                    callbacks: {
-                        label: function(context) {
-                            if (context.datasetIndex === 0) {
-                                return `EV saves $${context.parsed.y.toLocaleString()} at ${context.label} discount rate`;
-                            }
-                            return 'Cost parity line';
-                        }
-                    }
-                }
-            },
-            scales: {
-                y: { 
-                    beginAtZero: true,
-                    grid: { color: 'rgba(0,0,0,0.03)' },
-                    title: { 
-                        display: true, 
-                        text: 'EV Cost Advantage ($)',
-                        font: { family: "'Inter', sans-serif", size: 12, weight: '500' }
-                    },
-                    ticks: {
-                        callback: function(value) {
-                            return '$' + value.toLocaleString();
-                        },
-                        font: { family: "'Inter', sans-serif", size: 11 }
-                    }
-                },
-                x: { 
-                    grid: { display: false },
-                    title: { 
-                        display: true, 
-                        text: 'Discount Rate',
-                        font: { family: "'Inter', sans-serif", size: 12, weight: '500' }
-                    },
-                    ticks: { font: { family: "'Inter', sans-serif", size: 11 } }
-                }
-            }
-        }
-    });
-
-    // 3. Annual Cost Breakdown - YOUR FUEL COSTS
-    const ctxAnnual = document.getElementById('annualChart').getContext('2d');
-    new Chart(ctxAnnual, {
-        type: 'bar',
-        data: {
-            labels: ['Annual Fuel Cost', '10-Year PV (4%)', '10-Year PV (8%)'],
-            datasets: [
-                {
-                    label: 'Electric Vehicle',
-                    data: [755, 6120, 5064], // Your data: 754.66 annual, 6,120 4% PV, 5,064 8% PV
-                    backgroundColor: '#8B2648',
-                    borderRadius: 2
-                },
-                {
-                    label: 'Gas Vehicle',
-                    data: [1572, 12750, 10548], // Your data: 1,572 annual, 12,750 4% PV, 10,548 8% PV
-                    backgroundColor: '#333333',
-                    borderRadius: 2
-                }
-            ]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: { 
-                    position: 'bottom',
-                    labels: {
-                        usePointStyle: true,
-                        padding: 20,
-                        font: { family: "'Inter', sans-serif", size: 11 }
-                    }
-                },
-                tooltip: {
-                    backgroundColor: '#fff',
-                    titleColor: '#000',
-                    bodyColor: '#666',
-                    borderColor: 'rgba(0,0,0,0.1)',
-                    borderWidth: 1,
-                    padding: 10,
-                    callbacks: {
-                        label: function(context) {
-                            let label = context.dataset.label || '';
-                            label += ': $' + context.parsed.y.toLocaleString();
-                            if (context.dataIndex > 0) label += ' (Present Value)';
-                            return label;
-                        }
-                    }
-                }
-            },
-            scales: {
-                y: { 
-                    beginAtZero: true,
-                    grid: { color: 'rgba(0,0,0,0.03)' },
-                    title: { 
-                        display: true, 
-                        text: 'Cost ($)',
-                        font: { family: "'Inter', sans-serif", size: 12, weight: '500' }
-                    },
-                    ticks: {
-                        font: { family: "'Inter', sans-serif", size: 11 }
-                    }
-                },
-                x: { 
-                    grid: { display: false },
-                    ticks: { font: { family: "'Inter', sans-serif", size: 11 } }
-                }
-            }
-        }
-    });
-
-    // 4. Carbon Emissions Chart
-    const ctxCarbon = document.getElementById('carbonChart').getContext('2d');
-    new Chart(ctxCarbon, {
-        type: 'bar',
-        data: {
-            labels: ['Gas Vehicle', 'EV (NY Grid)', 'CO₂ Mitigation'],
+            labels: ['12AM', '3AM', '6AM', '9AM', '12PM', '3PM', '6PM', '9PM', '12AM'],
             datasets: [{
-                label: '10-Year CO₂ Emissions (tons)',
-                data: [20.8, 6.5, 14.3], // From your homework calculation
-                backgroundColor: ['#333333', '#8B2648', '#B85C7E'],
-                borderRadius: 2
+                label: 'Energy Demand (MW)',
+                data: [2800, 2500, 3200, 4500, 5800, 6900, 6200, 4800, 3500], 
+                backgroundColor: [
+                    'rgba(139, 38, 72, 0.7)',   // 12AM
+                    'rgba(139, 38, 72, 0.5)',   // 3AM
+                    'rgba(139, 38, 72, 0.6)',   // 6AM
+                    'rgba(139, 38, 72, 0.7)',   // 9AM
+                    'rgba(139, 38, 72, 0.8)',   // 12PM
+                    '#8B2648',                   // 3PM (peak - full color)
+                    'rgba(139, 38, 72, 0.8)',   // 6PM
+                    'rgba(139, 38, 72, 0.7)',   // 9PM
+                    'rgba(139, 38, 72, 0.6)'    // 12AM
+                ],
+                borderRadius: 4,
+                barPercentage: 0.8
             }]
         },
         options: {
@@ -888,9 +644,222 @@
                     padding: 10,
                     callbacks: {
                         label: function(context) {
-                            let label = context.label || '';
-                            label += ': ' + context.parsed.y.toFixed(1) + ' tons CO₂';
-                            if (context.dataIndex === 2) label += ' avoided';
+                            return `${context.raw} MW at ${context.label}`;
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: { 
+                    display: true,
+                    grid: { color: 'rgba(0,0,0,0.03)' },
+                    ticks: {
+                        callback: function(value) {
+                            return value + ' MW';
+                        },
+                        font: {
+                            family: "'Inter', sans-serif",
+                            size: 11
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: 'Energy Demand (Megawatts)',
+                        font: {
+                            family: "'Inter', sans-serif",
+                            size: 12,
+                            weight: '500'
+                        }
+                    }
+                },
+                x: { 
+                    grid: { display: false },
+                    ticks: {
+                        font: {
+                            family: "'Inter', sans-serif",
+                            size: 11
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    // 2. Demographics Bubble/Scatter - DATA UNCHANGED
+    const ctxDemo = document.getElementById('demoChart').getContext('2d');
+    new Chart(ctxDemo, {
+        type: 'bubble',
+        data: {
+            datasets: [
+                {
+                    label: 'Low Income',
+                    data: [
+                        {x: 35, y: 45, r: 6},  // $35k, Well-being 45
+                        {x: 42, y: 50, r: 7},  // $42k, Well-being 50
+                        {x: 28, y: 40, r: 5},  // $28k, Well-being 40
+                        {x: 38, y: 48, r: 6}   // $38k, Well-being 48
+                    ],
+                    backgroundColor: 'rgba(139, 38, 72, 0.4)',
+                    borderColor: '#8B2648',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Middle Income',
+                    data: [
+                        {x: 65, y: 65, r: 8},  // $65k, Well-being 65
+                        {x: 58, y: 67, r: 7},  // $58k, Well-being 67
+                        {x: 72, y: 70, r: 9},  // $72k, Well-being 70
+                        {x: 55, y: 62, r: 7},  // $55k, Well-being 62
+                        {x: 68, y: 68, r: 8}   // $68k, Well-being 68
+                    ],
+                    backgroundColor: 'rgba(139, 38, 72, 0.6)',
+                    borderColor: '#8B2648',
+                    borderWidth: 1
+                },
+                {
+                    label: 'High Income',
+                    data: [
+                        {x: 95, y: 78, r: 10}, // $95k, Well-being 78
+                        {x: 110, y: 82, r: 11}, // $110k, Well-being 82
+                        {x: 125, y: 85, r: 12}, // $125k, Well-being 85
+                        {x: 150, y: 88, r: 14}  // $150k, Well-being 88
+                    ],
+                    backgroundColor: 'rgba(139, 38, 72, 0.8)',
+                    borderColor: '#8B2648',
+                    borderWidth: 1
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { 
+                    position: 'bottom',
+                    labels: {
+                        usePointStyle: true,
+                        padding: 20,
+                        font: {
+                            family: "'Inter', sans-serif",
+                            size: 11
+                        }
+                    }
+                },
+                tooltip: {
+                    backgroundColor: '#fff',
+                    titleColor: '#000',
+                    bodyColor: '#666',
+                    borderColor: 'rgba(0,0,0,0.1)',
+                    borderWidth: 1,
+                    padding: 10,
+                    callbacks: {
+                        label: function(context) {
+                            const data = context.raw;
+                            return `Income: $${data.x}k, Well-being: ${data.y}/100`;
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: { 
+                    min: 30,
+                    max: 100,
+                    grid: { color: 'rgba(0,0,0,0.03)' },
+                    title: { 
+                        display: true, 
+                        text: 'Well-Being Index (0-100)',
+                        font: {
+                            family: "'Inter', sans-serif",
+                            size: 12,
+                            weight: '500'
+                        }
+                    },
+                    ticks: {
+                        font: {
+                            family: "'Inter', sans-serif",
+                            size: 11
+                        }
+                    }
+                },
+                x: { 
+                    min: 20,
+                    max: 160,
+                    grid: { display: false },
+                    title: { 
+                        display: true, 
+                        text: 'Annual Income ($ thousands)',
+                        font: {
+                            family: "'Inter', sans-serif",
+                            size: 12,
+                            weight: '500'
+                        }
+                    },
+                    ticks: {
+                        callback: function(value) {
+                            return '$' + value + 'k';
+                        },
+                        font: {
+                            family: "'Inter', sans-serif",
+                            size: 11
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    // 3. Simulation Chart - DATA UNCHANGED
+    const ctxSim = document.getElementById('simChart').getContext('2d');
+    new Chart(ctxSim, {
+        type: 'line',
+        data: {
+            labels: ['Sample 1', 'Sample 2', 'Sample 3', 'Sample 4', 'Sample 5', 'Aggregate Mean'],
+            datasets: [{
+                label: 'Population Estimate (N)',
+                data: [170, 380, 220, 450, 310, 305],
+                borderColor: '#8B2648',
+                backgroundColor: 'rgba(139, 38, 72, 0.05)',
+                pointBackgroundColor: function(context) {
+                    const index = context.dataIndex;
+                    const value = context.dataset.data[index];
+                    return index === context.dataset.data.length - 1 ? '#8B2648' : '#fff';
+                },
+                pointBorderColor: '#8B2648',
+                pointRadius: function(context) {
+                    const index = context.dataIndex;
+                    return index === context.dataset.data.length - 1 ? 8 : 6;
+                },
+                pointHoverRadius: function(context) {
+                    const index = context.dataIndex;
+                    return index === context.dataset.data.length - 1 ? 10 : 8;
+                },
+                borderWidth: 2,
+                tension: 0.2,
+                fill: true
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    backgroundColor: '#fff',
+                    titleColor: '#000',
+                    bodyColor: '#666',
+                    borderColor: 'rgba(0,0,0,0.1)',
+                    borderWidth: 1,
+                    padding: 10,
+                    callbacks: {
+                        label: function(context) {
+                            let label = context.dataset.label || '';
+                            if (label) {
+                                label += ': ';
+                            }
+                            label += context.parsed.y;
+                            if (context.dataIndex === context.dataset.data.length - 1) {
+                                label += ' (Stable estimate)';
+                            }
                             return label;
                         }
                     }
@@ -899,19 +868,33 @@
             scales: {
                 y: { 
                     beginAtZero: true,
+                    min: 150,
+                    max: 500,
                     grid: { color: 'rgba(0,0,0,0.03)' },
                     title: { 
                         display: true, 
-                        text: 'CO₂ Emissions (tons over 10 years)',
-                        font: { family: "'Inter', sans-serif", size: 12, weight: '500' }
+                        text: 'Population Estimate (N)',
+                        font: {
+                            family: "'Inter', sans-serif",
+                            size: 12,
+                            weight: '500'
+                        }
                     },
                     ticks: {
-                        font: { family: "'Inter', sans-serif", size: 11 }
+                        font: {
+                            family: "'Inter', sans-serif",
+                            size: 11
+                        }
                     }
                 },
                 x: { 
                     grid: { display: false },
-                    ticks: { font: { family: "'Inter', sans-serif", size: 11 } }
+                    ticks: {
+                        font: {
+                            family: "'Inter', sans-serif",
+                            size: 11
+                        }
+                    }
                 }
             }
         }
@@ -941,5 +924,6 @@
         });
     });
   </script>
+
 </body>
 </html>
