@@ -155,13 +155,13 @@
       justify-content: center;
       text-align: center;
       background: radial-gradient(circle at 50% 50%, #ffffff 0%, #f4f0f2 100%); 
-      padding-top: 80px; /* Add padding to account for fixed header */
+      padding-top: 80px;
     }
     
     .hero-content {
         max-width: 800px;
         margin: 0 auto;
-        opacity: 1; /* Remove animation for hero - it should be visible immediately */
+        opacity: 1;
         transform: none;
     }
 
@@ -185,7 +185,64 @@
         opacity: 0.8;
     }
 
-    /* --- ANALYTICS CARDS --- */
+    /* --- COMING SOON SECTION --- */
+    .coming-soon {
+        padding: 8rem 0;
+        border-top: 1px solid var(--line);
+        text-align: center;
+    }
+
+    .coming-soon h2 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .coming-soon p {
+        font-size: 1.1rem;
+        color: var(--neutral-600);
+        max-width: 600px;
+        margin: 0 auto 3rem;
+    }
+
+    .placeholder-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 3rem;
+        margin-top: 4rem;
+    }
+
+    .placeholder-card {
+        background: #fff;
+        border: 1px solid rgba(0,0,0,0.03);
+        border-radius: 4px;
+        padding: 3rem 2rem;
+        box-shadow: var(--shadow-soft);
+        transition: all 0.3s ease;
+    }
+
+    .placeholder-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-hover);
+    }
+
+    .placeholder-icon {
+        font-size: 2.5rem;
+        color: var(--accent);
+        margin-bottom: 1.5rem;
+    }
+
+    .placeholder-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .placeholder-card p {
+        font-size: 0.9rem;
+        color: var(--neutral-600);
+        margin-bottom: 0;
+    }
+
+    /* --- ANALYTICS CARD --- */
     .analytics-section {
         padding: 8rem 0;
         border-top: 1px solid var(--line);
@@ -212,9 +269,6 @@
         opacity: 1;
         transform: translateY(0);
     }
-
-    .data-story:nth-child(even) { direction: rtl; }
-    .data-story:nth-child(even) .data-content { direction: ltr; }
 
     .chart-container {
         position: relative;
@@ -373,9 +427,8 @@
     }
 
     @media (max-width: 900px) {
-        .data-story, .data-story:nth-child(even) { 
+        .data-story { 
           grid-template-columns: 1fr; 
-          direction: ltr; 
           gap: 4rem; 
         }
         
@@ -410,6 +463,10 @@
         
         .tool-item {
           font-size: 1.1rem;
+        }
+        
+        .placeholder-grid {
+          grid-template-columns: 1fr;
         }
     }
     
@@ -460,34 +517,51 @@
     </div>
   </section>
 
+  <!-- COMING SOON SECTION -->
+  <section class="coming-soon">
+    <div class="container">
+      <h2>Analytics Portfolio: Coming Soon</h2>
+      <p>I'm currently preparing detailed case studies and visualizations from recent projects. Check back soon for completed energy economics analyses, consumer behavior insights, and predictive modeling work.</p>
+      
+      <div class="placeholder-grid">
+        <div class="placeholder-card">
+          <div class="placeholder-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3>EV vs ICE Economic Analysis</h3>
+          <p>Detailed NPV comparison with sensitivity analysis across discount rates and fuel price scenarios.</p>
+        </div>
+        
+        <div class="placeholder-card">
+          <div class="placeholder-icon">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <h3>Energy Load Forecasting</h3>
+          <p>Time-series analysis of peak demand patterns and behavioral energy consumption insights.</p>
+        </div>
+        
+        <div class="placeholder-card">
+          <div class="placeholder-icon">
+            <i class="fas fa-chart-bar"></i>
+          </div>
+          <h3>Statistical Reliability Models</h3>
+          <p>Sample size optimization and confidence interval analysis for business decision-making.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SINGLE COMPLETED CHART -->
   <section class="analytics-section">
     <div class="container analytics-grid">
         
-        <!-- DATA STORY 1: Load Forecasting - COPY ADJUSTED -->
-        <div class="data-story">
-            <div class="chart-container">
-                <canvas id="loadChart"></canvas>
-            </div>
-            <div class="data-content">
-                <span class="data-label">01 — Behavioral Patterns</span>
-                <h2 class="data-title">Peak Demand Mapping</h2>
-                <p class="data-insight">
-                    "Energy demand reveals precise daily rhythms. The 3 PM spike is 176% higher than overnight lows."
-                </p>
-                <p class="data-desc">
-                    Hourly energy consumption data shows predictable daily patterns: minimal usage overnight (2,500 MW at 3 AM), steady climb through morning hours, peak demand at 3 PM (6,900 MW), and evening decline. This pattern identifies optimal timing for demand-response campaigns and reveals behavioral insights about when target audiences are most receptive to communications.
-                </p>
-                <div class="meta">Tools: Time Series Analysis, Pattern Recognition</div>
-            </div>
-        </div>
-
-        <!-- DATA STORY 2: Demographics - COPY UNCHANGED -->
+        <!-- DATA STORY: Income-Wellbeing Correlation -->
         <div class="data-story">
             <div class="chart-container">
                 <canvas id="demoChart"></canvas>
             </div>
             <div class="data-content">
-                <span class="data-label">02 — Consumer Segmentation</span>
+                <span class="data-label">Completed Analysis</span>
                 <h2 class="data-title">Income-Wellbeing Correlation</h2>
                 <p class="data-insight">
                     "Higher income correlates with higher wellbeing, but the relationship isn't linear. After $100k, additional income yields diminishing returns."
@@ -495,25 +569,7 @@
                 <p class="data-desc">
                     Analysis of 1,000+ survey responses shows distinct consumer segments: low-income respondents ($28k-$42k) report wellbeing scores of 40-50, middle-income ($55k-$72k) score 62-70, and high-income ($95k-$150k) reach 78-88. The data reveals income thresholds where wellbeing improvements plateau, enabling more precise targeting of wellbeing-related products and services.
                 </p>
-                <div class="meta">Tools: Cluster Analysis, Correlation Studies</div>
-            </div>
-        </div>
-
-        <!-- DATA STORY 3: Simulation - COPY ADJUSTED -->
-        <div class="data-story">
-            <div class="chart-container">
-                <canvas id="simChart"></canvas>
-            </div>
-            <div class="data-content">
-                <span class="data-label">03 — Statistical Reliability</span>
-                <h2 class="data-title">Sample Size Matters</h2>
-                <p class="data-insight">
-                    "Individual samples vary by 165%, but the aggregate reveals the true population. Never trust a single data point."
-                </p>
-                <p class="data-desc">
-                    Mark-recapture simulation demonstrates sample volatility: five independent samples produced estimates ranging from 170 to 450 (165% variance). However, the aggregated mean stabilizes at 305. This underscores the importance of sufficient sample sizes and repeated measurements before making business decisions, highlighting why "one-off" survey results can be dangerously misleading.
-                </p>
-                <div class="meta">Tools: Statistical Modeling, Confidence Intervals</div>
+                <div class="meta">Tools: Cluster Analysis, Correlation Studies, Data Visualization</div>
             </div>
         </div>
 
@@ -606,86 +662,7 @@
     Chart.defaults.font.family = "'Inter', sans-serif";
     Chart.defaults.color = '#757575';
     
-    // 1. Load Curve Chart - DATA UNCHANGED
-    const ctxLoad = document.getElementById('loadChart').getContext('2d');
-    new Chart(ctxLoad, {
-        type: 'bar',
-        data: {
-            labels: ['12AM', '3AM', '6AM', '9AM', '12PM', '3PM', '6PM', '9PM', '12AM'],
-            datasets: [{
-                label: 'Energy Demand (MW)',
-                data: [2800, 2500, 3200, 4500, 5800, 6900, 6200, 4800, 3500], 
-                backgroundColor: [
-                    'rgba(139, 38, 72, 0.7)',   // 12AM
-                    'rgba(139, 38, 72, 0.5)',   // 3AM
-                    'rgba(139, 38, 72, 0.6)',   // 6AM
-                    'rgba(139, 38, 72, 0.7)',   // 9AM
-                    'rgba(139, 38, 72, 0.8)',   // 12PM
-                    '#8B2648',                   // 3PM (peak - full color)
-                    'rgba(139, 38, 72, 0.8)',   // 6PM
-                    'rgba(139, 38, 72, 0.7)',   // 9PM
-                    'rgba(139, 38, 72, 0.6)'    // 12AM
-                ],
-                borderRadius: 4,
-                barPercentage: 0.8
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: { display: false },
-                tooltip: {
-                    backgroundColor: '#fff',
-                    titleColor: '#000',
-                    bodyColor: '#666',
-                    borderColor: 'rgba(0,0,0,0.1)',
-                    borderWidth: 1,
-                    padding: 10,
-                    callbacks: {
-                        label: function(context) {
-                            return `${context.raw} MW at ${context.label}`;
-                        }
-                    }
-                }
-            },
-            scales: {
-                y: { 
-                    display: true,
-                    grid: { color: 'rgba(0,0,0,0.03)' },
-                    ticks: {
-                        callback: function(value) {
-                            return value + ' MW';
-                        },
-                        font: {
-                            family: "'Inter', sans-serif",
-                            size: 11
-                        }
-                    },
-                    title: {
-                        display: true,
-                        text: 'Energy Demand (Megawatts)',
-                        font: {
-                            family: "'Inter', sans-serif",
-                            size: 12,
-                            weight: '500'
-                        }
-                    }
-                },
-                x: { 
-                    grid: { display: false },
-                    ticks: {
-                        font: {
-                            family: "'Inter', sans-serif",
-                            size: 11
-                        }
-                    }
-                }
-            }
-        }
-    });
-
-    // 2. Demographics Bubble/Scatter - DATA UNCHANGED
+    // Demographics Bubble/Scatter Chart
     const ctxDemo = document.getElementById('demoChart').getContext('2d');
     new Chart(ctxDemo, {
         type: 'bubble',
@@ -798,98 +775,6 @@
                         callback: function(value) {
                             return '$' + value + 'k';
                         },
-                        font: {
-                            family: "'Inter', sans-serif",
-                            size: 11
-                        }
-                    }
-                }
-            }
-        }
-    });
-
-    // 3. Simulation Chart - DATA UNCHANGED
-    const ctxSim = document.getElementById('simChart').getContext('2d');
-    new Chart(ctxSim, {
-        type: 'line',
-        data: {
-            labels: ['Sample 1', 'Sample 2', 'Sample 3', 'Sample 4', 'Sample 5', 'Aggregate Mean'],
-            datasets: [{
-                label: 'Population Estimate (N)',
-                data: [170, 380, 220, 450, 310, 305],
-                borderColor: '#8B2648',
-                backgroundColor: 'rgba(139, 38, 72, 0.05)',
-                pointBackgroundColor: function(context) {
-                    const index = context.dataIndex;
-                    const value = context.dataset.data[index];
-                    return index === context.dataset.data.length - 1 ? '#8B2648' : '#fff';
-                },
-                pointBorderColor: '#8B2648',
-                pointRadius: function(context) {
-                    const index = context.dataIndex;
-                    return index === context.dataset.data.length - 1 ? 8 : 6;
-                },
-                pointHoverRadius: function(context) {
-                    const index = context.dataIndex;
-                    return index === context.dataset.data.length - 1 ? 10 : 8;
-                },
-                borderWidth: 2,
-                tension: 0.2,
-                fill: true
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: { display: false },
-                tooltip: {
-                    backgroundColor: '#fff',
-                    titleColor: '#000',
-                    bodyColor: '#666',
-                    borderColor: 'rgba(0,0,0,0.1)',
-                    borderWidth: 1,
-                    padding: 10,
-                    callbacks: {
-                        label: function(context) {
-                            let label = context.dataset.label || '';
-                            if (label) {
-                                label += ': ';
-                            }
-                            label += context.parsed.y;
-                            if (context.dataIndex === context.dataset.data.length - 1) {
-                                label += ' (Stable estimate)';
-                            }
-                            return label;
-                        }
-                    }
-                }
-            },
-            scales: {
-                y: { 
-                    beginAtZero: true,
-                    min: 150,
-                    max: 500,
-                    grid: { color: 'rgba(0,0,0,0.03)' },
-                    title: { 
-                        display: true, 
-                        text: 'Population Estimate (N)',
-                        font: {
-                            family: "'Inter', sans-serif",
-                            size: 12,
-                            weight: '500'
-                        }
-                    },
-                    ticks: {
-                        font: {
-                            family: "'Inter', sans-serif",
-                            size: 11
-                        }
-                    }
-                },
-                x: { 
-                    grid: { display: false },
-                    ticks: {
                         font: {
                             family: "'Inter', sans-serif",
                             size: 11
