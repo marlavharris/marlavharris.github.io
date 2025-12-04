@@ -37,9 +37,9 @@
       font-family: 'Inter', sans-serif;
       color: var(--charcoal);
       background: var(--paper);
-      line-height: 1.8;
+      line-height: 1.6; /* CHANGED: Reduced from 1.8 for better cohesion */
       overflow-x: hidden;
-      font-weight: 300;
+      font-weight: 400; /* CHANGED: Increased from 300 for better legibility and visual weight */
       font-size: 16px;
     }
     
@@ -48,20 +48,21 @@
     h1, h2, h3, h4 {
       font-family: 'Playfair Display', serif;
       font-weight: 400;
-      line-height: 1.15;
+      line-height: 1.2; /* CHANGED: Slightly looser for headers */
       color: var(--ink);
     }
 
     h1 { font-size: clamp(3.5rem, 6vw, 5.5rem); letter-spacing: -0.03em; }
     h2 { font-size: clamp(2.5rem, 4vw, 3.5rem); letter-spacing: -0.02em; }
+    h3 { font-size: 1.75rem; } /* ADDED: Explicit H3 sizing for better hierarchy */
     
     .meta {
         font-family: 'Inter', sans-serif;
-        font-size: 0.65rem;
+        font-size: 0.75rem; /* CHANGED: Increased from 0.65rem */
         text-transform: uppercase;
-        letter-spacing: 0.25em; 
-        font-weight: 500;
-        color: var(--charcoal);
+        letter-spacing: 0.2em; 
+        font-weight: 600; /* CHANGED: Bolder for better contrast */
+        color: var(--neutral-600); /* CHANGED: Slightly softer than charcoal */
         display: block;
     }
 
@@ -207,16 +208,16 @@
     
     .method-num {
         font-family: 'Inter', sans-serif;
-        font-size: 0.75rem;
+        font-size: 0.85rem; /* CHANGED: Slightly larger */
         color: var(--accent);
-        margin-bottom: 1.5rem;
-        opacity: 0.6;
+        margin-bottom: 1rem;
+        font-weight: 500;
         display: block;
     }
 
     .method-title {
         font-family: 'Playfair Display', serif;
-        font-size: 1.5rem;
+        font-size: 2rem; /* CHANGED: Increased from 1.5rem to match H2s better */
         color: var(--ink);
         margin-bottom: 1rem;
         line-height: 1.2;
@@ -224,7 +225,7 @@
 
     .method-desc {
         font-family: 'Inter', sans-serif;
-        font-size: 0.9rem;
+        font-size: 1rem; /* CHANGED: Standardized size */
         color: var(--charcoal);
         line-height: 1.6;
     }
@@ -257,17 +258,17 @@
     .metric-value.highlight { color: var(--accent); }
     .metric-label {
         font-family: 'Inter', sans-serif;
-        font-size: 0.65rem;
+        font-size: 0.75rem; /* CHANGED: Increased from 0.65rem */
         text-transform: uppercase;
-        letter-spacing: 0.2em;
+        letter-spacing: 0.15em;
+        font-weight: 500;
         color: var(--neutral-600);
+        margin-top: 0.5rem;
+        display: block;
     }
 
     /* Work Section (Editorial Style) */
-    .work-section { padding: 6rem 0; background: var(--paper); } /* Moderate breathing room */
-    
-    .work-grid { display: flex; flex-direction: column; gap: 6rem; }
-    
+    .work-section { padding: 6rem 0; background: var(--paper); }
     .work-container {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -314,40 +315,51 @@
     /* Content Styling */
     .work-content { padding: 1rem 0; }
     .work-meta {
-        color: var(--charcoal);
+        color: var(--neutral-600);
         border-bottom: 1px solid var(--accent);
-        padding-bottom: 8px;
-        margin-bottom: 2rem;
+        padding-bottom: 4px;
+        margin-bottom: 1.5rem;
         display: inline-block;
         font-family: 'Inter', sans-serif;
-        font-size: 0.65rem;
+        font-size: 0.75rem; /* CHANGED: Increased from 0.65rem */
         text-transform: uppercase;
-        letter-spacing: 0.25em;
+        letter-spacing: 0.2em;
+        font-weight: 600;
     }
 
     .work-quote {
         font-family: 'Playfair Display', serif;
         font-style: italic;
-        font-size: 1.2rem;
-        color: var(--neutral-600);
+        font-size: 1.35rem; /* CHANGED: Increased from 1.2rem for impact */
+        color: var(--ink); /* CHANGED: Darker color for readability */
         margin: 0 0 2rem;
-        line-height: 1.5;
+        line-height: 1.4;
     }
 
     /* Case Study Block (Matching Creative Page) */
     .case-study-block {
-        margin-top: 2rem;
+        margin-top: 2.5rem;
         padding-left: 2rem;
-        border-left: 1px solid var(--line); 
+        border-left: 2px solid var(--line); /* CHANGED: Thicker line */
     }
 
-    .cs-grid { display: grid; gap: 1.5rem; }
+    .cs-grid { display: grid; gap: 2rem; } /* CHANGED: Increased gap */
     .cs-item { position: relative; }
     .cs-label {
-        font-family: 'Inter', sans-serif; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.25em; color: var(--accent); margin-bottom: 0.5rem; display: block;
+        font-family: 'Inter', sans-serif; 
+        font-size: 0.7rem; /* CHANGED: Increased from 0.65rem */
+        text-transform: uppercase; 
+        letter-spacing: 0.2em; 
+        color: var(--accent); 
+        margin-bottom: 0.5rem; 
+        display: block;
+        font-weight: 700; /* CHANGED: Bold for clear hierarchy */
     }
     .cs-text {
-        font-family: 'Inter', sans-serif; font-size: 0.9rem; color: var(--ink); line-height: 1.6;
+        font-family: 'Inter', sans-serif; 
+        font-size: 0.95rem; 
+        color: var(--charcoal); 
+        line-height: 1.6;
     }
 
     /* Brands */
@@ -449,7 +461,7 @@
       <p>Bridging the gap between creative vision and measurable growth.</p>
       
       <div class="btn-group">
-        <a href="#work" class="btn btn-primary">View Strategy Work</a>
+        <a href="#work" class="btn btn-primary">View Work</a>
         <a href="creative.html" class="btn btn-secondary">Creative Portfolio</a>
       </div>
     </div>
@@ -512,7 +524,7 @@
              <div class="sv-small">Subscribers Managed</div>
         </div>
         <div class="work-content">
-            <span class="work-meta">Penske Media Corporation</span>
+            <span class="work-meta">Email Marketing</span>
             <h2>Media Empire Strategy</h2>
             <p class="work-quote">"Architected subscription email systems for Rolling Stone, Billboard, and WWD."</p>
             
@@ -537,7 +549,7 @@
              <div class="sv-small">Of All Web Sales</div>
         </div>
         <div class="work-content">
-            <span class="work-meta">Museum of Sex</span>
+            <span class="work-meta">Growth Marketing</span>
             <h2>Growth in Regulated Markets</h2>
             <p class="work-quote">"Navigated strict industry regulations to drive growth through compliant paid acquisition and strategic retention."</p>
             
@@ -562,7 +574,7 @@
              <div class="sv-small">YoY Conversions</div>
         </div>
         <div class="work-content">
-            <span class="work-meta">Bao Bao Issey Miyake</span>
+            <span class="work-meta">E-Commerce Management</span>
             <h2>E-Commerce Manager</h2>
             <p class="work-quote">"Mixing technical backend operations with high-fashion marketing strategy."</p>
             
