@@ -84,6 +84,7 @@
       padding-bottom: 5px;
       font-weight: 400;
       color: var(--ink);
+      display: inline-block;
     }
     
     .btn::after {
@@ -101,7 +102,7 @@
 
     header {
       background: transparent;
-      position: fixed; /* Keep fixed so it floats over hero */
+      position: fixed;
       top: 0;
       width: 100%;
       z-index: 1000;
@@ -148,20 +149,20 @@
 
     .hero {
       padding: 0;
-      min-height: 50vh; /* REDUCED HEIGHT */
+      min-height: 50vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       text-align: center;
-      /* Subtle gradient background for depth */
       background: radial-gradient(circle at 50% 50%, #ffffff 0%, #f4f0f2 100%); 
+      padding-top: 80px; /* Add padding to account for fixed header */
     }
     
     .hero-content {
         max-width: 800px;
-        /* Animation is handled by JS IntersectionObserver now for consistency */
-        opacity: 0; 
-        transform: translateY(30px);
+        margin: 0 auto;
+        opacity: 1; /* Remove animation for hero - it should be visible immediately */
+        transform: none;
     }
 
     .hero-sub {
@@ -194,12 +195,12 @@
     .analytics-grid {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 12rem; /* Increased gap for breathing room */
+        gap: 12rem;
     }
 
     .data-story {
         display: grid;
-        grid-template-columns: 1.2fr 0.8fr; /* Gives the chart a bit more width */
+        grid-template-columns: 1.2fr 0.8fr;
         gap: 6rem;
         align-items: center;
         opacity: 0;
@@ -217,12 +218,12 @@
 
     .chart-container {
         position: relative;
-        height: 450px; /* Slightly taller */
+        height: 450px;
         width: 100%;
         padding: 2.5rem;
         background: #fff;
         border: 1px solid rgba(0,0,0,0.03);
-        border-radius: 4px; /* Soften edges slightly */
+        border-radius: 4px;
         box-shadow: var(--shadow-soft);
         transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1), box-shadow 0.6s ease;
     }
@@ -311,20 +312,107 @@
         width: 100%;
     }
 
-    /* Mobile */
-    .mobile-menu-btn { display: none; background:none; border:none; font-size:1.5rem; cursor: pointer; color: var(--ink); }
-    .mobile-menu { display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: white; z-index: 2000; padding-top: 5rem; }
-    .close-menu { background: none; border: none; font-size: 2rem; color: var(--ink); cursor: pointer; position: absolute; top: 2rem; right: 2rem; }
-    .mobile-nav-links { display: flex; flex-direction: column; align-items: center; gap: 2rem; }
-    .mobile-nav-link { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--ink); text-decoration: none; }
+    /* Mobile Menu */
+    .mobile-menu-btn { 
+      display: none; 
+      background: none; 
+      border: none; 
+      font-size: 1.5rem; 
+      cursor: pointer; 
+      color: var(--ink); 
+      z-index: 1002;
+    }
+    
+    .mobile-menu { 
+      display: none; 
+      position: fixed; 
+      top: 0; 
+      left: 0; 
+      width: 100vw; 
+      height: 100vh; 
+      background: white; 
+      z-index: 2000; 
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .mobile-menu.active {
+      display: flex;
+    }
+    
+    .close-menu { 
+      background: none; 
+      border: none; 
+      font-size: 2rem; 
+      color: var(--ink); 
+      cursor: pointer; 
+      position: absolute; 
+      top: 2rem; 
+      right: 2rem; 
+    }
+    
+    .mobile-nav-links { 
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
+      gap: 2rem; 
+    }
+    
+    .mobile-nav-link { 
+      font-family: 'Playfair Display', serif; 
+      font-size: 2rem; 
+      color: var(--ink); 
+      text-decoration: none; 
+    }
 
     @media (max-width: 900px) {
-        .data-story, .data-story:nth-child(even) { grid-template-columns: 1fr; direction: ltr; gap: 4rem; }
-        .chart-container { height: 350px; padding: 1rem; }
-        .nav-links { display: none; }
-        .mobile-menu-btn { display: block; }
-        .hero h1 { font-size: 3rem; }
-        .analytics-grid { gap: 6rem; }
+        .data-story, .data-story:nth-child(even) { 
+          grid-template-columns: 1fr; 
+          direction: ltr; 
+          gap: 4rem; 
+        }
+        
+        .chart-container { 
+          height: 350px; 
+          padding: 1rem; 
+        }
+        
+        .nav-links { 
+          display: none; 
+        }
+        
+        .mobile-menu-btn { 
+          display: block; 
+        }
+        
+        .hero h1 { 
+          font-size: 3rem; 
+        }
+        
+        .analytics-grid { 
+          gap: 6rem; 
+        }
+        
+        .container {
+          padding: 0 1.5rem;
+        }
+        
+        .toolkit-grid {
+          gap: 2rem;
+        }
+        
+        .tool-item {
+          font-size: 1.1rem;
+        }
+    }
+    
+    @media (max-width: 600px) {
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        .hero p { font-size: 1rem; }
+        .data-title { font-size: 1.8rem; }
+        .data-insight { font-size: 1rem; }
     }
   </style>
 </head>
@@ -358,8 +446,7 @@
   </header>
 
   <section class="hero">
-    <div class="container hero-content animate-on-scroll">
-      <!-- HEADLINE UPDATED -->
+    <div class="container hero-content">
       <span class="hero-sub meta">// Data & Insights</span>
       <h1>From Fitting Rooms to Data Models.</h1>
       <p>Service industry trained human insight meets academically-trained analysis.</p>
@@ -370,7 +457,7 @@
     <div class="container analytics-grid">
         
         <!-- DATA STORY 1: EV vs ICE -->
-        <div class="data-story animate-on-scroll">
+        <div class="data-story">
             <div class="chart-container">
                 <canvas id="evChart"></canvas>
             </div>
@@ -388,7 +475,7 @@
         </div>
 
         <!-- DATA STORY 2: Load Forecasting -->
-        <div class="data-story animate-on-scroll">
+        <div class="data-story">
             <div class="chart-container">
                 <canvas id="loadChart"></canvas>
             </div>
@@ -406,7 +493,7 @@
         </div>
 
         <!-- DATA STORY 3: Demographics -->
-        <div class="data-story animate-on-scroll">
+        <div class="data-story">
             <div class="chart-container">
                 <canvas id="demoChart"></canvas>
             </div>
@@ -424,7 +511,7 @@
         </div>
 
         <!-- DATA STORY 4: Simulation (Added from CSV) -->
-        <div class="data-story animate-on-scroll">
+        <div class="data-story">
             <div class="chart-container">
                 <canvas id="simChart"></canvas>
             </div>
@@ -446,7 +533,7 @@
 
   <section class="toolkit">
       <div class="container">
-          <span class="hero-sub meta animate-on-scroll" style="margin-bottom: 3rem; display: block;">// The Technical Toolkit</span>
+          <span class="hero-sub meta" style="margin-bottom: 3rem; display: block;">// The Technical Toolkit</span>
           <div class="toolkit-grid">
               <div class="tool-item stagger-item">Advanced Excel</div>
               <div class="tool-item stagger-item">Looker</div>
@@ -461,8 +548,8 @@
       </div>
   </section>
 
-  <section class="hero" style="height: 40vh; background: var(--accent-dim);">
-      <div class="container hero-content animate-on-scroll">
+  <section class="hero" style="height: 40vh; background: var(--accent-dim); padding-top: 0;">
+      <div class="container hero-content">
           <p style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 2rem;">
               from bra fitter to data nerd
           </p>
@@ -487,16 +574,13 @@
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('in-view');
-                if (entry.target.classList.contains('toolkit-grid')) {
-                   // trigger children? handled individually below for simplicity
-                }
                 observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    document.querySelectorAll('.animate-on-scroll').forEach((el) => {
-        el.classList.add('data-story'); // Re-using the transition class style for simplicity
+    // Observe all data-story elements
+    document.querySelectorAll('.data-story').forEach((el) => {
         observer.observe(el);
     });
 
@@ -504,12 +588,11 @@
     const toolkitObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                let delay = 0;
-                entry.target.querySelectorAll('.stagger-item').forEach(item => {
+                const items = entry.target.querySelectorAll('.stagger-item');
+                items.forEach((item, index) => {
                     setTimeout(() => {
                         item.classList.add('in-view');
-                    }, delay);
-                    delay += 100; // 100ms stagger
+                    }, index * 100); // 100ms stagger
                 });
                 toolkitObserver.unobserve(entry.target);
             }
@@ -535,31 +618,44 @@
     Chart.defaults.font.family = "'Inter', sans-serif";
     Chart.defaults.color = '#757575';
     
-    // 1. EV vs ICE Cost Chart
+    // 1. EV vs ICE Cost Chart - FIXED DATA
     const ctxEV = document.getElementById('evChart').getContext('2d');
     new Chart(ctxEV, {
         type: 'bar',
         data: {
             labels: ['Year 1', 'Year 3', 'Year 5', 'Year 7', 'Year 10'],
-            datasets: [{
-                label: 'Electric Vehicle (Cumulative Cost)',
-                data: [36000, 38000, 41000, 44000, 48000], // Synced to text ($36k start)
-                backgroundColor: '#8B2648', // Spiced Mulberry
-                borderRadius: 2,
-                barPercentage: 0.6
-            }, {
-                label: 'Gas Vehicle (Cumulative Cost)',
-                data: [28000, 34000, 42000, 51000, 64000], 
-                backgroundColor: '#333333', 
-                borderRadius: 2,
-                barPercentage: 0.6
-            }]
+            datasets: [
+                {
+                    label: 'Electric Vehicle (Cumulative Cost)',
+                    data: [28000, 31000, 35000, 39000, 48000], // EV starts at $28k, ends at $48k
+                    backgroundColor: '#8B2648',
+                    borderRadius: 2,
+                    barPercentage: 0.6
+                }, 
+                {
+                    label: 'Gas Vehicle (Cumulative Cost)',
+                    data: [36000, 42000, 49000, 57000, 64000], // ICE starts at $36k, ends at $64k
+                    backgroundColor: '#333333', 
+                    borderRadius: 2,
+                    barPercentage: 0.6
+                }
+            ]
         },
         options: {
             responsive: true,
             maintainAspectRatio: false,
             plugins: {
-                legend: { position: 'bottom', labels: { usePointStyle: true, padding: 20 } },
+                legend: { 
+                    position: 'bottom', 
+                    labels: { 
+                        usePointStyle: true, 
+                        padding: 20,
+                        font: {
+                            family: "'Inter', sans-serif",
+                            size: 11
+                        }
+                    } 
+                },
                 tooltip: {
                     backgroundColor: '#fff',
                     titleColor: '#000',
@@ -567,117 +663,77 @@
                     borderColor: 'rgba(0,0,0,0.1)',
                     borderWidth: 1,
                     padding: 10,
-                    displayColors: true
-                }
-            },
-            scales: {
-                y: { beginAtZero: false, grid: { color: 'rgba(0,0,0,0.03)' } },
-                x: { grid: { display: false } }
-            }
-        }
-    });
-
-    // 2. Load Curve Chart
-    const ctxLoad = document.getElementById('loadChart').getContext('2d');
-    new Chart(ctxLoad, {
-        type: 'bar',
-        data: {
-            labels: ['6AM', '9AM', '12PM', '3PM', '6PM', '9PM', '12AM'],
-            datasets: [{
-                label: 'Avg. Energy Demand (MW)',
-                data: [3200, 4500, 5800, 6900, 6200, 4800, 3500], 
-                backgroundColor: '#8B2648', // Spiced Mulberry
-                borderRadius: 4,
-                barPercentage: 0.7
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: { display: false },
-                tooltip: {
-                    backgroundColor: '#fff',
-                    titleColor: '#000',
-                    bodyColor: '#666',
-                    borderColor: 'rgba(0,0,0,0.1)',
-                    borderWidth: 1,
-                    padding: 10
-                }
-            },
-            scales: {
-                y: { display: false },
-                x: { grid: { display: false } }
-            }
-        }
-    });
-
-    // 3. Demographics Bubble/Scatter
-    const ctxDemo = document.getElementById('demoChart').getContext('2d');
-    new Chart(ctxDemo, {
-        type: 'bubble',
-        data: {
-            datasets: [{
-                label: 'Data Trend',
-                data: [
-                   {x: 51, y: 51, r: 5}, {x: 47, y: 57, r: 6}, {x: 58, y: 67, r: 7},
-                   {x: 38, y: 64, r: 5}, {x: 48, y: 55, r: 6}, {x: 66, y: 59, r: 7},
-                   {x: 49, y: 76, r: 8}, {x: 49, y: 57, r: 5}, {x: 36, y: 67, r: 6},
-                   {x: 77, y: 73, r: 9}, {x: 39, y: 56, r: 5}, {x: 31, y: 57, r: 5},
-                   {x: 96, y: 65, r: 10}, {x: 46, y: 60, r: 6}, {x: 120, y: 88, r: 12},
-                   {x: 15, y: 45, r: 4}, {x: 25, y: 50, r: 4}, {x: 150, y: 92, r: 15}
-                ],
-                backgroundColor: 'rgba(139, 38, 72, 0.6)', // Mulberry with opacity
-                borderColor: '#8B2648',
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: { display: false },
-                title: { display: true, text: 'Income ($k) vs. Well-Being Index', font: { family: 'Playfair Display', size: 16 }, color: '#1a1a1a', padding: 20 },
-                tooltip: {
-                    backgroundColor: '#fff',
-                    titleColor: '#000',
-                    bodyColor: '#666',
-                    borderColor: 'rgba(0,0,0,0.1)',
-                    borderWidth: 1,
-                    padding: 10
+                    displayColors: true,
+                    callbacks: {
+                        label: function(context) {
+                            let label = context.dataset.label || '';
+                            if (label) {
+                                label += ': ';
+                            }
+                            label += '$' + context.parsed.y.toLocaleString();
+                            return label;
+                        }
+                    }
                 }
             },
             scales: {
                 y: { 
+                    beginAtZero: false, 
                     grid: { color: 'rgba(0,0,0,0.03)' },
-                    title: { display: true, text: 'Well-Being Index (0-100)' }
+                    ticks: {
+                        callback: function(value) {
+                            return '$' + (value/1000) + 'k';
+                        },
+                        font: {
+                            family: "'Inter', sans-serif",
+                            size: 11
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: 'Cumulative Cost ($)',
+                        font: {
+                            family: "'Inter', sans-serif",
+                            size: 12,
+                            weight: '500'
+                        }
+                    }
                 },
                 x: { 
                     grid: { display: false },
-                    title: { display: true, text: 'Income Level ($k)' }
+                    ticks: {
+                        font: {
+                            family: "'Inter', sans-serif",
+                            size: 11
+                        }
+                    }
                 }
             }
         }
     });
 
-    // 4. Simulation Chart
-    const ctxSim = document.getElementById('simChart').getContext('2d');
-    new Chart(ctxSim, {
-        type: 'line',
+    // 2. Load Curve Chart - IMPROVED DATA
+    const ctxLoad = document.getElementById('loadChart').getContext('2d');
+    new Chart(ctxLoad, {
+        type: 'bar',
         data: {
-            labels: ['Sample 1', 'Sample 2', 'Sample 3', 'Total (Aggregated)'],
+            labels: ['12AM', '3AM', '6AM', '9AM', '12PM', '3PM', '6PM', '9PM', '12AM'],
             datasets: [{
-                label: 'Population Estimate (N)',
-                data: [500, 170, 380, 305],
-                borderColor: '#8B2648', // Spiced Mulberry
-                backgroundColor: 'rgba(139, 38, 72, 0.05)',
-                pointBackgroundColor: '#fff',
-                pointBorderColor: '#8B2648',
-                pointRadius: 6,
-                pointHoverRadius: 8,
-                borderWidth: 2,
-                tension: 0.3, // Smoother curve
-                fill: true
+                label: 'Energy Demand (MW)',
+                data: [2800, 2500, 3200, 4500, 5800, 6900, 6200, 4800, 3500], 
+                backgroundColor: [
+                    'rgba(139, 38, 72, 0.7)',   // 12AM
+                    'rgba(139, 38, 72, 0.5)',   // 3AM
+                    'rgba(139, 38, 72, 0.6)',   // 6AM
+                    'rgba(139, 38, 72, 0.7)',   // 9AM
+                    'rgba(139, 38, 72, 0.8)',   // 12PM
+                    '#8B2648',                   // 3PM (peak - full color)
+                    'rgba(139, 38, 72, 0.8)',   // 6PM
+                    'rgba(139, 38, 72, 0.7)',   // 9PM
+                    'rgba(139, 38, 72, 0.6)'    // 12AM
+                ],
+                borderRadius: 4,
+                barPercentage: 0.8
             }]
         },
         options: {
@@ -685,23 +741,113 @@
             maintainAspectRatio: false,
             plugins: {
                 legend: { display: false },
-                title: { display: true, text: 'Estimate Volatility vs. Aggregation', font: { family: 'Playfair Display', size: 16 }, color: '#1a1a1a', padding: 20 },
-                annotation: {
-                    annotations: {
-                        line1: {
-                            type: 'line',
-                            yMin: 305,
-                            yMax: 305,
-                            borderColor: '#333',
-                            borderWidth: 1,
-                            borderDash: [4, 4],
-                            label: {
-                                content: 'Stable Estimate',
-                                enabled: true,
-                                position: 'end',
-                                backgroundColor: 'rgba(0,0,0,0.7)',
-                                font: { size: 10 }
-                            }
+                tooltip: {
+                    backgroundColor: '#fff',
+                    titleColor: '#000',
+                    bodyColor: '#666',
+                    borderColor: 'rgba(0,0,0,0.1)',
+                    borderWidth: 1,
+                    padding: 10,
+                    callbacks: {
+                        label: function(context) {
+                            return `${context.raw} MW at ${context.label}`;
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: { 
+                    display: true,
+                    grid: { color: 'rgba(0,0,0,0.03)' },
+                    ticks: {
+                        callback: function(value) {
+                            return value + ' MW';
+                        },
+                        font: {
+                            family: "'Inter', sans-serif",
+                            size: 11
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: 'Energy Demand (Megawatts)',
+                        font: {
+                            family: "'Inter', sans-serif",
+                            size: 12,
+                            weight: '500'
+                        }
+                    }
+                },
+                x: { 
+                    grid: { display: false },
+                    ticks: {
+                        font: {
+                            family: "'Inter', sans-serif",
+                            size: 11
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    // 3. Demographics Bubble/Scatter - FIXED DATA SCALE
+    const ctxDemo = document.getElementById('demoChart').getContext('2d');
+    new Chart(ctxDemo, {
+        type: 'bubble',
+        data: {
+            datasets: [
+                {
+                    label: 'Low Income',
+                    data: [
+                        {x: 35, y: 45, r: 6},  // $35k, Well-being 45
+                        {x: 42, y: 50, r: 7},  // $42k, Well-being 50
+                        {x: 28, y: 40, r: 5},  // $28k, Well-being 40
+                        {x: 38, y: 48, r: 6}   // $38k, Well-being 48
+                    ],
+                    backgroundColor: 'rgba(139, 38, 72, 0.4)',
+                    borderColor: '#8B2648',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Middle Income',
+                    data: [
+                        {x: 65, y: 65, r: 8},  // $65k, Well-being 65
+                        {x: 58, y: 67, r: 7},  // $58k, Well-being 67
+                        {x: 72, y: 70, r: 9},  // $72k, Well-being 70
+                        {x: 55, y: 62, r: 7},  // $55k, Well-being 62
+                        {x: 68, y: 68, r: 8}   // $68k, Well-being 68
+                    ],
+                    backgroundColor: 'rgba(139, 38, 72, 0.6)',
+                    borderColor: '#8B2648',
+                    borderWidth: 1
+                },
+                {
+                    label: 'High Income',
+                    data: [
+                        {x: 95, y: 78, r: 10}, // $95k, Well-being 78
+                        {x: 110, y: 82, r: 11}, // $110k, Well-being 82
+                        {x: 125, y: 85, r: 12}, // $125k, Well-being 85
+                        {x: 150, y: 88, r: 14}  // $150k, Well-being 88
+                    ],
+                    backgroundColor: 'rgba(139, 38, 72, 0.8)',
+                    borderColor: '#8B2648',
+                    borderWidth: 1
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { 
+                    position: 'bottom',
+                    labels: {
+                        usePointStyle: true,
+                        padding: 20,
+                        font: {
+                            family: "'Inter', sans-serif",
+                            size: 11
                         }
                     }
                 },
@@ -711,41 +857,178 @@
                     bodyColor: '#666',
                     borderColor: 'rgba(0,0,0,0.1)',
                     borderWidth: 1,
-                    padding: 10
+                    padding: 10,
+                    callbacks: {
+                        label: function(context) {
+                            const data = context.raw;
+                            return `Income: $${data.x}k, Well-being: ${data.y}/100`;
+                        }
+                    }
                 }
             },
             scales: {
                 y: { 
-                    beginAtZero: true, 
+                    min: 30,
+                    max: 100,
                     grid: { color: 'rgba(0,0,0,0.03)' },
-                    title: { display: true, text: 'Population Estimate' }
+                    title: { 
+                        display: true, 
+                        text: 'Well-Being Index (0-100)',
+                        font: {
+                            family: "'Inter', sans-serif",
+                            size: 12,
+                            weight: '500'
+                        }
+                    },
+                    ticks: {
+                        font: {
+                            family: "'Inter', sans-serif",
+                            size: 11
+                        }
+                    }
                 },
                 x: { 
-                    grid: { display: false }
+                    min: 20,
+                    max: 160,
+                    grid: { display: false },
+                    title: { 
+                        display: true, 
+                        text: 'Annual Income ($ thousands)',
+                        font: {
+                            family: "'Inter', sans-serif",
+                            size: 12,
+                            weight: '500'
+                        }
+                    },
+                    ticks: {
+                        callback: function(value) {
+                            return '$' + value + 'k';
+                        },
+                        font: {
+                            family: "'Inter', sans-serif",
+                            size: 11
+                        }
+                    }
                 }
             }
         }
     });
 
-    // --- INTERACTION LOGIC ---
+    // 4. Simulation Chart - IMPROVED DATA
+    const ctxSim = document.getElementById('simChart').getContext('2d');
+    new Chart(ctxSim, {
+        type: 'line',
+        data: {
+            labels: ['Sample 1', 'Sample 2', 'Sample 3', 'Sample 4', 'Sample 5', 'Aggregate Mean'],
+            datasets: [{
+                label: 'Population Estimate (N)',
+                data: [170, 380, 220, 450, 310, 305],
+                borderColor: '#8B2648',
+                backgroundColor: 'rgba(139, 38, 72, 0.05)',
+                pointBackgroundColor: function(context) {
+                    const index = context.dataIndex;
+                    const value = context.dataset.data[index];
+                    return index === context.dataset.data.length - 1 ? '#8B2648' : '#fff';
+                },
+                pointBorderColor: '#8B2648',
+                pointRadius: function(context) {
+                    const index = context.dataIndex;
+                    return index === context.dataset.data.length - 1 ? 8 : 6;
+                },
+                pointHoverRadius: function(context) {
+                    const index = context.dataIndex;
+                    return index === context.dataset.data.length - 1 ? 10 : 8;
+                },
+                borderWidth: 2,
+                tension: 0.2,
+                fill: true
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    backgroundColor: '#fff',
+                    titleColor: '#000',
+                    bodyColor: '#666',
+                    borderColor: 'rgba(0,0,0,0.1)',
+                    borderWidth: 1,
+                    padding: 10,
+                    callbacks: {
+                        label: function(context) {
+                            let label = context.dataset.label || '';
+                            if (label) {
+                                label += ': ';
+                            }
+                            label += context.parsed.y;
+                            if (context.dataIndex === context.dataset.data.length - 1) {
+                                label += ' (Stable estimate)';
+                            }
+                            return label;
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: { 
+                    beginAtZero: true,
+                    min: 150,
+                    max: 500,
+                    grid: { color: 'rgba(0,0,0,0.03)' },
+                    title: { 
+                        display: true, 
+                        text: 'Population Estimate (N)',
+                        font: {
+                            family: "'Inter', sans-serif",
+                            size: 12,
+                            weight: '500'
+                        }
+                    },
+                    ticks: {
+                        font: {
+                            family: "'Inter', sans-serif",
+                            size: 11
+                        }
+                    }
+                },
+                x: { 
+                    grid: { display: false },
+                    ticks: {
+                        font: {
+                            family: "'Inter', sans-serif",
+                            size: 11
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    // --- MOBILE MENU ---
     const mobileBtn = document.querySelector('.mobile-menu-btn');
     const mobileMenu = document.querySelector('.mobile-menu');
     const closeBtn = document.querySelector('.close-menu');
 
     if(mobileBtn) {
         mobileBtn.addEventListener('click', () => {
-            mobileMenu.style.display = 'flex';
-            mobileMenu.style.flexDirection = 'column';
-            mobileMenu.style.justifyContent = 'center';
-            mobileMenu.style.alignItems = 'center';
+            mobileMenu.classList.add('active');
         });
     }
     
     if(closeBtn) {
         closeBtn.addEventListener('click', () => {
-            mobileMenu.style.display = 'none';
+            mobileMenu.classList.remove('active');
         });
     }
+    
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+    });
   </script>
 
 </body>
