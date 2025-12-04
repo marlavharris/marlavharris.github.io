@@ -1,32 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-869S7ZPXQH"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-869S7ZPXQH');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-869S7ZPXQH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-869S7ZPXQH');
+  </script>
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Marla Harris - Data-Driven Storyteller. Marketing leader bridging creative vision with technical execution.">
-  <title>Marla Harris — Data-Driven Storyteller</title>
+  <title>Marla Harris — Strategy & Marketing</title>
   
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <style>
+    /* --- BRAND DNA: EDITORIAL LUXURY --- */
     :root {
-      --ink: #111111;
+      --ink: #0a0a0a;        
+      --charcoal: #333333;   
+      --neutral-600: #757575;
       --paper: #ffffff;
       --accent: #990049; 
-      --accent-light: #b2005f;
-      --accent-mist: rgba(153, 0, 73, 0.03); 
-      --neutral-200: #eaeaea;
-      --neutral-600: #757575;
-      --neutral-700: #4a4a4a;
+      --accent-dim: rgba(153, 0, 73, 0.6);
+      --line: rgba(0, 0, 0, 0.08); 
+      --bg-subtle: #fafafa;
     }
     
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -34,38 +35,71 @@
     
     body {
       font-family: 'Inter', sans-serif;
-      color: var(--ink);
+      color: var(--charcoal);
       background: var(--paper);
-      line-height: 1.7;
+      line-height: 1.8;
       overflow-x: hidden;
       font-weight: 300;
+      font-size: 16px;
     }
     
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 3rem; }
     
     h1, h2, h3, h4 {
       font-family: 'Playfair Display', serif;
       font-weight: 400;
-      line-height: 1.2;
+      line-height: 1.15;
       color: var(--ink);
     }
 
-    h2 { font-size: 2.8rem; letter-spacing: -0.02em; }
+    h1 { font-size: clamp(3.5rem, 6vw, 5.5rem); letter-spacing: -0.03em; }
+    h2 { font-size: clamp(2.5rem, 4vw, 3.5rem); letter-spacing: -0.02em; }
     
-    .bar { width: 40px; height: 1px; background: var(--accent); margin: 2rem auto; }
+    .meta {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 0.25em; 
+        font-weight: 500;
+        color: var(--charcoal);
+        display: block;
+    }
+
+    /* Buttons */
+    .btn-group { display: flex; gap: 3rem; justify-content: center; margin-top: 3rem; align-items: center; }
     
-    .star-decoration {
-      text-align: center;
-      margin-bottom: 1.5rem;
-      font-size: 1rem;
-      color: var(--accent);
-      opacity: 0.6;
+    .btn {
+      text-decoration: none;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+      position: relative;
+      padding-bottom: 5px;
+      font-weight: 400;
+      color: var(--ink);
     }
     
-    /* --- UPDATED HEADER STYLES (MATCHING CREATIVE.HTML) --- */
+    .btn::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 1px;
+        bottom: 0;
+        left: 0;
+        background-color: var(--accent);
+        transition: width 0.4s ease;
+    }
+    
+    .btn:hover::after { width: 100%; }
+    .btn-primary { color: var(--ink); }
+    .btn-secondary { color: var(--charcoal); opacity: 0.7; }
+    .btn-secondary:hover { opacity: 1; }
+
+    /* Header */
     header {
       background: transparent;
-      position: fixed; /* Keep fixed so it floats over hero */
+      position: fixed;
       top: 0;
       width: 100%;
       z-index: 1000;
@@ -73,7 +107,6 @@
       padding: 1.5rem 0;
     }
     
-    /* This class is now toggled by JS to create the solid/sticky effect */
     header.scrolled {
       background: rgba(255, 255, 255, 0.98);
       padding: 0.5rem 0;
@@ -106,257 +139,290 @@
     }
     
     .nav-link:hover { color: var(--accent); }
-    
+
     /* Hero */
     .hero {
-      padding: 14rem 0 8rem;
-      min-height: 90vh;
+      padding: 160px 0 80px; /* Moderate breathing room */
+      min-height: auto;
       display: flex;
-      align-items: center;
-      position: relative;
-      background: radial-gradient(circle at 50% 50%, var(--accent-mist) 0%, transparent 70%);
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      background: var(--paper); 
     }
     
-    .hero-content { max-width: 900px; margin: 0 auto; text-align: center; }
-    
-    .hero h1 {
-      font-size: clamp(3rem, 5vw, 5.5rem);
-      margin-bottom: 2rem;
-      font-weight: 400;
-      letter-spacing: -0.03em;
-      line-height: 1.05;
+    .hero-content {
+        max-width: 900px;
     }
-    
-    .hero p {
-      font-size: 1.2rem;
-      color: var(--neutral-600);
-      max-width: 480px;
-      margin: 0 auto 3.5rem;
-      font-family: 'Inter', sans-serif;
-    }
-    
-    /* Buttons */
-    .btn-group { display: flex; gap: 1.5rem; justify-content: center; }
-    
-    .btn {
-      padding: 1rem 2.5rem;
-      border-radius: 2px;
-      font-weight: 500;
-      text-decoration: none;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      transition: all 0.4s ease;
-      display: inline-block;
-    }
-    
-    .btn-primary { background: var(--accent); color: white; border: 1px solid var(--accent); }
-    .btn-primary:hover { background: transparent; color: var(--accent); }
-    
-    .btn-secondary { background: transparent; border: 1px solid var(--neutral-200); color: var(--ink); }
-    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
-    
-    /* Results */
-    .results-banner {
-      background: white;
-      padding: 6rem 0;
-      border-top: 1px solid var(--neutral-200);
-      border-bottom: 1px solid var(--neutral-200);
-    }
-    
-    .results-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
-    
-    .result-item { text-align: center; position: relative; }
 
-    @media (min-width: 769px) {
-        .result-item:not(:last-child):after {
-            content: ''; position: absolute; right: 0; top: 10%; height: 80%; width: 1px; background: var(--neutral-200);
-        }
+    .hero-sub {
+        color: var(--accent);
+        margin-bottom: 2rem;
+        display: block;
+        font-size: 0.7rem;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
     }
-    
-    .result-value {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      color: var(--accent);
-      margin-bottom: 1rem;
-      font-weight: 400;
+
+    .hero p { 
+        font-size: 1.25rem; 
+        color: var(--charcoal); 
+        max-width: 600px; 
+        margin: 2rem auto 0; 
+        font-family: 'Playfair Display', serif; 
+        font-style: italic;
+        font-weight: 400;
+        opacity: 0.8;
     }
-    
-    .result-label {
-      font-family: 'Inter', sans-serif;
-      color: var(--ink);
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      line-height: 1.6;
+
+    /* Methodology (Based on Process Grid) */
+    .methodology-section {
+        padding: 5rem 0; /* Moderate breathing room */
+        border-top: 1px solid var(--line);
+        background: var(--bg-subtle);
     }
-    
-    .result-label em {
-      display: block; margin-top: 0.5rem; font-family: 'Playfair Display', serif; text-transform: none; letter-spacing: 0; color: var(--neutral-600); font-size: 0.95rem;
+
+    .method-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
     }
+
+    .method-step {
+        padding: 4rem 3rem;
+        border-right: 1px solid var(--line);
+        position: relative;
+        transition: all 0.4s ease;
+        background: var(--bg-subtle);
+        cursor: default;
+        min-height: 250px;
+        display: flex;
+        flex-direction: column;
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+
+    .method-step:last-child { border-right: none; }
+    .method-step:hover { background: #ffffff; box-shadow: 0 10px 30px rgba(0,0,0,0.03); z-index: 2; }
     
-    /* Methodology */
-    .methodology { padding: 8rem 0; background: var(--paper); }
-    .section-header { text-align: center; margin-bottom: 6rem; }
-    .section-header p { color: var(--neutral-600); font-size: 1.1rem; font-family: 'Playfair Display', serif; font-style: italic; }
+    .method-num {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.75rem;
+        color: var(--accent);
+        margin-bottom: 1.5rem;
+        opacity: 0.6;
+        display: block;
+    }
+
+    .method-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.5rem;
+        color: var(--ink);
+        margin-bottom: 1rem;
+        line-height: 1.2;
+    }
+
+    .method-desc {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.9rem;
+        color: var(--charcoal);
+        line-height: 1.6;
+    }
+
+    /* Results Banner (Simplified) */
+    .results-banner {
+        padding: 5rem 0; /* Moderate breathing room */
+        border-bottom: 1px solid var(--line);
+        background: white;
+    }
+
+    .metrics-row {
+        display: flex;
+        justify-content: center;
+        gap: 4rem; 
+        flex-wrap: wrap;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .metric-item { text-align: center; flex: 1 1 200px; }
+    .metric-value {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem; 
+        color: var(--ink);
+        line-height: 1;
+        margin-bottom: 0.75rem;
+        display: block;
+    }
+    .metric-value.highlight { color: var(--accent); }
+    .metric-label {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: var(--neutral-600);
+    }
+
+    /* Work Section (Editorial Style) */
+    .work-section { padding: 6rem 0; background: var(--paper); } /* Moderate breathing room */
     
-    .methodology-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4rem; }
-    .methodology-card { padding: 0 1rem; text-align: center; }
-    .methodology-card h3 { font-size: 1.4rem; margin-bottom: 1.5rem; color: var(--accent); }
-    .methodology-card p { color: var(--neutral-600); margin-bottom: 2rem; font-size: 0.95rem; }
-    
-    /* Work */
-    .work { padding: 8rem 0; background: var(--accent-mist); }
     .work-grid { display: flex; flex-direction: column; gap: 6rem; }
     
-    .work-item {
-      background: white;
-      display: grid; grid-template-columns: 1fr 1fr;
-      min-height: 450px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.03); 
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    .work-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: center;
     }
 
-    .work-item:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 20px 60px rgba(0,0,0,0.06);
+    .work-container.reverse { direction: rtl; }
+    .work-container.reverse .work-content { direction: ltr; }
+    
+    /* Visual Cards for Strategy Metrics */
+    .strategy-visual {
+        background: var(--bg-subtle);
+        border: 1px solid var(--line);
+        aspect-ratio: 4/3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 3rem;
+        position: relative;
+        /* Added for 3D Tilt Effect */
+        transition: transform 0.1s ease-out, box-shadow 0.3s ease;
+        will-change: transform;
+        transform-style: preserve-3d;
     }
-    
-    .work-content { padding: 4rem; display: flex; flex-direction: column; justify-content: center; }
-    
+
+    /* Add a subtle shadow on hover for depth */
+    .strategy-visual:hover {
+        box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+        z-index: 10;
+    }
+
+    .strategy-visual::before {
+        content: ''; position: absolute; top: 1.5rem; left: 1.5rem; right: 1.5rem; bottom: 1.5rem;
+        border: 1px solid var(--accent); opacity: 0.1;
+        /* Prevent border from flickering during 3D transform */
+        pointer-events: none;
+    }
+
+    .sv-large { font-family: 'Playfair Display', serif; font-size: 5rem; color: var(--accent); line-height: 1; margin-bottom: 1rem; text-align: center;}
+    .sv-small { font-family: 'Inter', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--ink); text-align: center; }
+
+    /* Content Styling */
+    .work-content { padding: 1rem 0; }
     .work-meta {
-      font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.25em; color: var(--neutral-600);
-      margin-bottom: 1.5rem; border-bottom: 1px solid var(--accent); display: inline-block; padding-bottom: 0.5rem; width: fit-content;
-    }
-    
-    .work-item h3 { font-size: 2.2rem; margin-bottom: 1.5rem; font-weight: 400; }
-    .work-quote { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; color: var(--neutral-700); margin: 1rem 0 2rem; line-height: 1.6; }
-    
-    .work-stats { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: auto; }
-    .stat { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); }
-    
-    .work-visual {
-      background: white; display: flex; align-items: center; justify-content: center; padding: 3rem; position: relative; border-left: 1px solid var(--neutral-200);
+        color: var(--charcoal);
+        border-bottom: 1px solid var(--accent);
+        padding-bottom: 8px;
+        margin-bottom: 2rem;
+        display: inline-block;
+        font-family: 'Inter', sans-serif;
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 0.25em;
     }
 
-    .work-item.reverse .work-visual { border-left: none; border-right: 1px solid var(--neutral-200); }
-    
-    .work-visual::before {
-        content: ''; position: absolute; top: 2rem; left: 2rem; right: 2rem; bottom: 2rem; border: 1px solid var(--accent); opacity: 0.3;
+    .work-quote {
+        font-family: 'Playfair Display', serif;
+        font-style: italic;
+        font-size: 1.2rem;
+        color: var(--neutral-600);
+        margin: 0 0 2rem;
+        line-height: 1.5;
     }
 
-    .work-visual-content { text-align: center; z-index: 2; }
-    .work-visual-large { font-family: 'Playfair Display', serif; font-size: 5rem; color: var(--accent); line-height: 1; margin-bottom: 1rem; }
-    .work-visual-small { font-family: 'Inter', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--ink); }
-    
-    .work-item.reverse { grid-template-columns: 1fr 1fr; direction: rtl; }
-    .work-item.reverse > * { direction: ltr; }
+    /* Case Study Block (Matching Creative Page) */
+    .case-study-block {
+        margin-top: 2rem;
+        padding-left: 2rem;
+        border-left: 1px solid var(--line); 
+    }
+
+    .cs-grid { display: grid; gap: 1.5rem; }
+    .cs-item { position: relative; }
+    .cs-label {
+        font-family: 'Inter', sans-serif; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.25em; color: var(--accent); margin-bottom: 0.5rem; display: block;
+    }
+    .cs-text {
+        font-family: 'Inter', sans-serif; font-size: 0.9rem; color: var(--ink); line-height: 1.6;
+    }
 
     /* Brands */
-    .brands { padding: 8rem 0; background: white; }
+    .brands { padding: 5rem 0; border-top: 1px solid var(--line); } /* Moderate breathing room */
     .brand-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 3rem 5rem; max-width: 1000px; margin: 0 auto; }
     .brand-item {
-      font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--neutral-200); cursor: default;
-      transition: all 0.5s ease; background: none; border: none; padding: 0;
+      font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--neutral-600); cursor: default;
+      transition: all 0.5s ease; opacity: 0.5;
     }
-    .brand-item:hover { color: var(--accent); transform: translateY(-5px); }
+    .brand-item:hover { color: var(--accent); opacity: 1; transform: translateY(-5px); }
 
     /* About Section */
-    .about { padding: 10rem 0; background: var(--paper); }
-
-    /* The Manifesto Quote */
+    .about { padding: 8rem 0; background: var(--bg-subtle); border-top: 1px solid var(--line); } /* Moderate breathing room */
+    
     .bra-quote-hero {
-      font-family: 'Playfair Display', serif; font-style: italic; font-size: 5.5rem; /* Massive */
-      color: var(--accent); margin: 8rem auto; line-height: 1.05; max-width: 1000px; text-align: center;
+      font-family: 'Playfair Display', serif; font-style: italic; font-size: 3.5rem;
+      color: var(--accent); margin: 6rem auto 0; line-height: 1.1; max-width: 900px; text-align: center;
     }
-    
+
     /* Contact & Social */
-    .contact { padding: 8rem 0 6rem; text-align: center; background: white; }
+    .contact { padding: 6rem 0 4rem; text-align: center; background: white; border-top: 1px solid var(--line); } /* Moderate breathing room */
+    .star-decoration { font-size: 1.5rem; color: var(--accent); margin-bottom: 2rem; display: block; }
     
-    /* UPDATED SOCIAL LINKS (Matching Creative.html) */
     .social-links { display: flex; justify-content: center; gap: 2rem; margin-top: 3rem; }
-    
     .social-link {
-        color: var(--ink); /* Fixed "Weird Blue" */
-        font-size: 1.2rem;
-        transition: all 0.3s;
-        opacity: 0.6;
-        text-decoration: none; /* Removes underline default */
+        color: var(--ink); font-size: 1.2rem; transition: all 0.3s; opacity: 0.6; text-decoration: none;
     }
-    
-    .social-link:hover { 
-        color: var(--accent); 
-        opacity: 1; 
-        transform: translateY(-3px); 
-    }
+    .social-link:hover { color: var(--accent); opacity: 1; transform: translateY(-3px); }
 
-    /* Footer (New) */
+    /* Footer */
     footer {
-        background: var(--paper);
-        border-top: 1px solid var(--neutral-200);
-        padding: 3rem 0;
-        text-align: center;
+        background: var(--paper); border-top: 1px solid var(--line); padding: 3rem 0; text-align: center;
     }
+    .footer-text { color: var(--neutral-600); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; }
 
-    .footer-text {
-        color: var(--neutral-600);
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
+    /* Animations */
+    .fade-in {
+        opacity: 1; 
+        transform: translateY(0);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
     }
-    
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
     /* Mobile */
     .mobile-menu-btn { display: none; background:none; border:none; font-size:1.5rem; cursor: pointer; color: var(--ink); }
-    
-    /* Mobile Menu CSS */
-    .mobile-menu { 
-        display: none; 
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: white;
-        z-index: 2000;
-        padding-top: 5rem;
-    }
-    
+    .mobile-menu { display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: white; z-index: 2000; padding-top: 5rem; }
     .close-menu { background: none; border: none; font-size: 2rem; color: var(--ink); cursor: pointer; position: absolute; top: 2rem; right: 2rem; }
-    
     .mobile-nav-links { display: flex; flex-direction: column; align-items: center; gap: 2rem; }
-    .mobile-nav-link { 
-        font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--ink); text-decoration: none; 
-    }
+    .mobile-nav-link { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--ink); text-decoration: none; }
 
     @media (max-width: 768px) {
+      .container { padding: 0 1.5rem; }
       .nav-links { display: none; }
       .mobile-menu-btn { display: block; }
-      .hero { padding: 8rem 0 4rem; }
+      .hero { padding: 8rem 0; height: auto; min-height: 80vh; }
       .hero h1 { font-size: 3rem; }
+      .method-grid { grid-template-columns: 1fr; }
+      .method-step { border-right: none; border-bottom: 1px solid var(--line); }
+      .work-container, .work-container.reverse { grid-template-columns: 1fr; direction: ltr; gap: 3rem; }
+      .work-content { direction: ltr; }
       .results-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
-      .result-item:after { display: none; }
-      .methodology-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .work-item, .work-item.reverse { grid-template-columns: 1fr; }
-      .work-content { padding: 2.5rem; }
-      .work-visual { min-height: 250px; border-left: none; border-bottom: 1px solid var(--neutral-200); order: -1; }
-      .work-item.reverse .work-visual { border-right: none; }
-      .bra-quote-hero { font-size: 3rem; margin: 4rem auto; }
-      .brand-grid { gap: 2rem; }
+      .bra-quote-hero { font-size: 2.5rem; margin: 4rem auto 0; }
     }
   </style>
 </head>
 <body>
   
-  <!-- UPDATED HEADER STRUCTURE -->
   <header>
     <div class="container">
       <nav>
         <a href="#" class="logo">Marla Harris</a>
         <div class="nav-links">
-          <!-- Active State on Home -->
           <a href="#" class="nav-link" style="color: var(--accent);">Home</a>
           <a href="#work" class="nav-link">Work</a>
-          <!-- Link to Creative Page -->
           <a href="creative.html" class="nav-link">Creative & Copy</a>
           <a href="#about" class="nav-link">About</a>
           <a href="#contact" class="nav-link">Contact</a>
@@ -377,142 +443,149 @@
   </header>
 
   <section class="hero" id="home">
+    <div class="container hero-content">
+      <span class="hero-sub meta">// Marketing & Strategy</span>
+      <h1>Data-Driven Storyteller</h1>
+      <p>Bridging the gap between creative vision and measurable growth.</p>
+      
+      <div class="btn-group">
+        <a href="#work" class="btn btn-primary">View Strategy Work</a>
+        <a href="creative.html" class="btn btn-secondary">Creative Portfolio</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="results-banner fade-in">
     <div class="container">
-      <div class="hero-content">
-        <h1>Data-Driven Storyteller<br><span style="font-family:'Playfair Display'; font-style:italic; font-size: 0.9em; color: var(--accent);">Where Insights Become Stories.</span></h1>
-        <p>The Bridge Between Quant & Qual</p>
-        <div class="btn-group">
-          <a href="#work" class="btn btn-primary">View Work</a>
-          <a href="creative.html" class="btn btn-secondary">Creative Portfolio</a>
+      <div class="metrics-row">
+        <div class="metric-item">
+          <!-- Added data attributes for animation -->
+          <span class="metric-value" data-count="49.5" data-suffix="M+">49.5M+</span>
+          <span class="metric-label">Total Sent</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-value" data-count="20.9" data-suffix="%">20.9%</span>
+          <span class="metric-label">Avg. Open Rate</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-value" data-count="80" data-suffix="k+">80k+</span>
+          <span class="metric-label">Unique Clicks</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-value highlight" data-count="120" data-prefix="$" data-suffix="k+">$120k+</span>
+          <span class="metric-label">Revenue Generated</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- UPDATED RESULTS BANNER WITH SPECIFIC METRICS -->
-  <section class="results-banner">
+  <section id="methodology" class="methodology-section fade-in">
     <div class="container">
-      <div class="results-grid">
-        <div class="result-item">
-          <div class="result-value">49.5M+</div>
-          <div class="result-label">Total Sent<br><em>emails at scale</em></div>
-        </div>
-        <div class="result-item">
-          <div class="result-value">20.95%</div>
-          <div class="result-label">Avg. Open Rate<br><em>consistent engagement</em></div>
-        </div>
-        <div class="result-item">
-          <div class="result-value">80k+</div>
-          <div class="result-label">Unique Clicks<br><em>high-intent traffic</em></div>
-        </div>
-        <div class="result-item">
-          <div class="result-value">$120k+</div>
-          <div class="result-label">Revenue<br><em>generated directly</em></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="methodology" class="methodology">
-    <div class="container">
-      <div class="section-header">
-        <div class="star-decoration">✦</div>
-        <h2>My Methodology</h2>
-        <p>Bridging human insight with technical execution</p>
-      </div>
-      <div class="methodology-grid">
-        <div class="methodology-card">
-          <h3>Human Truth</h3>
-          <p>Understanding what drives real behavior—whether it's a $300 bra or a subscription.</p>
+      <div class="method-grid">
+        <div class="method-step">
+          <span class="method-num">01.</span>
+          <h3 class="method-title">Human Truth</h3>
+          <p class="method-desc">Understanding what drives real behavior—whether it's a $300 bra or a subscription. Data without empathy is just noise.</p>
         </div>
         
-        <div class="methodology-card">
-          <h3>Scalable Systems</h3>
-          <p>Technical infrastructure that connects insight to execution across platforms.</p>
+        <div class="method-step">
+          <span class="method-num">02.</span>
+          <h3 class="method-title">Scalable Systems</h3>
+          <p class="method-desc">Building technical infrastructure that connects insight to execution. I create systems that work while I sleep.</p>
         </div>
         
-        <div class="methodology-card">
-          <h3>Commercial Growth</h3>
-          <p>Turning market analysis into profitable plans. I don't just build engagement; I build revenue.</p>
+        <div class="method-step">
+          <span class="method-num">03.</span>
+          <h3 class="method-title">Commercial Growth</h3>
+          <p class="method-desc">Turning market analysis into profitable plans. I don't just build engagement; I build sustainable revenue.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="work" class="work">
-    <div class="container">
-      <div class="section-header">
-        <div class="star-decoration">✦</div>
-        <h2>Selected Work</h2>
-        <p>Strategic marketing systems for premium brands</p>
-      </div>
-
-      <div class="work-grid">
-        <div class="work-item fade-in">
-          <div class="work-content">
-            <div class="work-meta">Penske Media Corporation</div>
-            <h3>Media Empire Strategy</h3>
-            <p class="work-quote">"Architected subscription email marketing systems for Rolling Stone, Billboard, and WWD—maintaining editorial voice while driving conversions."</p>
-            <div class="work-stats">
-              <span class="stat">Copywriting</span>
-              <span class="stat">Journey Architecture</span>
-              <span class="stat">Salesforce</span>
-            </div>
-          </div>
-          <div class="work-visual">
-            <div class="work-visual-content">
-              <div class="work-visual-large">2.5M</div>
-              <div class="work-visual-small">Subscribers</div>
-            </div>
-          </div>
+  <section id="work" class="work-section">
+    <div class="container work-grid">
+      
+      <div class="work-container fade-in">
+        <div class="strategy-visual">
+             <div class="sv-large">2.5M</div>
+             <div class="sv-small">Subscribers Managed</div>
         </div>
-
-        <div class="work-item reverse fade-in">
-          <div class="work-content">
-            <div class="work-meta">Museum of Sex</div>
-            <h3>Complex Market Navigation</h3>
-            <p class="work-quote">"Navigated platform compliance restrictions while driving 59% of all web sales through strategic campaign management."</p>
-            <div class="work-stats">
-              <span class="stat">DTC Revenue</span>
-              <span class="stat">Campaign Strategy</span>
-              <span class="stat">Compliance</span>
+        <div class="work-content">
+            <span class="work-meta">Penske Media Corporation</span>
+            <h2>Media Empire Strategy</h2>
+            <p class="work-quote">"Architected subscription email systems for Rolling Stone, Billboard, and WWD."</p>
+            
+            <div class="case-study-block">
+                <div class="cs-grid">
+                    <div class="cs-item">
+                        <span class="cs-label">The Role</span>
+                        <p class="cs-text">Maintained distinct editorial voices while driving conversions across a massive portfolio.</p>
+                    </div>
+                    <div class="cs-item">
+                        <span class="cs-label">The Tech</span>
+                        <p class="cs-text">Salesforce Marketing Cloud, Journey Architecture, Copywriting.</p>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="work-visual">
-            <div class="work-visual-content">
-              <div class="work-visual-large">59%</div>
-              <div class="work-visual-small">Of All Web Sales</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="work-item fade-in">
-          <div class="work-content">
-            <div class="work-meta">Bao Bao Issey Miyake</div>
-            <h3>Luxury E-commerce</h3>
-            <p class="work-quote">"Optimized luxury email creative through rigorous A/B testing, proving minimalist visuals drive engagement."</p>
-            <div class="work-stats">
-              <span class="stat">A/B Testing</span>
-              <span class="stat">Luxury CRM</span>
-              <span class="stat">Creative Analytics</span>
-            </div>
-          </div>
-          <div class="work-visual">
-            <div class="work-visual-content">
-              <div class="work-visual-large">+14%</div>
-              <div class="work-visual-small">YoY Conversions</div>
-            </div>
-          </div>
         </div>
       </div>
+
+      <div class="work-container reverse fade-in">
+        <div class="strategy-visual">
+             <div class="sv-large">59%</div>
+             <div class="sv-small">Of All Web Sales</div>
+        </div>
+        <div class="work-content">
+            <span class="work-meta">Museum of Sex</span>
+            <h2>Growth in Regulated Markets</h2>
+            <p class="work-quote">"Navigated strict industry regulations to drive growth through compliant paid acquisition and strategic retention."</p>
+            
+            <div class="case-study-block">
+                <div class="cs-grid">
+                    <div class="cs-item">
+                        <span class="cs-label">The Role</span>
+                        <p class="cs-text">Growth Marketing & Paid Ads. Overcoming advertising bans by building high-intent, compliant funnels.</p>
+                    </div>
+                    <div class="cs-item">
+                        <span class="cs-label">The Tech</span>
+                        <p class="cs-text">Paid Media Strategy, Regulatory Compliance, DTC Revenue Strategy.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <div class="work-container fade-in">
+        <div class="strategy-visual">
+             <div class="sv-large">+14%</div>
+             <div class="sv-small">YoY Conversions</div>
+        </div>
+        <div class="work-content">
+            <span class="work-meta">Bao Bao Issey Miyake</span>
+            <h2>E-Commerce Manager</h2>
+            <p class="work-quote">"Mixing technical backend operations with high-fashion marketing strategy."</p>
+            
+            <div class="case-study-block">
+                <div class="cs-grid">
+                    <div class="cs-item">
+                        <span class="cs-label">The Role</span>
+                        <p class="cs-text">Managing the full stack: from ERP integrations and inventory to email creative and A/B testing.</p>
+                    </div>
+                    <div class="cs-item">
+                        <span class="cs-label">The Tech</span>
+                        <p class="cs-text">Shopify Plus, ERP Integration, Klaviyo, Technical CRM.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
   <section id="brands" class="brands">
     <div class="container">
-      <div class="section-header">
-        <h2>Collaborations</h2>
-      </div>
       <div class="brand-grid">
         <div class="brand-item">Rolling Stone</div>
         <div class="brand-item">Billboard</div>
@@ -524,46 +597,40 @@
     </div>
   </section>
 
-  <section id="about" class="about">
+  <section id="about" class="about fade-in">
     <div class="container">
-      <!-- UPDATED SPACING: Reduced gap to 4rem for better fit on laptops -->
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4rem; margin-bottom: 6rem;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4rem;">
         
         <div>
-          <h2 style="margin-bottom: 2rem; font-size: 3rem;">The Story</h2>
-          <p style="font-size: 1.15rem; color: var(--ink); margin-bottom: 1.5rem; line-height: 1.6;">
-            <span style="font-family: 'Playfair Display', serif; font-size: 1.4rem; font-style: italic; color: var(--accent);">Former bra fitter with a psychic‑like ability to predict trends.</span> <br>
-            Just kidding, it’s all in the data.
-          </p>
-          <p style="color: var(--neutral-600); margin-bottom: 1.5rem;">
+          <span class="meta" style="color: var(--accent); margin-bottom: 1rem;">// The Story</span>
+          <h2 style="margin-bottom: 2rem;">From Design to Data</h2>
+          <p style="font-size: 1.1rem; color: var(--ink); margin-bottom: 1.5rem; line-height: 1.6;">
             I am an ex–fashion design student turned luxury marketer who is obsessed with making everything look more expensive, even a $5.99 subscription. 
           </p>
-          <p style="color: var(--neutral-600);">
-            After 8+ years turning messy spreadsheets into multi-million-dollar portfolios for brands like <strong>Rolling Stone</strong> and <strong>Samsung</strong>, I went back to school for my Master’s in Public Administration. 
+          <p style="color: var(--neutral-600); margin-bottom: 1.5rem;">
+             After 8+ years turning messy spreadsheets into multi-million-dollar portfolios for brands like <strong>Rolling Stone</strong> and <strong>Samsung</strong>, I went back to school for my Master’s in Public Administration. 
           </p>
-          <p style="color: var(--ink); font-weight: 500; margin-top: 1rem;">
-            Why? To master the intersection of analytics and storytelling—transforming audience engagement into <strong>sustainable, scalable revenue.</strong>
+          <p style="color: var(--ink); font-weight: 500;">
+            Why? To master the intersection of analytics and storytelling—transforming audience engagement into sustainable, scalable revenue.
           </p>
         </div>
 
         <div style="display: flex; flex-direction: column; justify-content: center;">
-          <blockquote style="border-left: 2px solid var(--accent); padding-left: 2rem; margin: 0 0 2rem 0;">
-            <p style="font-family: 'Playfair Display', serif; font-size: 1.8rem; line-height: 1.3; color: var(--ink); margin-bottom: 1rem;">
+          <blockquote style="border-left: 2px solid var(--accent); padding-left: 2rem; margin: 0;">
+            <p style="font-family: 'Playfair Display', serif; font-size: 1.6rem; line-height: 1.4; color: var(--ink); margin-bottom: 1rem;">
               "I believe making money and taking care of communities aren’t contradictions."
             </p>
+            <cite style="font-family: 'Inter', sans-serif; font-style: normal; font-size: 0.8rem; letter-spacing: 0.1em; color: var(--neutral-600); text-transform: uppercase;">— My Philosophy</cite>
           </blockquote>
-          <p style="color: var(--neutral-600); font-size: 1rem; margin-bottom: 2rem;">
-             For 8+ years, I’ve worked at the intersection of product, marketing, and technology, turning messy spreadsheets, integrations, and marketing tech into subscription products, audience strategies, and campaigns that drive results. Market analysis into profitable plans, user experiences that convert, multi-million-dollar co-marketing portfolios with measurable ROI — plus 17% YoY revenue growth and double-digit conversion improvements.
-          </p>
         </div>
       </div>
 
-      <p class="bra-quote-hero">If I can sell a $300 bra, I can sell anything.</p>
+      <p class="bra-quote-hero">If I can sell a $300 bra,<br>I can sell anything.</p>
 
     </div>
   </section>
 
-  <section id="contact" class="contact">
+  <section id="contact" class="contact fade-in">
     <div class="container">
       <span class="star-decoration">✦</span>
       <h2>Let's Get To Work</h2>
@@ -571,7 +638,6 @@
         <a href="mailto:va.mvharris@gmail.com" class="btn btn-primary">Get in Touch</a>
       </div>
       
-      <!-- UPDATED SOCIAL LINKS WITH REAL URLS -->
       <div class="social-links">
         <a href="https://www.linkedin.com/in/marlavharris/" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
         <a href="https://www.instagram.com/marlavharris/" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
@@ -580,7 +646,6 @@
     </div>
   </section>
 
-  <!-- ADDED FOOTER -->
   <footer>
     <div class="container">
         <p class="footer-text">&copy; 2025 Marla Harris. All Rights Reserved.</p>
@@ -589,9 +654,8 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-        // Sticky/Scrolled Header Logic
+        // Sticky Header
         const header = document.querySelector('header');
-        
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 header.classList.add('scrolled');
@@ -600,7 +664,7 @@
             }
         });
 
-        // Mobile Menu Logic
+        // Mobile Menu
         const mobileBtn = document.querySelector('.mobile-menu-btn');
         const mobileMenu = document.querySelector('.mobile-menu');
         const closeBtn = document.querySelector('.close-menu');
@@ -618,14 +682,13 @@
             });
         }
 
-        // Close mobile menu when a link is clicked
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.style.display = 'none';
             });
         });
         
-        // Simple fade-in observer for work items
+        // Scroll Animations
         const observerOptions = {
             threshold: 0.1
         };
@@ -633,20 +696,114 @@
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = "1";
-                    entry.target.style.transform = "translateY(0)";
+                    entry.target.classList.add('visible');
+                    // Add staggered delay for method steps
+                    if (entry.target.classList.contains('method-step')) {
+                         const index = Array.from(entry.target.parentNode.children).indexOf(entry.target);
+                         entry.target.style.transitionDelay = `${index * 0.1}s`;
+                    }
                     observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
-        const hiddenElements = document.querySelectorAll('.fade-in');
-        hiddenElements.forEach((el) => {
-            el.style.opacity = "0";
-            el.style.transform = "translateY(20px)";
-            el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
-            observer.observe(el);
+        const hiddenElements = document.querySelectorAll('.fade-in, .method-step');
+        hiddenElements.forEach((el) => observer.observe(el));
+
+        // --- METRICS ANIMATION ---
+        const metrics = document.querySelectorAll('.metric-value[data-count]');
+        
+        const animateMetric = (el) => {
+            const target = parseFloat(el.getAttribute('data-count'));
+            const prefix = el.getAttribute('data-prefix') || '';
+            const suffix = el.getAttribute('data-suffix') || '';
+            const duration = 1500; // CHANGED: Speed up to 1.5s (was 2000) for snappier feel
+            
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                // Ease out cubic function for smooth deceleration
+                const easeProgress = 1 - Math.pow(1 - progress, 3);
+                
+                const current = easeProgress * target;
+                
+                // Format: 1 decimal place if target is float (like 49.5), otherwise integer
+                const formatted = Number.isInteger(target) 
+                    ? Math.floor(current) 
+                    : current.toFixed(1);
+                
+                el.innerText = prefix + formatted + suffix;
+                
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                } else {
+                    el.innerText = prefix + target + suffix; // Ensure final value is exact
+                }
+            };
+            window.requestAnimationFrame(step);
+        };
+
+        const metricsObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateMetric(entry.target);
+                    observer.unobserve(entry.target); // Run only once
+                }
+            });
+        }, { threshold: 0.1 }); // CHANGED: Trigger sooner (10% visibility) so users don't miss it
+
+        metrics.forEach(el => {
+            // Optional: Set to 0 immediately so it starts empty before scrolling into view
+            const prefix = el.getAttribute('data-prefix') || '';
+            const suffix = el.getAttribute('data-suffix') || '';
+            el.innerText = prefix + '0' + suffix;
+            
+            metricsObserver.observe(el);
         });
+
+        // --- FUN INTERACTION 1: 3D TILT FOR CARDS ---
+        const cards = document.querySelectorAll('.strategy-visual');
+        
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                // Calculate position relative to center (0 to 1)
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = ((y - centerY) / centerY) * -5; // Max 5 deg rotation
+                const rotateY = ((x - centerX) / centerX) * 5;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+            });
+        });
+
+        // --- FUN INTERACTION 2: MAGNETIC BUTTONS ---
+        const buttons = document.querySelectorAll('.btn');
+        
+        buttons.forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                
+                // Move button slightly towards cursor (magnetic effect)
+                btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+            });
+            
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'translate(0, 0)';
+            });
+        });
+
     });
   </script>
 
