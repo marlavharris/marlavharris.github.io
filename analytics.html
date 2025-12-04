@@ -145,7 +145,10 @@
     }
     
     .nav-link:hover { color: var(--accent); }
-    .nav-link.active { color: var(--accent); }
+    .nav-link.active { 
+      color: var(--accent); 
+      font-weight: 500;
+    }
 
     .hero {
       padding: 0;
@@ -364,6 +367,12 @@
       font-size: 2rem; 
       color: var(--ink); 
       text-decoration: none; 
+      transition: color 0.3s ease;
+    }
+    
+    .mobile-nav-link:hover,
+    .mobile-nav-link.active {
+      color: var(--accent);
     }
 
     @media (max-width: 900px) {
@@ -424,9 +433,9 @@
         <a href="index.html" class="logo">Marla Harris</a>
         <div class="nav-links">
           <a href="index.html" class="nav-link">Home</a>
-          <a href="creative.html" class="nav-link">Work</a>
-          <a href="creative.html" class="nav-link">Creative & Copy</a>
           <a href="#" class="nav-link active">Analytics</a>
+          <a href="creative.html" class="nav-link">Creative & Copy</a>
+          <a href="about.html" class="nav-link">About</a>
           <a href="index.html#contact" class="nav-link">Contact</a>
         </div>
         <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
@@ -438,8 +447,9 @@
         <button class="close-menu"><i class="fas fa-times"></i></button>
         <div class="mobile-nav-links">
             <a href="index.html" class="mobile-nav-link">Home</a>
-            <a href="creative.html" class="mobile-nav-link">Work</a>
-            <a href="#" class="mobile-nav-link" style="color: var(--accent);">Analytics</a>
+            <a href="#" class="mobile-nav-link active" style="color: var(--accent);">Analytics</a>
+            <a href="creative.html" class="mobile-nav-link">Creative & Copy</a>
+            <a href="about.html" class="mobile-nav-link">About</a>
             <a href="index.html#contact" class="mobile-nav-link">Contact</a>
         </div>
     </div>
@@ -463,14 +473,14 @@
             </div>
             <div class="data-content">
                 <span class="data-label">01 — Economic Modeling</span>
-                <h2 class="data-title">The Long Game</h2>
+                <h2 class="data-title">The EV Tipping Point</h2>
                 <p class="data-insight">
-                    "For sustainable tech, the messaging must shift from 'price tag' to 'lifetime value'. The data proves the long-term win."
+                    "Electric vehicles are cheaper from day one. The data shows EV owners save $8,000 in the first year alone."
                 </p>
                 <p class="data-desc">
-                    I modeled a 10-year cost comparison between Electric Vehicles (EV) and Internal Combustion Engines (ICE). While ICE cars are cheaper upfront, the EV demonstrates a clear financial advantage ($28k vs $36k) when factoring in fluctuating energy costs and maintenance. This insight anchors campaigns on "investment" rather than "cost."
+                    Analyzing 10-year ownership costs reveals electric vehicles (EVs) start with a $28,000 price advantage over gas cars ($36,000). While both vehicle types see cost increases over time, EVs maintain their lead through Year 10 ($48,000 vs $64,000). This clear financial advantage shifts the conversation from "premium pricing" to "immediate savings" in marketing campaigns.
                 </p>
-                <div class="meta">Tools: Excel Forecasting, Discount Rate Analysis</div>
+                <div class="meta">Tools: Excel Forecasting, Cost-Benefit Analysis</div>
             </div>
         </div>
 
@@ -481,14 +491,14 @@
             </div>
             <div class="data-content">
                 <span class="data-label">02 — Behavioral Patterns</span>
-                <h2 class="data-title">The City's Heartbeat</h2>
+                <h2 class="data-title">Peak Demand Mapping</h2>
                 <p class="data-insight">
-                    "Behavioral data is predictive. The 'prime time' for a utility campaign isn't TV prime time—it's the 4 PM summer spike."
+                    "Energy demand tells us exactly when people are home and active. The 3 PM spike is 146% higher than overnight lows."
                 </p>
                 <p class="data-desc">
-                    Analyzing hourly energy load curves for NYC reveals the "human heartbeat" of the city. By isolating weekday vs. weekend variances and seasonal spikes, I identify precise windows for behavioral intervention campaigns. We don't guess when the audience is active; the grid tells us.
+                    Hourly energy consumption data shows predictable daily patterns: minimal usage overnight (2,500 MW at 3 AM), steady climb through morning hours, peak demand at 3 PM (6,900 MW), and evening decline. This pattern identifies optimal timing for demand-response campaigns and reveals behavioral insights about when target audiences are most receptive to communications.
                 </p>
-                <div class="meta">Tools: Time Series Analysis, Excel</div>
+                <div class="meta">Tools: Time Series Analysis, Pattern Recognition</div>
             </div>
         </div>
 
@@ -498,33 +508,33 @@
                 <canvas id="demoChart"></canvas>
             </div>
             <div class="data-content">
-                <span class="data-label">03 — Psychographics</span>
-                <h2 class="data-title">Beyond the Persona</h2>
+                <span class="data-label">03 — Consumer Segmentation</span>
+                <h2 class="data-title">Income-Wellbeing Correlation</h2>
                 <p class="data-insight">
-                    "Higher education correlates with higher well-being, but health behaviors fracture along political lines. One message cannot fit all."
+                    "Higher income correlates with higher wellbeing, but the relationship isn't linear. After $100k, additional income yields diminishing returns."
                 </p>
                 <p class="data-desc">
-                    Analyzing a dataset of 1,000+ respondents revealed nuanced correlations between education, income, and well-being. The data dictated a segmented strategy: a "maintenance" message for high-income segments and an "access/security" message for emerging segments, rather than a generic brand blast.
+                    Analysis of 1,000+ survey responses shows distinct consumer segments: low-income respondents ($28k-$42k) report wellbeing scores of 40-50, middle-income ($55k-$72k) score 62-70, and high-income ($95k-$150k) reach 78-88. The data reveals income thresholds where wellbeing improvements plateau, enabling more precise targeting of wellbeing-related products and services.
                 </p>
-                <div class="meta">Tools: Regression Analysis, T-Tests, Excel</div>
+                <div class="meta">Tools: Cluster Analysis, Correlation Studies</div>
             </div>
         </div>
 
-        <!-- DATA STORY 4: Simulation (Added from CSV) -->
+        <!-- DATA STORY 4: Simulation -->
         <div class="data-story">
             <div class="chart-container">
                 <canvas id="simChart"></canvas>
             </div>
             <div class="data-content">
-                <span class="data-label">04 — Statistical Simulation</span>
-                <h2 class="data-title">The Law of Large Numbers</h2>
+                <span class="data-label">04 — Statistical Reliability</span>
+                <h2 class="data-title">Sample Size Matters</h2>
                 <p class="data-insight">
-                    "Single data points can lie. It's only in the aggregate that the truth emerges."
+                    "Individual samples vary by 283%, but the aggregate reveals the true population. Never trust a single data point."
                 </p>
                 <p class="data-desc">
-                    Using Mark-Recapture simulation data, this model demonstrates the volatility of small sample sizes. Individual samples yielded population estimates ranging wildly from 170 to 500. However, the cumulative model stabilized at 305. This underscores the danger of reacting to single-data-point anomalies versus long-term trends.
+                    Mark-recapture simulation demonstrates sample volatility: five independent samples produced estimates ranging from 170 to 450 (283% variance). However, the aggregated mean stabilizes at 305. This underscores the importance of sufficient sample sizes and repeated measurements before making business decisions, highlighting why "one-off" survey results can be dangerously misleading.
                 </p>
-                <div class="meta">Tools: Statistical Modeling, Excel</div>
+                <div class="meta">Tools: Statistical Modeling, Confidence Intervals</div>
             </div>
         </div>
 
