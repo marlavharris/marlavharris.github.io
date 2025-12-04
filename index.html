@@ -62,45 +62,46 @@
       opacity: 0.6;
     }
     
-    /* Header - Solid White Fix */
+    /* --- UPDATED HEADER STYLES (MATCHING CREATIVE.HTML) --- */
     header {
-      background: #ffffff; 
-      position: fixed;
+      background: transparent;
+      position: fixed; /* Keep fixed so it floats over hero */
       top: 0;
       width: 100%;
       z-index: 1000;
       transition: all 0.4s ease;
       padding: 1.5rem 0;
-      box-shadow: 0 1px 0px rgba(0,0,0,0.05); 
     }
     
+    /* This class is now toggled by JS to create the solid/sticky effect */
     header.scrolled {
+      background: rgba(255, 255, 255, 0.98);
       padding: 0.5rem 0;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      box-shadow: 0 1px 0px rgba(0,0,0,0.05);
     }
     
     nav { display: flex; justify-content: space-between; align-items: center; }
     
     .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.25rem;
-      color: var(--ink);
-      text-decoration: none;
-      font-weight: 500;
-      letter-spacing: -0.01em;
+      font-family: 'Playfair Display', serif; 
+      font-size: 1.25rem; 
+      color: var(--ink); 
+      text-decoration: none; 
+      font-weight: 500; 
+      letter-spacing: -0.01em; 
       z-index: 1001;
     }
     
     .nav-links { display: flex; gap: 2.5rem; }
     
     .nav-link {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--neutral-600);
-      text-decoration: none;
-      font-weight: 400;
-      transition: color 0.3s ease;
+      font-size: 0.75rem; 
+      text-transform: uppercase; 
+      letter-spacing: 0.15em; 
+      color: var(--neutral-600); 
+      text-decoration: none; 
+      font-weight: 400; 
+      transition: color 0.3s ease; 
       position: relative;
     }
     
@@ -131,8 +132,7 @@
       color: var(--neutral-600);
       max-width: 480px;
       margin: 0 auto 3.5rem;
-      font-style: italic;
-      font-family: 'Playfair Display', serif;
+      font-family: 'Inter', sans-serif;
     }
     
     /* Buttons */
@@ -270,15 +270,25 @@
       color: var(--accent); margin: 8rem auto; line-height: 1.05; max-width: 1000px; text-align: center;
     }
     
-    /* Contact */
+    /* Contact & Social */
     .contact { padding: 8rem 0 6rem; text-align: center; background: white; }
+    
+    /* UPDATED SOCIAL LINKS (Matching Creative.html) */
     .social-links { display: flex; justify-content: center; gap: 2rem; margin-top: 3rem; }
+    
     .social-link {
-        color: var(--accent); background: transparent; border: 1px solid var(--neutral-200);
-        width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s;
-        text-decoration: none;
+        color: var(--ink); /* Fixed "Weird Blue" */
+        font-size: 1.2rem;
+        transition: all 0.3s;
+        opacity: 0.6;
+        text-decoration: none; /* Removes underline default */
     }
-    .social-link:hover { border-color: var(--accent); transform: scale(1.05); color: white; background: var(--accent); }
+    
+    .social-link:hover { 
+        color: var(--accent); 
+        opacity: 1; 
+        transform: translateY(-3px); 
+    }
 
     /* Footer (New) */
     footer {
@@ -336,13 +346,17 @@
   </style>
 </head>
 <body>
+  
+  <!-- UPDATED HEADER STRUCTURE -->
   <header>
     <div class="container">
       <nav>
         <a href="#" class="logo">Marla Harris</a>
         <div class="nav-links">
+          <!-- Active State on Home -->
           <a href="#" class="nav-link" style="color: var(--accent);">Home</a>
           <a href="#work" class="nav-link">Work</a>
+          <!-- Link to Creative Page -->
           <a href="creative.html" class="nav-link">Creative & Copy</a>
           <a href="#about" class="nav-link">About</a>
           <a href="#contact" class="nav-link">Contact</a>
@@ -353,7 +367,7 @@
     <div class="mobile-menu">
         <button class="close-menu"><i class="fas fa-times"></i></button>
         <div class="mobile-nav-links">
-            <a href="#" class="mobile-nav-link">Home</a>
+            <a href="#" class="mobile-nav-link" style="color: var(--accent);">Home</a>
             <a href="#work" class="mobile-nav-link">Work</a>
             <a href="creative.html" class="mobile-nav-link">Creative & Copy</a>
             <a href="#about" class="mobile-nav-link">About</a>
@@ -544,8 +558,6 @@
         </div>
       </div>
 
-      <!-- SKILLS GRID REMOVED HERE -->
-
       <p class="bra-quote-hero">If I can sell a $300 bra, I can sell anything.</p>
 
     </div>
@@ -559,10 +571,11 @@
         <a href="mailto:va.mvharris@gmail.com" class="btn btn-primary">Get in Touch</a>
       </div>
       
+      <!-- UPDATED SOCIAL LINKS WITH REAL URLS -->
       <div class="social-links">
-        <a href="#" class="https://www.linkedin.com/in/marlavharris/"><i class="fab fa-linkedin"></i></a>
-        <a href="#" class="https://www.instagram.com/marlavharris/"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="mailto:va.mvharris@gmail.com"><i class="far fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/marlavharris/" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.instagram.com/marlavharris/" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+        <a href="mailto:va.mvharris@gmail.com" class="social-link"><i class="far fa-envelope"></i></a>
       </div>
     </div>
   </section>
@@ -610,6 +623,29 @@
             link.addEventListener('click', () => {
                 mobileMenu.style.display = 'none';
             });
+        });
+        
+        // Simple fade-in observer for work items
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const hiddenElements = document.querySelectorAll('.fade-in');
+        hiddenElements.forEach((el) => {
+            el.style.opacity = "0";
+            el.style.transform = "translateY(20px)";
+            el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+            observer.observe(el);
         });
     });
   </script>
