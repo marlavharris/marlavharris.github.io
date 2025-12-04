@@ -463,19 +463,19 @@
     <div class="container">
       <div class="metrics-row">
         <div class="metric-item">
-          <span class="metric-value">49.5M+</span>
+          <span class="metric-value" data-target="49.5" data-suffix="M+">0M+</span>
           <span class="metric-label">Total Sent</span>
         </div>
         <div class="metric-item">
-          <span class="metric-value">20.9%</span>
+          <span class="metric-value" data-target="20.9" data-suffix="%">0%</span>
           <span class="metric-label">Avg. Open Rate</span>
         </div>
         <div class="metric-item">
-          <span class="metric-value">80k+</span>
+          <span class="metric-value" data-target="80" data-suffix="k+">0k+</span>
           <span class="metric-label">Unique Clicks</span>
         </div>
         <div class="metric-item">
-          <span class="metric-value highlight">$120k+</span>
+          <span class="metric-value highlight" data-target="120" data-prefix="$" data-suffix="k+">$0k+</span>
           <span class="metric-label">Revenue Generated</span>
         </div>
       </div>
@@ -758,6 +758,51 @@
 
         const hiddenElements = document.querySelectorAll('.fade-in, .method-step');
         hiddenElements.forEach((el) => observer.observe(el));
+
+        // Counting Animation
+        const countUpObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('.metric-value');
+                    counters.forEach(counter => {
+                        const target = parseFloat(counter.getAttribute('data-target'));
+                        const suffix = counter.getAttribute('data-suffix') || '';
+                        const prefix = counter.getAttribute('data-prefix') || '';
+                        const duration = 2000; // ms
+                        const start = 0;
+                        const startTime = performance.now();
+                        
+                        function updateCount(currentTime) {
+                            const elapsed = currentTime - startTime;
+                            const progress = Math.min(elapsed / duration, 1);
+                            
+                            // Ease out quart
+                            const ease = 1 - Math.pow(1 - progress, 4);
+                            
+                            const current = start + (target - start) * ease;
+                            
+                            // Determine decimals based on target (if integer, 0, else 1)
+                            const isFloat = target % 1 !== 0;
+                            const formatted = isFloat ? current.toFixed(1) : Math.floor(current);
+                            
+                            counter.innerText = `${prefix}${formatted}${suffix}`;
+                            
+                            if (progress < 1) {
+                                requestAnimationFrame(updateCount);
+                            } else {
+                                counter.innerText = `${prefix}${target}${suffix}`; // Ensure final value is exact
+                            }
+                        }
+                        
+                        requestAnimationFrame(updateCount);
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const resultsSection = document.querySelector('.results-banner');
+        if (resultsSection) countUpObserver.observe(resultsSection);
     });
   </script>
 
