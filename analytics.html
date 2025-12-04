@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-869S7ZPXQH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-869S7ZPXQH');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Marla Harris - Data Analytics & Strategic Insights.">
+  <title>Marla Harris — The Data</title>
+    
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Chart.js for beautiful, code-based graphs -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+  <style>
+    /* --- BRAND DNA: EDITORIAL LUXURY --- */
+    :root {
+      --ink: #0a0a0a;       
+      --charcoal: #333333;  
+      --neutral-600: #757575;
+      --paper: #ffffff;
+      --accent: #990049; 
+      --accent-dim: rgba(153, 0, 73, 0.6);
+      --line: rgba(0, 0, 0, 0.08); 
+      --bg-subtle: #fafafa;
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--charcoal);
+      background: var(--paper);
+      line-height: 1.8;
+      overflow-x: hidden;
+      font-weight: 300;
+      font-size: 16px;
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 3rem; }
+    
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--ink);
+    }
+
+    h1 { font-size: clamp(3.5rem, 6vw, 5.5rem); letter-spacing: -0.03em; }
+    h2 { font-size: clamp(2.5rem, 4vw, 3.5rem); letter-spacing: -0.02em; }
+    
+    .meta {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 0.25em; 
+        font-weight: 500;
+        color: var(--charcoal);
+        display: block;
+    }
+
+    .btn {
+      text-decoration: none;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+      position: relative;
+      padding-bottom: 5px;
+      font-weight: 400;
+      color: var(--ink);
+    }
+    
+    .btn::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 1px;
+        bottom: 0;
+        left: 0;
+        background-color: var(--accent);
+        transition: width 0.4s ease;
+    }
+    
+    .btn:hover::after { width: 100%; }
+
+    header {
+      background: transparent;
+      position: fixed; /* Keep fixed so it floats over hero */
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: all 0.4s ease;
+      padding: 1.5rem 0;
+    }
+    
+    header.scrolled {
+      background: rgba(255, 255, 255, 0.98);
+      padding: 0.5rem 0;
+      box-shadow: 0 1px 0px rgba(0,0,0,0.05);
+    }
+    
+    nav { display: flex; justify-content: space-between; align-items: center; }
+    
+    .logo {
+      font-family: 'Playfair Display', serif; 
+      font-size: 1.25rem; 
+      color: var(--ink); 
+      text-decoration: none; 
+      font-weight: 500; 
+      letter-spacing: -0.01em; 
+      z-index: 1001;
+    }
+    
+    .nav-links { display: flex; gap: 2.5rem; }
+    
+    .nav-link {
+      font-size: 0.75rem; 
+      text-transform: uppercase; 
+      letter-spacing: 0.15em; 
+      color: var(--neutral-600); 
+      text-decoration: none; 
+      font-weight: 400; 
+      transition: color 0.3s ease; 
+      position: relative;
+    }
+    
+    .nav-link:hover { color: var(--accent); }
+
+    .hero {
+      padding: 0;
+      height: 60vh; /* Shorter hero for Analytics page */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      background: var(--paper); 
+    }
+    
+    .hero-content {
+        max-width: 800px;
+        animation: fadeIn 1.2s ease-out;
+    }
+
+    .hero-sub {
+        color: var(--accent);
+        margin-bottom: 2rem;
+        display: block;
+        font-size: 0.7rem;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+    }
+
+    .hero p { 
+        font-size: 1.25rem; 
+        color: var(--charcoal); 
+        max-width: 600px; 
+        margin: 2.5rem auto 0; 
+        font-family: 'Playfair Display', serif; 
+        font-style: italic;
+        font-weight: 400;
+        opacity: 0.8;
+    }
+
+    /* --- ANALYTICS CARDS --- */
+    .analytics-section {
+        padding: 8rem 0;
+        border-top: 1px solid var(--line);
+    }
+
+    .analytics-grid {
+        display: grid;
+        grid-template-columns: 1fr; /* Single column for drama */
+        gap: 10rem;
+    }
+
+    .data-story {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6rem;
+        align-items: center;
+    }
+
+    .data-story:nth-child(even) { direction: rtl; }
+    .data-story:nth-child(even) .data-content { direction: ltr; }
+
+    .chart-container {
+        position: relative;
+        height: 400px;
+        width: 100%;
+        padding: 2rem;
+        background: #fff;
+        border: 1px solid var(--line);
+        box-shadow: 0 20px 40px -10px rgba(0,0,0,0.05);
+    }
+
+    .data-label {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 0.25em;
+        color: var(--accent);
+        display: block;
+        margin-bottom: 1.5rem;
+    }
+
+    .data-title {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .data-insight {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.1rem;
+        color: var(--ink);
+        line-height: 1.6;
+        margin-bottom: 2rem;
+        font-style: italic;
+        border-left: 2px solid var(--accent);
+        padding-left: 1.5rem;
+    }
+
+    .data-desc {
+        font-size: 0.9rem;
+        color: var(--neutral-600);
+        margin-bottom: 2rem;
+    }
+
+    /* --- TOOLKIT --- */
+    .toolkit {
+        padding: 6rem 0;
+        background: var(--bg-subtle);
+        text-align: center;
+    }
+
+    .toolkit-grid {
+        display: flex;
+        justify-content: center;
+        gap: 4rem;
+        margin-top: 3rem;
+        flex-wrap: wrap;
+    }
+
+    .tool-item {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.2rem;
+        color: var(--ink);
+        position: relative;
+    }
+
+    .tool-item::after {
+        content: '';
+        display: block;
+        width: 30px;
+        height: 1px;
+        background: var(--accent);
+        margin: 10px auto 0;
+        opacity: 0.5;
+    }
+
+    /* --- ANIMATION --- */
+    .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    
+    .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Mobile */
+    .mobile-menu-btn { display: none; background:none; border:none; font-size:1.5rem; cursor: pointer; color: var(--ink); }
+    .mobile-menu { display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: white; z-index: 2000; padding-top: 5rem; }
+    .close-menu { background: none; border: none; font-size: 2rem; color: var(--ink); cursor: pointer; position: absolute; top: 2rem; right: 2rem; }
+    .mobile-nav-links { display: flex; flex-direction: column; align-items: center; gap: 2rem; }
+    .mobile-nav-link { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--ink); text-decoration: none; }
+
+    @media (max-width: 900px) {
+        .data-story, .data-story:nth-child(even) { grid-template-columns: 1fr; direction: ltr; gap: 3rem; }
+        .chart-container { height: 300px; }
+        .nav-links { display: none; }
+        .mobile-menu-btn { display: block; }
+        .hero h1 { font-size: 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">Marla Harris</a>
+        <div class="nav-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="creative.html" class="nav-link">Work</a>
+          <a href="creative.html" class="nav-link">Creative & Copy</a>
+          <a href="#" class="nav-link" style="color: var(--accent);">Analytics</a> <!-- Current Page -->
+          <a href="index.html#contact" class="nav-link">Contact</a>
+        </div>
+        <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+      </nav>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <button class="close-menu"><i class="fas fa-times"></i></button>
+        <div class="mobile-nav-links">
+            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="creative.html" class="mobile-nav-link">Work</a>
+            <a href="#" class="mobile-nav-link" style="color: var(--accent);">Analytics</a>
+            <a href="index.html#contact" class="mobile-nav-link">Contact</a>
+        </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-content">
+      <span class="hero-sub meta">// Data & Insights</span>
+      <h1>Decoding the Story<br>in the Data.</h1>
+      <p>Analytics isn't just about reporting what happened. It's about uncovering <em>why</em> it happened and predicting <em>what's next</em>.</p>
+    </div>
+  </section>
+
+  <section class="analytics-section fade-in">
+    <div class="container analytics-grid">
+        
+        <!-- DATA STORY 1: EV vs ICE -->
+        <div class="data-story">
+            <div class="chart-container">
+                <canvas id="evChart"></canvas>
+            </div>
+            <div class="data-content">
+                <span class="data-label">01 — Economic Modeling</span>
+                <h2 class="data-title">The Long Game</h2>
+                <p class="data-insight">
+                    "For sustainable tech, the messaging must shift from 'price tag' to 'lifetime value'. The data proves the long-term win."
+                </p>
+                <p class="data-desc">
+                    I modeled a 10-year cost comparison between Electric Vehicles (EV) and Internal Combustion Engines (ICE). While ICE cars are cheaper upfront, the EV demonstrates a clear financial advantage ($28k vs $36k) when factoring in fluctuating energy costs and maintenance. This insight anchors campaigns on "investment" rather than "cost."
+                </p>
+                <div class="meta">Tools: Excel Forecasting, Discount Rate Analysis</div>
+            </div>
+        </div>
+
+        <!-- DATA STORY 2: Load Forecasting -->
+        <div class="data-story">
+            <div class="chart-container">
+                <canvas id="loadChart"></canvas>
+            </div>
+            <div class="data-content">
+                <span class="data-label">02 — Behavioral Patterns</span>
+                <h2 class="data-title">The City's Heartbeat</h2>
+                <p class="data-insight">
+                    "Behavioral data is predictive. The 'prime time' for a utility campaign isn't TV prime time—it's the 4 PM summer spike."
+                </p>
+                <p class="data-desc">
+                    Analyzing hourly energy load curves for NYC reveals the "human heartbeat" of the city. By isolating weekday vs. weekend variances and seasonal spikes, I identify precise windows for behavioral intervention campaigns. We don't guess when the audience is active; the grid tells us.
+                </p>
+                <div class="meta">Tools: Time Series Analysis, Excel</div>
+            </div>
+        </div>
+
+        <!-- DATA STORY 3: Demographics -->
+        <div class="data-story">
+            <div class="chart-container">
+                <canvas id="demoChart"></canvas>
+            </div>
+            <div class="data-content">
+                <span class="data-label">03 — Psychographics</span>
+                <h2 class="data-title">Beyond the Persona</h2>
+                <p class="data-insight">
+                    "Higher education correlates with higher well-being, but health behaviors fracture along political lines. One message cannot fit all."
+                </p>
+                <p class="data-desc">
+                    Analyzing a dataset of 1,000+ respondents revealed nuanced correlations between education, income, and well-being. The data dictated a segmented strategy: a "maintenance" message for high-income segments and an "access/security" message for emerging segments, rather than a generic brand blast.
+                </p>
+                <div class="meta">Tools: Regression Analysis, T-Tests, Excel</div>
+            </div>
+        </div>
+
+        <!-- DATA STORY 4: Simulation (Added from CSV) -->
+        <div class="data-story">
+            <div class="chart-container">
+                <canvas id="simChart"></canvas>
+            </div>
+            <div class="data-content">
+                <span class="data-label">04 — Statistical Simulation</span>
+                <h2 class="data-title">The Law of Large Numbers</h2>
+                <p class="data-insight">
+                    "Single data points can lie. It's only in the aggregate that the truth emerges."
+                </p>
+                <p class="data-desc">
+                    Using Mark-Recapture simulation data, this model demonstrates the volatility of small sample sizes. Individual samples yielded population estimates ranging wildly from 170 to 500. However, the cumulative model stabilized at 305. This underscores the danger of reacting to single-data-point anomalies versus long-term trends.
+                </p>
+                <div class="meta">Tools: Statistical Modeling, Excel</div>
+            </div>
+        </div>
+
+    </div>
+  </section>
+
+  <section class="toolkit">
+      <div class="container">
+          <span class="hero-sub meta" style="margin-bottom: 3rem; display: block;">// The Technical Toolkit</span>
+          <div class="toolkit-grid">
+              <div class="tool-item">Advanced Excel</div>
+              <div class="tool-item">Looker</div>
+              <div class="tool-item">Google Analytics</div>
+              <div class="tool-item">Power BI</div>
+              <div class="tool-item">Pivot Tables</div>
+              <div class="tool-item">Forecasting Models</div>
+              <div class="tool-item">Regression Analysis</div>
+              <div class="tool-item">A/B Testing</div>
+              <div class="tool-item">Statistical Analysis</div>
+          </div>
+      </div>
+  </section>
+
+  <section class="hero" style="height: 40vh; background: var(--bg-subtle);">
+      <div class="container hero-content">
+          <p style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 2rem;">
+              from bra fitter to data nerd
+          </p>
+          <a href="mailto:va.mvharris@gmail.com" class="btn">Start the Conversation &rarr;</a>
+      </div>
+  </section>
+
+  <footer>
+    <div class="container" style="text-align: center; padding: 3rem 0; border-top: 1px solid var(--line);">
+        <p class="meta" style="opacity: 0.5;">&copy; 2025 Marla Harris. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // --- CHART.JS CONFIGURATION ---
+    // 1. EV vs ICE Cost Chart
+    const ctxEV = document.getElementById('evChart').getContext('2d');
+    new Chart(ctxEV, {
+        type: 'bar',
+        data: {
+            labels: ['Year 1', 'Year 3', 'Year 5', 'Year 7', 'Year 10'],
+            datasets: [{
+                label: 'Electric Vehicle (Cumulative Cost)',
+                data: [35000, 38000, 41000, 44000, 48000], 
+                backgroundColor: '#990049', // Brand Pink
+                borderColor: '#990049',
+                borderWidth: 1
+            }, {
+                label: 'Gas Vehicle (Cumulative Cost)',
+                data: [28000, 34000, 42000, 51000, 64000], 
+                backgroundColor: '#333333', // Brand Charcoal
+                borderColor: '#333333',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { position: 'bottom', labels: { font: { family: 'Inter' } } }
+            },
+            scales: {
+                y: { beginAtZero: false, grid: { color: 'rgba(0,0,0,0.05)' } },
+                x: { grid: { display: false } }
+            }
+        }
+    });
+
+    // 2. Load Curve Chart
+    const ctxLoad = document.getElementById('loadChart').getContext('2d');
+    new Chart(ctxLoad, {
+        type: 'bar',
+        data: {
+            labels: ['6AM', '9AM', '12PM', '3PM', '6PM', '9PM', '12AM'],
+            datasets: [{
+                label: 'Avg. Energy Demand (MW)',
+                data: [3200, 4500, 5800, 6900, 6200, 4800, 3500], // NYC Human Heartbeat pattern
+                backgroundColor: '#990049', // UPDATED: Changed from Charcoal to Brand Pink
+                borderRadius: 4
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false }
+            },
+            scales: {
+                y: { display: false },
+                x: { grid: { display: false }, ticks: { font: { family: 'Inter' } } }
+            }
+        }
+    });
+
+    // 3. Demographics Bubble/Scatter (REAL DATA ADDED)
+    const ctxDemo = document.getElementById('demoChart').getContext('2d');
+    new Chart(ctxDemo, {
+        type: 'bubble',
+        data: {
+            datasets: [{
+                label: 'Data Trend',
+                data: [
+                   {x: 51, y: 51, r: 5}, {x: 47, y: 57, r: 6}, {x: 58, y: 67, r: 7},
+                   {x: 38, y: 64, r: 5}, {x: 48, y: 55, r: 6}, {x: 66, y: 59, r: 7},
+                   {x: 49, y: 76, r: 8}, {x: 49, y: 57, r: 5}, {x: 36, y: 67, r: 6},
+                   {x: 77, y: 73, r: 9}, {x: 39, y: 56, r: 5}, {x: 31, y: 57, r: 5},
+                   {x: 96, y: 65, r: 10}, {x: 46, y: 60, r: 6}, {x: 120, y: 88, r: 12},
+                   {x: 15, y: 45, r: 4}, {x: 25, y: 50, r: 4}, {x: 150, y: 92, r: 15}
+                ],
+                backgroundColor: 'rgba(153, 0, 73, 0.6)'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { position: 'bottom', labels: { font: { family: 'Inter' } } },
+                title: { display: true, text: 'Income ($k) vs. Well-Being Index', font: { family: 'Playfair Display', size: 14 } }
+            },
+            scales: {
+                y: { 
+                    grid: { color: 'rgba(0,0,0,0.05)' },
+                    title: { display: true, text: 'Well-Being Index (0-100)' }
+                },
+                x: { 
+                    grid: { display: false },
+                    title: { display: true, text: 'Income Level ($k)' }
+                }
+            }
+        }
+    });
+
+    // 4. Simulation Chart (Added from CSV)
+    const ctxSim = document.getElementById('simChart').getContext('2d');
+    new Chart(ctxSim, {
+        type: 'line',
+        data: {
+            labels: ['Sample 1', 'Sample 2', 'Sample 3', 'Total (Aggregated)'],
+            datasets: [{
+                label: 'Population Estimate (N)',
+                data: [500, 170, 380, 305], // Data derived from CSV Round 1
+                borderColor: '#990049',
+                backgroundColor: 'rgba(153, 0, 73, 0.1)',
+                pointBackgroundColor: '#fff',
+                pointBorderColor: '#990049',
+                pointRadius: 6,
+                borderWidth: 2,
+                tension: 0.1,
+                fill: true
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false },
+                title: { display: true, text: 'Estimate Volatility vs. Aggregation', font: { family: 'Playfair Display', size: 14 } },
+                annotation: {
+                    annotations: {
+                        line1: {
+                            type: 'line',
+                            yMin: 305,
+                            yMax: 305,
+                            borderColor: '#333',
+                            borderWidth: 1,
+                            borderDash: [5, 5],
+                            label: {
+                                content: 'Stable Estimate',
+                                enabled: true
+                            }
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: { 
+                    beginAtZero: true, 
+                    grid: { color: 'rgba(0,0,0,0.05)' },
+                    title: { display: true, text: 'Population Estimate' }
+                },
+                x: { 
+                    grid: { display: false }
+                }
+            }
+        }
+    });
+
+    // --- INTERACTION LOGIC ---
+    const mobileBtn = document.querySelector('.mobile-menu-btn');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const closeBtn = document.querySelector('.close-menu');
+
+    if(mobileBtn) {
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.style.display = 'flex';
+            mobileMenu.style.flexDirection = 'column';
+            mobileMenu.style.justifyContent = 'center';
+            mobileMenu.style.alignItems = 'center';
+        });
+    }
+    
+    if(closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            mobileMenu.style.display = 'none';
+        });
+    }
+
+    // Fade-in animation
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const fadeInOnScroll = () => {
+      fadeElements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+        if (elementTop < window.innerHeight - elementVisible) {
+          element.classList.add('visible');
+        }
+      });
+    };
+    window.addEventListener('scroll', fadeInOnScroll);
+    fadeInOnScroll(); // Trigger once on load
+  </script>
+
+</body>
+</html>
