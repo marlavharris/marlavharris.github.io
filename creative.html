@@ -140,6 +140,10 @@
     
     /* Updated hover color to use pink accent */
     .nav-link:hover { color: var(--accent); }
+    .nav-link.active { 
+      color: var(--accent); 
+      font-weight: 500;
+    }
 
     .hero {
       padding: 0;
@@ -611,25 +615,64 @@
 
     .mobile-menu-btn { display: none; background:none; border:none; font-size:1.5rem; cursor: pointer; color: var(--ink); }
     
-    /* Updated Mobile Menu CSS for functionality */
-    .mobile-menu { 
-        display: none; 
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: white;
-        z-index: 2000;
-        padding-top: 5rem;
+    /* Mobile Menu */
+    .mobile-menu-btn { 
+      display: none; 
+      background: none; 
+      border: none; 
+      font-size: 1.5rem; 
+      cursor: pointer; 
+      color: var(--ink); 
+      z-index: 1002;
     }
     
-    .close-menu { background: none; border: none; font-size: 2rem; color: var(--ink); cursor: pointer; position: absolute; top: 2rem; right: 2rem; }
+    .mobile-menu { 
+      display: none; 
+      position: fixed; 
+      top: 0; 
+      left: 0; 
+      width: 100vw; 
+      height: 100vh; 
+      background: white; 
+      z-index: 2000; 
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
     
-    .mobile-nav-links { display: flex; flex-direction: column; align-items: center; gap: 2rem; }
-    /* FIXED LINK STYLING IN MOBILE MENU */
+    .mobile-menu.active {
+      display: flex;
+    }
+    
+    .close-menu { 
+      background: none; 
+      border: none; 
+      font-size: 2rem; 
+      color: var(--ink); 
+      cursor: pointer; 
+      position: absolute; 
+      top: 2rem; 
+      right: 2rem; 
+    }
+    
+    .mobile-nav-links { 
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
+      gap: 2rem; 
+    }
+    
     .mobile-nav-link { 
-        font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--ink); text-decoration: none; 
+      font-family: 'Playfair Display', serif; 
+      font-size: 2rem; 
+      color: var(--ink); 
+      text-decoration: none; 
+      transition: color 0.3s ease;
+    }
+    
+    .mobile-nav-link:hover,
+    .mobile-nav-link.active {
+      color: var(--accent);
     }
 
     @keyframes fadeIn {
@@ -668,28 +711,27 @@
   <header>
     <div class="container">
       <nav>
-        <!-- UPDATED: Point back to Strategy Home -->
         <a href="index.html" class="logo">Marla Harris</a>
         <div class="nav-links">
-          <!-- UPDATED: Link to index.html -->
           <a href="index.html" class="nav-link">Home</a>
-          <a href="#projects" class="nav-link">Work</a>
-          <a href="#" class="nav-link" style="color: var(--accent);">Creative & Copy</a>
-          <a href="index.html#about" class="nav-link">About</a>
-          <a href="#contact" class="nav-link">Contact</a>
+          <a href="analytics.html" class="nav-link">Analytics</a>
+          <a href="#" class="nav-link active">Creative & Copy</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="index.html#contact" class="nav-link">Contact</a>
         </div>
         <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
       </nav>
     </div>
+    
+    <!-- Mobile Menu -->
     <div class="mobile-menu">
         <button class="close-menu"><i class="fas fa-times"></i></button>
         <div class="mobile-nav-links">
-            <!-- UPDATED: Link to index.html -->
             <a href="index.html" class="mobile-nav-link">Home</a>
-            <a href="#projects" class="mobile-nav-link">Work</a>
-            <a href="#" class="mobile-nav-link" style="color: var(--accent);">Creative & Copy</a>
-            <a href="index.html#about" class="mobile-nav-link">About</a>
-            <a href="#contact" class="mobile-nav-link">Contact</a>
+            <a href="analytics.html" class="mobile-nav-link">Analytics</a>
+            <a href="#" class="mobile-nav-link active" style="color: var(--accent);">Creative & Copy</a>
+            <a href="about.html" class="mobile-nav-link">About</a>
+            <a href="index.html#contact" class="mobile-nav-link">Contact</a>
         </div>
     </div>
   </header>
@@ -907,7 +949,7 @@
                 <div class="hook-insight">
                     <span class="copy-label meta" style="margin-bottom: 0.5rem; color: var(--accent);">Campaign: Brand Anthem</span>
                     <p style="font-family: 'Playfair Display', serif; font-style: normal; margin-bottom: 1rem; color: var(--ink); font-size: 1.2rem;">
-                        "Rolling Stone has been at the forefront of American culture since 1967... Find out why Yoga to the People’s business model was too good to be true. Discover the true risk of rainbow fentanyl. Follow the latest developments in the ongoing battle for reproductive rights. And keep tabs on the absolute worst people in American politics."
+                        "Rolling Stone has been at the forefront of American culture since 1967... Find out why Yoga to the People's business model was too good to be true. Discover the true risk of rainbow fentanyl. Follow the latest developments in the ongoing battle for reproductive rights. And keep tabs on the absolute worst people in American politics."
                     </p>
                 </div>
             </li>
@@ -929,7 +971,7 @@
                 <div class="hook-insight">
                     <span class="copy-label meta" style="margin-bottom: 0.5rem; color: var(--accent);">Campaign: Education Offer</span>
                     <p style="font-family: 'Playfair Display', serif; font-style: normal; margin-bottom: 1rem; color: var(--ink); font-size: 1.2rem;">
-                        "From Doja Cat to Megan Thee Stallion, Rolling Stone tells the stories of the moment’s most provocative personalities. Get closer to your favorite artists. Gain an understanding of the best and worst people in politics. And immerse yourself in iconic culture reporting, from sex to TikTok to psilocybin."
+                        "From Doja Cat to Megan Thee Stallion, Rolling Stone tells the stories of the moment's most provocative personalities. Get closer to your favorite artists. Gain an understanding of the best and worst people in politics. And immerse yourself in iconic culture reporting, from sex to TikTok to psilocybin."
                     </p>
                 </div>
             </li>
@@ -953,7 +995,7 @@
 
             <li class="hook-item">
                 <span class="hook-type meta">Retail / Fashion</span>
-                <span class="hook-text" style="font-family: 'Playfair Display', serif; font-size: 2rem;">“From Runway to Reality: Fall Trends You’ll Love”</span>
+                <span class="hook-text" style="font-family: 'Playfair Display', serif; font-size: 2rem;">"From Runway to Reality: Fall Trends You'll Love"</span>
                 <div class="hook-insight">
                     <span class="insight-metric">38% Open Rate & 5.3% CTR</span>
                 </div>
@@ -999,19 +1041,19 @@
 
         if(mobileBtn) {
             mobileBtn.addEventListener('click', () => {
-                mobileMenu.style.display = 'block';
+                mobileMenu.classList.add('active');
             });
         }
         
         if(closeBtn) {
             closeBtn.addEventListener('click', () => {
-                mobileMenu.style.display = 'none';
+                mobileMenu.classList.remove('active');
             });
         }
 
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
-                mobileMenu.style.display = 'none';
+                mobileMenu.classList.remove('active');
             });
         });
 
