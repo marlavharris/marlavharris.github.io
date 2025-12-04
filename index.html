@@ -373,6 +373,25 @@
       color: var(--accent); margin: 6rem auto 0; line-height: 1.1; max-width: 900px; text-align: center;
     }
 
+    /* Capabilities Grid - Enforce Evenness */
+    .capabilities-grid {
+        display: grid;
+        gap: 3rem;
+        grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 600px) {
+        .capabilities-grid {
+            grid-template-columns: repeat(2, 1fr); /* 2x2 Layout */
+        }
+    }
+
+    @media (min-width: 1100px) {
+        .capabilities-grid {
+            grid-template-columns: repeat(4, 1fr); /* 4 in a row */
+        }
+    }
+
     /* Contact & Social */
     .contact { padding: 6rem 0 4rem; text-align: center; background: white; border-top: 1px solid var(--line); }
     .star-decoration { font-size: 1.5rem; color: var(--accent); margin-bottom: 2rem; display: block; }
@@ -488,13 +507,13 @@
         <div class="method-step">
           <span class="method-num">01.</span>
           <h3 class="method-title">Operational Infrastructure</h3>
-          <p class="method-desc">I build scalable systems that organize complexity. From SQL queries to creative workflows, I create the structures that allow creativity to function efficiently.</p>
+          <p class="method-desc">I build scalable systems that organize complexity. From messy spreadsheets to creative workflows, I create the structures that allow creativity to function efficiently.</p>
         </div>
         
         <div class="method-step">
           <span class="method-num">02.</span>
           <h3 class="method-title">Pattern Recognition</h3>
-          <p class="method-desc">Leveraging historical data and consumer insights, I identify the hidden trends that drive real behavior, ensuring strategy is always rooted in fact.</p>
+          <p class="method-desc">Leveraging historical data and consumer insights, I identify the hidden trends that drive real behavior. It’s not psychic ability—it’s just good data.</p>
         </div>
         
         <div class="method-step">
@@ -515,8 +534,8 @@
              <div class="sv-small">Subscribers Managed</div>
         </div>
         <div class="work-content">
-            <span class="work-meta">Email Marketing</span>
-            <h2>Media Empire Strategy</h2>
+            <span class="work-meta">Subscription Marketing</span>
+            <h2>Penske Media Corporation</h2>
             <p class="work-quote">"Directed subscription strategy and product development for a portfolio of iconic media brands (Rolling Stone, Billboard, WWD)."</p>
             
             <div class="case-study-block">
@@ -541,7 +560,7 @@
         </div>
         <div class="work-content">
             <span class="work-meta">Growth Marketing</span>
-            <h2>Growth in Regulated Markets</h2>
+            <h2>Museum of Sex</h2>
             <p class="work-quote">"Navigated strict industry regulations to drive growth through compliant paid acquisition and strategic retention."</p>
             
             <div class="case-study-block">
@@ -566,7 +585,7 @@
         </div>
         <div class="work-content">
             <span class="work-meta">E-Commerce Management</span>
-            <h2>E-Commerce Manager</h2>
+            <h2>Bao Bao Issey Miyake</h2>
             <p class="work-quote">"Mixing technical backend operations with high-fashion marketing strategy."</p>
             
             <div class="case-study-block">
@@ -607,33 +626,47 @@
         <!-- COLUMN 1: BIO -->
         <div>
           <span class="meta" style="color: var(--accent); margin-bottom: 1rem;">// The Story</span>
-          <h2 style="margin-bottom: 2rem;">Analytical Precision. Creative Strategy.</h2>
+          <h2 style="margin-bottom: 2rem;">From Bra Fitter to Data Leader</h2>
           
           <p style="font-size: 1.1rem; color: var(--ink); margin-bottom: 1.5rem; line-height: 1.6;">
-            A marketing leader with a deep background in consumer behavior and luxury fashion. I specialize in elevating brand presentation while ensuring every decision is backed by data.
+            Former bra fitter with a psychic‑like ability to predict trends. Just kidding, it’s all in the data.
           </p>
 
           <p style="color: var(--charcoal); margin-bottom: 1.5rem;">
-            I excel in turning complex data sets into actionable strategies. My approach combines the rigor of technical operations—like SQL and CRM architecture—with the nuance of high-end storytelling. I am currently deepening this expertise through Master’s-level coursework in Economics to better understand market dynamics.
+            I’m an ex–fashion design student turned luxury marketer obsessed with making everything look more expensive—even a $5.99 subscription. The philosophy is simple: <strong>"If I can sell a $300 bra, I can sell anything."</strong>
           </p>
           
+          <p style="color: var(--charcoal); margin-bottom: 1.5rem;">
+             For 8+ years, I’ve worked at the intersection of product, marketing, and technology, turning messy spreadsheets and marketing tech into strategies that drive 17% YoY revenue growth.
+          </p>
+
           <p style="color: var(--neutral-600); margin-bottom: 1.5rem;">
-             It isn't just about analyzing the market; it's about building the intelligent systems that allow brands to scale effectively.
+             Now? I’m pivoting. I went back to school for my Master’s in Public Administration to combine analytics, storytelling, and marketing in ways that strengthen the relationship between audiences and businesses.
           </p>
         </div>
 
-        <!-- COLUMN 2: PHILOSOPHY -->
-        <div style="display: flex; flex-direction: column; justify-content: flex-start; padding-top: 3rem;">
+        <!-- COLUMN 2: PHILOSOPHY & CURRENT -->
+        <div style="display: flex; flex-direction: column; justify-content: flex-start; padding-top: 1rem;">
           <blockquote style="border-left: 2px solid var(--accent); padding-left: 2rem; margin: 0 0 3rem 0;">
-            <p style="font-family: 'Playfair Display', serif; font-size: 1.4rem; line-height: 1.5; color: var(--ink); margin-bottom: 1rem;">
-              "Turning complex challenges into measurable ROI through data-informed creativity."
+            <p style="font-family: 'Playfair Display', serif; font-size: 1.3rem; line-height: 1.5; color: var(--ink); margin-bottom: 1rem;">
+              "Making money and taking care of communities aren’t contradictions. The competition isn’t my colleagues—it’s creating engaging content that sells."
             </p>
-            <cite style="font-family: 'Inter', sans-serif; font-style: normal; font-size: 0.8rem; letter-spacing: 0.1em; color: var(--neutral-600); text-transform: uppercase;">— My Philosophy</cite>
           </blockquote>
           
-          <p style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.2rem; color: var(--neutral-600);">
-            Outside of work, I explore data science applications and enjoy collecting vinyl records.
-          </p>
+          <div style="background: white; padding: 2rem; border: 1px solid var(--line);">
+             <span class="meta" style="color: var(--accent); margin-bottom: 1rem;">// What I'm Up To</span>
+             <ul style="list-style: none; margin-top: 1rem;">
+                 <li style="margin-bottom: 1rem; font-size: 0.9rem; color: var(--charcoal);">
+                    <strong style="color: var(--ink);">The Tech:</strong> Exploring "vibe coding" (which built this site), freelancing for an AI-driven search engine for sewists, and finally coming for SQL.
+                 </li>
+                 <li style="margin-bottom: 1rem; font-size: 0.9rem; color: var(--charcoal);">
+                    <strong style="color: var(--ink);">The Master's:</strong> Deep into MPA coursework on Communication Strategy, Marketing for Good, and AI Regulation.
+                 </li>
+                 <li style="font-size: 0.9rem; color: var(--charcoal);">
+                    <strong style="color: var(--ink);">The Life:</strong> Crochet, vinyls, and hanging out with my dog, Edgar Allan Pittie.
+                 </li>
+             </ul>
+          </div>
         </div>
       </div>
 
@@ -641,13 +674,13 @@
       <div style="margin-top: 6rem; border-top: 1px solid var(--line); padding-top: 4rem;">
         <span class="meta" style="color: var(--accent); margin-bottom: 2rem; display: block;">// Capabilities & Expertise</span>
         
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem;">
+        <div class="capabilities-grid">
             
             <!-- Skill Group 1 -->
             <div>
                 <h4 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; margin-bottom: 1rem; color: var(--ink);">Storytelling & Content</h4>
                 <p style="font-size: 0.9rem; color: var(--charcoal); line-height: 1.6;">
-                    Strategic storytelling that drives sales, opinionated copywriting, content strategy (email, SMS, social), brand voice development.
+                    Storytelling that sells without sounding like marketing. Opinionated copywriting, multi-channel content strategy (email, SMS, social), and brand voice development.
                 </p>
             </div>
 
@@ -655,7 +688,7 @@
             <div>
                 <h4 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; margin-bottom: 1rem; color: var(--ink);">Analytics & Data</h4>
                 <p style="font-size: 0.9rem; color: var(--charcoal); line-height: 1.6;">
-                    Customer psychology, data-backed insights, A/B & multivariate testing, market research, SQL, AI Prompt Engineering.
+                    Customer psychology, data-backed insights, A/B & multivariate testing, market research, and transforming user experiences.
                 </p>
             </div>
 
@@ -663,10 +696,7 @@
             <div>
                 <h4 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; margin-bottom: 1rem; color: var(--ink);">Brand & Marketing</h4>
                 <p style="font-size: 0.9rem; color: var(--charcoal); line-height: 1.6;">
-                    Luxury branding, value-based messaging, multi-channel marketing, high-converting email flows, e-commerce strategy & merchandising.
-                </p>
-                <p style="font-size: 0.75rem; color: var(--neutral-600); margin-top: 0.5rem; font-style: italic;">
-                    (Issey Miyake, Rolling Stone, Billboard Pro, Samsung, LG)
+                    Luxury branding, value-based messaging, campaign planning, email flows that convert, e-commerce strategy, and merchandising.
                 </p>
             </div>
 
@@ -674,7 +704,7 @@
             <div>
                 <h4 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; margin-bottom: 1rem; color: var(--ink);">Collaboration & Strategy</h4>
                 <p style="font-size: 0.9rem; color: var(--charcoal); line-height: 1.6;">
-                    Community-centered thinking, corporate responsibility frameworks, cross-functional collaboration, lifecycle marketing.
+                    Community-centered thinking (e.g., AJ Madison community fridge), corporate responsibility frameworks, and cross-functional problem solving.
                 </p>
             </div>
             
