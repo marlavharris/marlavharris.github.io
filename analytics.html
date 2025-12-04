@@ -12,8 +12,8 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Marla Harris - Data Analytics & Strategic Insights.">
-  <title>Marla Harris — The Data</title>
+  <meta name="description" content="Marla Harris - Statistical Analysis & Data Visualization Portfolio">
+  <title>Marla Harris — Analytics Portfolio</title>
     
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -60,6 +60,7 @@
 
     h1 { font-size: clamp(3.5rem, 6vw, 5.5rem); letter-spacing: -0.03em; }
     h2 { font-size: clamp(2.5rem, 4vw, 3.5rem); letter-spacing: -0.02em; }
+    h3 { font-size: 1.8rem; margin-bottom: 1.5rem; }
     
     .meta {
         font-family: 'Inter', sans-serif;
@@ -149,7 +150,7 @@
 
     .hero {
       padding: 0;
-      min-height: 50vh;
+      min-height: 60vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -185,139 +186,99 @@
         opacity: 0.8;
     }
 
-    /* --- COMING SOON SECTION --- */
-    .coming-soon {
+    /* --- CASE STUDY SECTION --- */
+    .case-study {
         padding: 8rem 0;
         border-top: 1px solid var(--line);
-        text-align: center;
     }
 
-    .coming-soon h2 {
-        font-size: 2.5rem;
-        margin-bottom: 2rem;
-    }
-
-    .coming-soon p {
-        font-size: 1.1rem;
-        color: var(--neutral-600);
-        max-width: 600px;
-        margin: 0 auto 3rem;
-    }
-
-    .placeholder-grid {
+    .case-study-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 3rem;
-        margin-top: 4rem;
+        grid-template-columns: 1fr;
+        gap: 8rem;
     }
 
-    .placeholder-card {
+    .analysis-block {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 1s cubic-bezier(0.2, 1, 0.3, 1), transform 1s cubic-bezier(0.2, 1, 0.3, 1);
+        padding: 3rem;
         background: #fff;
         border: 1px solid rgba(0,0,0,0.03);
         border-radius: 4px;
-        padding: 3rem 2rem;
         box-shadow: var(--shadow-soft);
-        transition: all 0.3s ease;
     }
 
-    .placeholder-card:hover {
+    .analysis-block.in-view {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .analysis-block:hover {
         transform: translateY(-5px);
         box-shadow: var(--shadow-hover);
     }
 
-    .placeholder-icon {
+    .stat-card {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin: 2rem 0;
+    }
+
+    .stat-item {
+        text-align: center;
+        padding: 1.5rem;
+        background: var(--accent-dim);
+        border-radius: 4px;
+    }
+
+    .stat-value {
+        font-family: 'Playfair Display', serif;
         font-size: 2.5rem;
         color: var(--accent);
-        margin-bottom: 1.5rem;
+        display: block;
+        margin-bottom: 0.5rem;
     }
 
-    .placeholder-card h3 {
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-    }
-
-    .placeholder-card p {
-        font-size: 0.9rem;
+    .stat-label {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
         color: var(--neutral-600);
-        margin-bottom: 0;
     }
 
-    /* --- ANALYTICS CARD --- */
-    .analytics-section {
-        padding: 8rem 0;
-        border-top: 1px solid var(--line);
-        background: linear-gradient(180deg, #fff 0%, #fafafa 100%);
-    }
-
-    .analytics-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 12rem;
-    }
-
-    .data-story {
-        display: grid;
-        grid-template-columns: 1.2fr 0.8fr;
-        gap: 6rem;
-        align-items: center;
-        opacity: 0;
-        transform: translateY(40px);
-        transition: opacity 1s cubic-bezier(0.2, 1, 0.3, 1), transform 1s cubic-bezier(0.2, 1, 0.3, 1);
-    }
-
-    .data-story.in-view {
-        opacity: 1;
-        transform: translateY(0);
+    .insight-box {
+        background: var(--accent-dim);
+        padding: 2rem;
+        border-left: 3px solid var(--accent);
+        margin: 2rem 0;
+        font-style: italic;
     }
 
     .chart-container {
         position: relative;
         height: 450px;
         width: 100%;
-        padding: 2.5rem;
+        margin: 3rem 0;
+        padding: 2rem;
         background: #fff;
         border: 1px solid rgba(0,0,0,0.03);
         border-radius: 4px;
         box-shadow: var(--shadow-soft);
-        transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1), box-shadow 0.6s ease;
     }
 
-    /* Hover effect for depth */
-    .chart-container:hover {
-        transform: translateY(-8px);
-        box-shadow: var(--shadow-hover);
+    .comparison-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 2rem 0;
     }
 
-    .data-label {
-        font-family: 'Inter', sans-serif;
-        font-size: 0.65rem;
-        text-transform: uppercase;
-        letter-spacing: 0.25em;
-        color: var(--accent);
-        display: block;
-        margin-bottom: 1.5rem;
-    }
-
-    .data-title {
-        font-size: 2.5rem;
-        margin-bottom: 1.5rem;
-    }
-
-    .data-insight {
-        font-family: 'Playfair Display', serif;
-        font-size: 1.25rem;
-        color: var(--ink);
-        line-height: 1.5;
-        margin-bottom: 2rem;
-        font-style: italic;
-        border-left: 2px solid var(--accent);
-        padding-left: 2rem;
-    }
-
-    .data-desc {
-        font-size: 1rem;
-        color: var(--neutral-600);
-        margin-bottom: 2rem;
+    .comparison-item {
+        padding: 1.5rem;
+        background: #f9f9f9;
+        border-radius: 4px;
     }
 
     /* --- TOOLKIT --- */
@@ -427,14 +388,8 @@
     }
 
     @media (max-width: 900px) {
-        .data-story { 
-          grid-template-columns: 1fr; 
-          gap: 4rem; 
-        }
-        
-        .chart-container { 
-          height: 350px; 
-          padding: 1rem; 
+        .container {
+          padding: 0 1.5rem;
         }
         
         .nav-links { 
@@ -449,24 +404,29 @@
           font-size: 3rem; 
         }
         
-        .analytics-grid { 
-          gap: 6rem; 
+        .analysis-block {
+            padding: 2rem;
         }
         
-        .container {
-          padding: 0 1.5rem;
+        .stat-card {
+            grid-template-columns: 1fr;
+        }
+        
+        .chart-container {
+            height: 350px;
+            padding: 1rem;
+        }
+        
+        .comparison-grid {
+            grid-template-columns: 1fr;
         }
         
         .toolkit-grid {
-          gap: 2rem;
+            gap: 2rem;
         }
         
         .tool-item {
-          font-size: 1.1rem;
-        }
-        
-        .placeholder-grid {
-          grid-template-columns: 1fr;
+            font-size: 1.1rem;
         }
     }
     
@@ -474,8 +434,9 @@
         h1 { font-size: 2.5rem; }
         h2 { font-size: 2rem; }
         .hero p { font-size: 1rem; }
-        .data-title { font-size: 1.8rem; }
-        .data-insight { font-size: 1rem; }
+        .analysis-block {
+            padding: 1.5rem;
+        }
     }
   </style>
 </head>
@@ -511,66 +472,221 @@
 
   <section class="hero">
     <div class="container hero-content">
-      <span class="hero-sub meta">// Data & Insights</span>
-      <h1>From Fitting Rooms to Data Models.</h1>
-      <p>Service industry trained human insight meets academically-trained analysis.</p>
+      <span class="hero-sub meta">// Statistical Analysis & Data Science</span>
+      <h1>Data-Driven Insights</h1>
+      <p>Academic rigor meets practical application: hypothesis testing, confidence intervals, and predictive modeling.</p>
     </div>
   </section>
 
-  <!-- COMING SOON SECTION -->
-  <section class="coming-soon">
-    <div class="container">
-      <h2>Analytics Portfolio: Coming Soon</h2>
-      <p>I'm currently preparing detailed case studies and visualizations from recent projects. Check back soon for completed energy economics analyses, consumer behavior insights, and predictive modeling work.</p>
-      
-      <div class="placeholder-grid">
-        <div class="placeholder-card">
-          <div class="placeholder-icon">
-            <i class="fas fa-chart-line"></i>
-          </div>
-          <h3>EV vs ICE Economic Analysis</h3>
-          <p>Detailed NPV comparison with sensitivity analysis across discount rates and fuel price scenarios.</p>
-        </div>
+  <section class="case-study">
+    <div class="container case-study-grid">
         
-        <div class="placeholder-card">
-          <div class="placeholder-icon">
-            <i class="fas fa-bolt"></i>
-          </div>
-          <h3>Energy Load Forecasting</h3>
-          <p>Time-series analysis of peak demand patterns and behavioral energy consumption insights.</p>
-        </div>
-        
-        <div class="placeholder-card">
-          <div class="placeholder-icon">
-            <i class="fas fa-chart-bar"></i>
-          </div>
-          <h3>Statistical Reliability Models</h3>
-          <p>Sample size optimization and confidence interval analysis for business decision-making.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SINGLE COMPLETED CHART -->
-  <section class="analytics-section">
-    <div class="container analytics-grid">
-        
-        <!-- DATA STORY: Income-Wellbeing Correlation -->
-        <div class="data-story">
+        <!-- CASE STUDY 1: Income-Wellbeing Correlation -->
+        <div class="analysis-block">
+            <span class="meta">Case Study #1</span>
+            <h2>Income & Wellbeing Correlation</h2>
+            <p class="data-desc">Analysis of 1,000+ survey responses reveals distinct consumer segments and diminishing returns on wellbeing beyond certain income thresholds.</p>
+            
             <div class="chart-container">
-                <canvas id="demoChart"></canvas>
+                <canvas id="incomeWellbeingChart"></canvas>
             </div>
-            <div class="data-content">
-                <span class="data-label">Completed Analysis</span>
-                <h2 class="data-title">Income-Wellbeing Correlation</h2>
-                <p class="data-insight">
-                    "Higher income correlates with higher wellbeing, but the relationship isn't linear. After $100k, additional income yields diminishing returns."
-                </p>
-                <p class="data-desc">
-                    Analysis of 1,000+ survey responses shows distinct consumer segments: low-income respondents ($28k-$42k) report wellbeing scores of 40-50, middle-income ($55k-$72k) score 62-70, and high-income ($95k-$150k) reach 78-88. The data reveals income thresholds where wellbeing improvements plateau, enabling more precise targeting of wellbeing-related products and services.
-                </p>
-                <div class="meta">Tools: Cluster Analysis, Correlation Studies, Data Visualization</div>
+            
+            <div class="insight-box">
+                <p>"Higher income correlates with higher wellbeing, but the relationship isn't linear. After $100k, additional income yields diminishing returns on wellbeing."</p>
             </div>
+            
+            <div class="stat-card">
+                <div class="stat-item">
+                    <span class="stat-value">40-50</span>
+                    <span class="stat-label">Low Income Wellbeing</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">62-70</span>
+                    <span class="stat-label">Middle Income Wellbeing</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">78-88</span>
+                    <span class="stat-label">High Income Wellbeing</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">$100k</span>
+                    <span class="stat-label">Diminishing Returns Threshold</span>
+                </div>
+            </div>
+            
+            <h3>Analytical Approach</h3>
+            <p><strong>Methodology:</strong> Cluster analysis and correlation studies on survey data</p>
+            <p><strong>Sample Size:</strong> 1,000+ respondents across income brackets</p>
+            <p><strong>Key Finding:</strong> Wellbeing improvements plateau around $100k annual income</p>
+            <p><strong>Business Application:</strong> Enables precise targeting of wellbeing-related products and services</p>
+        </div>
+
+        <!-- CASE STUDY 2: Statistical Significance Testing -->
+        <div class="analysis-block">
+            <span class="meta">Case Study #2</span>
+            <h2>Hypothesis Testing: Political Behavior</h2>
+            <p class="data-desc">Testing whether COVID-19 booster shot rates differ significantly between political affiliations using confidence intervals and statistical significance.</p>
+            
+            <div class="chart-container">
+                <canvas id="politicalChart"></canvas>
+            </div>
+            
+            <div class="insight-box">
+                <p>"The 90% confidence interval for the difference in booster rates (2.28% to 11.72%) does not include zero, indicating a statistically significant political divide."</p>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-item">
+                    <span class="stat-value">15.0%</span>
+                    <span class="stat-label">Democrat Booster Rate</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">8.0%</span>
+                    <span class="stat-label">Republican Booster Rate</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">7.0%</span>
+                    <span class="stat-label">Absolute Difference</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">90% CI</span>
+                    <span class="stat-label">2.28% → 11.72%</span>
+                </div>
+            </div>
+            
+            <div class="comparison-grid">
+                <div class="comparison-item">
+                    <h4>Null Hypothesis</h4>
+                    <p>No difference in booster rates between Democrats and Republicans</p>
+                </div>
+                <div class="comparison-item">
+                    <h4>Test Result</h4>
+                    <p>Reject null hypothesis at 90% confidence level</p>
+                </div>
+                <div class="comparison-item">
+                    <h4>Conclusion</h4>
+                    <p>Democrats significantly more likely to receive boosters in this sample</p>
+                </div>
+            </div>
+            
+            <h3>Statistical Methodology</h3>
+            <p><strong>Sample Sizes:</strong> 280 Democrats, 200 Republicans</p>
+            <p><strong>Confidence Level:</strong> 90% (Critical z-value: 1.645)</p>
+            <p><strong>Standard Error:</strong> 0.0287 for difference between proportions</p>
+            <p><strong>Analysis:</strong> Confidence interval approach for hypothesis testing</p>
+        </div>
+
+        <!-- CASE STUDY 3: Simpson's Paradox -->
+        <div class="analysis-block">
+            <span class="meta">Case Study #3</span>
+            <h2>Simpson's Paradox in Public Policy</h2>
+            <p class="data-desc">How Florida appears to have higher overall support for vaping bans, but California actually has higher support in every age group—a classic statistical paradox.</p>
+            
+            <div class="chart-container">
+                <canvas id="simpsonChart"></canvas>
+            </div>
+            
+            <div class="insight-box">
+                <p>"Florida's overall support appears higher (58% vs 50%), but California actually leads in every age group. The paradox occurs because Florida has more older respondents who generally support bans at higher rates."</p>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-item">
+                    <span class="stat-value">58%</span>
+                    <span class="stat-label">FL Overall Support</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">50%</span>
+                    <span class="stat-label">CA Overall Support</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">+10%</span>
+                    <span class="stat-label">CA Leads in Age Groups</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">70%</span>
+                    <span class="stat-label">FL 40+ Population</span>
+                </div>
+            </div>
+            
+            <h3>The Statistical Illusion</h3>
+            <p>This is Simpson's Paradox: a trend appears in different groups of data but disappears or reverses when the groups are combined.</p>
+            
+            <div class="comparison-grid">
+                <div class="comparison-item">
+                    <h4>Florida Sample Composition</h4>
+                    <p>• 70% older adults (higher support for bans)</p>
+                    <p>• 30% younger adults (lower support for bans)</p>
+                    <p>• Older demographic inflates overall percentage</p>
+                </div>
+                <div class="comparison-item">
+                    <h4>California Sample Composition</h4>
+                    <p>• 25% older adults</p>
+                    <p>• 75% younger adults</p>
+                    <p>• Younger demographic depresses overall percentage</p>
+                </div>
+            </div>
+            
+            <h3>Analytical Takeaway</h3>
+            <p>This case demonstrates why examining data at appropriate levels of aggregation is crucial. Relying solely on overall percentages can lead to misleading conclusions when underlying group compositions differ significantly. Proper analysis requires looking at stratified data.</p>
+        </div>
+
+        <!-- CASE STUDY 4: Educational Confidence Intervals -->
+        <div class="analysis-block">
+            <span class="meta">Case Study #4</span>
+            <h2>Confidence Interval Analysis</h2>
+            <p class="data-desc">Calculating precise confidence intervals for educational attainment and college degree proportions from survey data.</p>
+            
+            <div class="chart-container">
+                <canvas id="educationChart"></canvas>
+            </div>
+            
+            <div class="insight-box">
+                <p>"With 90% confidence, the true population proportion of college graduates lies between 35.83% and 40.83%, definitively exceeding the 30% threshold with statistical significance."</p>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-item">
+                    <span class="stat-value">90% CI</span>
+                    <span class="stat-label">14.89 → 15.23 years</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">38.33%</span>
+                    <span class="stat-label">Sample Proportion</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">0.0152</span>
+                    <span class="stat-label">Standard Error</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">1,020</span>
+                    <span class="stat-label">Sample Size</span>
+                </div>
+            </div>
+            
+            <h3>Statistical Precision</h3>
+            <div class="comparison-grid">
+                <div class="comparison-item">
+                    <h4>Educational Attainment CI</h4>
+                    <p><strong>Mean:</strong> 15.06 years</p>
+                    <p><strong>SD:</strong> 3.299 years</p>
+                    <p><strong>90% CI:</strong> 14.89–15.23 years</p>
+                    <p><strong>Interpretation:</strong> Narrow interval indicates precise estimation</p>
+                </div>
+                <div class="comparison-item">
+                    <h4>College Degree CI</h4>
+                    <p><strong>Proportion:</strong> 391/1020 = 0.3833</p>
+                    <p><strong>90% CI:</strong> 0.3583–0.4083</p>
+                    <p><strong>Test:</strong> Entire interval > 30%</p>
+                    <p><strong>Conclusion:</strong> Statistically significant > 30% threshold</p>
+                </div>
+            </div>
+            
+            <h3>Methodological Rigor</h3>
+            <p><strong>Sample Statistics:</strong> Computed using Excel from Gallup survey data</p>
+            <p><strong>Assumptions:</strong> Normal distribution for analytical purposes</p>
+            <p><strong>Critical Values:</strong> z = 1.645 for 90% confidence level</p>
+            <p><strong>Standard Errors:</strong> Calculated preserving precision through intermediate steps</p>
         </div>
 
     </div>
@@ -580,31 +696,34 @@
       <div class="container">
           <span class="hero-sub meta" style="margin-bottom: 3rem; display: block;">// The Technical Toolkit</span>
           <div class="toolkit-grid">
-              <div class="tool-item stagger-item">Advanced Excel</div>
-              <div class="tool-item stagger-item">Looker</div>
-              <div class="tool-item stagger-item">Google Analytics</div>
-              <div class="tool-item stagger-item">Power BI</div>
-              <div class="tool-item stagger-item">Pivot Tables</div>
-              <div class="tool-item stagger-item">Forecasting Models</div>
+              <div class="tool-item stagger-item">Hypothesis Testing</div>
+              <div class="tool-item stagger-item">Confidence Intervals</div>
+              <div class="tool-item stagger-item">Statistical Significance</div>
+              <div class="tool-item stagger-item">Data Visualization</div>
+              <div class="tool-item stagger-item">Excel Analysis</div>
+              <div class="tool-item stagger-item">Cross-Tabulation</div>
               <div class="tool-item stagger-item">Regression Analysis</div>
-              <div class="tool-item stagger-item">A/B Testing</div>
-              <div class="tool-item stagger-item">Statistical Analysis</div>
+              <div class="tool-item stagger-item">Sample Design</div>
+              <div class="tool-item stagger-item">Simpson's Paradox</div>
           </div>
       </div>
   </section>
 
   <section class="hero" style="height: 40vh; background: var(--accent-dim); padding-top: 0;">
       <div class="container hero-content">
-          <p style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 2rem;">
-              from bra fitter to data nerd
+          <h3 style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 2rem;">
+              From Statistical Theory to Practical Insight
+          </h3>
+          <p style="max-width: 600px; margin: 0 auto 2rem;">
+              These case studies demonstrate rigorous statistical methodology applied to real-world data, transforming numbers into actionable business intelligence.
           </p>
-          <a href="mailto:va.mvharris@gmail.com" class="btn">Start the Conversation &rarr;</a>
+          <a href="mailto:va.mvharris@gmail.com" class="btn">Discuss Analytics Projects &rarr;</a>
       </div>
   </section>
 
   <footer>
     <div class="container" style="text-align: center; padding: 3rem 0; border-top: 1px solid var(--line);">
-        <p class="meta" style="opacity: 0.5;">&copy; 2025 Marla Harris. All Rights Reserved.</p>
+        <p class="meta" style="opacity: 0.5;">&copy; 2025 Marla Harris. Analytics Portfolio. All Rights Reserved.</p>
     </div>
   </footer>
 
@@ -624,8 +743,8 @@
         });
     }, observerOptions);
 
-    // Observe all data-story elements
-    document.querySelectorAll('.data-story').forEach((el) => {
+    // Observe all analysis blocks
+    document.querySelectorAll('.analysis-block').forEach((el) => {
         observer.observe(el);
     });
 
@@ -637,7 +756,7 @@
                 items.forEach((item, index) => {
                     setTimeout(() => {
                         item.classList.add('in-view');
-                    }, index * 100); // 100ms stagger
+                    }, index * 100);
                 });
                 toolkitObserver.unobserve(entry.target);
             }
@@ -658,23 +777,22 @@
     });
 
     // --- CHART.JS CONFIGURATION ---
-    // Global defaults for fonts
     Chart.defaults.font.family = "'Inter', sans-serif";
     Chart.defaults.color = '#757575';
     
-    // Demographics Bubble/Scatter Chart
-    const ctxDemo = document.getElementById('demoChart').getContext('2d');
-    new Chart(ctxDemo, {
+    // Chart 1: Income-Wellbeing Correlation (Bubble Chart)
+    const ctxIncome = document.getElementById('incomeWellbeingChart').getContext('2d');
+    new Chart(ctxIncome, {
         type: 'bubble',
         data: {
             datasets: [
                 {
                     label: 'Low Income',
                     data: [
-                        {x: 35, y: 45, r: 6},  // $35k, Well-being 45
-                        {x: 42, y: 50, r: 7},  // $42k, Well-being 50
-                        {x: 28, y: 40, r: 5},  // $28k, Well-being 40
-                        {x: 38, y: 48, r: 6}   // $38k, Well-being 48
+                        {x: 35, y: 45, r: 6},
+                        {x: 42, y: 50, r: 7},
+                        {x: 28, y: 40, r: 5},
+                        {x: 38, y: 48, r: 6}
                     ],
                     backgroundColor: 'rgba(139, 38, 72, 0.4)',
                     borderColor: '#8B2648',
@@ -683,11 +801,11 @@
                 {
                     label: 'Middle Income',
                     data: [
-                        {x: 65, y: 65, r: 8},  // $65k, Well-being 65
-                        {x: 58, y: 67, r: 7},  // $58k, Well-being 67
-                        {x: 72, y: 70, r: 9},  // $72k, Well-being 70
-                        {x: 55, y: 62, r: 7},  // $55k, Well-being 62
-                        {x: 68, y: 68, r: 8}   // $68k, Well-being 68
+                        {x: 65, y: 65, r: 8},
+                        {x: 58, y: 67, r: 7},
+                        {x: 72, y: 70, r: 9},
+                        {x: 55, y: 62, r: 7},
+                        {x: 68, y: 68, r: 8}
                     ],
                     backgroundColor: 'rgba(139, 38, 72, 0.6)',
                     borderColor: '#8B2648',
@@ -696,10 +814,10 @@
                 {
                     label: 'High Income',
                     data: [
-                        {x: 95, y: 78, r: 10}, // $95k, Well-being 78
-                        {x: 110, y: 82, r: 11}, // $110k, Well-being 82
-                        {x: 125, y: 85, r: 12}, // $125k, Well-being 85
-                        {x: 150, y: 88, r: 14}  // $150k, Well-being 88
+                        {x: 95, y: 78, r: 10},
+                        {x: 110, y: 82, r: 11},
+                        {x: 125, y: 85, r: 12},
+                        {x: 150, y: 88, r: 14}
                     ],
                     backgroundColor: 'rgba(139, 38, 72, 0.8)',
                     borderColor: '#8B2648',
@@ -716,10 +834,7 @@
                     labels: {
                         usePointStyle: true,
                         padding: 20,
-                        font: {
-                            family: "'Inter', sans-serif",
-                            size: 11
-                        }
+                        font: { size: 11 }
                     }
                 },
                 tooltip: {
@@ -745,17 +860,7 @@
                     title: { 
                         display: true, 
                         text: 'Well-Being Index (0-100)',
-                        font: {
-                            family: "'Inter', sans-serif",
-                            size: 12,
-                            weight: '500'
-                        }
-                    },
-                    ticks: {
-                        font: {
-                            family: "'Inter', sans-serif",
-                            size: 11
-                        }
+                        font: { size: 12, weight: '500' }
                     }
                 },
                 x: { 
@@ -765,19 +870,157 @@
                     title: { 
                         display: true, 
                         text: 'Annual Income ($ thousands)',
-                        font: {
-                            family: "'Inter', sans-serif",
-                            size: 12,
-                            weight: '500'
-                        }
+                        font: { size: 12, weight: '500' }
                     },
                     ticks: {
                         callback: function(value) {
                             return '$' + value + 'k';
-                        },
-                        font: {
-                            family: "'Inter', sans-serif",
-                            size: 11
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    // Chart 2: Political Behavior Comparison
+    const ctxPolitical = document.getElementById('politicalChart').getContext('2d');
+    new Chart(ctxPolitical, {
+        type: 'bar',
+        data: {
+            labels: ['Democrats', 'Republicans'],
+            datasets: [{
+                label: 'COVID Booster Rate',
+                data: [15.0, 8.0],
+                backgroundColor: [
+                    'rgba(139, 38, 72, 0.8)',
+                    'rgba(184, 92, 126, 0.8)'
+                ],
+                borderColor: [
+                    '#8B2648',
+                    '#B85C7E'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return `${context.label}: ${context.raw}% booster rate`;
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 20,
+                    title: {
+                        display: true,
+                        text: 'Booster Rate (%)'
+                    },
+                    grid: { color: 'rgba(0,0,0,0.03)' }
+                },
+                x: {
+                    grid: { display: false }
+                }
+            }
+        }
+    });
+
+    // Chart 3: Simpson's Paradox
+    const ctxSimpson = document.getElementById('simpsonChart').getContext('2d');
+    new Chart(ctxSimpson, {
+        type: 'bar',
+        data: {
+            labels: ['18-39 Years', '40+ Years', 'Overall'],
+            datasets: [
+                {
+                    label: 'Florida',
+                    data: [30, 70, 58],
+                    backgroundColor: 'rgba(139, 38, 72, 0.6)',
+                    borderColor: '#8B2648',
+                    borderWidth: 1
+                },
+                {
+                    label: 'California',
+                    data: [40, 80, 50],
+                    backgroundColor: 'rgba(184, 92, 126, 0.6)',
+                    borderColor: '#B85C7E',
+                    borderWidth: 1
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { position: 'top' },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return `${context.dataset.label}: ${context.raw}% support`;
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100,
+                    title: {
+                        display: true,
+                        text: 'Support for Outlawing Vaping (%)'
+                    },
+                    grid: { color: 'rgba(0,0,0,0.03)' }
+                },
+                x: {
+                    grid: { display: false }
+                }
+            }
+        }
+    });
+
+    // Chart 4: Education Distribution
+    const ctxEducation = document.getElementById('educationChart').getContext('2d');
+    new Chart(ctxEducation, {
+        type: 'doughnut',
+        data: {
+            labels: ['College Degree+', 'Some College', 'HS Degree Only', 'Less Than HS'],
+            datasets: [{
+                data: [38.33, 36.47, 12.16, 13.04],
+                backgroundColor: [
+                    'rgba(139, 38, 72, 0.8)',
+                    'rgba(139, 38, 72, 0.6)',
+                    'rgba(139, 38, 72, 0.4)',
+                    'rgba(139, 38, 72, 0.3)'
+                ],
+                borderColor: '#8B2648',
+                borderWidth: 1,
+                hoverOffset: 15
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            cutout: '60%',
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        padding: 20,
+                        usePointStyle: true,
+                        font: { size: 11 }
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return `${context.label}: ${context.raw}%`;
                         }
                     }
                 }
@@ -802,7 +1045,6 @@
         });
     }
     
-    // Close mobile menu when clicking on a link
     document.querySelectorAll('.mobile-nav-link').forEach(link => {
         link.addEventListener('click', () => {
             mobileMenu.classList.remove('active');
