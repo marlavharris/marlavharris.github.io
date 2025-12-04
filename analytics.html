@@ -21,19 +21,19 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
   <style>
-    /* --- BRAND DNA: EDITORIAL LUXURY --- */
+    /* --- BRAND DNA: EDITORIAL LUXURY (MATCHING CREATIVE PAGE) --- */
     :root {
-      --ink: #1a1a1a;       
+      --ink: #0a0a0a;       /* Darker Ink */
       --charcoal: #333333;  
       --neutral-600: #757575;
       --paper: #ffffff;
-      --accent: #8B2648; 
+      --accent: #990049;    /* Matching Pink Accent */
       --accent-light: #B85C7E;
-      --accent-dim: rgba(139, 38, 72, 0.08);
-      --line: rgba(0, 0, 0, 0.06); 
+      --accent-dim: rgba(153, 0, 73, 0.08); /* Lighter accent background */
+      --line: rgba(0, 0, 0, 0.08); /* Slightly darker line for definition */
       --bg-gradient: linear-gradient(180deg, #ffffff 0%, #faf8f9 100%);
       --shadow-soft: 0 10px 30px -10px rgba(0,0,0,0.06);
-      --shadow-hover: 0 20px 40px -12px rgba(139, 38, 72, 0.15);
+      --shadow-hover: 0 20px 40px -12px rgba(153, 0, 73, 0.1); /* Updated hover shadow */
     }
     
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -108,12 +108,10 @@
       padding: 1.5rem 0;
     }
     
-    /* Glassmorphism for the scrolled header */
+    /* SYNCHRONIZED HEADER STYLING (MATCHING creative (20).html) */
     header.scrolled {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      padding: 0.8rem 0;
+      background: rgba(255, 255, 255, 0.98); /* Use 0.98 opacity for near-solid white */
+      padding: 0.5rem 0; /* Use 0.5rem padding */
       box-shadow: 0 1px 0px rgba(0,0,0,0.05);
     }
     
@@ -150,20 +148,21 @@
 
     .hero {
       padding: 0;
-      min-height: 60vh;
+      /* MATCHING CREATIVE PAGE HEIGHT */
+      height: 90vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       text-align: center;
-      background: radial-gradient(circle at 50% 50%, #ffffff 0%, #f4f0f2 100%); 
-      padding-top: 80px;
+      /* MATCHING CREATIVE PAGE BACKGROUND */
+      background: var(--paper); 
     }
     
     .hero-content {
         max-width: 800px;
         margin: 0 auto;
-        opacity: 1;
-        transform: none;
+        /* ADDED ANIMATION TO MATCH CREATIVE PAGE */
+        animation: fadeIn 1.2s ease-out;
     }
 
     .hero-sub {
@@ -186,6 +185,27 @@
         opacity: 0.8;
     }
 
+    /* --- INITIAL HERO ANIMATION --- */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    /* --- END INITIAL HERO ANIMATION --- */
+
+
+    /* --- SCROLL ANIMATION CSS (USING .visible CLASS) --- */
+    .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    
+    .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    /* --- END SCROLL ANIMATION CSS --- */
+
     /* --- CASE STUDY SECTION --- */
     .case-study {
         padding: 8rem 0;
@@ -199,9 +219,9 @@
     }
 
     .analysis-block {
-        opacity: 0;
-        transform: translateY(40px);
-        transition: opacity 1s cubic-bezier(0.2, 1, 0.3, 1), transform 1s cubic-bezier(0.2, 1, 0.3, 1);
+        /* Includes .fade-in class in HTML */
+        
+        /* Basic block styling */
         padding: 3rem;
         background: #fff;
         border: 1px solid rgba(0,0,0,0.03);
@@ -209,11 +229,7 @@
         box-shadow: var(--shadow-soft);
     }
 
-    .analysis-block.in-view {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
+    
     .analysis-block:hover {
         transform: translateY(-5px);
         box-shadow: var(--shadow-hover);
@@ -224,6 +240,8 @@
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 2rem;
         margin: 2rem 0;
+        border-top: 1px solid var(--line);
+        padding-top: 2rem;
     }
 
     .stat-item {
@@ -231,6 +249,11 @@
         padding: 1.5rem;
         background: var(--accent-dim);
         border-radius: 4px;
+        transition: background 0.3s;
+    }
+    
+    .stat-item:hover {
+        background: rgba(153, 0, 73, 0.15); /* Slightly darker on hover */
     }
 
     .stat-value {
@@ -251,9 +274,18 @@
     .insight-box {
         background: var(--accent-dim);
         padding: 2rem;
-        border-left: 3px solid var(--accent);
+        border-left: 4px solid var(--accent); /* Thicker accent line */
         margin: 2rem 0;
         font-style: italic;
+        border-radius: 2px;
+    }
+
+    .insight-box p {
+        font-family: 'Playfair Display', serif; /* Editorial Font for Insights */
+        font-style: italic;
+        font-size: 1.15rem;
+        line-height: 1.6;
+        color: var(--charcoal);
     }
 
     .chart-container {
@@ -267,6 +299,34 @@
         border-radius: 4px;
         box-shadow: var(--shadow-soft);
     }
+    
+    /* Stronger definition for Methodology section */
+    .analysis-block h3 {
+        margin-top: 3rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--line);
+        font-size: 1.5rem;
+    }
+    
+    /* ENHANCED READABILITY AND HIERARCHY FOR METHODOLOGY DETAILS */
+    .analysis-block p {
+        font-size: 0.95rem; /* Slightly larger body text */
+        line-height: 1.6;
+        color: var(--charcoal);
+        margin-bottom: 0.75rem;
+    }
+
+    /* New class for accent-colored labels */
+    .label-accent {
+        color: var(--accent);
+        font-weight: 500;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 0.05em;
+        display: inline-block;
+        /* Optional: give minimum width to align values */
+        min-width: 130px; 
+    }
 
     .comparison-grid {
         display: grid;
@@ -277,8 +337,29 @@
 
     .comparison-item {
         padding: 1.5rem;
-        background: #f9f9f9;
+        background: var(--bg-gradient);
+        border: 1px solid var(--line);
         border-radius: 4px;
+        transition: transform 0.3s;
+    }
+    
+    .comparison-item:hover {
+        transform: translateY(-2px);
+    }
+
+    .comparison-item h4 {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--accent);
+        margin-bottom: 0.75rem;
+        font-weight: 500;
+    }
+    
+    .comparison-item p {
+        font-size: 0.9rem;
+        line-height: 1.7;
     }
 
     /* --- TOOLKIT --- */
@@ -307,7 +388,8 @@
         transition: opacity 0.6s ease, transform 0.6s ease;
     }
 
-    .tool-item.in-view {
+    /* Renamed from .tool-item.in-view to match .fade-in.visible structure */
+    .tool-item.visible {
         opacity: 1;
         transform: translateY(0);
     }
@@ -473,8 +555,10 @@
   <section class="hero">
     <div class="container hero-content">
       <span class="hero-sub meta">// Statistical Analysis & Data Science</span>
-      <h1>Data-Driven Insights</h1>
-      <p>Academic rigor meets practical application: hypothesis testing, confidence intervals, and predictive modeling.</p>
+      <!-- UPDATED COPY FOR H1 -->
+      <h1>From Fitting Rooms to Data Models</h1>
+      <!-- UPDATED COPY FOR P -->
+      <p>Service industry trained human insight meets academically-trained analysis.</p>
     </div>
   </section>
 
@@ -482,7 +566,7 @@
     <div class="container case-study-grid">
         
         <!-- CASE STUDY 1: Income-Wellbeing Correlation -->
-        <div class="analysis-block">
+        <div class="analysis-block fade-in">
             <span class="meta">Case Study #1</span>
             <h2>Income & Wellbeing Correlation</h2>
             <p class="data-desc">Analysis of 1,000+ survey responses reveals distinct consumer segments and diminishing returns on wellbeing beyond certain income thresholds.</p>
@@ -515,14 +599,15 @@
             </div>
             
             <h3>Analytical Approach</h3>
-            <p><strong>Methodology:</strong> Cluster analysis and correlation studies on survey data</p>
-            <p><strong>Sample Size:</strong> 1,000+ respondents across income brackets</p>
-            <p><strong>Key Finding:</strong> Wellbeing improvements plateau around $100k annual income</p>
-            <p><strong>Business Application:</strong> Enables precise targeting of wellbeing-related products and services</p>
+            <!-- UPDATED STRUCTURE FOR HIERARCHY -->
+            <p><span class="label-accent">Methodology:</span> Cluster analysis and correlation studies on survey data</p>
+            <p><span class="label-accent">Sample Size:</span> 1,000+ respondents across income brackets</p>
+            <p><span class="label-accent">Key Finding:</span> Wellbeing improvements plateau around $100k annual income</p>
+            <p><span class="label-accent">Business Application:</span> Enables precise targeting of wellbeing-related products and services</p>
         </div>
 
         <!-- CASE STUDY 2: Statistical Significance Testing -->
-        <div class="analysis-block">
+        <div class="analysis-block fade-in">
             <span class="meta">Case Study #2</span>
             <h2>Hypothesis Testing: Political Behavior</h2>
             <p class="data-desc">Testing whether COVID-19 booster shot rates differ significantly between political affiliations using confidence intervals and statistical significance.</p>
@@ -570,14 +655,15 @@
             </div>
             
             <h3>Statistical Methodology</h3>
-            <p><strong>Sample Sizes:</strong> 280 Democrats, 200 Republicans</p>
-            <p><strong>Confidence Level:</strong> 90% (Critical z-value: 1.645)</p>
-            <p><strong>Standard Error:</strong> 0.0287 for difference between proportions</p>
-            <p><strong>Analysis:</strong> Confidence interval approach for hypothesis testing</p>
+            <!-- UPDATED STRUCTURE FOR HIERARCHY -->
+            <p><span class="label-accent">Sample Sizes:</span> 280 Democrats, 200 Republicans</p>
+            <p><span class="label-accent">Confidence Level:</span> 90% (Critical z-value: $1.645$)</p>
+            <p><span class="label-accent">Standard Error:</span> $0.0287$ for difference between proportions</p>
+            <p><span class="label-accent">Analysis:</span> Confidence interval approach for hypothesis testing</p>
         </div>
 
         <!-- CASE STUDY 3: Simpson's Paradox -->
-        <div class="analysis-block">
+        <div class="analysis-block fade-in">
             <span class="meta">Case Study #3</span>
             <h2>Simpson's Paradox in Public Policy</h2>
             <p class="data-desc">How Florida appears to have higher overall support for vaping bans, but California actually has higher support in every age group—a classic statistical paradox.</p>
@@ -628,11 +714,12 @@
             </div>
             
             <h3>Analytical Takeaway</h3>
-            <p>This case demonstrates why examining data at appropriate levels of aggregation is crucial. Relying solely on overall percentages can lead to misleading conclusions when underlying group compositions differ significantly. Proper analysis requires looking at stratified data.</p>
+            <!-- UPDATED STRUCTURE FOR HIERARCHY -->
+            <p><span class="label-accent">This case demonstrates</span> why examining data at appropriate levels of aggregation is crucial. Relying solely on overall percentages can lead to misleading conclusions when underlying group compositions differ significantly. Proper analysis requires looking at stratified data.</p>
         </div>
 
         <!-- CASE STUDY 4: Educational Confidence Intervals -->
-        <div class="analysis-block">
+        <div class="analysis-block fade-in">
             <span class="meta">Case Study #4</span>
             <h2>Confidence Interval Analysis</h2>
             <p class="data-desc">Calculating precise confidence intervals for educational attainment and college degree proportions from survey data.</p>
@@ -668,25 +755,28 @@
             <div class="comparison-grid">
                 <div class="comparison-item">
                     <h4>Educational Attainment CI</h4>
-                    <p><strong>Mean:</strong> 15.06 years</p>
-                    <p><strong>SD:</strong> 3.299 years</p>
-                    <p><strong>90% CI:</strong> 14.89–15.23 years</p>
-                    <p><strong>Interpretation:</strong> Narrow interval indicates precise estimation</p>
+                    <!-- UPDATED STRUCTURE FOR HIERARCHY -->
+                    <p><span class="label-accent">Mean:</span> $15.06$ years</p>
+                    <p><span class="label-accent">SD:</span> $3.299$ years</p>
+                    <p><span class="label-accent">90% CI:</span> $14.89–15.23$ years</p>
+                    <p><span class="label-accent">Interpretation:</span> Narrow interval indicates precise estimation</p>
                 </div>
                 <div class="comparison-item">
                     <h4>College Degree CI</h4>
-                    <p><strong>Proportion:</strong> 391/1020 = 0.3833</p>
-                    <p><strong>90% CI:</strong> 0.3583–0.4083</p>
-                    <p><strong>Test:</strong> Entire interval > 30%</p>
-                    <p><strong>Conclusion:</strong> Statistically significant > 30% threshold</p>
+                    <!-- UPDATED STRUCTURE FOR HIERARCHY -->
+                    <p><span class="label-accent">Proportion:</span> $391/1020 = 0.3833$</p>
+                    <p><span class="label-accent">90% CI:</span> $0.3583–0.4083$</p>
+                    <p><span class="label-accent">Test:</span> Entire interval > 30%</p>
+                    <p><span class="label-accent">Conclusion:</span> Statistically significant > 30% threshold</p>
                 </div>
             </div>
             
             <h3>Methodological Rigor</h3>
-            <p><strong>Sample Statistics:</strong> Computed using Excel from Gallup survey data</p>
-            <p><strong>Assumptions:</strong> Normal distribution for analytical purposes</p>
-            <p><strong>Critical Values:</strong> z = 1.645 for 90% confidence level</p>
-            <p><strong>Standard Errors:</strong> Calculated preserving precision through intermediate steps</p>
+            <!-- UPDATED STRUCTURE FOR HIERARCHY -->
+            <p><span class="label-accent">Sample Statistics:</span> Computed using Excel from Gallup survey data</p>
+            <p><span class="label-accent">Assumptions:</span> Normal distribution for analytical purposes</p>
+            <p><span class="label-accent">Critical Values:</span> $z = 1.645$ for 90% confidence level</p>
+            <p><span class="label-accent">Standard Errors:</span> Calculated preserving precision through intermediate steps</p>
         </div>
 
     </div>
@@ -696,15 +786,15 @@
       <div class="container">
           <span class="hero-sub meta" style="margin-bottom: 3rem; display: block;">// The Technical Toolkit</span>
           <div class="toolkit-grid">
-              <div class="tool-item stagger-item">Hypothesis Testing</div>
-              <div class="tool-item stagger-item">Confidence Intervals</div>
-              <div class="tool-item stagger-item">Statistical Significance</div>
-              <div class="tool-item stagger-item">Data Visualization</div>
-              <div class="tool-item stagger-item">Excel Analysis</div>
-              <div class="tool-item stagger-item">Cross-Tabulation</div>
-              <div class="tool-item stagger-item">Regression Analysis</div>
-              <div class="tool-item stagger-item">Sample Design</div>
-              <div class="tool-item stagger-item">Simpson's Paradox</div>
+              <div class="tool-item stagger-item fade-in">Hypothesis Testing</div>
+              <div class="tool-item stagger-item fade-in">Confidence Intervals</div>
+              <div class="tool-item stagger-item fade-in">Statistical Significance</div>
+              <div class="tool-item stagger-item fade-in">Data Visualization</div>
+              <div class="tool-item stagger-item fade-in">Excel Analysis</div>
+              <div class="tool-item stagger-item fade-in">Cross-Tabulation</div>
+              <div class="tool-item stagger-item fade-in">Regression Analysis</div>
+              <div class="tool-item stagger-item fade-in">Sample Design</div>
+              <div class="tool-item stagger-item fade-in">Simpson's Paradox</div>
           </div>
       </div>
   </section>
@@ -737,13 +827,17 @@
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('in-view');
-                observer.unobserve(entry.target);
+                // Now using 'visible' class, consistent with creative (20).html
+                entry.target.classList.add('visible');
+                
+                if (!entry.target.classList.contains('toolkit-grid')) {
+                    observer.unobserve(entry.target);
+                }
             }
         });
     }, observerOptions);
 
-    // Observe all analysis blocks
+    // Observe all analysis blocks (which have the 'fade-in' class)
     document.querySelectorAll('.analysis-block').forEach((el) => {
         observer.observe(el);
     });
@@ -754,8 +848,10 @@
             if (entry.isIntersecting) {
                 const items = entry.target.querySelectorAll('.stagger-item');
                 items.forEach((item, index) => {
+                    // Staggered delay for the tool items
                     setTimeout(() => {
-                        item.classList.add('in-view');
+                        // Now using 'visible' class, consistent with creative (20).html
+                        item.classList.add('visible');
                     }, index * 100);
                 });
                 toolkitObserver.unobserve(entry.target);
@@ -776,9 +872,11 @@
         }
     });
 
-    // --- CHART.JS CONFIGURATION ---
+    // --- CHART.JS CONFIGURATION (MATCHING CREATIVE PAGE ACCENT COLOR) ---
     Chart.defaults.font.family = "'Inter', sans-serif";
-    Chart.defaults.color = '#757575';
+    Chart.defaults.color = '#757575'; // Neutral-600
+
+    const ACCENT_COLOR = '#990049'; // --accent
     
     // Chart 1: Income-Wellbeing Correlation (Bubble Chart)
     const ctxIncome = document.getElementById('incomeWellbeingChart').getContext('2d');
@@ -794,8 +892,8 @@
                         {x: 28, y: 40, r: 5},
                         {x: 38, y: 48, r: 6}
                     ],
-                    backgroundColor: 'rgba(139, 38, 72, 0.4)',
-                    borderColor: '#8B2648',
+                    backgroundColor: 'rgba(153, 0, 73, 0.4)',
+                    borderColor: ACCENT_COLOR,
                     borderWidth: 1
                 },
                 {
@@ -807,8 +905,8 @@
                         {x: 55, y: 62, r: 7},
                         {x: 68, y: 68, r: 8}
                     ],
-                    backgroundColor: 'rgba(139, 38, 72, 0.6)',
-                    borderColor: '#8B2648',
+                    backgroundColor: 'rgba(153, 0, 73, 0.6)',
+                    borderColor: ACCENT_COLOR,
                     borderWidth: 1
                 },
                 {
@@ -819,8 +917,8 @@
                         {x: 125, y: 85, r: 12},
                         {x: 150, y: 88, r: 14}
                     ],
-                    backgroundColor: 'rgba(139, 38, 72, 0.8)',
-                    borderColor: '#8B2648',
+                    backgroundColor: 'rgba(153, 0, 73, 0.8)',
+                    borderColor: ACCENT_COLOR,
                     borderWidth: 1
                 }
             ]
@@ -892,12 +990,12 @@
                 label: 'COVID Booster Rate',
                 data: [15.0, 8.0],
                 backgroundColor: [
-                    'rgba(139, 38, 72, 0.8)',
-                    'rgba(184, 92, 126, 0.8)'
+                    'rgba(153, 0, 73, 0.8)', // Updated ACCENT
+                    'rgba(153, 0, 73, 0.5)'  // Updated lighter ACCENT
                 ],
                 borderColor: [
-                    '#8B2648',
-                    '#B85C7E'
+                    ACCENT_COLOR,
+                    ACCENT_COLOR
                 ],
                 borderWidth: 1
             }]
@@ -942,15 +1040,15 @@
                 {
                     label: 'Florida',
                     data: [30, 70, 58],
-                    backgroundColor: 'rgba(139, 38, 72, 0.6)',
-                    borderColor: '#8B2648',
+                    backgroundColor: 'rgba(153, 0, 73, 0.7)',
+                    borderColor: ACCENT_COLOR,
                     borderWidth: 1
                 },
                 {
                     label: 'California',
                     data: [40, 80, 50],
-                    backgroundColor: 'rgba(184, 92, 126, 0.6)',
-                    borderColor: '#B85C7E',
+                    backgroundColor: 'rgba(153, 0, 73, 0.4)',
+                    borderColor: ACCENT_COLOR,
                     borderWidth: 1
                 }
             ]
@@ -994,12 +1092,12 @@
             datasets: [{
                 data: [38.33, 36.47, 12.16, 13.04],
                 backgroundColor: [
-                    'rgba(139, 38, 72, 0.8)',
-                    'rgba(139, 38, 72, 0.6)',
-                    'rgba(139, 38, 72, 0.4)',
-                    'rgba(139, 38, 72, 0.3)'
+                    'rgba(153, 0, 73, 0.8)',
+                    'rgba(153, 0, 73, 0.6)',
+                    'rgba(153, 0, 73, 0.4)',
+                    'rgba(153, 0, 73, 0.3)'
                 ],
-                borderColor: '#8B2648',
+                borderColor: ACCENT_COLOR,
                 borderWidth: 1,
                 hoverOffset: 15
             }]
