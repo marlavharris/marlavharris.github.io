@@ -47,7 +47,8 @@
     .container { max-width: 1200px; margin: 0 auto; padding: 0 3rem; }
     
     h1, h2, h3, h4 {
-      font-family: 'Playfair+Display', serif;
+      /* Corrected font family usage */
+      font-family: 'Playfair Display', serif;
       font-weight: 400;
       line-height: 1.15;
       color: var(--ink);
@@ -428,6 +429,7 @@
         transition: opacity 0.3s;
     }
     
+    /* Hover effect for the entire project section */
     .project-section:hover .cs-item::before { opacity: 1; }
 
     .cs-label {
@@ -549,7 +551,6 @@
         transition: all 0.5s ease;
         border-bottom: 1px solid var(--line); 
         cursor: default;
-        /* Reset any previous promo styles */
         background: transparent;
         border: none;
         border-radius: 0;
@@ -558,9 +559,7 @@
     }
 
     .hook-item:first-child { border-top: 1px solid var(--line); }
-    
-    /* REMOVED .hook-item.sportico-promo STYLES */
-    
+
     .hook-type {
         display: block;
         font-family: 'Inter', sans-serif;
@@ -572,18 +571,6 @@
         opacity: 0.8;
     }
     
-    .sportico-title {
-        /* This class is no longer necessary, using .hook-text now */
-        font-family: 'Playfair Display', serif;
-        font-size: 2.2rem;
-        color: var(--ink);
-        font-style: normal;
-        transition: color 0.4s ease;
-        display: block;
-        line-height: 1.25;
-        margin-bottom: 0.5rem;
-    }
-
     .hook-text {
         font-family: 'Playfair Display', serif;
         font-size: 2.2rem; 
@@ -625,11 +612,10 @@
         margin-right: 0.5rem;
         border-bottom: 1px solid var(--accent-dim);
     }
-    
+
     /* Sportico specific price styling - REFACTORED FOR HOOK-INSIGHT */
     .sportico-price-group {
         display: flex;
-        /* FIX: Center price group */
         justify-content: center;
         align-items: center;
         gap: 1rem;
@@ -654,11 +640,6 @@
         line-height: 1;
     }
     
-    .sportico-cta {
-        /* Removed since the CTA is deleted */
-        display: none; 
-    }
-
 
     .contact { padding: 10rem 0; text-align: center; background: var(--paper); border-top: 1px solid var(--line); }
     .star-decoration { font-size: 1.5rem; color: var(--accent); margin-bottom: 2rem; display: block; }
@@ -778,11 +759,11 @@
       <nav>
         <a href="index.html" class="logo">Marla Harris</a>
         <div class="nav-links">
-          <!-- ADDED: Home link for desktop nav -->
+          <!-- FIXED: Home link points to index.html -->
           <a href="index.html" class="nav-link">Home</a>
           <a href="analytics.html" class="nav-link">Analytics</a>
-          <a href="creative-copy.html" class="nav-link active">Creative & Copy</a> <!-- Updated href to be explicit -->
-          <a href="index.html" class="nav-link">About</a> <!-- CHANGED to index.html -->
+          <a href="creative-copy.html" class="nav-link active">Creative & Copy</a> <!-- FIXED: Updated href to be explicit -->
+          <a href="index.html" class="nav-link">About</a> <!-- FIXED: Points to index.html -->
           <a href="index.html#contact" class="nav-link">Contact</a>
         </div>
         <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
@@ -796,8 +777,8 @@
             <!-- FIXED: Home link points to index.html -->
             <a href="index.html" class="mobile-nav-link">Home</a>
             <a href="analytics.html" class="mobile-nav-link">Analytics</a>
-            <a href="creative-copy.html" class="mobile-nav-link active" style="color: var(--accent);">Creative & Copy</a> <!-- Updated href to be explicit -->
-            <a href="index.html" class="mobile-nav-link">About</a> <!-- CHANGED to index.html -->
+            <a href="creative-copy.html" class="mobile-nav-link active" style="color: var(--accent);">Creative & Copy</a> <!-- FIXED: Updated href to be explicit -->
+            <a href="index.html" class="mobile-nav-link">About</a> <!-- FIXED: Points to index.html -->
             <a href="index.html#contact" class="mobile-nav-link">Contact</a>
         </div>
     </div>
@@ -844,7 +825,7 @@
     </div>
   </section>
 
-  <!-- METRICS ROW MOVED HERE -->
+  <!-- METRICS ROW WITH COUNTER LOGIC -->
   <section class="metrics-section fade-in" style="padding: 4rem 0; border-bottom: 1px solid var(--line);">
     <div class="container">
       <div class="metrics-row" id="metricsRow" >
@@ -893,9 +874,6 @@
         <p class="project-desc">Merging real-world interests with luxe creative to make journalism something people want to consume.</p>
          
         <div class="case-study-block">
-          
-          <!-- METRICS GRID REMOVED PER REQUEST -->
-
           <div class="cs-grid">
              <div class="cs-item">
                 <span class="cs-label">The Challenge</span>
@@ -998,8 +976,8 @@
       </div>
     </div>
   </section>
-
-  <!-- NEW CONSOLIDATED ARCHIVE SECTION -->
+  
+  <!-- CONSOLIDATED ARCHIVE SECTION -->
   <section id="index" class="hook-section fade-in">
     <div class="container">
         <div class="hook-header-group">
@@ -1010,16 +988,12 @@
 
         <ul class="hook-list">
             
-            <!-- NEW SPORTICO ENTRY - NOW MATCHING STANDARD HOOK-ITEM STYLE -->
+            <!-- NEW SPORTICO ENTRY - CONSOLIDATED COPY SAMPLE -->
             <li class="hook-item">
-                <!-- 2. Remove Penske Media Corp. -->
                 <span class="hook-type meta">Sportico</span>
-                <!-- 1. Change to Title Case -->
                 <span class="hook-text">Follow the Money in Sports</span>
                 <div class="hook-insight">
                     
-                    <!-- Pricing and content formatted inside the hover area -->
-                    <!-- Updated section to remove pricing and CTA -->
                     <p style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--charcoal); display: block; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px dashed var(--line); text-align: center;">
                         Unlock Sportico's 360-degree daily coverage
                     </p>
@@ -1036,7 +1010,7 @@
             </li>
             <!-- END NEW SPORTICO ENTRY -->
             
-            <!-- SECTION 1: CAMPAIGN COPY - UPDATED FONT STYLE -->
+            <!-- SECTION 1: CAMPAIGN COPY -->
             <li class="hook-item">
                 <span class="hook-type meta">Rolling Stone</span>
                 <span class="hook-text" style="font-family: 'Playfair Display', serif; font-size: 2rem;">"Always Evolving and Forever Bold."</span>
@@ -1070,7 +1044,7 @@
                 </div>
             </li>
 
-            <!-- SECTION 2: SUBJECT LINES - Divider Logic Cleaned -->
+            <!-- SECTION 2: SUBJECT LINES -->
             <li class="hook-item" style="border-top: 3px solid var(--line); margin-top: 3rem; padding-top: 3rem;">
                 <span class="hook-type meta">WWD</span>
                 <span class="hook-text" style="font-family: 'Playfair Display', serif; font-size: 2rem;">"Every Red Carpet. Every Look. Every Moment."</span>
