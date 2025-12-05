@@ -1,1154 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-869S7ZPXQH"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-869S7ZPXQH');
-  </script>
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Marla Harris - Statistical Analysis & Data Visualization Portfolio">
-  <title>Marla Harris — Analytics Portfolio</title>
-    
+  <title>Marla Harris — Analytics Portfolio (Coming Soon)</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Chart.js for beautiful, code-based graphs -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
   <style>
-    /* --- BRAND DNA: EDITORIAL LUXURY (MATCHING CREATIVE PAGE) --- */
-    :root {
-      --ink: #0a0a0a;       /* Darker Ink */
-      --charcoal: #333333;  
-      --neutral-600: #757575;
-      --paper: #ffffff;
-      --accent: #990049;    /* Matching Pink Accent */
-      --accent-light: #B85C7E;
-      --accent-dim: rgba(153, 0, 73, 0.08); /* Lighter accent background */
-      --line: rgba(0, 0, 0, 0.08); /* Slightly darker line for definition */
-      --bg-gradient: linear-gradient(180deg, #ffffff 0%, #faf8f9 100%);
-      --shadow-soft: 0 10px 30px -10px rgba(0,0,0,0.06);
-      --shadow-hover: 0 20px 40px -12px rgba(153, 0, 73, 0.1); /* Updated hover shadow */
-    }
-    
+    /* Base styles */
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
     
     body {
       font-family: 'Inter', sans-serif;
-      color: var(--charcoal);
-      background: var(--bg-gradient);
-      line-height: 1.8;
-      overflow-x: hidden;
-      font-weight: 300;
-      font-size: 16px;
+      background: #faf8f9; /* Off-white background */
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1.6;
     }
     
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 3rem; }
+    .container {
+      max-width: 800px;
+      padding: 2rem;
+      text-align: center;
+    }
     
-    h1, h2, h3, h4 {
+    /* Typography */
+    h1 {
       font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
       font-weight: 400;
-      line-height: 1.15;
-      color: var(--ink);
+      color: #0a0a0a;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
     }
-
-    h1 { font-size: clamp(3.5rem, 6vw, 5.5rem); letter-spacing: -0.03em; }
-    h2 { font-size: clamp(2.5rem, 4vw, 3.5rem); letter-spacing: -0.02em; }
-    h3 { font-size: 1.8rem; margin-bottom: 1.5rem; }
     
-    .meta {
-        font-family: 'Inter', sans-serif;
-        font-size: 0.65rem;
-        text-transform: uppercase;
-        letter-spacing: 0.25em; 
-        font-weight: 500;
-        color: var(--charcoal);
-        display: block;
+    .subtitle {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 3rem;
+      font-style: italic;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
     }
-
-    .btn {
-      text-decoration: none;
-      font-size: 0.75rem;
+    
+    /* Teaser Grid (Metrics) */
+    .teaser-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    
+    .teaser-metric {
+      background: white;
+      padding: 2rem 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 8px 24px -8px rgba(0,0,0,0.06);
+      transition: transform 0.3s ease;
+    }
+    
+    .teaser-metric:hover {
+      transform: translateY(-5px);
+    }
+    
+    .metric-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: #990049; /* Deep pink accent color */
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    
+    .metric-label {
+      font-size: 0.85rem;
       text-transform: uppercase;
-      letter-spacing: 0.2em;
-      transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
-      position: relative;
-      padding-bottom: 5px;
-      font-weight: 400;
-      color: var(--ink);
-      display: inline-block;
+      letter-spacing: 0.1em;
+      color: #666;
     }
     
-    .btn::after {
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 1px;
-        bottom: 0;
-        left: 0;
-        background-color: var(--accent);
-        transition: width 0.4s ease;
-    }
-    
-    .btn:hover::after { width: 100%; }
-
-    header {
-      background: transparent;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      transition: all 0.4s ease;
-      padding: 1.5rem 0;
-    }
-    
-    /* SYNCHRONIZED HEADER STYLING (MATCHING creative (20).html) */
-    header.scrolled {
-      background: rgba(255, 255, 255, 0.98); /* Use 0.98 opacity for near-solid white */
-      padding: 0.5rem 0; /* Use 0.5rem padding */
-      box-shadow: 0 1px 0px rgba(0,0,0,0.05);
-    }
-    
-    nav { display: flex; justify-content: space-between; align-items: center; }
-    
-    .logo {
-      font-family: 'Playfair Display', serif; 
-      font-size: 1.25rem; 
-      color: var(--ink); 
-      text-decoration: none; 
-      font-weight: 500; 
-      letter-spacing: -0.01em; 
-      z-index: 1001;
-    }
-    
-    .nav-links { display: flex; gap: 2.5rem; }
-    
-    .nav-link {
-      font-size: 0.75rem; 
-      text-transform: uppercase; 
-      letter-spacing: 0.15em; 
-      color: var(--neutral-600); 
-      text-decoration: none; 
-      font-weight: 400; 
-      transition: color 0.3s ease; 
-      position: relative;
-    }
-    
-    .nav-link:hover { color: var(--accent); }
-    .nav-link.active { 
-      color: var(--accent); 
+    .countdown {
+      font-size: 0.9rem;
+      color: #990049;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin: 2rem 0;
       font-weight: 500;
     }
-
-    .hero {
-      padding: 0;
-      /* MATCHING CREATIVE PAGE HEIGHT */
-      height: 90vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
-      /* MATCHING CREATIVE PAGE BACKGROUND */
-      background: var(--paper); 
+    
+    /* Footer */
+    .footer {
+      /* Adjusted margin for separation since the text paragraph is gone */
+      margin-top: 5rem; 
+      font-size: 0.75rem;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
     }
     
-    .hero-content {
-        max-width: 800px;
-        margin: 0 auto;
-        /* ADDED ANIMATION TO MATCH CREATIVE PAGE */
-        animation: fadeIn 1.2s ease-out;
-    }
-
-    .hero-sub {
-        color: var(--accent);
-        margin-bottom: 2rem;
-        display: block;
-        font-size: 0.7rem;
-        letter-spacing: 0.3em;
-        text-transform: uppercase;
-    }
-
-    .hero p { 
-        font-size: 1.25rem; 
-        color: var(--charcoal); 
-        max-width: 600px; 
-        margin: 2.5rem auto 0; 
-        font-family: 'Playfair Display', serif; 
-        font-style: italic;
-        font-weight: 400;
-        opacity: 0.8;
-    }
-
-    /* --- INITIAL HERO ANIMATION --- */
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    /* --- END INITIAL HERO ANIMATION --- */
-
-
-    /* --- SCROLL ANIMATION CSS (USING .visible CLASS) --- */
-    .fade-in {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
-    
-    .fade-in.visible {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    /* --- END SCROLL ANIMATION CSS --- */
-
-    /* --- CASE STUDY SECTION --- */
-    .case-study {
-        padding: 8rem 0;
-        border-top: 1px solid var(--line);
-    }
-
-    .case-study-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 8rem;
-    }
-
-    .analysis-block {
-        /* Includes .fade-in class in HTML */
-        
-        /* Basic block styling */
-        padding: 3rem;
-        background: #fff;
-        border: 1px solid rgba(0,0,0,0.03);
-        border-radius: 4px;
-        box-shadow: var(--shadow-soft);
-    }
-
-    
-    .analysis-block:hover {
-        transform: translateY(-5px);
-        box-shadow: var(--shadow-hover);
-    }
-
-    .stat-card {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 2rem;
-        margin: 2rem 0;
-        border-top: 1px solid var(--line);
-        padding-top: 2rem;
-    }
-
-    .stat-item {
-        text-align: center;
-        padding: 1.5rem;
-        background: var(--accent-dim);
-        border-radius: 4px;
-        transition: background 0.3s;
-    }
-    
-    .stat-item:hover {
-        background: rgba(153, 0, 73, 0.15); /* Slightly darker on hover */
-    }
-
-    .stat-value {
-        font-family: 'Playfair Display', serif;
-        font-size: 2.5rem;
-        color: var(--accent);
-        display: block;
-        margin-bottom: 0.5rem;
-    }
-
-    .stat-label {
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        color: var(--neutral-600);
-    }
-
-    .insight-box {
-        background: var(--accent-dim);
-        padding: 2rem;
-        border-left: 4px solid var(--accent); /* Thicker accent line */
-        margin: 2rem 0;
-        font-style: italic;
-        border-radius: 2px;
-    }
-
-    .insight-box p {
-        font-family: 'Playfair Display', serif; /* Editorial Font for Insights */
-        font-style: italic;
-        font-size: 1.15rem;
-        line-height: 1.6;
-        color: var(--charcoal);
-    }
-
-    .chart-container {
-        position: relative;
-        height: 450px;
-        width: 100%;
-        margin: 3rem 0;
-        padding: 2rem;
-        background: #fff;
-        border: 1px solid rgba(0,0,0,0.03);
-        border-radius: 4px;
-        box-shadow: var(--shadow-soft);
-    }
-    
-    /* Stronger definition for Methodology section */
-    .analysis-block h3 {
-        margin-top: 3rem;
-        padding-top: 1rem;
-        border-top: 1px solid var(--line);
-        font-size: 1.5rem;
-    }
-    
-    /* ENHANCED READABILITY AND HIERARCHY FOR METHODOLOGY DETAILS */
-    .analysis-block p {
-        font-size: 0.95rem; /* Slightly larger body text */
-        line-height: 1.6;
-        color: var(--charcoal);
-        margin-bottom: 0.75rem;
-    }
-
-    /* New class for accent-colored labels */
-    .label-accent {
-        color: var(--accent);
-        font-weight: 500;
-        text-transform: uppercase;
-        font-size: 0.85rem;
-        letter-spacing: 0.05em;
-        display: inline-block;
-        /* Optional: give minimum width to align values */
-        min-width: 130px; 
-    }
-
-    .comparison-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        margin: 2rem 0;
-    }
-
-    .comparison-item {
-        padding: 1.5rem;
-        background: var(--bg-gradient);
-        border: 1px solid var(--line);
-        border-radius: 4px;
-        transition: transform 0.3s;
-    }
-    
-    .comparison-item:hover {
-        transform: translateY(-2px);
-    }
-
-    .comparison-item h4 {
-        font-family: 'Inter', sans-serif;
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        letter-spacing: 0.15em;
-        color: var(--accent);
-        margin-bottom: 0.75rem;
-        font-weight: 500;
-    }
-    
-    .comparison-item p {
-        font-size: 0.9rem;
-        line-height: 1.7;
-    }
-
-    /* --- TOOLKIT --- */
-    .toolkit {
-        padding: 8rem 0;
-        background: var(--paper);
-        text-align: center;
-        border-top: 1px solid var(--line);
-    }
-
-    .toolkit-grid {
-        display: flex;
-        justify-content: center;
-        gap: 4rem;
-        margin-top: 4rem;
-        flex-wrap: wrap;
-    }
-
-    .tool-item {
-        font-family: 'Playfair Display', serif;
-        font-size: 1.3rem;
-        color: var(--ink);
-        position: relative;
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    /* Renamed from .tool-item.in-view to match .fade-in.visible structure */
-    .tool-item.visible {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    .tool-item::after {
-        content: '';
-        display: block;
-        width: 0;
-        height: 1px;
-        background: var(--accent);
-        margin: 10px auto 0;
-        opacity: 0.6;
-        transition: width 0.4s ease;
-    }
-
-    .tool-item:hover::after {
-        width: 100%;
-    }
-
-    /* Mobile Menu */
-    .mobile-menu-btn { 
-      display: none; 
-      background: none; 
-      border: none; 
-      font-size: 1.5rem; 
-      cursor: pointer; 
-      color: var(--ink); 
-      z-index: 1002;
-    }
-    
-    .mobile-menu { 
-      display: none; 
-      position: fixed; 
-      top: 0; 
-      left: 0; 
-      width: 100vw; 
-      height: 100vh; 
-      background: white; 
-      z-index: 2000; 
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-    
-    .mobile-menu.active {
-      display: flex;
-    }
-    
-    .close-menu { 
-      background: none; 
-      border: none; 
-      font-size: 2rem; 
-      color: var(--ink); 
-      cursor: pointer; 
-      position: absolute; 
-      top: 2rem; 
-      right: 2rem; 
-    }
-    
-    .mobile-nav-links { 
-      display: flex; 
-      flex-direction: column; 
-      align-items: center; 
-      gap: 2rem; 
-    }
-    
-    .mobile-nav-link { 
-      font-family: 'Playfair Display', serif; 
-      font-size: 2rem; 
-      color: var(--ink); 
-      text-decoration: none; 
-      transition: color 0.3s ease;
-    }
-    
-    .mobile-nav-link:hover,
-    .mobile-nav-link.active {
-      color: var(--accent);
-    }
-
-    @media (max-width: 900px) {
-        .container {
-          padding: 0 1.5rem;
-        }
-        
-        .nav-links { 
-          display: none; 
-        }
-        
-        .mobile-menu-btn { 
-          display: block; 
-        }
-        
-        .hero h1 { 
-          font-size: 3rem; 
-        }
-        
-        .analysis-block {
-            padding: 2rem;
-        }
-        
-        .stat-card {
-            grid-template-columns: 1fr;
-        }
-        
-        .chart-container {
-            height: 350px;
-            padding: 1rem;
-        }
-        
-        .comparison-grid {
-            grid-template-columns: 1fr;
-        }
-        
-        .toolkit-grid {
-            gap: 2rem;
-        }
-        
-        .tool-item {
-            font-size: 1.1rem;
-        }
-    }
-    
+    /* Responsiveness */
     @media (max-width: 600px) {
-        h1 { font-size: 2.5rem; }
-        h2 { font-size: 2rem; }
-        .hero p { font-size: 1rem; }
-        .analysis-block {
-            padding: 1.5rem;
-        }
+      .teaser-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      
+      .container {
+        padding: 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
-
-  <header>
-    <div class="container">
-      <nav>
-        <a href="index.html" class="logo">Marla Harris</a>
-        <div class="nav-links">
-          <a href="index.html" class="nav-link">Home</a>
-          <a href="#" class="nav-link active">Analytics</a>
-          <a href="creative.html" class="nav-link">Creative & Copy</a>
-          <a href="about.html" class="nav-link">About</a>
-          <a href="index.html#contact" class="nav-link">Contact</a>
-        </div>
-        <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
-      </nav>
+  <div class="container">
+    <h1>Marla Harris</h1>
+    <div class="subtitle">
+      Where boutique intuition meets data intelligence
     </div>
     
-    <!-- Mobile Menu -->
-    <div class="mobile-menu">
-        <button class="close-menu"><i class="fas fa-times"></i></button>
-        <div class="mobile-nav-links">
-            <a href="index.html" class="mobile-nav-link">Home</a>
-            <a href="#" class="mobile-nav-link active" style="color: var(--accent);">Analytics</a>
-            <a href="creative.html" class="mobile-nav-link">Creative & Copy</a>
-            <a href="about.html" class="mobile-nav-link">About</a>
-            <a href="index.html#contact" class="mobile-nav-link">Contact</a>
-        </div>
-    </div>
-  </header>
-
-  <section class="hero">
-    <div class="container hero-content">
-      <span class="hero-sub meta">// Statistical Analysis & Data Science</span>
-      <!-- UPDATED COPY FOR H1 -->
-      <h1>From Fitting Rooms to Data Models</h1>
-      <!-- UPDATED COPY FOR P -->
-      <p>Service industry trained human insight meets academically-trained analysis.</p>
-    </div>
-  </section>
-
-  <section class="case-study">
-    <div class="container case-study-grid">
-        
-        <!-- CASE STUDY 1: Income-Wellbeing Correlation -->
-        <div class="analysis-block fade-in">
-            <span class="meta">Case Study #1</span>
-            <h2>Income & Wellbeing Correlation</h2>
-            <p class="data-desc">Analysis of 1,000+ survey responses reveals distinct consumer segments and diminishing returns on wellbeing beyond certain income thresholds.</p>
-            
-            <div class="chart-container">
-                <canvas id="incomeWellbeingChart"></canvas>
-            </div>
-            
-            <div class="insight-box">
-                <p>"Higher income correlates with higher wellbeing, but the relationship isn't linear. After $100k, additional income yields diminishing returns on wellbeing."</p>
-            </div>
-            
-            <div class="stat-card">
-                <div class="stat-item">
-                    <span class="stat-value">40-50</span>
-                    <span class="stat-label">Low Income Wellbeing</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-value">62-70</span>
-                    <span class="stat-label">Middle Income Wellbeing</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-value">78-88</span>
-                    <span class="stat-label">High Income Wellbeing</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-value">$100k</span>
-                    <span class="stat-label">Diminishing Returns Threshold</span>
-                </div>
-            </div>
-            
-            <h3>Analytical Approach</h3>
-            <!-- UPDATED STRUCTURE FOR HIERARCHY -->
-            <p><span class="label-accent">Methodology:</span> Cluster analysis and correlation studies on survey data</p>
-            <p><span class="label-accent">Sample Size:</span> 1,000+ respondents across income brackets</p>
-            <p><span class="label-accent">Key Finding:</span> Wellbeing improvements plateau around $100k annual income</p>
-            <p><span class="label-accent">Business Application:</span> Enables precise targeting of wellbeing-related products and services</p>
-        </div>
-
-        <!-- CASE STUDY 2: Statistical Significance Testing -->
-        <div class="analysis-block fade-in">
-            <span class="meta">Case Study #2</span>
-            <h2>Hypothesis Testing: Political Behavior</h2>
-            <p class="data-desc">Testing whether COVID-19 booster shot rates differ significantly between political affiliations using confidence intervals and statistical significance.</p>
-            
-            <div class="chart-container">
-                <canvas id="politicalChart"></canvas>
-            </div>
-            
-            <div class="insight-box">
-                <p>"The 90% confidence interval for the difference in booster rates (2.28% to 11.72%) does not include zero, indicating a statistically significant political divide."</p>
-            </div>
-            
-            <div class="stat-card">
-                <div class="stat-item">
-                    <span class="stat-value">15.0%</span>
-                    <span class="stat-label">Democrat Booster Rate</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-value">8.0%</span>
-                    <span class="stat-label">Republican Booster Rate</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-value">7.0%</span>
-                    <span class="stat-label">Absolute Difference</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-value">90% CI</span>
-                    <span class="stat-label">2.28% → 11.72%</span>
-                </div>
-            </div>
-            
-            <div class="comparison-grid">
-                <div class="comparison-item">
-                    <h4>Null Hypothesis</h4>
-                    <p>No difference in booster rates between Democrats and Republicans</p>
-                </div>
-                <div class="comparison-item">
-                    <h4>Test Result</h4>
-                    <p>Reject null hypothesis at 90% confidence level</p>
-                </div>
-                <div class="comparison-item">
-                    <h4>Conclusion</h4>
-                    <p>Democrats significantly more likely to receive boosters in this sample</p>
-                </div>
-            </div>
-            
-            <h3>Statistical Methodology</h3>
-            <!-- UPDATED STRUCTURE FOR HIERARCHY -->
-            <p><span class="label-accent">Sample Sizes:</span> 280 Democrats, 200 Republicans</p>
-            <p><span class="label-accent">Confidence Level:</span> 90% (Critical z-value: $1.645$)</p>
-            <p><span class="label-accent">Standard Error:</span> $0.0287$ for difference between proportions</p>
-            <p><span class="label-accent">Analysis:</span> Confidence interval approach for hypothesis testing</p>
-        </div>
-
-        <!-- CASE STUDY 3: Simpson's Paradox -->
-        <div class="analysis-block fade-in">
-            <span class="meta">Case Study #3</span>
-            <h2>Simpson's Paradox in Public Policy</h2>
-            <p class="data-desc">How Florida appears to have higher overall support for vaping bans, but California actually has higher support in every age group—a classic statistical paradox.</p>
-            
-            <div class="chart-container">
-                <canvas id="simpsonChart"></canvas>
-            </div>
-            
-            <div class="insight-box">
-                <p>"Florida's overall support appears higher (58% vs 50%), but California actually leads in every age group. The paradox occurs because Florida has more older respondents who generally support bans at higher rates."</p>
-            </div>
-            
-            <div class="stat-card">
-                <div class="stat-item">
-                    <span class="stat-value">58%</span>
-                    <span class="stat-label">FL Overall Support</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-value">50%</span>
-                    <span class="stat-label">CA Overall Support</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-value">+10%</span>
-                    <span class="stat-label">CA Leads in Age Groups</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-value">70%</span>
-                    <span class="stat-label">FL 40+ Population</span>
-                </div>
-            </div>
-            
-            <h3>The Statistical Illusion</h3>
-            <p>This is Simpson's Paradox: a trend appears in different groups of data but disappears or reverses when the groups are combined.</p>
-            
-            <div class="comparison-grid">
-                <div class="comparison-item">
-                    <h4>Florida Sample Composition</h4>
-                    <p>• 70% older adults (higher support for bans)</p>
-                    <p>• 30% younger adults (lower support for bans)</p>
-                    <p>• Older demographic inflates overall percentage</p>
-                </div>
-                <div class="comparison-item">
-                    <h4>California Sample Composition</h4>
-                    <p>• 25% older adults</p>
-                    <p>• 75% younger adults</p>
-                    <p>• Younger demographic depresses overall percentage</p>
-                </div>
-            </div>
-            
-            <h3>Analytical Takeaway</h3>
-            <!-- UPDATED STRUCTURE FOR HIERARCHY -->
-            <p><span class="label-accent">This case demonstrates</span> why examining data at appropriate levels of aggregation is crucial. Relying solely on overall percentages can lead to misleading conclusions when underlying group compositions differ significantly. Proper analysis requires looking at stratified data.</p>
-        </div>
-
-        <!-- CASE STUDY 4: Educational Confidence Intervals -->
-        <div class="analysis-block fade-in">
-            <span class="meta">Case Study #4</span>
-            <h2>Confidence Interval Analysis</h2>
-            <p class="data-desc">Calculating precise confidence intervals for educational attainment and college degree proportions from survey data.</p>
-            
-            <div class="chart-container">
-                <canvas id="educationChart"></canvas>
-            </div>
-            
-            <div class="insight-box">
-                <p>"With 90% confidence, the true population proportion of college graduates lies between 35.83% and 40.83%, definitively exceeding the 30% threshold with statistical significance."</p>
-            </div>
-            
-            <div class="stat-card">
-                <div class="stat-item">
-                    <span class="stat-value">90% CI</span>
-                    <span class="stat-label">14.89 → 15.23 years</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-value">38.33%</span>
-                    <span class="stat-label">Sample Proportion</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-value">0.0152</span>
-                    <span class="stat-label">Standard Error</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-value">1,020</span>
-                    <span class="stat-label">Sample Size</span>
-                </div>
-            </div>
-            
-            <h3>Statistical Precision</h3>
-            <div class="comparison-grid">
-                <div class="comparison-item">
-                    <h4>Educational Attainment CI</h4>
-                    <!-- UPDATED STRUCTURE FOR HIERARCHY -->
-                    <p><span class="label-accent">Mean:</span> $15.06$ years</p>
-                    <p><span class="label-accent">SD:</span> $3.299$ years</p>
-                    <p><span class="label-accent">90% CI:</span> $14.89–15.23$ years</p>
-                    <p><span class="label-accent">Interpretation:</span> Narrow interval indicates precise estimation</p>
-                </div>
-                <div class="comparison-item">
-                    <h4>College Degree CI</h4>
-                    <!-- UPDATED STRUCTURE FOR HIERARCHY -->
-                    <p><span class="label-accent">Proportion:</span> $391/1020 = 0.3833$</p>
-                    <p><span class="label-accent">90% CI:</span> $0.3583–0.4083$</p>
-                    <p><span class="label-accent">Test:</span> Entire interval > 30%</p>
-                    <p><span class="label-accent">Conclusion:</span> Statistically significant > 30% threshold</p>
-                </div>
-            </div>
-            
-            <h3>Methodological Rigor</h3>
-            <!-- UPDATED STRUCTURE FOR HIERARCHY -->
-            <p><span class="label-accent">Sample Statistics:</span> Computed using Excel from Gallup survey data</p>
-            <p><span class="label-accent">Assumptions:</span> Normal distribution for analytical purposes</p>
-            <p><span class="label-accent">Critical Values:</span> $z = 1.645$ for 90% confidence level</p>
-            <p><span class="label-accent">Standard Errors:</span> Calculated preserving precision through intermediate steps</p>
-        </div>
-
-    </div>
-  </section>
-
-  <section class="toolkit">
-      <div class="container">
-          <span class="hero-sub meta" style="margin-bottom: 3rem; display: block;">// The Technical Toolkit</span>
-          <div class="toolkit-grid">
-              <div class="tool-item stagger-item fade-in">Hypothesis Testing</div>
-              <div class="tool-item stagger-item fade-in">Confidence Intervals</div>
-              <div class="tool-item stagger-item fade-in">Statistical Significance</div>
-              <div class="tool-item stagger-item fade-in">Data Visualization</div>
-              <div class="tool-item stagger-item fade-in">Excel Analysis</div>
-              <div class="tool-item stagger-item fade-in">Cross-Tabulation</div>
-              <div class="tool-item stagger-item fade-in">Regression Analysis</div>
-              <div class="tool-item stagger-item fade-in">Sample Design</div>
-              <div class="tool-item stagger-item fade-in">Simpson's Paradox</div>
-          </div>
+    <!-- Teaser Metrics -->
+    <div class="teaser-grid">
+      <div class="teaser-metric">
+        <span class="metric-value">61%</span>
+        <span class="metric-label">Top Campaign CTR</span>
       </div>
-  </section>
-
-  <section class="hero" style="height: 40vh; background: var(--accent-dim); padding-top: 0;">
-      <div class="container hero-content">
-          <h3 style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 2rem;">
-              From Statistical Theory to Practical Insight
-          </h3>
-          <p style="max-width: 600px; margin: 0 auto 2rem;">
-              These case studies demonstrate rigorous statistical methodology applied to real-world data, transforming numbers into actionable business intelligence.
-          </p>
-          <a href="mailto:va.mvharris@gmail.com" class="btn">Discuss Analytics Projects &rarr;</a>
+      
+      <div class="teaser-metric">
+        <span class="metric-value">1,340</span>
+        <span class="metric-label">Peak Monthly Orders</span>
       </div>
-  </section>
-
-  <footer>
-    <div class="container" style="text-align: center; padding: 3rem 0; border-top: 1px solid var(--line);">
-        <p class="meta" style="opacity: 0.5;">&copy; 2025 Marla Harris. Analytics Portfolio. All Rights Reserved.</p>
+      
+      <div class="teaser-metric">
+        <span class="metric-value">3.2x</span>
+        <span class="metric-label">LTV Multiplier</span>
+      </div>
+      
+      <div class="teaser-metric">
+        <span class="metric-value">$250K</span>
+        <span class="metric-label">Annual Savings</span>
+      </div>
     </div>
-  </footer>
-
-  <script>
-    // --- SCROLL ANIMATION OBSERVER ---
-    const observerOptions = {
-        threshold: 0.15,
-        rootMargin: "0px 0px -50px 0px"
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Now using 'visible' class, consistent with creative (20).html
-                entry.target.classList.add('visible');
-                
-                if (!entry.target.classList.contains('toolkit-grid')) {
-                    observer.unobserve(entry.target);
-                }
-            }
-        });
-    }, observerOptions);
-
-    // Observe all analysis blocks (which have the 'fade-in' class)
-    document.querySelectorAll('.analysis-block').forEach((el) => {
-        observer.observe(el);
-    });
-
-    // Staggered toolkit items
-    const toolkitObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const items = entry.target.querySelectorAll('.stagger-item');
-                items.forEach((item, index) => {
-                    // Staggered delay for the tool items
-                    setTimeout(() => {
-                        // Now using 'visible' class, consistent with creative (20).html
-                        item.classList.add('visible');
-                    }, index * 100);
-                });
-                toolkitObserver.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
     
-    const toolkitSection = document.querySelector('.toolkit-grid');
-    if(toolkitSection) toolkitObserver.observe(toolkitSection);
-
-    // Header Scroll Effect
-    window.addEventListener('scroll', () => {
-        const header = document.querySelector('header');
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
-
-    // --- CHART.JS CONFIGURATION (MATCHING CREATIVE PAGE ACCENT COLOR) ---
-    Chart.defaults.font.family = "'Inter', sans-serif";
-    Chart.defaults.color = '#757575'; // Neutral-600
-
-    const ACCENT_COLOR = '#990049'; // --accent
+    <!-- Updated Countdown Text -->
+    <div class="countdown">
+      Launching Soon
+    </div>
     
-    // Chart 1: Income-Wellbeing Correlation (Bubble Chart)
-    const ctxIncome = document.getElementById('incomeWellbeingChart').getContext('2d');
-    new Chart(ctxIncome, {
-        type: 'bubble',
-        data: {
-            datasets: [
-                {
-                    label: 'Low Income',
-                    data: [
-                        {x: 35, y: 45, r: 6},
-                        {x: 42, y: 50, r: 7},
-                        {x: 28, y: 40, r: 5},
-                        {x: 38, y: 48, r: 6}
-                    ],
-                    backgroundColor: 'rgba(153, 0, 73, 0.4)',
-                    borderColor: ACCENT_COLOR,
-                    borderWidth: 1
-                },
-                {
-                    label: 'Middle Income',
-                    data: [
-                        {x: 65, y: 65, r: 8},
-                        {x: 58, y: 67, r: 7},
-                        {x: 72, y: 70, r: 9},
-                        {x: 55, y: 62, r: 7},
-                        {x: 68, y: 68, r: 8}
-                    ],
-                    backgroundColor: 'rgba(153, 0, 73, 0.6)',
-                    borderColor: ACCENT_COLOR,
-                    borderWidth: 1
-                },
-                {
-                    label: 'High Income',
-                    data: [
-                        {x: 95, y: 78, r: 10},
-                        {x: 110, y: 82, r: 11},
-                        {x: 125, y: 85, r: 12},
-                        {x: 150, y: 88, r: 14}
-                    ],
-                    backgroundColor: 'rgba(153, 0, 73, 0.8)',
-                    borderColor: ACCENT_COLOR,
-                    borderWidth: 1
-                }
-            ]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: { 
-                    position: 'bottom',
-                    labels: {
-                        usePointStyle: true,
-                        padding: 20,
-                        font: { size: 11 }
-                    }
-                },
-                tooltip: {
-                    backgroundColor: '#fff',
-                    titleColor: '#000',
-                    bodyColor: '#666',
-                    borderColor: 'rgba(0,0,0,0.1)',
-                    borderWidth: 1,
-                    padding: 10,
-                    callbacks: {
-                        label: function(context) {
-                            const data = context.raw;
-                            return `Income: $${data.x}k, Well-being: ${data.y}/100`;
-                        }
-                    }
-                }
-            },
-            scales: {
-                y: { 
-                    min: 30,
-                    max: 100,
-                    grid: { color: 'rgba(0,0,0,0.03)' },
-                    title: { 
-                        display: true, 
-                        text: 'Well-Being Index (0-100)',
-                        font: { size: 12, weight: '500' }
-                    }
-                },
-                x: { 
-                    min: 20,
-                    max: 160,
-                    grid: { display: false },
-                    title: { 
-                        display: true, 
-                        text: 'Annual Income ($ thousands)',
-                        font: { size: 12, weight: '500' }
-                    },
-                    ticks: {
-                        callback: function(value) {
-                            return '$' + value + 'k';
-                        }
-                    }
-                }
-            }
-        }
-    });
-
-    // Chart 2: Political Behavior Comparison
-    const ctxPolitical = document.getElementById('politicalChart').getContext('2d');
-    new Chart(ctxPolitical, {
-        type: 'bar',
-        data: {
-            labels: ['Democrats', 'Republicans'],
-            datasets: [{
-                label: 'COVID Booster Rate',
-                data: [15.0, 8.0],
-                backgroundColor: [
-                    'rgba(153, 0, 73, 0.8)', // Updated ACCENT
-                    'rgba(153, 0, 73, 0.5)'  // Updated lighter ACCENT
-                ],
-                borderColor: [
-                    ACCENT_COLOR,
-                    ACCENT_COLOR
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: { display: false },
-                tooltip: {
-                    callbacks: {
-                        label: function(context) {
-                            return `${context.label}: ${context.raw}% booster rate`;
-                        }
-                    }
-                }
-            },
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    max: 20,
-                    title: {
-                        display: true,
-                        text: 'Booster Rate (%)'
-                    },
-                    grid: { color: 'rgba(0,0,0,0.03)' }
-                },
-                x: {
-                    grid: { display: false }
-                }
-            }
-        }
-    });
-
-    // Chart 3: Simpson's Paradox
-    const ctxSimpson = document.getElementById('simpsonChart').getContext('2d');
-    new Chart(ctxSimpson, {
-        type: 'bar',
-        data: {
-            labels: ['18-39 Years', '40+ Years', 'Overall'],
-            datasets: [
-                {
-                    label: 'Florida',
-                    data: [30, 70, 58],
-                    backgroundColor: 'rgba(153, 0, 73, 0.7)',
-                    borderColor: ACCENT_COLOR,
-                    borderWidth: 1
-                },
-                {
-                    label: 'California',
-                    data: [40, 80, 50],
-                    backgroundColor: 'rgba(153, 0, 73, 0.4)',
-                    borderColor: ACCENT_COLOR,
-                    borderWidth: 1
-                }
-            ]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: { position: 'top' },
-                tooltip: {
-                    callbacks: {
-                        label: function(context) {
-                            return `${context.dataset.label}: ${context.raw}% support`;
-                        }
-                    }
-                }
-            },
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    max: 100,
-                    title: {
-                        display: true,
-                        text: 'Support for Outlawing Vaping (%)'
-                    },
-                    grid: { color: 'rgba(0,0,0,0.03)' }
-                },
-                x: {
-                    grid: { display: false }
-                }
-            }
-        }
-    });
-
-    // Chart 4: Education Distribution
-    const ctxEducation = document.getElementById('educationChart').getContext('2d');
-    new Chart(ctxEducation, {
-        type: 'doughnut',
-        data: {
-            labels: ['College Degree+', 'Some College', 'HS Degree Only', 'Less Than HS'],
-            datasets: [{
-                data: [38.33, 36.47, 12.16, 13.04],
-                backgroundColor: [
-                    'rgba(153, 0, 73, 0.8)',
-                    'rgba(153, 0, 73, 0.6)',
-                    'rgba(153, 0, 73, 0.4)',
-                    'rgba(153, 0, 73, 0.3)'
-                ],
-                borderColor: ACCENT_COLOR,
-                borderWidth: 1,
-                hoverOffset: 15
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            cutout: '60%',
-            plugins: {
-                legend: {
-                    position: 'bottom',
-                    labels: {
-                        padding: 20,
-                        usePointStyle: true,
-                        font: { size: 11 }
-                    }
-                },
-                tooltip: {
-                    callbacks: {
-                        label: function(context) {
-                            return `${context.label}: ${context.raw}%`;
-                        }
-                    }
-                }
-            }
-        }
-    });
-
-    // --- MOBILE MENU ---
-    const mobileBtn = document.querySelector('.mobile-menu-btn');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    const closeBtn = document.querySelector('.close-menu');
-
-    if(mobileBtn) {
-        mobileBtn.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
-        });
-    }
+    <!-- The descriptive paragraph has been removed -->
     
-    if(closeBtn) {
-        closeBtn.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-        });
-    }
-    
-    document.querySelectorAll('.mobile-nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-        });
-    });
-  </script>
-
+    <div class="footer">
+      &copy; 2025 Marla Harris. All Rights Reserved.
+    </div>
+  </div>
 </body>
 </html>
