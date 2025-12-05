@@ -778,9 +778,11 @@
       <nav>
         <a href="index.html" class="logo">Marla Harris</a>
         <div class="nav-links">
+          <!-- ADDED: Home link for desktop nav -->
+          <a href="index.html" class="nav-link">Home</a>
           <a href="analytics.html" class="nav-link">Analytics</a>
-          <a href="#" class="nav-link active">Creative & Copy</a>
-          <a href="about.html" class="nav-link">About</a>
+          <a href="creative-copy.html" class="nav-link active">Creative & Copy</a> <!-- Updated href to be explicit -->
+          <a href="index.html" class="nav-link">About</a> <!-- CHANGED to index.html -->
           <a href="index.html#contact" class="nav-link">Contact</a>
         </div>
         <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
@@ -791,10 +793,11 @@
     <div class="mobile-menu">
         <button class="close-menu"><i class="fas fa-times"></i></button>
         <div class="mobile-nav-links">
+            <!-- FIXED: Home link points to index.html -->
             <a href="index.html" class="mobile-nav-link">Home</a>
             <a href="analytics.html" class="mobile-nav-link">Analytics</a>
-            <a href="#" class="mobile-nav-link active" style="color: var(--accent);">Creative & Copy</a>
-            <a href="about.html" class="mobile-nav-link">About</a>
+            <a href="creative-copy.html" class="mobile-nav-link active" style="color: var(--accent);">Creative & Copy</a> <!-- Updated href to be explicit -->
+            <a href="index.html" class="mobile-nav-link">About</a> <!-- CHANGED to index.html -->
             <a href="index.html#contact" class="mobile-nav-link">Contact</a>
         </div>
     </div>
