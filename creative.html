@@ -39,7 +39,6 @@
       color: var(--charcoal);
       background: var(--paper);
       line-height: 1.8;
-      overflow-x: hidden;
       font-weight: 300;
       font-size: 16px;
     }
@@ -640,6 +639,26 @@
         line-height: 1;
     }
     
+    /* --- NEW TESTIMONIAL SECTION STYLES --- */
+    .testimonial-section {
+        padding: 4rem 0; 
+        background: var(--paper); 
+        border-top: 1px solid var(--line);
+    }
+    
+    .testimonial-quote {
+        /* Reverted to Playfair Display for luxury feel */
+        font-family: 'Playfair Display', serif !important; 
+        font-size: clamp(1.25rem, 2.5vw, 1.8rem); 
+        line-height: 1.5; 
+        color: var(--ink) !important; /* Reverted to dark ink color */
+        margin: 0 auto 1.5rem; 
+        font-style: italic !important; /* Made italic for elegance */
+        font-weight: 400;
+        max-width: 800px;
+        text-align: center;
+        display: block;
+    }
 
     .contact { padding: 10rem 0; text-align: center; background: var(--paper); border-top: 1px solid var(--line); }
     .star-decoration { font-size: 1.5rem; color: var(--accent); margin-bottom: 2rem; display: block; }
@@ -862,6 +881,8 @@
                 <div class="scroll-content">
                     <!-- ENCODED URLS to prevent GitHub breaking -->
                     <img src="HALSEY%20-%20BB%20BAU%20(2)%20(3).gif" class="project-img" alt="Rolling Stone 1" onerror="this.style.display='none';">
+                    <!-- NEW IMAGE ADDED HERE -->
+                    <img src="wwd-met-gala-marlaharris-portfolio.png" class="project-img" alt="WWD Met Gala" onerror="this.style.display='none';">
                     <img src="2.29%20BAU%20(Karol%20G)%20(1).gif" class="project-img" alt="Rolling Stone 2" onerror="this.style.display='none';">
                     <img src="Ends%20Today%20(Milan)%20Your%20Global%20Fashion%20Passport%20FIXED%20(1).gif" class="project-img" alt="Rolling Stone 3" onerror="this.style.display='none';">
                 </div>
@@ -1070,6 +1091,21 @@
             </li>
 
         </ul>
+    </div>
+  </section>
+
+  <!-- Testimonial Block (New Addition - Updated Styling for Luxury) -->
+  <section class="testimonial-section fade-in">
+    <div class="container">
+      <!-- Quote icon remains accent color -->
+      <i class="fas fa-quote-left" style="color: var(--accent); font-size: 1.25rem; margin-bottom: 1.5rem;"></i>
+      <blockquote class="testimonial-quote">
+        Marla writes all promotional copy for Rolling Stone, Women's Wear Daily, Billboard, Sportico, and Sourcing Journal subscriptions, consistently producing content that is not only flawless in grammar but perfectly aligned with the refined editorial voice. Given this flair for the written word, she is an excellent choice to support literacy learning initiatives in the community.
+      </blockquote>
+      <!-- Footer remains accent color to contrast and tie to brand -->
+      <footer style="font-family: 'Inter', sans-serif; font-size: 0.8rem; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; text-align: center; display: block; margin-top: 1.5rem;">
+        — Andrew, Marketing Executive
+      </footer>
     </div>
   </section>
 
