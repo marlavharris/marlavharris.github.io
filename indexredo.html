@@ -54,7 +54,7 @@
 
     .container { max-width: 1300px; margin: 0 auto; padding: 0 4rem; }
 
-    /* HEADER & NAV FIXES */
+    /* HEADER & NAV */
     header {
       position: fixed;
       top: 0; width: 100%; z-index: 2000;
@@ -64,7 +64,7 @@
     
     header.scrolled {
       padding: 1.25rem 0;
-      background: rgba(249, 247, 244, 0.9);
+      background: rgba(249, 247, 244, 0.95);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--line);
     }
@@ -78,7 +78,6 @@
     .nav-link:hover { color: var(--accent); }
     .nav-link:hover::after { width: 100%; }
 
-    /* MOBILE MENU BUTTON */
     .mobile-toggle {
         display: none;
         background: none;
@@ -96,7 +95,6 @@
         transition: 0.3s;
     }
 
-    /* MOBILE MENU OVERLAY */
     .mobile-nav {
         position: fixed;
         top: 0; right: 0; bottom: 0; left: 0;
@@ -154,6 +152,7 @@
     .hero-stat-item b { font-family: 'Playfair Display', serif; font-size: 2.5rem; display: block; line-height: 1; margin-bottom: 0.5rem; }
     .hero-stat-item span { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--neutral-600); font-weight: 700; }
 
+    /* ARCHIVE SECTION */
     .section-header {
         padding: 8rem 0 4rem;
         border-bottom: 1px solid var(--line);
@@ -178,8 +177,20 @@
         aspect-ratio: 4/5;
         position: relative;
         overflow: hidden;
-        background-color: #e5e1da;
         border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .work-visual img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: grayscale(100%) contrast(1.1);
+        transition: transform 1.2s var(--ease), filter 0.8s ease;
+    }
+
+    .work-item:hover .work-visual img {
+        transform: scale(1.05);
+        filter: grayscale(0%);
     }
 
     .work-visual-text {
@@ -190,6 +201,7 @@
         color: white;
         mix-blend-mode: overlay;
         opacity: 0.8;
+        z-index: 2;
     }
 
     .work-info { display: flex; flex-direction: column; justify-content: center; }
@@ -207,6 +219,7 @@
     .detail-item h4 { font-family: 'Inter', sans-serif; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700; margin-bottom: 0.75rem; }
     .detail-item p { font-size: 0.9rem; color: var(--charcoal); line-height: 1.5; }
 
+    /* CAPABILITIES */
     .capabilities {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -218,6 +231,7 @@
     .cap-item h3 { font-size: 1.8rem; margin-bottom: 1rem; }
     .cap-item p { font-size: 0.95rem; color: var(--charcoal); }
 
+    /* STORY */
     .story-section {
         display: grid;
         grid-template-columns: 1.2fr 0.8fr;
@@ -245,6 +259,7 @@
         margin: 0 0.5rem 0.5rem 0;
     }
 
+    /* FOOTER */
     footer {
         padding: 8rem 0 4rem;
         border-top: 1px solid var(--line);
@@ -322,16 +337,12 @@
     <div class="container">
       <nav>
         <a href="#" class="logo">M.HARRIS</a>
-        
-        <!-- Desktop Nav -->
         <div class="nav-links">
           <a href="#work" class="nav-link">Archive</a>
           <a href="#capabilities" class="nav-link">Expertise</a>
           <a href="#story" class="nav-link">Perspective</a>
           <a href="#contact" class="nav-link">Connect</a>
         </div>
-
-        <!-- Mobile Toggle -->
         <button class="mobile-toggle" aria-label="Toggle Menu">
             <span></span>
             <span></span>
@@ -340,7 +351,6 @@
     </div>
   </header>
 
-  <!-- Mobile Nav Overlay -->
   <div class="mobile-nav">
       <a href="#work" class="nav-link">Archive</a>
       <a href="#capabilities" class="nav-link">Expertise</a>
@@ -371,9 +381,11 @@
       </div>
 
       <div class="work-grid">
+          <!-- WORK ITEM 1: PMC (Updated with Met Gala Visual) -->
           <article class="work-item reveal">
               <div class="work-visual">
                   <div class="work-visual-text">PMC</div>
+                  <img src="wwd-met-gala-marlaharris-portfolio.png" alt="WWD Met Gala Coverage" onerror="this.src='https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=1200'">
               </div>
               <div class="work-info">
                   <span class="caps-meta">01 / Revenue Innovation</span>
@@ -392,9 +404,11 @@
               </div>
           </article>
 
+          <!-- WORK ITEM 2: AJ MADISON (Updated with UI Screenshot) -->
           <article class="work-item reveal">
-              <div class="work-visual" style="background-color: #d8dcd6;">
+              <div class="work-visual">
                   <div class="work-visual-text">AJM</div>
+                  <img src="Screenshot%202025-10-30%20224348.png" alt="AjMadison Dashboard & CRM" onerror="this.src='https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=1200'">
               </div>
               <div class="work-info">
                   <span class="caps-meta">02 / Systems & Scale</span>
@@ -413,9 +427,11 @@
               </div>
           </article>
 
+          <!-- WORK ITEM 3: ISSEY MIYAKE (Updated with Brand Creative) -->
           <article class="work-item reveal">
-              <div class="work-visual" style="background-color: #e2e2e2;">
+              <div class="work-visual">
                   <div class="work-visual-text">IM</div>
+                  <img src="bao_bao_email_1.jpg" alt="Bao Bao Issey Miyake Creative" onerror="this.src='https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1200'">
               </div>
               <div class="work-info">
                   <span class="caps-meta">03 / Brand Stewardship</span>
@@ -512,7 +528,7 @@
                 <span class="caps-meta">Connect</span>
                 <ul class="footer-links">
                     <li><a href="https://linkedin.com/in/marlavharris/" target="_blank">LinkedIn</a></li>
-                    <li><a href="#">Creative Archive</a></li>
+                    <li><a href="creative.html">Creative Archive</a></li>
                     <li><a href="#">Analytical Focus</a></li>
                 </ul>
             </div>
@@ -542,20 +558,17 @@
 
         reveals.forEach(el => revealObserver.observe(el));
 
-        // Navigation & Scroll Logic
         const header = document.getElementById('main-header');
         const mobileToggle = document.querySelector('.mobile-toggle');
         const mobileNav = document.querySelector('.mobile-nav');
         const navLinks = document.querySelectorAll('.nav-link');
         let lastScroll = 0;
 
-        // Mobile Menu Toggle
         mobileToggle.addEventListener('click', () => {
             mobileNav.classList.toggle('open');
             document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
         });
 
-        // Close mobile nav on link click
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 mobileNav.classList.remove('open');
@@ -563,18 +576,11 @@
             });
         });
 
-        // Header Scroll Behavior
         window.addEventListener('scroll', () => {
             const currentScroll = window.pageYOffset;
-            
-            // Background blur/color on scroll
-            if (currentScroll > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
+            if (currentScroll > 50) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
 
-            // Hide/Show header on scroll direction
             if (currentScroll > 150 && currentScroll > lastScroll && !mobileNav.classList.contains('open')) {
                 header.style.transform = 'translateY(-100%)';
             } else {
