@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-869S7ZPXQH"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -12,382 +11,578 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Marla Harris — Marketing & Communications Leader specializing in lifecycle, subscription, and audience strategy." />
-  <title>Marla Harris — Marketing & Communications</title>
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <meta name="description" content="Marla Harris — Marketing Strategy, Growth Architecture, and Data-Driven Storytelling for Global Media and Luxury Brands.">
+  <title>MARLA HARRIS — STRATEGY & NARRATIVE</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+  
   <style>
     :root {
-      --ink:#0a0a0a;
-      --charcoal:#333;
-      --neutral-600:#757575;
-      --paper:#fff;
-      --accent:#990049;
-      --line:rgba(0,0,0,0.08);
-      --bg-subtle:#fafafa;
+      --ink: #121212;        
+      --charcoal: #3a3a3a;   
+      --paper: #f9f7f4; 
+      --accent: #80002a; 
+      --line: rgba(18, 18, 18, 0.1);
+      --ease: cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{
-      font-family:'Inter',sans-serif;
-      color:var(--charcoal);
-      background:var(--paper);
-      line-height:1.6;
-    }
-    .container{max-width:1200px;margin:0 auto;padding:0 3rem}
-    h1,h2,h3{font-family:'Playfair Display',serif;color:var(--ink)}
-    h1{font-size:clamp(3rem,6vw,5rem)}
-    h2{font-size:clamp(2.2rem,4vw,3.2rem)}
-    .meta{
-      font-size:.75rem;
-      text-transform:uppercase;
-      letter-spacing:.2em;
-      color:var(--neutral-600);
+    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 400; }
+    .serif-italic { font-family: 'Playfair Display', serif; font-style: italic; }
+
+    .caps-meta {
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 0.3em;
+        font-weight: 700;
+        color: var(--accent);
+        display: block;
+        margin-bottom: 1rem;
     }
 
-    /* Header */
-    header{
-      position:fixed;
-      top:0;
-      width:100%;
-      padding:1.5rem 0;
-      background:rgba(255,255,255,.96);
-      border-bottom:1px solid var(--line);
-      z-index:1000;
+    .container { max-width: 1300px; margin: 0 auto; padding: 0 4rem; }
+
+    /* HEADER & NAV FIXES */
+    header {
+      position: fixed;
+      top: 0; width: 100%; z-index: 2000;
+      padding: 2.5rem 0;
+      transition: all 0.5s var(--ease);
     }
-    nav{display:flex;justify-content:space-between;align-items:center}
-    .logo{
-      font-family:'Playfair Display',serif;
-      font-size:1.25rem;
-      text-decoration:none;
-      color:var(--ink);
+    
+    header.scrolled {
+      padding: 1.25rem 0;
+      background: rgba(249, 247, 244, 0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
     }
-    .nav-links{display:flex;gap:2rem}
-    .nav-links a{
-      font-size:.75rem;
-      text-transform:uppercase;
-      letter-spacing:.15em;
-      text-decoration:none;
-      color:var(--neutral-600);
+    
+    nav { display: flex; justify-content: space-between; align-items: baseline; position: relative; }
+    .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; text-decoration: none; color: var(--ink); font-weight: 700; letter-spacing: -0.02em; z-index: 2001; }
+    
+    .nav-links { display: flex; gap: 4rem; }
+    .nav-link { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em; text-decoration: none; color: var(--charcoal); transition: color 0.3s; position: relative; }
+    .nav-link::after { content: ''; position: absolute; width: 0; height: 1px; bottom: -4px; left: 0; background: var(--accent); transition: width 0.3s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-link:hover::after { width: 100%; }
+
+    /* MOBILE MENU BUTTON */
+    .mobile-toggle {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+        z-index: 2001;
+    }
+    .mobile-toggle span {
+        display: block;
+        width: 24px;
+        height: 1px;
+        background: var(--ink);
+        margin: 6px 0;
+        transition: 0.3s;
     }
 
-    /* Hero */
-    .hero{
-      padding:180px 0 120px;
-      text-align:center;
+    /* MOBILE MENU OVERLAY */
+    .mobile-nav {
+        position: fixed;
+        top: 0; right: 0; bottom: 0; left: 0;
+        background: var(--paper);
+        z-index: 2000;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+        transform: translateY(-100%);
+        transition: transform 0.6s var(--ease);
     }
-    .hero p{
-      max-width:700px;
-      margin:2rem auto 0;
-      font-size:1.15rem;
-      font-family:'Playfair Display',serif;
-      font-style:italic;
+    .mobile-nav.open { transform: translateY(0); }
+    .mobile-nav .nav-link { font-size: 1.5rem; }
+
+    /* HERO */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 100px;
     }
 
-    .hero-proof{
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:center;
-      gap:1.5rem;
-      margin-top:2rem;
-      font-size:.7rem;
-      text-transform:uppercase;
-      letter-spacing:.15em;
-      color:var(--neutral-600);
+    .hero-title {
+        font-size: clamp(3rem, 10vw, 8rem);
+        line-height: 0.9;
+        letter-spacing: -0.05em;
+        margin-bottom: 3rem;
     }
 
-    .btn-group{
-      display:flex;
-      justify-content:center;
-      gap:3rem;
-      margin-top:3rem;
-    }
-    .btn{
-      text-decoration:none;
-      font-size:.75rem;
-      text-transform:uppercase;
-      letter-spacing:.2em;
-      color:var(--ink);
-      position:relative;
-    }
-    .btn::after{
-      content:'';
-      position:absolute;
-      left:0;
-      bottom:-4px;
-      width:0;
-      height:1px;
-      background:var(--accent);
-      transition:.3s;
-    }
-    .btn:hover::after{width:100%}
-
-    /* Proof Banner */
-    .results{
-      padding:5rem 0;
-      border-top:1px solid var(--line);
-      border-bottom:1px solid var(--line);
-      background:var(--bg-subtle);
-    }
-    .metrics{
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:center;
-      gap:4rem;
-    }
-    .metric{text-align:center}
-    .metric strong{
-      display:block;
-      font-family:'Playfair Display',serif;
-      font-size:3rem;
-      color:var(--accent);
-    }
-    .metric span{
-      font-size:.75rem;
-      text-transform:uppercase;
-      letter-spacing:.15em;
-      color:var(--neutral-600);
+    .hero-flex {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 4rem;
+        align-items: flex-end;
     }
 
-    /* Work */
-    .work{padding:7rem 0}
-    .case{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:5rem;
-      margin-bottom:6rem;
-      align-items:center;
-    }
-    .visual{
-      border:1px solid var(--line);
-      background:var(--bg-subtle);
-      padding:4rem;
-      text-align:center;
-    }
-    .visual strong{
-      font-family:'Playfair Display',serif;
-      font-size:4rem;
-      color:var(--accent);
-    }
-    .visual span{
-      display:block;
-      margin-top:.5rem;
-      font-size:.75rem;
-      text-transform:uppercase;
-      letter-spacing:.15em;
+    .hero-sub {
+        font-size: 1.35rem;
+        max-width: 500px;
+        color: var(--charcoal);
+        font-family: 'Playfair Display', serif;
+        font-style: italic;
     }
 
-    .case p{margin:1.5rem 0}
-
-    /* Method */
-    .method{
-      padding:6rem 0;
-      background:var(--bg-subtle);
-      border-top:1px solid var(--line);
-    }
-    .method-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:3rem;
+    .hero-stats {
+        display: flex;
+        gap: 5rem;
+        border-top: 1px solid var(--line);
+        padding-top: 2rem;
     }
 
-    /* About */
-    .about{
-      padding:7rem 0;
-      border-top:1px solid var(--line);
-    }
-    blockquote{
-      border-left:2px solid var(--accent);
-      padding-left:2rem;
-      font-family:'Playfair Display',serif;
-      font-style:italic;
-      margin-top:3rem;
+    .hero-stat-item b { font-family: 'Playfair Display', serif; font-size: 2.5rem; display: block; line-height: 1; margin-bottom: 0.5rem; }
+    .hero-stat-item span { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--neutral-600); font-weight: 700; }
+
+    .section-header {
+        padding: 8rem 0 4rem;
+        border-bottom: 1px solid var(--line);
+        margin-bottom: 4rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
     }
 
-    /* Contact */
-    .contact{
-      padding:6rem 0;
-      text-align:center;
-      border-top:1px solid var(--line);
+    .section-header h2 { font-size: clamp(2.5rem, 6vw, 4rem); letter-spacing: -0.03em; }
+
+    .work-grid { display: grid; grid-template-columns: 1fr; gap: 8rem; }
+
+    .work-item {
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: 6rem;
     }
 
-    footer{
-      padding:3rem 0;
-      text-align:center;
-      font-size:.7rem;
-      text-transform:uppercase;
-      letter-spacing:.1em;
-      color:var(--neutral-600);
+    .work-visual {
+        background: #eee;
+        aspect-ratio: 4/5;
+        position: relative;
+        overflow: hidden;
+        background-color: #e5e1da;
+        border: 1px solid rgba(0,0,0,0.05);
     }
 
-    @media(max-width:900px){
-      .case{grid-template-columns:1fr}
-      .method-grid{grid-template-columns:1fr}
-      .container{padding:0 1.5rem}
+    .work-visual-text {
+        position: absolute;
+        bottom: 2rem; left: 2rem;
+        font-family: 'Playfair Display', serif;
+        font-size: 4rem;
+        color: white;
+        mix-blend-mode: overlay;
+        opacity: 0.8;
+    }
+
+    .work-info { display: flex; flex-direction: column; justify-content: center; }
+    .work-info h3 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; letter-spacing: -0.02em; }
+    .work-info p { font-size: 1.1rem; color: var(--charcoal); margin-bottom: 2.5rem; max-width: 550px; }
+    
+    .work-details {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        padding-top: 2.5rem;
+        border-top: 1px solid var(--line);
+    }
+
+    .detail-item h4 { font-family: 'Inter', sans-serif; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700; margin-bottom: 0.75rem; }
+    .detail-item p { font-size: 0.9rem; color: var(--charcoal); line-height: 1.5; }
+
+    .capabilities {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4rem 8rem;
+        margin-bottom: 8rem;
+    }
+
+    .cap-item { padding-bottom: 3rem; border-bottom: 1px solid var(--line); }
+    .cap-item h3 { font-size: 1.8rem; margin-bottom: 1rem; }
+    .cap-item p { font-size: 0.95rem; color: var(--charcoal); }
+
+    .story-section {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 8rem;
+        padding: 8rem 0;
+    }
+
+    .story-content p { font-size: 1.3rem; margin-bottom: 2rem; font-family: 'Playfair Display', serif; line-height: 1.5; color: var(--charcoal); }
+    .story-aside {
+        background: var(--ink);
+        color: var(--paper);
+        padding: 4rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .story-aside h4 { font-size: 2rem; margin-bottom: 2rem; }
+    .tech-pill {
+        display: inline-block;
+        padding: 0.4rem 0.8rem;
+        border: 1px solid rgba(255,255,255,0.2);
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin: 0 0.5rem 0.5rem 0;
+    }
+
+    footer {
+        padding: 8rem 0 4rem;
+        border-top: 1px solid var(--line);
+        margin-top: 4rem;
+    }
+
+    .footer-masthead {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr;
+        gap: 4rem;
+        margin-bottom: 6rem;
+    }
+
+    .masthead-col h4 {
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(1.8rem, 4vw, 2.2rem);
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+    }
+
+    .masthead-col p {
+        font-size: 0.95rem;
+        color: var(--charcoal);
+        max-width: 380px;
+    }
+
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 0.75rem; }
+    .footer-links a {
+        text-decoration: none;
+        color: var(--ink);
+        font-size: 0.85rem;
+        font-weight: 500;
+        transition: color 0.3s;
+    }
+    .footer-links a:hover { color: var(--accent); }
+
+    .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 2rem;
+        border-top: 1px solid var(--line);
+    }
+
+    .footer-signature {
+        font-family: 'Playfair Display', serif;
+        font-style: italic;
+        font-size: 1.1rem;
+        color: var(--accent);
+    }
+
+    .copyright {
+        font-size: 0.6rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: var(--neutral-600);
+    }
+
+    .reveal { opacity: 0; transform: translateY(30px); transition: all 1s var(--ease); }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 1024px) {
+        .container { padding: 0 2rem; }
+        .hero-flex, .work-item, .story-section, .footer-masthead { grid-template-columns: 1fr; gap: 3rem; }
+        .nav-links { display: none; }
+        .mobile-toggle { display: block; }
+        .hero-stats { gap: 2rem; flex-wrap: wrap; }
     }
   </style>
 </head>
-
 <body>
 
-<header>
-  <div class="container">
-    <nav>
-      <a href="#" class="logo">Marla Harris</a>
-      <div class="nav-links">
-        <a href="#">Home</a>
-        <a href="analytics.html">Analytics</a>
-        <a href="creative.html">Creative & Copy</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
-  </div>
-</header>
+  <header id="main-header">
+    <div class="container">
+      <nav>
+        <a href="#" class="logo">M.HARRIS</a>
+        
+        <!-- Desktop Nav -->
+        <div class="nav-links">
+          <a href="#work" class="nav-link">Archive</a>
+          <a href="#capabilities" class="nav-link">Expertise</a>
+          <a href="#story" class="nav-link">Perspective</a>
+          <a href="#contact" class="nav-link">Connect</a>
+        </div>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="container">
-    <span class="meta">// Marketing & Communications Leader</span>
-    <h1>Lifecycle, Subscription & Audience Strategy</h1>
-
-    <p>
-      I lead audience-centered growth across media, ecommerce, and consumer brands — 
-      translating behavior, cultural context, and performance data into durable systems and measurable revenue.
-    </p>
-
-    <div class="hero-proof">
-      <span>Penske Media</span>
-      <span>Rolling Stone</span>
-      <span>Billboard</span>
-      <span>AJ Madison</span>
-      <span>Bao Bao Issey Miyake</span>
+        <!-- Mobile Toggle -->
+        <button class="mobile-toggle" aria-label="Toggle Menu">
+            <span></span>
+            <span></span>
+        </button>
+      </nav>
     </div>
+  </header>
 
-    <div class="btn-group">
-      <a href="#work" class="btn">View Case Work</a>
-      <a href="creative.html" class="btn">Creative & Copy →</a>
-    </div>
+  <!-- Mobile Nav Overlay -->
+  <div class="mobile-nav">
+      <a href="#work" class="nav-link">Archive</a>
+      <a href="#capabilities" class="nav-link">Expertise</a>
+      <a href="#story" class="nav-link">Perspective</a>
+      <a href="#contact" class="nav-link">Connect</a>
   </div>
-</section>
 
-<!-- RESULTS -->
-<section class="results">
-  <div class="container">
-    <div class="metrics">
-      <div class="metric">
-        <strong>17%</strong>
-        <span>YoY Revenue Growth</span>
+  <main>
+    <section class="hero container">
+      <div class="hero-content">
+        <span class="caps-meta" style="margin-bottom: 2rem;">// Strategy & Narrative Architecture</span>
+        <h1 class="hero-title">Bridging the Gap Between <span class="serif-italic">Messy Data</span> & Luxury Storytelling.</h1>
+        <div class="hero-flex">
+            <p class="hero-sub">Marketing and communications leader with 8+ years of experience building audience-centered lifecycle, brand, and partnership programs for global media and consumer brands.</p>
+            <div class="hero-stats">
+                <div class="hero-stat-item"><b>17%</b><span>YoY Revenue Growth</span></div>
+                <div class="hero-stat-item"><b>4M+</b><span>Subscribers Managed</span></div>
+                <div class="hero-stat-item"><b>108%</b><span>Paid Media ROI</span></div>
+            </div>
+        </div>
       </div>
-      <div class="metric">
-        <strong>49M+</strong>
-        <span>Lifecycle Sends</span>
-      </div>
-      <div class="metric">
-        <strong>4M+</strong>
-        <span>Subscribers Supported</span>
-      </div>
-      <div class="metric">
-        <strong>$1M+</strong>
-        <span>Partner Budgets</span>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- WORK -->
-<section class="work" id="work">
-  <div class="container">
-
-    <div class="case">
-      <div class="visual">
-        <strong>4M+</strong>
-        <span>Subscribers</span>
+    <section id="work" class="container">
+      <div class="section-header reveal">
+          <h2>Selected Archive</h2>
+          <span class="caps-meta">VOL. 2015—2025</span>
       </div>
-      <div>
-        <span class="meta">Penske Media Corporation</span>
-        <h2>Subscription & Lifecycle Strategy</h2>
-        <p>
-          Led audience-facing subscription products across Rolling Stone, Billboard, WWD, and Sportico — 
-          treating email and newsletters as products with defined cadence, logic, and performance standards.
-        </p>
-        <p>
-          Introduced a new Black Friday subscription tactic informed by audience behavior, driving 
-          <strong>17% YoY revenue growth</strong> and establishing a repeatable framework still in use.
-        </p>
+
+      <div class="work-grid">
+          <article class="work-item reveal">
+              <div class="work-visual">
+                  <div class="work-visual-text">PMC</div>
+              </div>
+              <div class="work-info">
+                  <span class="caps-meta">01 / Revenue Innovation</span>
+                  <h3>Penske Media Corporation</h3>
+                  <p>Shaping subscription and lifecycle products for Rolling Stone, Billboard, and WWD. Transforming 30M+ annual sends into stable revenue channels through audience behavior analysis.</p>
+                  <div class="work-details">
+                      <div class="detail-item">
+                          <h4>The Impact</h4>
+                          <p>Introduced behavior-informed tactics driving 17% YoY sales growth. Defined the subscription cadence and format for 4M+ audience members.</p>
+                      </div>
+                      <div class="detail-item">
+                          <h4>The Ecosystem</h4>
+                          <p>Salesforce Marketing Cloud, Piano, CRM Analytics, Cohort Analysis.</p>
+                      </div>
+                  </div>
+              </div>
+          </article>
+
+          <article class="work-item reveal">
+              <div class="work-visual" style="background-color: #d8dcd6;">
+                  <div class="work-visual-text">AJM</div>
+              </div>
+              <div class="work-info">
+                  <span class="caps-meta">02 / Systems & Scale</span>
+                  <h3>AJ Madison</h3>
+                  <p>Building foundational lifecycle, trade, and partner marketing systems across ecommerce and B2B channels. Managed a $1M+ co-op portfolio across 12 major appliance brands.</p>
+                  <div class="work-details">
+                      <div class="detail-item">
+                          <h4>The Impact</h4>
+                          <p>Conceived a national community fridge program featured in The New York Times. Scaled AJ Madison’s first dedicated trade email program.</p>
+                      </div>
+                      <div class="detail-item">
+                          <h4>The Ecosystem</h4>
+                          <p>Lifecycle Strategy, Event Marketing, Vendor Relations, Meta Ads.</p>
+                      </div>
+                  </div>
+              </div>
+          </article>
+
+          <article class="work-item reveal">
+              <div class="work-visual" style="background-color: #e2e2e2;">
+                  <div class="work-visual-text">IM</div>
+              </div>
+              <div class="work-info">
+                  <span class="caps-meta">03 / Brand Stewardship</span>
+                  <h3>Issey Miyake USA</h3>
+                  <p>Preserving established global design codes while building the brand’s foundational CRM and digital storytelling strategy for product drops and site enhancements.</p>
+                  <div class="work-details">
+                      <div class="detail-item">
+                          <h4>The Impact</h4>
+                          <p>Ensured luxury brand codes remained intact across all digital touchpoints. Introduced audience-appropriate lifecycle messaging.</p>
+                      </div>
+                      <div class="detail-item">
+                          <h4>The Ecosystem</h4>
+                          <p>Luxury CRM Strategy, UX Analysis, Multi-Channel Storytelling.</p>
+                      </div>
+                  </div>
+              </div>
+          </article>
       </div>
-    </div>
+    </section>
 
-    <div class="case">
-      <div class="visual">
-        <strong>$1M+</strong>
-        <span>Co-op Portfolio</span>
+    <section id="capabilities" class="container">
+        <div class="section-header reveal">
+            <h2>Expertise</h2>
+            <span class="caps-meta">Core Competencies</span>
+        </div>
+        <div class="capabilities reveal">
+            <div class="cap-item">
+                <h3>Lifecycle & CRM</h3>
+                <p>Advanced segmentation, journey architecture, and retention frameworks across Email, SMS, and direct products.</p>
+            </div>
+            <div class="cap-item">
+                <h3>Narrative Strategy</h3>
+                <p>Message hierarchy, positioning, and voice development that transforms raw data into credible, human narratives.</p>
+            </div>
+            <div class="cap-item">
+                <h3>Subscription Products</h3>
+                <p>Scaling durable engagement through registration walls, onboarding flows, and newsletter productization.</p>
+            </div>
+            <div class="cap-item">
+                <h3>Marketing Ops</h3>
+                <p>Budget ownership, vendor management ($1M+ co-op portfolios), and building cross-functional systems (Creative/Engineering/Analytics).</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="story" class="container reveal">
+        <div class="story-section">
+            <div class="story-content">
+                <span class="caps-meta">Perspective</span>
+                <p>I learned the how and why behind why people buy in luxury fitting rooms. Now, I find those same stories in messy spreadsheets and performance dashboards.</p>
+                <p>My approach is rooted in cultural context and behavioral analysis. I believe that scaling a business and taking care of a community aren't contradictions—they are both dependent on clear, honest communication.</p>
+                <p>Currently pursuing my Master of Public Administration at Baruch College to further refine the intersection of data analysis, policy, and brand communication.</p>
+            </div>
+            <div class="story-aside">
+                <div>
+                    <h4>Technical Foundations</h4>
+                    <div class="tech-stack">
+                        <span class="tech-pill">SFMC</span>
+                        <span class="tech-pill">Piano</span>
+                        <span class="tech-pill">Klaviyo</span>
+                        <span class="tech-pill">GA4</span>
+                        <span class="tech-pill">Looker</span>
+                        <span class="tech-pill">HTML/CSS</span>
+                        <span class="tech-pill">SQL</span>
+                        <span class="tech-pill">Python</span>
+                        <span class="tech-pill">Shopify</span>
+                        <span class="tech-pill">Jira</span>
+                    </div>
+                </div>
+                <div style="margin-top: 3rem;">
+                    <span class="caps-meta" style="color: rgba(255,255,255,0.5);">Academic</span>
+                    <p style="font-size: 0.8rem; line-height: 1.4;">Master of Public Administration, Data Analysis & Communication<br>Baruch College (Expected 2027)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+      <div class="container">
+        <div class="footer-masthead reveal">
+            <div class="masthead-col">
+                <h4>Let’s build systems <br>where none exist.</h4>
+                <p>Currently available for selective strategic partnerships and consulting roles within media, e-commerce, and public sectors.</p>
+            </div>
+            <div class="masthead-col">
+                <span class="caps-meta">Contact</span>
+                <ul class="footer-links">
+                    <li><a href="mailto:va.mvharris@gmail.com">va.mvharris@gmail.com</a></li>
+                    <li><a href="tel:7183144431">718.314.4431</a></li>
+                    <li><a href="#">New York, NY</a></li>
+                </ul>
+            </div>
+            <div class="masthead-col">
+                <span class="caps-meta">Connect</span>
+                <ul class="footer-links">
+                    <li><a href="https://linkedin.com/in/marlavharris/" target="_blank">LinkedIn</a></li>
+                    <li><a href="#">Creative Archive</a></li>
+                    <li><a href="#">Analytical Focus</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <span class="footer-signature">M. Harris</span>
+            <span class="copyright">© 2025 MARLA HARRIS. ALL RIGHTS RESERVED.</span>
+        </div>
       </div>
-      <div>
-        <span class="meta">AJ Madison</span>
-        <h2>Lifecycle & Marketing Operations</h2>
-        <p>
-          Built foundational lifecycle, trade, and partner marketing systems across ecommerce and B2B channels, 
-          reducing manual effort and improving sales efficiency.
-        </p>
-      </div>
-    </div>
+    </footer>
+  </main>
 
-  </div>
-</section>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const reveals = document.querySelectorAll('.reveal');
+        const observerOptions = { threshold: 0.15 };
 
-<!-- METHOD -->
-<section class="method">
-  <div class="container">
-    <div class="method-grid">
-      <div>
-        <h3>Systems Before Scale</h3>
-        <p>I build lifecycle and subscription systems that make growth repeatable, not fragile.</p>
-      </div>
-      <div>
-        <h3>Audience-First Insight</h3>
-        <p>I translate behavior and cultural context into decisions teams can actually use.</p>
-      </div>
-      <div>
-        <h3>Performance With Governance</h3>
-        <p>I balance growth with brand integrity, compliance, and trust.</p>
-      </div>
-    </div>
-  </div>
-</section>
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
 
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="container">
-    <h2>From Bra Fitter to Marketing & Data Leader</h2>
-    <p>
-      Ex-fashion design student turned marketing and communications leader with 8+ years at the intersection
-      of lifecycle marketing, analytics, and audience products.
-    </p>
-    <blockquote>
-      “Making money and taking care of communities aren’t contradictions.”
-    </blockquote>
-  </div>
-</section>
+        reveals.forEach(el => revealObserver.observe(el));
 
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <div class="container">
-    <h2>Let’s Get to Work</h2>
-    <div class="btn-group">
-      <a href="mailto:va.mvharris@gmail.com" class="btn">Get in Touch</a>
-    </div>
-  </div>
-</section>
+        // Navigation & Scroll Logic
+        const header = document.getElementById('main-header');
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const mobileNav = document.querySelector('.mobile-nav');
+        const navLinks = document.querySelectorAll('.nav-link');
+        let lastScroll = 0;
 
-<footer>
-  <div class="container">
-    © 2025 Marla Harris
-  </div>
-</footer>
+        // Mobile Menu Toggle
+        mobileToggle.addEventListener('click', () => {
+            mobileNav.classList.toggle('open');
+            document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+        });
 
+        // Close mobile nav on link click
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Header Scroll Behavior
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            // Background blur/color on scroll
+            if (currentScroll > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+
+            // Hide/Show header on scroll direction
+            if (currentScroll > 150 && currentScroll > lastScroll && !mobileNav.classList.contains('open')) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+            lastScroll = currentScroll;
+        });
+    });
+  </script>
 </body>
 </html>
