@@ -54,7 +54,7 @@
 
     .container { max-width: 1300px; margin: 0 auto; padding: 0 4rem; }
 
-    /* HEADER & NAV: FIXED SPACING ISSUES */
+    /* HEADER & NAV */
     header {
       position: fixed;
       top: 0; width: 100%; z-index: 2000;
@@ -97,13 +97,13 @@
     }
     .mobile-nav.open { transform: translateY(0); }
 
-    /* HERO: INCREASED TOP PADDING TO CLEAR NAV */
+    /* HERO */
     .hero {
       min-height: 95vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding-top: 220px; /* Stronger clearance for the persistent nav */
+      padding-top: 220px;
       padding-bottom: 100px;
     }
 
@@ -178,17 +178,6 @@
 
     .work-item:hover .work-visual img {
         transform: scale(1.08);
-    }
-
-    .work-visual-text {
-        position: absolute;
-        bottom: 2.5rem; left: 2.5rem;
-        font-family: 'Playfair Display', serif;
-        font-size: 4.5rem;
-        color: white;
-        mix-blend-mode: overlay;
-        opacity: 0.8;
-        z-index: 2;
     }
 
     .work-info { display: flex; flex-direction: column; justify-content: center; }
@@ -348,7 +337,6 @@
   </div>
 
   <main>
-    <!-- HERO SECTION -->
     <section class="hero container">
       <div class="hero-content">
         <span class="caps-meta" style="margin-bottom: 2rem;">// Strategy & Narrative Architecture</span>
@@ -364,7 +352,6 @@
       </div>
     </section>
 
-    <!-- ARCHIVE SECTION -->
     <section id="work" class="container">
       <div class="section-header reveal">
           <h2>Selected Archive</h2>
@@ -372,10 +359,8 @@
       </div>
 
       <div class="work-grid">
-          <!-- WORK ITEM 1: PENSKE (Updated with Karol G Visual) -->
           <article class="work-item reveal">
               <div class="work-visual">
-                  <div class="work-visual-text">PMC</div>
                   <img src="2.29 BAU (Karol G) (1).gif" alt="Rolling Stone / Karol G Performance Creative" onerror="this.src='https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=1200'">
               </div>
               <div class="work-info">
@@ -395,10 +380,8 @@
               </div>
           </article>
 
-          <!-- WORK ITEM 2: AJ MADISON (Updated with UI Screenshot) -->
           <article class="work-item reveal">
               <div class="work-visual">
-                  <div class="work-visual-text">AJM</div>
                   <img src="Screenshot 2025-10-30 224348.png" alt="AjMadison Dashboard & CRM Interface" onerror="this.src='https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=1200'">
               </div>
               <div class="work-info">
@@ -418,10 +401,8 @@
               </div>
           </article>
 
-          <!-- WORK ITEM 3: ISSEY MIYAKE (Updated with SS17 Creative) -->
           <article class="work-item reveal">
               <div class="work-visual">
-                  <div class="work-visual-text">IM</div>
                   <img src="bao_bao_email_SS17.jpg" alt="Bao Bao Issey Miyake SS17 Digital Creative" onerror="this.src='https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1200'">
               </div>
               <div class="work-info">
@@ -443,7 +424,6 @@
       </div>
     </section>
 
-    <!-- EXPERTISE SECTION -->
     <section id="capabilities" class="container">
         <div class="section-header reveal">
             <h2>Expertise</h2>
@@ -469,7 +449,6 @@
         </div>
     </section>
 
-    <!-- PERSPECTIVE SECTION -->
     <section id="story" class="container reveal">
         <div class="story-section">
             <div class="story-content">
@@ -502,7 +481,6 @@
         </div>
     </section>
 
-    <!-- FOOTER MASTHEAD -->
     <footer id="contact">
       <div class="container">
         <div class="footer-masthead reveal">
