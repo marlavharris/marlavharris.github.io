@@ -28,7 +28,7 @@
     }
     
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 120px; }
+    html { scroll-behavior: smooth; scroll-padding-top: 140px; }
     
     body {
       font-family: 'Inter', sans-serif;
@@ -54,19 +54,19 @@
 
     .container { max-width: 1300px; margin: 0 auto; padding: 0 4rem; }
 
-    /* FIXED HEADER REFINEMENT */
+    /* HEADER & NAV: FIXED SPACING ISSUES */
     header {
       position: fixed;
       top: 0; width: 100%; z-index: 2000;
-      padding: 2rem 0;
+      padding: 2.5rem 0;
       transition: all 0.5s var(--ease);
       background: transparent;
     }
     
     header.scrolled {
-      padding: 1rem 0;
+      padding: 1.2rem 0;
       background: rgba(249, 247, 244, 0.98);
-      backdrop-filter: blur(15px);
+      backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--line);
     }
     
@@ -97,21 +97,21 @@
     }
     .mobile-nav.open { transform: translateY(0); }
 
-    /* HERO: INCREASED TOP PADDING */
+    /* HERO: INCREASED TOP PADDING TO CLEAR NAV */
     .hero {
-      min-height: 90vh;
+      min-height: 95vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding-top: 180px; /* Prevents header overlap */
-      padding-bottom: 80px;
+      padding-top: 220px; /* Stronger clearance for the persistent nav */
+      padding-bottom: 100px;
     }
 
     .hero-title {
-        font-size: clamp(3rem, 9vw, 7.5rem);
-        line-height: 0.95;
+        font-size: clamp(3rem, 9.5vw, 8rem);
+        line-height: 0.92;
         letter-spacing: -0.05em;
-        margin-bottom: 3.5rem;
+        margin-bottom: 4rem;
     }
 
     .hero-flex {
@@ -122,36 +122,37 @@
     }
 
     .hero-sub {
-        font-size: 1.35rem;
-        max-width: 500px;
+        font-size: 1.4rem;
+        max-width: 520px;
         color: var(--charcoal);
         font-family: 'Playfair Display', serif;
         font-style: italic;
+        line-height: 1.5;
     }
 
     .hero-stats {
         display: flex;
         gap: 5rem;
         border-top: 1px solid var(--line);
-        padding-top: 2.5rem;
+        padding-top: 3rem;
     }
 
-    .hero-stat-item b { font-family: 'Playfair Display', serif; font-size: 2.5rem; display: block; line-height: 1; margin-bottom: 0.5rem; }
-    .hero-stat-item span { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--neutral-600); font-weight: 700; }
+    .hero-stat-item b { font-family: 'Playfair Display', serif; font-size: 2.8rem; display: block; line-height: 1; margin-bottom: 0.5rem; }
+    .hero-stat-item span { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--neutral-600); font-weight: 700; }
 
     /* ARCHIVE SECTION */
     .section-header {
-        padding: 8rem 0 4rem;
+        padding: 10rem 0 4rem;
         border-bottom: 1px solid var(--line);
-        margin-bottom: 5rem;
+        margin-bottom: 6rem;
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
     }
 
-    .section-header h2 { font-size: clamp(2.5rem, 6vw, 4rem); letter-spacing: -0.03em; }
+    .section-header h2 { font-size: clamp(2.5rem, 6vw, 4.5rem); letter-spacing: -0.03em; }
 
-    .work-grid { display: grid; grid-template-columns: 1fr; gap: 10rem; }
+    .work-grid { display: grid; grid-template-columns: 1fr; gap: 12rem; }
 
     .work-item {
         display: grid;
@@ -181,9 +182,9 @@
 
     .work-visual-text {
         position: absolute;
-        bottom: 2rem; left: 2rem;
+        bottom: 2.5rem; left: 2.5rem;
         font-family: 'Playfair Display', serif;
-        font-size: 4rem;
+        font-size: 4.5rem;
         color: white;
         mix-blend-mode: overlay;
         opacity: 0.8;
@@ -191,94 +192,94 @@
     }
 
     .work-info { display: flex; flex-direction: column; justify-content: center; }
-    .work-info h3 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1.5rem; letter-spacing: -0.02em; }
-    .work-info p { font-size: 1.15rem; color: var(--charcoal); margin-bottom: 3rem; max-width: 550px; }
+    .work-info h3 { font-size: clamp(2rem, 4vw, 3.5rem); margin-bottom: 1.5rem; letter-spacing: -0.02em; }
+    .work-info p { font-size: 1.2rem; color: var(--charcoal); margin-bottom: 3.5rem; max-width: 580px; }
     
     .work-details {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 3rem;
-        padding-top: 3rem;
+        padding-top: 3.5rem;
         border-top: 1px solid var(--line);
     }
 
-    .detail-item h4 { font-family: 'Inter', sans-serif; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700; margin-bottom: 1rem; }
-    .detail-item p { font-size: 0.9rem; color: var(--charcoal); line-height: 1.6; }
+    .detail-item h4 { font-family: 'Inter', sans-serif; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700; margin-bottom: 1.25rem; }
+    .detail-item p { font-size: 0.95rem; color: var(--charcoal); line-height: 1.6; }
 
     /* EXPERTISE */
     .capabilities {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 5rem 8rem;
-        margin-bottom: 8rem;
+        margin-bottom: 10rem;
     }
 
-    .cap-item { padding-bottom: 3.5rem; border-bottom: 1px solid var(--line); }
-    .cap-item h3 { font-size: 2rem; margin-bottom: 1.25rem; }
-    .cap-item p { font-size: 1rem; color: var(--charcoal); line-height: 1.6; }
+    .cap-item { padding-bottom: 4rem; border-bottom: 1px solid var(--line); }
+    .cap-item h3 { font-size: 2.2rem; margin-bottom: 1.5rem; }
+    .cap-item p { font-size: 1.05rem; color: var(--charcoal); line-height: 1.7; }
 
     /* STORY */
     .story-section {
         display: grid;
         grid-template-columns: 1.2fr 0.8fr;
         gap: 8rem;
-        padding: 10rem 0;
+        padding: 12rem 0;
     }
 
-    .story-content p { font-size: 1.35rem; margin-bottom: 2.5rem; font-family: 'Playfair Display', serif; line-height: 1.6; color: var(--charcoal); }
+    .story-content p { font-size: 1.45rem; margin-bottom: 3rem; font-family: 'Playfair Display', serif; line-height: 1.6; color: var(--charcoal); }
     
     .story-aside {
         background: var(--ink);
         color: var(--paper);
-        padding: 5rem 4rem;
+        padding: 6rem 4rem;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
     }
-    .story-aside h4 { font-size: 2.2rem; margin-bottom: 2.5rem; }
+    .story-aside h4 { font-size: 2.5rem; margin-bottom: 3rem; }
     .tech-pill {
         display: inline-block;
-        padding: 0.5rem 0.9rem;
+        padding: 0.6rem 1rem;
         border: 1px solid rgba(255,255,255,0.2);
         font-size: 0.65rem;
         text-transform: uppercase;
-        letter-spacing: 0.12em;
-        margin: 0 0.6rem 0.6rem 0;
+        letter-spacing: 0.15em;
+        margin: 0 0.7rem 0.7rem 0;
     }
 
     /* FOOTER */
     footer {
-        padding: 10rem 0 5rem;
+        padding: 12rem 0 6rem;
         border-top: 1px solid var(--line);
-        margin-top: 6rem;
+        margin-top: 8rem;
     }
 
     .footer-masthead {
         display: grid;
         grid-template-columns: 1.5fr 1fr 1fr;
-        gap: 5rem;
-        margin-bottom: 8rem;
+        gap: 6rem;
+        margin-bottom: 10rem;
     }
 
     .masthead-col h4 {
         font-family: 'Playfair Display', serif;
-        font-size: clamp(2rem, 4.5vw, 2.5rem);
-        margin-bottom: 2rem;
+        font-size: clamp(2rem, 4.5vw, 2.8rem);
+        margin-bottom: 2.5rem;
         line-height: 1.1;
     }
 
     .masthead-col p {
-        font-size: 1rem;
+        font-size: 1.1rem;
         color: var(--charcoal);
-        max-width: 400px;
+        max-width: 420px;
     }
 
     .footer-links { list-style: none; }
-    .footer-links li { margin-bottom: 1rem; }
+    .footer-links li { margin-bottom: 1.25rem; }
     .footer-links a {
         text-decoration: none;
         color: var(--ink);
-        font-size: 0.9rem;
+        font-size: 0.95rem;
         font-weight: 500;
         transition: color 0.3s;
     }
@@ -288,34 +289,34 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding-top: 3rem;
+        padding-top: 4rem;
         border-top: 1px solid var(--line);
     }
 
     .footer-signature {
         font-family: 'Playfair Display', serif;
         font-style: italic;
-        font-size: 1.25rem;
+        font-size: 1.5rem;
         color: var(--accent);
     }
 
     .copyright {
-        font-size: 0.65rem;
+        font-size: 0.7rem;
         text-transform: uppercase;
         letter-spacing: 0.25em;
         color: var(--neutral-600);
     }
 
-    .reveal { opacity: 0; transform: translateY(40px); transition: all 1.2s var(--ease); }
+    .reveal { opacity: 0; transform: translateY(50px); transition: all 1.4s var(--ease); }
     .reveal.active { opacity: 1; transform: translateY(0); }
 
     @media (max-width: 1024px) {
-        .container { padding: 0 2.5rem; }
-        .hero { padding-top: 140px; }
-        .hero-flex, .work-item, .story-section, .footer-masthead { grid-template-columns: 1fr; gap: 4rem; }
+        .container { padding: 0 3rem; }
+        .hero { padding-top: 160px; }
+        .hero-flex, .work-item, .story-section, .footer-masthead { grid-template-columns: 1fr; gap: 5rem; }
         .nav-links { display: none; }
         .mobile-toggle { display: block; }
-        .hero-stats { gap: 3rem; flex-wrap: wrap; }
+        .hero-stats { gap: 4rem; flex-wrap: wrap; }
     }
   </style>
 </head>
@@ -371,11 +372,11 @@
       </div>
 
       <div class="work-grid">
-          <!-- PMC -->
+          <!-- WORK ITEM 1: PENSKE (Updated with Karol G Visual) -->
           <article class="work-item reveal">
               <div class="work-visual">
                   <div class="work-visual-text">PMC</div>
-                  <img src="wwd-met-gala-marlaharris-portfolio.png" alt="WWD Met Gala Coverage" onerror="this.src='https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=1200'">
+                  <img src="2.29 BAU (Karol G) (1).gif" alt="Rolling Stone / Karol G Performance Creative" onerror="this.src='https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=1200'">
               </div>
               <div class="work-info">
                   <span class="caps-meta">01 / Revenue Innovation</span>
@@ -394,11 +395,11 @@
               </div>
           </article>
 
-          <!-- AJ MADISON -->
+          <!-- WORK ITEM 2: AJ MADISON (Updated with UI Screenshot) -->
           <article class="work-item reveal">
               <div class="work-visual">
                   <div class="work-visual-text">AJM</div>
-                  <img src="Screenshot%202025-10-30%20224348.png" alt="AjMadison Dashboard UI" onerror="this.src='https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=1200'">
+                  <img src="Screenshot 2025-10-30 224348.png" alt="AjMadison Dashboard & CRM Interface" onerror="this.src='https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=1200'">
               </div>
               <div class="work-info">
                   <span class="caps-meta">02 / Systems & Scale</span>
@@ -417,11 +418,11 @@
               </div>
           </article>
 
-          <!-- ISSEY MIYAKE -->
+          <!-- WORK ITEM 3: ISSEY MIYAKE (Updated with SS17 Creative) -->
           <article class="work-item reveal">
               <div class="work-visual">
                   <div class="work-visual-text">IM</div>
-                  <img src="bao_bao_email_1.jpg" alt="Bao Bao Issey Miyake Creative" onerror="this.src='https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1200'">
+                  <img src="bao_bao_email_SS17.jpg" alt="Bao Bao Issey Miyake SS17 Digital Creative" onerror="this.src='https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1200'">
               </div>
               <div class="work-info">
                   <span class="caps-meta">03 / Brand Stewardship</span>
@@ -442,7 +443,7 @@
       </div>
     </section>
 
-    <!-- EXPERTISE -->
+    <!-- EXPERTISE SECTION -->
     <section id="capabilities" class="container">
         <div class="section-header reveal">
             <h2>Expertise</h2>
@@ -468,7 +469,7 @@
         </div>
     </section>
 
-    <!-- STORY SECTION -->
+    <!-- PERSPECTIVE SECTION -->
     <section id="story" class="container reveal">
         <div class="story-section">
             <div class="story-content">
@@ -501,7 +502,7 @@
         </div>
     </section>
 
-    <!-- MASTHEAD FOOTER -->
+    <!-- FOOTER MASTHEAD -->
     <footer id="contact">
       <div class="container">
         <div class="footer-masthead reveal">
