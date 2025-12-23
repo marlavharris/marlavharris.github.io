@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-869S7ZPXQH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-869S7ZPXQH');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Marla Harris — Marketing & Communications Leader specializing in lifecycle, subscription, and audience strategy." />
+  <title>Marla Harris — Marketing & Communications</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --ink:#0a0a0a;
+      --charcoal:#333;
+      --neutral-600:#757575;
+      --paper:#fff;
+      --accent:#990049;
+      --line:rgba(0,0,0,0.08);
+      --bg-subtle:#fafafa;
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      font-family:'Inter',sans-serif;
+      color:var(--charcoal);
+      background:var(--paper);
+      line-height:1.6;
+    }
+    .container{max-width:1200px;margin:0 auto;padding:0 3rem}
+    h1,h2,h3{font-family:'Playfair Display',serif;color:var(--ink)}
+    h1{font-size:clamp(3rem,6vw,5rem)}
+    h2{font-size:clamp(2.2rem,4vw,3.2rem)}
+    .meta{
+      font-size:.75rem;
+      text-transform:uppercase;
+      letter-spacing:.2em;
+      color:var(--neutral-600);
+    }
+
+    /* Header */
+    header{
+      position:fixed;
+      top:0;
+      width:100%;
+      padding:1.5rem 0;
+      background:rgba(255,255,255,.96);
+      border-bottom:1px solid var(--line);
+      z-index:1000;
+    }
+    nav{display:flex;justify-content:space-between;align-items:center}
+    .logo{
+      font-family:'Playfair Display',serif;
+      font-size:1.25rem;
+      text-decoration:none;
+      color:var(--ink);
+    }
+    .nav-links{display:flex;gap:2rem}
+    .nav-links a{
+      font-size:.75rem;
+      text-transform:uppercase;
+      letter-spacing:.15em;
+      text-decoration:none;
+      color:var(--neutral-600);
+    }
+
+    /* Hero */
+    .hero{
+      padding:180px 0 120px;
+      text-align:center;
+    }
+    .hero p{
+      max-width:700px;
+      margin:2rem auto 0;
+      font-size:1.15rem;
+      font-family:'Playfair Display',serif;
+      font-style:italic;
+    }
+
+    .hero-proof{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:1.5rem;
+      margin-top:2rem;
+      font-size:.7rem;
+      text-transform:uppercase;
+      letter-spacing:.15em;
+      color:var(--neutral-600);
+    }
+
+    .btn-group{
+      display:flex;
+      justify-content:center;
+      gap:3rem;
+      margin-top:3rem;
+    }
+    .btn{
+      text-decoration:none;
+      font-size:.75rem;
+      text-transform:uppercase;
+      letter-spacing:.2em;
+      color:var(--ink);
+      position:relative;
+    }
+    .btn::after{
+      content:'';
+      position:absolute;
+      left:0;
+      bottom:-4px;
+      width:0;
+      height:1px;
+      background:var(--accent);
+      transition:.3s;
+    }
+    .btn:hover::after{width:100%}
+
+    /* Proof Banner */
+    .results{
+      padding:5rem 0;
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      background:var(--bg-subtle);
+    }
+    .metrics{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:4rem;
+    }
+    .metric{text-align:center}
+    .metric strong{
+      display:block;
+      font-family:'Playfair Display',serif;
+      font-size:3rem;
+      color:var(--accent);
+    }
+    .metric span{
+      font-size:.75rem;
+      text-transform:uppercase;
+      letter-spacing:.15em;
+      color:var(--neutral-600);
+    }
+
+    /* Work */
+    .work{padding:7rem 0}
+    .case{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:5rem;
+      margin-bottom:6rem;
+      align-items:center;
+    }
+    .visual{
+      border:1px solid var(--line);
+      background:var(--bg-subtle);
+      padding:4rem;
+      text-align:center;
+    }
+    .visual strong{
+      font-family:'Playfair Display',serif;
+      font-size:4rem;
+      color:var(--accent);
+    }
+    .visual span{
+      display:block;
+      margin-top:.5rem;
+      font-size:.75rem;
+      text-transform:uppercase;
+      letter-spacing:.15em;
+    }
+
+    .case p{margin:1.5rem 0}
+
+    /* Method */
+    .method{
+      padding:6rem 0;
+      background:var(--bg-subtle);
+      border-top:1px solid var(--line);
+    }
+    .method-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:3rem;
+    }
+
+    /* About */
+    .about{
+      padding:7rem 0;
+      border-top:1px solid var(--line);
+    }
+    blockquote{
+      border-left:2px solid var(--accent);
+      padding-left:2rem;
+      font-family:'Playfair Display',serif;
+      font-style:italic;
+      margin-top:3rem;
+    }
+
+    /* Contact */
+    .contact{
+      padding:6rem 0;
+      text-align:center;
+      border-top:1px solid var(--line);
+    }
+
+    footer{
+      padding:3rem 0;
+      text-align:center;
+      font-size:.7rem;
+      text-transform:uppercase;
+      letter-spacing:.1em;
+      color:var(--neutral-600);
+    }
+
+    @media(max-width:900px){
+      .case{grid-template-columns:1fr}
+      .method-grid{grid-template-columns:1fr}
+      .container{padding:0 1.5rem}
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <a href="#" class="logo">Marla Harris</a>
+      <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="analytics.html">Analytics</a>
+        <a href="creative.html">Creative & Copy</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <span class="meta">// Marketing & Communications Leader</span>
+    <h1>Lifecycle, Subscription & Audience Strategy</h1>
+
+    <p>
+      I lead audience-centered growth across media, ecommerce, and consumer brands — 
+      translating behavior, cultural context, and performance data into durable systems and measurable revenue.
+    </p>
+
+    <div class="hero-proof">
+      <span>Penske Media</span>
+      <span>Rolling Stone</span>
+      <span>Billboard</span>
+      <span>AJ Madison</span>
+      <span>Bao Bao Issey Miyake</span>
+    </div>
+
+    <div class="btn-group">
+      <a href="#work" class="btn">View Case Work</a>
+      <a href="creative.html" class="btn">Creative & Copy →</a>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="results">
+  <div class="container">
+    <div class="metrics">
+      <div class="metric">
+        <strong>17%</strong>
+        <span>YoY Revenue Growth</span>
+      </div>
+      <div class="metric">
+        <strong>49M+</strong>
+        <span>Lifecycle Sends</span>
+      </div>
+      <div class="metric">
+        <strong>4M+</strong>
+        <span>Subscribers Supported</span>
+      </div>
+      <div class="metric">
+        <strong>$1M+</strong>
+        <span>Partner Budgets</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="work" id="work">
+  <div class="container">
+
+    <div class="case">
+      <div class="visual">
+        <strong>4M+</strong>
+        <span>Subscribers</span>
+      </div>
+      <div>
+        <span class="meta">Penske Media Corporation</span>
+        <h2>Subscription & Lifecycle Strategy</h2>
+        <p>
+          Led audience-facing subscription products across Rolling Stone, Billboard, WWD, and Sportico — 
+          treating email and newsletters as products with defined cadence, logic, and performance standards.
+        </p>
+        <p>
+          Introduced a new Black Friday subscription tactic informed by audience behavior, driving 
+          <strong>17% YoY revenue growth</strong> and establishing a repeatable framework still in use.
+        </p>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="visual">
+        <strong>$1M+</strong>
+        <span>Co-op Portfolio</span>
+      </div>
+      <div>
+        <span class="meta">AJ Madison</span>
+        <h2>Lifecycle & Marketing Operations</h2>
+        <p>
+          Built foundational lifecycle, trade, and partner marketing systems across ecommerce and B2B channels, 
+          reducing manual effort and improving sales efficiency.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- METHOD -->
+<section class="method">
+  <div class="container">
+    <div class="method-grid">
+      <div>
+        <h3>Systems Before Scale</h3>
+        <p>I build lifecycle and subscription systems that make growth repeatable, not fragile.</p>
+      </div>
+      <div>
+        <h3>Audience-First Insight</h3>
+        <p>I translate behavior and cultural context into decisions teams can actually use.</p>
+      </div>
+      <div>
+        <h3>Performance With Governance</h3>
+        <p>I balance growth with brand integrity, compliance, and trust.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <h2>From Bra Fitter to Marketing & Data Leader</h2>
+    <p>
+      Ex-fashion design student turned marketing and communications leader with 8+ years at the intersection
+      of lifecycle marketing, analytics, and audience products.
+    </p>
+    <blockquote>
+      “Making money and taking care of communities aren’t contradictions.”
+    </blockquote>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <h2>Let’s Get to Work</h2>
+    <div class="btn-group">
+      <a href="mailto:va.mvharris@gmail.com" class="btn">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    © 2025 Marla Harris
+  </div>
+</footer>
+
+</body>
+</html>
