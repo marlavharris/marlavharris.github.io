@@ -357,15 +357,18 @@
         text-wrap: balance;
     }
 
-    /* --- STYLIZED TIMELINE --- */
+    /* --- REFACTORED ALTERNATING TIMELINE --- */
     .timeline-section { padding: 8rem 0; overflow: hidden; }
     
     .timeline {
         position: relative;
         max-width: 1100px;
         margin: 0 auto;
+        display: flex;
+        flex-direction: column;
     }
 
+    /* Absolute Center Line */
     .timeline::after {
         content: '';
         position: absolute;
@@ -375,21 +378,31 @@
         bottom: 0;
         left: 50%;
         margin-left: -1px;
+        z-index: 1;
     }
 
     .timeline-item {
-        padding: 10px 0;
         position: relative;
-        background-color: inherit;
-        width: 50%;
-        margin-bottom: 60px;
+        width: 50%; /* Each item takes exactly half the container */
+        margin-bottom: 80px;
+        z-index: 2;
     }
 
-    /* Directional Alignment */
-    .timeline-item:nth-child(odd) { left: 0; padding-right: 60px; text-align: right; }
-    .timeline-item:nth-child(even) { left: 50%; padding-left: 60px; text-align: left; }
+    /* Left Side Items (Odd) */
+    .timeline-item:nth-child(odd) {
+        align-self: flex-start;
+        padding-right: 60px;
+        text-align: right;
+    }
 
-    /* Centered Dots */
+    /* Right Side Items (Even) */
+    .timeline-item:nth-child(even) {
+        align-self: flex-end;
+        padding-left: 60px;
+        text-align: left;
+    }
+
+    /* Centered Intersection Dots */
     .timeline-item::after {
         content: '';
         position: absolute;
@@ -397,29 +410,29 @@
         height: 14px;
         background-color: var(--paper);
         border: 3px solid var(--accent);
-        top: 15px;
+        top: 20px;
         border-radius: 50%;
-        z-index: 1;
+        z-index: 10;
     }
     .timeline-item:nth-child(odd)::after { right: -7px; }
     .timeline-item:nth-child(even)::after { left: -7px; }
 
     .timeline-content {
-        position: relative;
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
         align-items: flex-start;
-        gap: 2rem;
+        gap: 3rem;
     }
 
-    /* Content Order: Keeping visuals toward center */
-    .timeline-item:nth-child(odd) .timeline-content { flex-direction: row; }
-    .timeline-item:nth-child(even) .timeline-content { flex-direction: row-reverse; }
+    /* Mirroring the internal layout so content always moves TOWARDS the center line */
+    .timeline-item:nth-child(odd) .timeline-content {
+        flex-direction: row; /* Text on left, Visual on right */
+    }
+    .timeline-item:nth-child(even) .timeline-content {
+        flex-direction: row-reverse; /* Visual on left, Text on right */
+    }
 
     .timeline-text {
         flex: 1;
-        min-width: 0; /* Prevent overflow */
     }
 
     .timeline-date {
@@ -462,12 +475,7 @@
     .timeline-body {
         font-size: 0.95rem;
         color: var(--charcoal);
-        text-align: left; /* Keep body text left aligned for readability */
-    }
-
-    .timeline-item:nth-child(odd) .timeline-body {
-        display: inline-block;
-        max-width: 100%;
+        text-align: left; /* Keep readable for multi-line bullet points */
     }
 
     .timeline-body ul { list-style: none; }
@@ -476,7 +484,6 @@
         padding-left: 1.5rem;
         position: relative;
     }
-
     .timeline-body li::before {
         content: '';
         position: absolute;
@@ -488,9 +495,8 @@
         border-radius: 50%;
     }
 
-    /* --- IPHONE PREVIEW --- */
+    /* --- IPHONE PREVIEW (Optimized Speed) --- */
     .timeline-visual {
-        margin-top: 1rem;
         width: 220px; 
         flex-shrink: 0;
     }
@@ -643,10 +649,10 @@
         height: 100%;
     }
     .edu-header {
-        min-height: 90px; /* Condensed header footprint */
+        min-height: 90px;
     }
     .edu-blurb {
-        margin-top: 0.75rem; /* Reduced space between title and text */
+        margin-top: 0.75rem;
         font-size: 0.9rem;
         color: #555;
         line-height: 1.6;
@@ -654,12 +660,12 @@
         padding-left: 1.5rem;
         text-align: justify;
         hyphens: auto;
-        min-height: 80px; /* Condensed blurb footprint */
+        min-height: 80px;
         text-wrap: balance;
     }
     .edu-year {
         margin-top: auto; 
-        padding-top: 0.75rem; /* Reduced space before year */
+        padding-top: 0.75rem;
         font-size: 0.85rem;
         font-weight: 800;
         color: #888;
@@ -678,7 +684,7 @@
         
         /* Reset Timeline for Mobile */
         .timeline::after { left: 20px; }
-        .timeline-item { width: 100%; padding: 10px 40px !important; left: 0 !important; text-align: left !important; }
+        .timeline-item { width: 100%; padding: 10px 40px !important; align-self: flex-start !important; text-align: left !important; }
         .timeline-item::after { left: 14px !important; right: auto !important; }
         .timeline-content, .timeline-item:nth-child(even) .timeline-content { flex-direction: column !important; gap: 2rem; }
         .timeline-visual { width: 100%; max-width: 280px; margin: 0 auto; }
@@ -811,7 +817,7 @@
         <span class="section-label">Experience</span>
         <div class="timeline">
             
-            <!-- PENSKE (LEFT) -->
+            <!-- 1. PENSKE (LEFT) -->
             <div class="timeline-item">
                 <div class="timeline-content">
                     <div class="timeline-text">
@@ -841,7 +847,7 @@
                 </div>
             </div>
 
-            <!-- AJ MADISON (RIGHT) -->
+            <!-- 2. AJ MADISON (RIGHT) -->
             <div class="timeline-item">
                 <div class="timeline-content">
                     <div class="timeline-text">
@@ -871,7 +877,7 @@
                 </div>
             </div>
 
-            <!-- WARP + WEFT (LEFT) -->
+            <!-- 3. WARP + WEFT (LEFT) -->
             <div class="timeline-item">
                 <div class="timeline-content">
                     <div class="timeline-text">
@@ -886,12 +892,12 @@
                             </ul>
                         </div>
                     </div>
-                    <!-- Empty visual placeholder for spacing symmetry -->
-                    <div class="timeline-visual" style="opacity: 0; pointer-events: none;"></div>
+                    <!-- Spacing Spacer to keep it strictly alternating -->
+                    <div class="timeline-visual" style="opacity:0; pointer-events:none;"></div>
                 </div>
             </div>
 
-            <!-- ISSEY MIYAKE (RIGHT) -->
+            <!-- 4. ISSEY MIYAKE (RIGHT) -->
             <div class="timeline-item">
                 <div class="timeline-content">
                     <div class="timeline-text">
