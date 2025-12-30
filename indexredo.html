@@ -358,11 +358,11 @@
     }
 
     /* --- STYLIZED TIMELINE --- */
-    .timeline-section { padding: 8rem 0; }
+    .timeline-section { padding: 8rem 0; overflow: hidden; }
     
     .timeline {
         position: relative;
-        max-width: 1000px;
+        max-width: 1100px;
         margin: 0 auto;
     }
 
@@ -373,50 +373,53 @@
         background-color: var(--line);
         top: 0;
         bottom: 0;
-        left: 20px;
+        left: 50%;
         margin-left: -1px;
     }
 
     .timeline-item {
-        padding: 10px 40px;
+        padding: 10px 0;
         position: relative;
         background-color: inherit;
-        width: 100%;
+        width: 50%;
         margin-bottom: 60px;
     }
 
+    /* Directional Alignment */
+    .timeline-item:nth-child(odd) { left: 0; padding-right: 60px; text-align: right; }
+    .timeline-item:nth-child(even) { left: 50%; padding-left: 60px; text-align: left; }
+
+    /* Centered Dots */
     .timeline-item::after {
         content: '';
         position: absolute;
-        width: 12px;
-        height: 12px;
-        right: -6px;
+        width: 14px;
+        height: 14px;
         background-color: var(--paper);
         border: 3px solid var(--accent);
         top: 15px;
         border-radius: 50%;
         z-index: 1;
-        left: 14px;
     }
+    .timeline-item:nth-child(odd)::after { right: -7px; }
+    .timeline-item:nth-child(even)::after { left: -7px; }
 
     .timeline-content {
-        padding: 0 20px;
         position: relative;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: flex-start;
-        gap: 4rem;
+        gap: 2rem;
     }
 
-    /* Alternating Visuals Logic */
-    .timeline-item:nth-child(even) .timeline-content {
-        flex-direction: row-reverse;
-    }
+    /* Content Order: Keeping visuals toward center */
+    .timeline-item:nth-child(odd) .timeline-content { flex-direction: row; }
+    .timeline-item:nth-child(even) .timeline-content { flex-direction: row-reverse; }
 
     .timeline-text {
         flex: 1;
-        max-width: 700px;
+        min-width: 0; /* Prevent overflow */
     }
 
     .timeline-date {
@@ -457,8 +460,14 @@
     }
 
     .timeline-body {
-        font-size: 1rem;
+        font-size: 0.95rem;
         color: var(--charcoal);
+        text-align: left; /* Keep body text left aligned for readability */
+    }
+
+    .timeline-item:nth-child(odd) .timeline-body {
+        display: inline-block;
+        max-width: 100%;
     }
 
     .timeline-body ul { list-style: none; }
@@ -482,13 +491,13 @@
     /* --- IPHONE PREVIEW --- */
     .timeline-visual {
         margin-top: 1rem;
-        max-width: 280px; 
+        width: 220px; 
         flex-shrink: 0;
     }
     .iphone-bezel {
         background: #1a1a1a;
         border-radius: 36px;
-        padding: 10px;
+        padding: 8px;
         box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         aspect-ratio: 9/19; 
         overflow: hidden;
@@ -506,11 +515,11 @@
     .iphone-bezel::before {
         content: '';
         position: absolute;
-        top: 15px;
+        top: 12px;
         left: 50%;
         transform: translateX(-50%);
-        width: 60px;
-        height: 18px;
+        width: 50px;
+        height: 14px;
         background: #1a1a1a;
         border-radius: 20px;
         z-index: 10;
@@ -518,17 +527,16 @@
     .iphone-scroll { 
         position: absolute; 
         width: 100%; 
-        /* Speed updated from 3.5s to 1.2s */
         transition: transform 1.2s cubic-bezier(0.45, 0.05, 0.55, 0.95); 
     }
     .iphone-bezel:hover .iphone-scroll { 
-        transform: translateY(calc(-100% + 500px)); 
+        transform: translateY(calc(-100% + 400px)); 
     }
     .prev-img { width: 100%; display: block; }
     
     .visual-caption {
-        margin-top: 1.25rem;
-        font-size: 0.75rem;
+        margin-top: 1rem;
+        font-size: 0.65rem;
         font-weight: 700;
         color: var(--accent-pink);
         text-transform: uppercase;
@@ -668,13 +676,13 @@
         .edu-header, .edu-blurb { min-height: auto; text-align: left; }
         .brand-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
         
-        /* Force single column for timeline on mobile */
-        .timeline-content, .timeline-item:nth-child(even) .timeline-content { 
-            flex-direction: column; 
-            gap: 2rem; 
-        }
-        .timeline-visual { max-width: 100%; }
-        .iphone-bezel { max-width: 280px; margin: 0 auto; }
+        /* Reset Timeline for Mobile */
+        .timeline::after { left: 20px; }
+        .timeline-item { width: 100%; padding: 10px 40px !important; left: 0 !important; text-align: left !important; }
+        .timeline-item::after { left: 14px !important; right: auto !important; }
+        .timeline-content, .timeline-item:nth-child(even) .timeline-content { flex-direction: column !important; gap: 2rem; }
+        .timeline-visual { width: 100%; max-width: 280px; margin: 0 auto; }
+        .iphone-bezel { margin: 0 auto; }
     }
   </style>
 </head>
@@ -803,7 +811,7 @@
         <span class="section-label">Experience</span>
         <div class="timeline">
             
-            <!-- PENSKE -->
+            <!-- PENSKE (LEFT) -->
             <div class="timeline-item">
                 <div class="timeline-content">
                     <div class="timeline-text">
@@ -833,7 +841,7 @@
                 </div>
             </div>
 
-            <!-- AJ MADISON -->
+            <!-- AJ MADISON (RIGHT) -->
             <div class="timeline-item">
                 <div class="timeline-content">
                     <div class="timeline-text">
@@ -863,7 +871,7 @@
                 </div>
             </div>
 
-            <!-- WARP + WEFT -->
+            <!-- WARP + WEFT (LEFT) -->
             <div class="timeline-item">
                 <div class="timeline-content">
                     <div class="timeline-text">
@@ -878,10 +886,12 @@
                             </ul>
                         </div>
                     </div>
+                    <!-- Empty visual placeholder for spacing symmetry -->
+                    <div class="timeline-visual" style="opacity: 0; pointer-events: none;"></div>
                 </div>
             </div>
 
-            <!-- ISSEY MIYAKE -->
+            <!-- ISSEY MIYAKE (RIGHT) -->
             <div class="timeline-item">
                 <div class="timeline-content">
                     <div class="timeline-text">
