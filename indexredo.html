@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-869S7ZPXQH"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -126,7 +127,7 @@
     .hero p { 
         font-size: 1.25rem; 
         color: var(--neutral-600); 
-        max-width: 850px; 
+        max-width: 850px;
         line-height: 1.6;
         font-weight: 400;
         text-wrap: balance;
@@ -402,8 +403,20 @@
         padding: 0 20px;
         position: relative;
         display: flex;
-        flex-direction: column;
-        gap: 2rem;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 4rem;
+    }
+
+    /* Alternating Visuals Logic */
+    .timeline-item:nth-child(even) .timeline-content {
+        flex-direction: row-reverse;
+    }
+
+    .timeline-text {
+        flex: 1;
+        max-width: 700px;
     }
 
     .timeline-date {
@@ -468,8 +481,9 @@
 
     /* --- IPHONE PREVIEW --- */
     .timeline-visual {
+        margin-top: 1rem;
         max-width: 280px; 
-        width: 100%;
+        flex-shrink: 0;
     }
     .iphone-bezel {
         background: #1a1a1a;
@@ -504,7 +518,7 @@
     .iphone-scroll { 
         position: absolute; 
         width: 100%; 
-        transition: transform 7s cubic-bezier(0.45, 0.05, 0.55, 0.95); 
+        transition: transform 3.5s cubic-bezier(0.45, 0.05, 0.55, 0.95); 
     }
     .iphone-bezel:hover .iphone-scroll { 
         transform: translateY(calc(-100% + 500px)); 
@@ -522,35 +536,7 @@
         text-wrap: balance;
     }
 
-    /* --- ALTERNATING LOGIC (Zig-Zag) --- */
-    @media (min-width: 900px) {
-        .timeline-content {
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 6rem;
-        }
-        
-        /* Zig: Role 1, 3 - Content Left, Visual Right */
-        .timeline-item:nth-child(odd) .timeline-content {
-            flex-direction: row;
-        }
-        
-        /* Zag: Role 2, 4 - Visual Left, Content Right */
-        .timeline-item:nth-child(even) .timeline-content {
-            flex-direction: row-reverse;
-        }
-
-        .timeline-text-content {
-            flex: 1;
-        }
-        .timeline-visual {
-            margin-top: 0;
-            flex-shrink: 0;
-        }
-    }
-
-    /* --- MARTECH ECOSYSTEM --- */
+    /* --- SYSTEMS ECOSYSTEM --- */
     .tech-stack { padding: 8rem 0; background: #000; color: #fff; }
     .tech-stack h2 { 
         color: var(--accent-pink); 
@@ -648,10 +634,10 @@
         height: 100%;
     }
     .edu-header {
-        min-height: 90px; 
+        min-height: 90px; /* Condensed header footprint */
     }
     .edu-blurb {
-        margin-top: 0.75rem;
+        margin-top: 0.75rem; /* Reduced space between title and text */
         font-size: 0.9rem;
         color: #555;
         line-height: 1.6;
@@ -659,12 +645,12 @@
         padding-left: 1.5rem;
         text-align: justify;
         hyphens: auto;
-        min-height: 80px; 
+        min-height: 80px; /* Condensed blurb footprint */
         text-wrap: balance;
     }
     .edu-year {
         margin-top: auto; 
-        padding-top: 0.75rem;
+        padding-top: 0.75rem; /* Reduced space before year */
         font-size: 0.85rem;
         font-weight: 800;
         color: #888;
@@ -680,7 +666,14 @@
         .nav-links { display: none; }
         .edu-header, .edu-blurb { min-height: auto; text-align: left; }
         .brand-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-        .timeline-visual { margin-top: 2rem; margin-left: auto; margin-right: auto; }
+        
+        /* Force single column for timeline on mobile */
+        .timeline-content, .timeline-item:nth-child(even) .timeline-content { 
+            flex-direction: column; 
+            gap: 2rem; 
+        }
+        .timeline-visual { max-width: 100%; }
+        .iphone-bezel { max-width: 280px; margin: 0 auto; }
     }
   </style>
 </head>
@@ -694,8 +687,8 @@
           <a href="#about" class="nav-link">Perspective</a>
           <a href="#experience" class="nav-link">Experience</a>
           <a href="#tech" class="nav-link">Systems</a>
-          <a href="mailto:va.mvharris@gmail.com" class="nav-link">Contact Me</a>
-          <a href="https://drive.google.com/uc?export=download&id=1zpS4LUS2TSw32w5XmqTEnNl8OKiDuut-" class="nav-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-pdf"></i> Download Resume</a>
+          <a href="mailto:va.mvharris@gmail.com" class="nav-link track-contact">Contact Me</a>
+          <a href="https://drive.google.com/uc?export=download&id=1zpS4LUS2TSw32w5XmqTEnNl8OKiDuut-" class="nav-btn track-resume" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-pdf"></i> Download Resume</a>
         </div>
       </nav>
     </div>
@@ -708,8 +701,8 @@
       <p>I pair rigorous analysis with customer-first thinking for premium and lifestyle brands like Rolling Stone, Samsung, and Issey Miyake to move people from a single click to a lasting relationship.</p>
       
       <div class="contact-cta">
-        <a href="mailto:va.mvharris@gmail.com" class="btn-main">Contact Me</a>
-        <a href="https://drive.google.com/uc?export=download&id=1zpS4LUS2TSw32w5XmqTEnNl8OKiDuut-" class="btn-outline" target="_blank" rel="noopener noreferrer"><i class="fas fa-download"></i> Download Resume</a>
+        <a href="mailto:va.mvharris@gmail.com" class="btn-main track-contact">Contact Me</a>
+        <a href="https://drive.google.com/uc?export=download&id=1zpS4LUS2TSw32w5XmqTEnNl8OKiDuut-" class="btn-outline track-resume" target="_blank" rel="noopener noreferrer"><i class="fas fa-download"></i> Download Resume</a>
         <a href="https://www.linkedin.com/in/marlavharris/" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fab fa-linkedin-in"></i></a>
       </div>
 
@@ -770,15 +763,15 @@
             </div>
             
             <div class="programs-card">
-                <h4>Customer Journeys Grew</h4>
+                <h4>Strategic Lifecycle Architecture</h4>
                 <ul class="programs-list">
-                    <li>Onboarding & Welcome Journeys</li>
-                    <li>Staying Relevant & Habit Formation</li>
-                    <li>Keeping Customers Coming Back</li>
-                    <li>Reconnecting with Former Customers</li>
-                    <li>Long-Term Purchase Support (6–18m)</li>
-                    <li>Helpful Cross-Sells & Recommendations</li>
-                    <li>Loyalty & Relationship Building</li>
+                    <li>Conversion & Onboarding Funnels</li>
+                    <li>Engagement & Active-Use Retention</li>
+                    <li>Churn Mitigation & LTV Extension</li>
+                    <li>Winback & Reactivation Automations</li>
+                    <li>Consideration-Cycle Nurturing (6–18m)</li>
+                    <li>Behavioral Cross-Sell & Upsell Logic</li>
+                    <li>Loyalty Loops & Community Advocacy</li>
                 </ul>
             </div>
         </div>
@@ -806,13 +799,13 @@
 
   <section id="experience" class="timeline-section">
     <div class="container">
-        <span class="section-label">Impact Milestones</span>
+        <span class="section-label">Experience</span>
         <div class="timeline">
             
-            <!-- PENSKE (Odd 1: Zig) -->
+            <!-- PENSKE -->
             <div class="timeline-item">
                 <div class="timeline-content">
-                    <div class="timeline-text-content">
+                    <div class="timeline-text">
                         <span class="timeline-date">2022 — 2024</span>
                         <span class="timeline-impact">17% YoY Sales Increase</span>
                         <h3 class="timeline-heading">Penske Media Corp.</h3>
@@ -839,10 +832,10 @@
                 </div>
             </div>
 
-            <!-- AJ MADISON (Even 2: Zag) -->
+            <!-- AJ MADISON -->
             <div class="timeline-item">
                 <div class="timeline-content">
-                    <div class="timeline-text-content">
+                    <div class="timeline-text">
                         <span class="timeline-date">2018 — 2022</span>
                         <span class="timeline-impact">18% Lower CPA</span>
                         <h3 class="timeline-heading">AJ Madison</h3>
@@ -869,10 +862,10 @@
                 </div>
             </div>
 
-            <!-- WARP + WEFT (Odd 3: Zig) -->
+            <!-- WARP + WEFT -->
             <div class="timeline-item">
                 <div class="timeline-content">
-                    <div class="timeline-text-content">
+                    <div class="timeline-text">
                         <span class="timeline-date">2017 — 2018</span>
                         <span class="timeline-impact">ROI Increased by 108%</span>
                         <h3 class="timeline-heading">Warp + Weft</h3>
@@ -887,10 +880,10 @@
                 </div>
             </div>
 
-            <!-- ISSEY MIYAKE (Even 4: Zag - Swapped order for visual interest) -->
+            <!-- ISSEY MIYAKE -->
             <div class="timeline-item">
                 <div class="timeline-content">
-                    <div class="timeline-text-content">
+                    <div class="timeline-text">
                         <span class="timeline-date">2015 — 2017</span>
                         <span class="timeline-impact">14% YoY Revenue Increase</span>
                         <h3 class="timeline-heading">Issey Miyake USA</h3>
@@ -922,7 +915,7 @@
 
   <section id="tech" class="tech-stack">
     <div class="container">
-        <h2>MarTech Ecosystem</h2>
+        <h2>Systems</h2>
         <div class="tech-grid">
             <div class="tech-col">
                 <h4>Customer Experience</h4>
@@ -972,7 +965,7 @@
                     <p style="font-size: 0.95rem; color: var(--ink); font-weight: 700; line-height: 1.3;">MPA & Bachelor of Public Affairs</p>
                 </div>
                 <div class="edu-blurb">
-                    Training in public policy analysis provides a rigorous framework to navigate complex data sets—building trust through clear, customer-first communication.
+                    Training in public policy analysis provides a robust framework to navigate complex data sets—building trust through clear, customer-first communication.
                 </div>
                 <div class="edu-year">Expected 2027</div>
             </div>
@@ -1005,15 +998,15 @@
           <ul class="footer-list">
             <li><a href="#about" class="footer-link">Perspective</a></li>
             <li><a href="#experience" class="footer-link">Experience</a></li>
-            <li><a href="#tech" class="footer-link">MarTech Ecosystem</a></li>
+            <li><a href="#tech" class="footer-link">Systems</a></li>
           </ul>
         </div>
         <div>
           <span class="footer-col-title">Connect</span>
           <ul class="footer-list">
             <li><a href="https://www.linkedin.com/in/marlavharris/" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a></li>
-            <li><a href="mailto:va.mvharris@gmail.com" class="footer-link">Email Inquiries</a></li>
-            <li><a href="https://drive.google.com/uc?export=download&id=1zpS4LUS2TSw32w5XmqTEnNl8OKiDuut-" class="footer-link" target="_blank" rel="noopener noreferrer">Download Resume</a></li>
+            <li><a href="mailto:va.mvharris@gmail.com" class="footer-link track-contact">Email Inquiries</a></li>
+            <li><a href="https://drive.google.com/uc?export=download&id=1zpS4LUS2TSw32w5XmqTEnNl8OKiDuut-" class="footer-link track-resume" target="_blank" rel="noopener noreferrer">Download Resume</a></li>
           </ul>
         </div>
       </div>
@@ -1029,6 +1022,7 @@
   </footer>
 
   <script>
+    // --- Dashboard Animation ---
     function animateValue(obj, start, end, duration, format) {
         let startTimestamp = null;
         const precision = (end.toString().split('.')[1] || []).length;
@@ -1065,6 +1059,33 @@
     }, { threshold: 0.5 });
 
     document.querySelectorAll('.dash-val').forEach(stat => statsObserver.observe(stat));
+
+    // --- Google Analytics Event Tracking ---
+    document.addEventListener('DOMContentLoaded', function() {
+        // Track Resume Downloads
+        const resumeButtons = document.querySelectorAll('.track-resume');
+        resumeButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                gtag('event', 'generate_lead', {
+                    'event_category': 'Engagement',
+                    'event_label': 'Resume Download',
+                    'method': 'resume_download'
+                });
+            });
+        });
+
+        // Track Contact (Email) Clicks
+        const contactButtons = document.querySelectorAll('.track-contact');
+        contactButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                gtag('event', 'contact', {
+                    'event_category': 'Engagement',
+                    'event_label': 'Email Click',
+                    'method': 'mailto'
+                });
+            });
+        });
+    });
   </script>
 
 </body>
