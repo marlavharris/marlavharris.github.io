@@ -715,7 +715,7 @@
             <span class="dash-label">Lower Cost Per Action</span>
         </div>
         <div class="dash-item highlight">
-            <span class="dash-val" data-target="120" data-format="$k+" style="color:var(--accent)">0</span>
+            <span class="dash-val" data-target="500" data-format="$K+" style="color:var(--accent)">0</span>
             <span class="dash-label">Revenue Growth from Lifecycle Optimization</span>
         </div>
     </div>
@@ -1004,6 +1004,7 @@
             else if (format.includes('%')) val += '%';
             if (format.includes('$')) val = '$' + val;
             if (format.includes('k+')) val += 'k+';
+            if (format.includes('K+')) val += 'K+';
             
             obj.innerHTML = val;
             if (progress < 1) {
