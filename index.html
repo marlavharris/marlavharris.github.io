@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-869S7ZPXQH"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -663,8 +664,8 @@
           <a href="#about" class="nav-link">Perspective</a>
           <a href="#experience" class="nav-link">Experience</a>
           <a href="#tech" class="nav-link">Systems</a>
-          <a href="mailto:va.mvharris@gmail.com" class="nav-link">Contact Me</a>
-          <a href="https://drive.google.com/uc?export=download&id=1zpS4LUS2TSw32w5XmqTEnNl8OKiDuut-" class="nav-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-pdf"></i> Download Resume</a>
+          <a href="mailto:va.mvharris@gmail.com" class="nav-link track-contact">Contact Me</a>
+          <a href="https://drive.google.com/uc?export=download&id=1zpS4LUS2TSw32w5XmqTEnNl8OKiDuut-" class="nav-btn track-resume" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-pdf"></i> Download Resume</a>
         </div>
       </nav>
     </div>
@@ -677,8 +678,8 @@
       <p>I pair rigorous analysis with customer-first thinking for premium and lifestyle brands like Rolling Stone, Samsung, and Issey Miyake to move people from a single click to a lasting relationship.</p>
       
       <div class="contact-cta">
-        <a href="mailto:va.mvharris@gmail.com" class="btn-main">Contact Me</a>
-        <a href="https://drive.google.com/uc?export=download&id=1zpS4LUS2TSw32w5XmqTEnNl8OKiDuut-" class="btn-outline" target="_blank" rel="noopener noreferrer"><i class="fas fa-download"></i> Download Resume</a>
+        <a href="mailto:va.mvharris@gmail.com" class="btn-main track-contact">Contact Me</a>
+        <a href="https://drive.google.com/uc?export=download&id=1zpS4LUS2TSw32w5XmqTEnNl8OKiDuut-" class="btn-outline track-resume" target="_blank" rel="noopener noreferrer"><i class="fas fa-download"></i> Download Resume</a>
         <a href="https://www.linkedin.com/in/marlavharris/" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fab fa-linkedin-in"></i></a>
       </div>
 
@@ -739,7 +740,7 @@
             </div>
             
             <div class="programs-card">
-                <h4>Customer Journeys Grew</h4>
+                <h4>Lifecycle Strategy Owned</h4>
                 <ul class="programs-list">
                     <li>Onboarding & Welcome Journeys</li>
                     <li>Staying Relevant & Habit Formation</li>
@@ -973,8 +974,8 @@
           <span class="footer-col-title">Connect</span>
           <ul class="footer-list">
             <li><a href="https://www.linkedin.com/in/marlavharris/" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a></li>
-            <li><a href="mailto:va.mvharris@gmail.com" class="footer-link">Email Inquiries</a></li>
-            <li><a href="https://drive.google.com/uc?export=download&id=1zpS4LUS2TSw32w5XmqTEnNl8OKiDuut-" class="footer-link" target="_blank" rel="noopener noreferrer">Download Resume</a></li>
+            <li><a href="mailto:va.mvharris@gmail.com" class="footer-link track-contact">Email Inquiries</a></li>
+            <li><a href="https://drive.google.com/uc?export=download&id=1zpS4LUS2TSw32w5XmqTEnNl8OKiDuut-" class="footer-link track-resume" target="_blank" rel="noopener noreferrer">Download Resume</a></li>
           </ul>
         </div>
       </div>
@@ -990,6 +991,7 @@
   </footer>
 
   <script>
+    // --- Dashboard Animation ---
     function animateValue(obj, start, end, duration, format) {
         let startTimestamp = null;
         const precision = (end.toString().split('.')[1] || []).length;
@@ -1026,6 +1028,33 @@
     }, { threshold: 0.5 });
 
     document.querySelectorAll('.dash-val').forEach(stat => statsObserver.observe(stat));
+
+    // --- Google Analytics Event Tracking ---
+    document.addEventListener('DOMContentLoaded', function() {
+        // Track Resume Downloads
+        const resumeButtons = document.querySelectorAll('.track-resume');
+        resumeButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                gtag('event', 'generate_lead', {
+                    'event_category': 'Engagement',
+                    'event_label': 'Resume Download',
+                    'method': 'resume_download'
+                });
+            });
+        });
+
+        // Track Contact (Email) Clicks
+        const contactButtons = document.querySelectorAll('.track-contact');
+        contactButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                gtag('event', 'contact', {
+                    'event_category': 'Engagement',
+                    'event_label': 'Email Click',
+                    'method': 'mailto'
+                });
+            });
+        });
+    });
   </script>
 
 </body>
