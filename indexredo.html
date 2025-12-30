@@ -117,6 +117,16 @@
         display: inline-block;
     }
 
+    /* Mobile Menu Toggle */
+    .mobile-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.25rem;
+        color: var(--charcoal);
+        cursor: pointer;
+    }
+
     /* --- HERO --- */
     .hero {
       padding: 6.5rem 0 2rem;
@@ -130,6 +140,29 @@
         line-height: 1.5;
         font-weight: 400;
         text-wrap: balance;
+    }
+
+    .availability-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-size: 0.75rem;
+        font-weight: 700;
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+        margin-top: 1.25rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+    .availability-badge::before {
+        content: '';
+        width: 8px;
+        height: 8px;
+        background: #10b981;
+        border-radius: 50%;
+        box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
     }
 
     .contact-cta { display: flex; align-items: center; gap: 1rem; margin-top: 2rem; }
@@ -427,6 +460,20 @@
         margin-left: 0; 
     }
     .iphone-screen { width: 100%; height: 100%; background: #fff; border-radius: 28px; overflow: hidden; position: relative; }
+    
+    .placeholder-visual {
+        width: 100%;
+        height: 100%;
+        background: #f1f5f9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+        color: #94a3b8;
+    }
+
     .iphone-bezel::before {
         content: ''; position: absolute; top: 12px; left: 50%; transform: translateX(-50%);
         width: 50px; height: 14px; background: #1a1a1a; border-radius: 20px; z-index: 10;
@@ -464,8 +511,11 @@
     .footer-brand .logo { color: #fff; font-size: 1.1rem; margin-bottom: 0.2rem; display: block; }
     .footer-brand p { font-size: 0.7rem; color: #888; text-transform: uppercase; font-weight: 600; }
     .footer-col-title { font-size: 0.6rem; text-transform: uppercase; color: var(--accent-pink); font-weight: 800; margin-bottom: 0.75rem; display: block; }
-    .footer-link { color: #bbb; text-decoration: none; font-size: 0.8rem; }
+    .footer-link { color: #bbb; text-decoration: none; font-size: 0.8rem; transition: color 0.2s; }
+    .footer-link:hover { color: #fff; }
     .footer-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 0.6rem; color: #555; font-weight: 700; }
+    .back-to-top { color: #888; text-decoration: none; border-bottom: 1px solid #333; cursor: pointer; transition: color 0.2s; }
+    .back-to-top:hover { color: #fff; border-color: #fff; }
 
     /* --- ACADEMIC --- */
     .academic-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
@@ -479,10 +529,56 @@
     @media (max-width: 900px) {
         .about-grid, .academic-grid, .dash-grid, .tech-grid, .footer-top { grid-template-columns: 1fr; gap: 2rem; }
         .expertise-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-        .nav-links { display: none; }
+        
+        .mobile-toggle { display: block; }
+        .nav-links {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: #fff;
+            flex-direction: column;
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--line);
+            gap: 1.25rem;
+        }
+        .nav-links.active { display: flex; }
+
         .timeline-visual { width: 100%; max-width: 260px; margin: 0; }
     }
   </style>
+
+  <script>
+    /**
+     * Define error handler in head to ensure it exists before images load.
+     * Replaces broken images with a clean placeholder.
+     */
+    function handleImageError(img) {
+        const container = img.parentElement;
+        img.style.display = 'none';
+        // Avoid duplicate placeholders
+        if (!container.querySelector('.placeholder-visual')) {
+            const placeholder = document.createElement('div');
+            placeholder.className = 'placeholder-visual';
+            placeholder.innerHTML = '<i class="fas fa-image" style="font-size: 2rem; margin-bottom: 0.5rem;"></i><span style="font-size: 0.6rem; font-weight: 700;">PREVIEW UNAVAILABLE</span>';
+            container.appendChild(placeholder);
+        }
+    }
+
+    /**
+     * Centralized GA Tracking function for explicit calls
+     */
+    function trackLead(label) {
+        if (typeof gtag === 'function') {
+            gtag('event', 'generate_lead', {
+                'event_category': 'Engagement',
+                'event_label': label,
+                'method': 'resume_download'
+            });
+        }
+    }
+  </script>
 </head>
 <body>
 
@@ -490,12 +586,17 @@
     <div class="container">
       <nav>
         <a href="index.html" class="logo">Marla Harris</a>
+        <button class="mobile-toggle" aria-label="Toggle Menu"><i class="fas fa-bars"></i></button>
         <div class="nav-links">
           <a href="#about" class="nav-link">About</a>
           <a href="#experience" class="nav-link">Experience</a>
           <a href="#tech" class="nav-link">Tech Stack</a>
           <a href="mailto:va.mvharris@gmail.com" class="nav-link track-contact">Contact</a>
-          <a href="https://drive.google.com/uc?export=download&id=1zpS4LUS2TSw32w5XmqTEnNl8OKiDuut-" class="nav-btn track-resume" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-pdf"></i> Download Resume</a>
+          <a href="https://drive.google.com/uc?export=download&id=1zpS4LUS2TSw32w5XmqTEnNl8OKiDuut-&utm_source=portfolio&utm_medium=website&utm_campaign=resume_download_nav" 
+             class="nav-btn track-resume" 
+             onclick="trackLead('Resume Download - Nav')"
+             target="_blank" 
+             rel="noopener noreferrer"><i class="fas fa-file-pdf"></i> Download Resume</a>
         </div>
       </nav>
     </div>
@@ -507,9 +608,15 @@
       <h1 class="hero-title">I Turn Subscriber Data Into Loyalty & Revenue</h1>
       <p>I pair rigorous analysis with customer-first thinking for premium and lifestyle brands like Rolling Stone, Samsung, and Issey Miyake to move people from a single click to a lasting relationship.</p>
       
+      <div class="availability-badge">Available for full-time senior roles</div>
+
       <div class="contact-cta">
         <a href="mailto:va.mvharris@gmail.com" class="btn-main track-contact">Contact Me</a>
-        <a href="https://drive.google.com/uc?export=download&id=1zpS4LUS2TSw32w5XmqTEnNl8OKiDuut-" class="btn-outline track-resume" target="_blank" rel="noopener noreferrer"><i class="fas fa-download"></i> Download Resume</a>
+        <a href="https://drive.google.com/uc?export=download&id=1zpS4LUS2TSw32w5XmqTEnNl8OKiDuut-&utm_source=portfolio&utm_medium=website&utm_campaign=resume_download_hero" 
+           class="btn-outline track-resume" 
+           onclick="trackLead('Resume Download - Hero')"
+           target="_blank" 
+           rel="noopener noreferrer"><i class="fas fa-download"></i> Download Resume</a>
         <a href="https://www.linkedin.com/in/marlavharris/" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fab fa-linkedin-in"></i></a>
       </div>
 
@@ -535,19 +642,19 @@
     <div class="container dash-grid">
         <div class="dash-item">
             <span class="dash-val" data-target="17" data-format="% YoY">0</span>
-            <span class="dash-label">Subscriber Growth</span>
+            <span class="dash-label">Subscriber Growth (YoY)</span>
         </div>
         <div class="dash-item">
             <span class="dash-val" data-target="20.95" data-format="%">0</span>
-            <span class="dash-label">Avg. Open Rate</span>
+            <span class="dash-label">Avg. Open Rate (LTM)</span>
         </div>
         <div class="dash-item">
             <span class="dash-val" data-target="18" data-format="%">0</span>
-            <span class="dash-label">Lower CPA</span>
+            <span class="dash-label">Lower CPA (vs Benchmark)</span>
         </div>
         <div class="dash-item">
             <span class="dash-val" data-target="500" data-format="$K+" style="color:var(--accent)">0</span>
-            <span class="dash-label">Growth Revenue</span>
+            <span class="dash-label">Revenue Growth (Annual)</span>
         </div>
     </div>
     <div class="dash-attribution">
@@ -625,8 +732,8 @@
                         <div class="iphone-bezel">
                             <div class="iphone-screen">
                                 <div class="iphone-scroll">
-                                    <img src="HALSEY%20-%20BB%20BAU%20(2)%20(3).gif" class="prev-img" alt="Rolling Stone" onerror="this.style.display='none';">
-                                    <img src="wwd-met-gala-marlaharris-portfolio.png" class="prev-img" alt="WWD" onerror="this.style.display='none';">
+                                    <img src="HALSEY%20-%20BB%20BAU%20(2)%20(3).gif" class="prev-img" alt="Rolling Stone" onerror="handleImageError(this)">
+                                    <img src="wwd-met-gala-marlaharris-portfolio.png" class="prev-img" alt="WWD" onerror="handleImageError(this)">
                                 </div>
                             </div>
                         </div>
@@ -654,8 +761,8 @@
                         <div class="iphone-bezel">
                             <div class="iphone-screen">
                                 <div class="iphone-scroll">
-                                    <img src="Screenshot%202025-10-30%20224348.png" class="prev-img" alt="AJ Madison" onerror="this.style.display='none';">
-                                    <img src="Screenshot%202025-10-30%20224357.png" class="prev-img" alt="AJ Madison 2" onerror="this.style.display='none';">
+                                    <img src="Screenshot%202025-10-30%20224348.png" class="prev-img" alt="AJ Madison" onerror="handleImageError(this)">
+                                    <img src="Screenshot%202025-10-30%20224357.png" class="prev-img" alt="AJ Madison 2" onerror="handleImageError(this)">
                                 </div>
                             </div>
                         </div>
@@ -699,8 +806,8 @@
                         <div class="iphone-bezel">
                             <div class="iphone-screen">
                                 <div class="iphone-scroll">
-                                    <img src="bao_bao_email_1.jpg" class="prev-img" alt="Bao Bao" onerror="this.style.display='none';">
-                                    <img src="bao_bao_email_SS17.jpg" class="prev-img" alt="Bao Bao 2" onerror="this.style.display='none';">
+                                    <img src="bao_bao_email_1.jpg" class="prev-img" alt="Bao Bao" onerror="handleImageError(this)">
+                                    <img src="bao_bao_email_SS17.jpg" class="prev-img" alt="Bao Bao 2" onerror="handleImageError(this)">
                                 </div>
                             </div>
                         </div>
@@ -797,18 +904,50 @@
           <span class="footer-col-title">Connect</span>
           <ul class="footer-list">
             <li><a href="https://www.linkedin.com/in/marlavharris/" target="_blank" class="footer-link">LinkedIn</a></li>
-            <li><a href="mailto:va.mvharris@gmail.com" class="footer-link">Email</a></li>
+            <li><a href="mailto:va.mvharris@gmail.com" class="footer-link track-contact">Email</a></li>
+            <li><a href="https://drive.google.com/uc?export=download&id=1zpS4LUS2TSw32w5XmqTEnNl8OKiDuut-&utm_source=portfolio&utm_medium=website&utm_campaign=resume_download_footer" 
+                   class="footer-link track-resume" 
+                   onclick="trackLead('Resume Download - Footer')"
+                   target="_blank" 
+                   rel="noopener noreferrer">Download Resume</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
         <div>© 2025 MARLA HARRIS // NYC</div>
-        <a href="#" class="back-to-top">Back to Top</a>
+        <a class="back-to-top">Back to Top</a>
       </div>
     </div>
   </footer>
 
   <script>
+    /**
+     * Mobile Menu Toggle
+     */
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (mobileToggle) {
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileToggle.querySelector('i').classList.toggle('fa-bars');
+            mobileToggle.querySelector('i').classList.toggle('fa-times');
+        });
+    }
+
+    /**
+     * Smooth Back to Top
+     */
+    const backToTop = document.querySelector('.back-to-top');
+    if (backToTop) {
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    /**
+     * Dashboard Counter Animation
+     */
     function animateValue(obj, start, end, duration, format) {
         let startTimestamp = null;
         const precision = (end.toString().split('.')[1] || []).length;
@@ -827,6 +966,7 @@
         };
         window.requestAnimationFrame(step);
     }
+
     const statsObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -838,6 +978,25 @@
         });
     }, { threshold: 0.5 });
     document.querySelectorAll('.dash-val').forEach(stat => statsObserver.observe(stat));
+
+    /**
+     * Global Event Tracking Listeners
+     */
+    document.addEventListener('DOMContentLoaded', function() {
+        // Track Contact (Email) Clicks
+        const contactButtons = document.querySelectorAll('.track-contact');
+        contactButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                if (typeof gtag === 'function') {
+                    gtag('event', 'contact', {
+                        'event_category': 'Engagement',
+                        'event_label': 'Email Click',
+                        'method': 'mailto'
+                    });
+                }
+            });
+        });
+    });
   </script>
 </body>
 </html>
