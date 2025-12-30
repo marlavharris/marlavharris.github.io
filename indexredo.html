@@ -231,18 +231,25 @@
     
     .dash-attribution {
         text-align: center;
-        font-size: 0.9rem;
+        font-size: 0.95rem;
         color: var(--accent); 
         margin-top: 3rem;
         max-width: 950px;
         margin-left: auto;
         margin-right: auto;
-        line-height: 1.7;
+        line-height: 1.8;
         font-weight: 500;
-        padding: 2rem;
-        border-top: 1px solid var(--line);
-        border-bottom: 1px solid var(--line);
+        padding: 2.5rem;
+        background: #ffffff;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.02);
         text-wrap: balance;
+    }
+
+    .dash-attribution strong {
+        color: var(--ink);
+        font-weight: 800;
     }
 
     /* --- PERSPECTIVE SECTION --- */
@@ -599,13 +606,19 @@
     .back-to-top { color: #888; text-decoration: none; border-bottom: 1px solid #333; padding-bottom: 2px; }
     .back-to-top:hover { color: #fff; border-color: #fff; }
 
-    /* --- PERFECT SYMMETRY LOGIC --- */
+    /* --- PERFECT SYMMETRY ACADEMIC SECTION --- */
+    .academic-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+    }
     .edu-card {
         display: flex;
         flex-direction: column;
+        height: 100%;
     }
     .edu-header {
-        min-height: 110px; /* Equalizes the Title/School/Degree block footprint */
+        min-height: 110px; 
     }
     .edu-blurb {
         margin-top: 1.5rem;
@@ -616,11 +629,12 @@
         padding-left: 1.5rem;
         text-align: justify;
         hyphens: auto;
-        min-height: 100px; /* Equalizes the blurb footprint */
+        min-height: 100px; 
         text-wrap: balance;
     }
     .edu-year {
-        margin-top: 1.5rem;
+        margin-top: auto; /* Pushes the year to the bottom */
+        padding-top: 1.5rem;
         font-size: 0.85rem;
         font-weight: 800;
         color: #888;
@@ -629,12 +643,13 @@
     }
 
     @media (max-width: 900px) {
-        .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+        .about-grid, .academic-grid { grid-template-columns: 1fr; gap: 3rem; }
         .expertise-grid { grid-template-columns: 1fr; }
         .dash-grid, .tech-grid { grid-template-columns: 1fr; }
         .footer-top { grid-template-columns: 1fr; gap: 3rem; }
         .nav-links { display: none; }
         .edu-header, .edu-blurb { min-height: auto; text-align: left; }
+        .brand-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
     }
   </style>
 </head>
@@ -648,8 +663,8 @@
           <a href="#about" class="nav-link">Perspective</a>
           <a href="#experience" class="nav-link">Experience</a>
           <a href="#tech" class="nav-link">Systems</a>
-          <a href="mailto:va.mvharris@gmail.com" class="nav-link">Email Me</a>
-          <a href="https://drive.google.com/uc?export=download&id=1zpS4LUS2TSw32w5XmqTEnNl8OKiDuut-" class="nav-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-pdf"></i> Case Studies & Metrics</a>
+          <a href="mailto:va.mvharris@gmail.com" class="nav-link">Contact Me</a>
+          <a href="https://drive.google.com/uc?export=download&id=1zpS4LUS2TSw32w5XmqTEnNl8OKiDuut-" class="nav-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-pdf"></i> Download Resume</a>
         </div>
       </nav>
     </div>
@@ -659,11 +674,11 @@
     <div class="container hero-content">
       <span class="section-label">Senior Manager, Subscription & Lifecycle Marketing</span>
       <h1 class="hero-title">I Turn Subscriber Data Into Loyalty & Revenue</h1>
-      <p>I pair rigorous analysis with customer-first thinking to move people from a single click to a lasting relationship.</p>
+      <p>I pair rigorous analysis with customer-first thinking for premium and lifestyle brands like Rolling Stone, Samsung, and Issey Miyake to move people from a single click to a lasting relationship.</p>
       
       <div class="contact-cta">
-        <a href="mailto:va.mvharris@gmail.com" class="btn-main">Review My Retention Strategy</a>
-        <a href="https://drive.google.com/uc?export=download&id=1zpS4LUS2TSw32w5XmqTEnNl8OKiDuut-" class="btn-outline" target="_blank" rel="noopener noreferrer"><i class="fas fa-download"></i> See Detailed Metrics</a>
+        <a href="mailto:va.mvharris@gmail.com" class="btn-main">Contact Me</a>
+        <a href="https://drive.google.com/uc?export=download&id=1zpS4LUS2TSw32w5XmqTEnNl8OKiDuut-" class="btn-outline" target="_blank" rel="noopener noreferrer"><i class="fas fa-download"></i> Download Resume</a>
         <a href="https://www.linkedin.com/in/marlavharris/" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fab fa-linkedin-in"></i></a>
       </div>
 
@@ -672,7 +687,7 @@
           <div class="brand-grid">
               <span class="brand-name">Rolling Stone</span>
               <span class="brand-name">Billboard</span>
-              <span class="brand-name">WWD</span>
+              <span class="brand-name">Women's Wear Daily</span>
               <span class="brand-name">Issey Miyake</span>
               <span class="brand-name">Samsung</span>
               <span class="brand-name">True Refrigeration</span>
@@ -705,7 +720,8 @@
         </div>
     </div>
     <div class="dash-attribution">
-        Metrics reflect lifecycle programs I optimized end-to-end, spanning strategy, segmentation, messaging, creative direction, testing, and reporting. <strong>These are not team or company metrics.</strong> I directly managed the strategy, segmentation, and execution that drove these results.
+        Metrics reflect lifecycle programs I optimized end-to-end, spanning strategy, segmentation, messaging, creative direction, testing, and reporting. <strong>These are not team or company metrics.</strong> I directly managed the strategy, segmentation, and execution that drove these results.<br><br>
+        <strong>Direct impact from programs I managed:</strong> These metrics reflect end-to-end ownership of strategy, segmentation, and execution—not team or company averages.
     </div>
   </div>
 
@@ -715,7 +731,7 @@
         <div class="about-grid">
             <div class="about-philosophy">
                 <h2>Finding the Story in the Data</h2>
-                <p>I look for the people behind the numbers, listening to what customer behavior is telling us and <span>translating those insights into better ways to stay connected.</span> I built and owned reporting that revealed exactly why people were staying or leaving—directly informing how we spoke to them.</p>
+                <p>I look for the people behind the numbers, <span>decoding customer behavior</span> and translating those insights into better ways to stay connected. I built and owned reporting that revealed exactly why people were staying or leaving—directly informing how we spoke to them.</p>
                 
                 <div class="strategic-advantage">
                     <strong>Strategic Advantage</strong>
@@ -744,7 +760,7 @@
         <div class="expertise-grid">
             <div class="expertise-item">
                 <h4>Understanding Customer Behavior</h4>
-                <p>Listening to customer actions to decide the best timing and message for every interaction, ensuring we never reach out without a reason.</p>
+                <p>Decoding customer actions to decide the best timing and message for every interaction, ensuring we never reach out without a reason.</p>
             </div>
             <div class="expertise-item">
                 <h4>Turning Data into Decisions</h4>
@@ -773,7 +789,7 @@
                     <div class="timeline-body">
                         <ul>
                             <li>Recognized when subscribers were losing interest; built a re-engagement series that successfully brought back 15% of that group.</li>
-                            <li>Created helpful playbooks for Rolling Stone and WWD that balanced reaching revenue goals with keeping the audience happy.</li>
+                            <li>Created helpful playbooks for Rolling Stone and Women's Wear Daily that balanced reaching revenue goals with keeping the audience happy.</li>
                             <li>Personalized messages for a 4M+ audience, making every interaction feel more relevant and less transactional.</li>
                         </ul>
                     </div>
@@ -782,7 +798,7 @@
                             <div class="iphone-screen">
                                 <div class="iphone-scroll">
                                     <img src="HALSEY%20-%20BB%20BAU%20(2)%20(3).gif" class="prev-img" alt="Rolling Stone Campaign" onerror="this.style.display='none';">
-                                    <img src="wwd-met-gala-marlaharris-portfolio.png" class="prev-img" alt="WWD Met Gala Campaign" onerror="this.style.display='none';">
+                                    <img src="wwd-met-gala-marlaharris-portfolio.png" class="prev-img" alt="Women's Wear Daily Met Gala Campaign" onerror="this.style.display='none';">
                                 </div>
                             </div>
                         </div>
@@ -883,7 +899,7 @@
                 <ul class="tech-list">
                     <li>GA4 / Looker <span class="tech-micro-case">Revealing stories that improved the journey</span></li>
                     <li>Power BI / Excel (Adv)</li>
-                    <li>SQL (In Progress)</li>
+                    <li>SQL for Cohort Analysis</li>
                 </ul>
             </div>
             <div class="tech-col">
@@ -891,7 +907,7 @@
                 <ul class="tech-list">
                     <li>Shopify / Magento</li>
                     <li>NetSuite / Drupal</li>
-                    <li>Easier Checkout Design</li>
+                    <li>Checkout Flow Optimization</li>
                 </ul>
             </div>
             <div class="tech-col">
@@ -909,7 +925,7 @@
   <section style="padding: 6rem 0; border-top: 1px solid var(--line);">
     <div class="container">
         <span class="section-label">Academic Background</span>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;">
+        <div class="academic-grid">
             <!-- BARUCH -->
             <div class="edu-card">
                 <div class="edu-header">
@@ -918,7 +934,7 @@
                     <p style="font-size: 0.95rem; color: var(--ink); font-weight: 700; line-height: 1.3;">MPA & Bachelor of Public Affairs</p>
                 </div>
                 <div class="edu-blurb">
-                  Trained in public policy analysis provides the analytical framework to navigate complex data—building trust through clear, customer-first communication.
+                    Training in public policy analysis provides a rigorous framework to navigate complex data sets and build trust through clear, customer-first communication.
                 </div>
                 <div class="edu-year">Expected 2027</div>
             </div>
@@ -931,7 +947,7 @@
                     <p style="font-size: 0.95rem; color: var(--ink); font-weight: 700; line-height: 1.3;">Fashion Design & Merchandising</p>
                 </div>
                 <div class="edu-blurb">
-                  Trained in visual aesthetics informing my insistence on brand integrity—ensuring high performance never comes at the cost of premium presentation.
+                    Trained in visual aesthetics informing my insistence on brand integrity—ensuring high performance never comes at the cost of premium presentation.
                 </div>
                 <div class="edu-year">Class of 2009</div>
             </div>
@@ -959,7 +975,7 @@
           <ul class="footer-list">
             <li><a href="https://www.linkedin.com/in/marlavharris/" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a></li>
             <li><a href="mailto:va.mvharris@gmail.com" class="footer-link">Email Inquiries</a></li>
-            <li><a href="https://drive.google.com/uc?export=download&id=1zpS4LUS2TSw32w5XmqTEnNl8OKiDuut-" class="footer-link" target="_blank" rel="noopener noreferrer">Download Portfolio</a></li>
+            <li><a href="https://drive.google.com/uc?export=download&id=1zpS4LUS2TSw32w5XmqTEnNl8OKiDuut-" class="footer-link" target="_blank" rel="noopener noreferrer">Download Resume</a></li>
           </ul>
         </div>
       </div>
