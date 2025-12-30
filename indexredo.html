@@ -362,7 +362,8 @@
 
     .timeline-content {
         display: flex;
-        gap: 2.5rem;
+        flex-direction: column; /* Stacks visual below text */
+        gap: 1.5rem;
         align-items: flex-start;
     }
 
@@ -423,7 +424,7 @@
         aspect-ratio: 9/19; 
         overflow: hidden;
         position: relative;
-        margin-left: 0; /* Forced left alignment */
+        margin-left: 0; 
     }
     .iphone-screen { width: 100%; height: 100%; background: #fff; border-radius: 28px; overflow: hidden; position: relative; }
     .iphone-bezel::before {
@@ -439,7 +440,7 @@
         font-weight: 700; 
         color: var(--accent-pink);
         text-transform: uppercase; 
-        text-align: left; /* Changed from center to left */
+        text-align: left; 
     }
 
     /* --- SYSTEMS --- */
@@ -479,10 +480,7 @@
         .about-grid, .academic-grid, .dash-grid, .tech-grid, .footer-top { grid-template-columns: 1fr; gap: 2rem; }
         .expertise-grid { grid-template-columns: 1fr; gap: 1.5rem; }
         .nav-links { display: none; }
-        .timeline-content { flex-direction: column; gap: 1.5rem; }
         .timeline-visual { width: 100%; max-width: 260px; margin: 0; }
-        .iphone-bezel { margin: 0; }
-        .brand-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
@@ -493,11 +491,11 @@
       <nav>
         <a href="index.html" class="logo">Marla Harris</a>
         <div class="nav-links">
-          <a href="#about" class="nav-link">Perspective</a>
+          <a href="#about" class="nav-link">About</a>
           <a href="#experience" class="nav-link">Experience</a>
-          <a href="#tech" class="nav-link">Systems</a>
-          <a href="mailto:va.mvharris@gmail.com" class="nav-link track-contact">Contact Me</a>
-          <a href="https://drive.google.com/uc?export=download&id=1zpS4LUS2TSw32w5XmqTEnNl8OKiDuut-" class="nav-btn track-resume" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-pdf"></i> Resume</a>
+          <a href="#tech" class="nav-link">Tech Stack</a>
+          <a href="mailto:va.mvharris@gmail.com" class="nav-link track-contact">Contact</a>
+          <a href="https://drive.google.com/uc?export=download&id=1zpS4LUS2TSw32w5XmqTEnNl8OKiDuut-" class="nav-btn track-resume" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-pdf"></i> Download Resume</a>
         </div>
       </nav>
     </div>
@@ -559,7 +557,7 @@
 
   <section id="about" class="about-section">
     <div class="container">
-        <span class="section-label">Perspective</span>
+        <span class="section-label">About</span>
         <div class="about-grid">
             <div class="about-philosophy">
                 <h2>Finding the Story in the Data</h2>
@@ -716,7 +714,7 @@
 
   <section id="tech" class="tech-stack">
     <div class="container">
-        <h2>Systems</h2>
+        <h2>Tech Stack</h2>
         <div class="tech-grid">
             <div class="tech-col">
                 <h4>CX</h4>
@@ -790,9 +788,9 @@
         <div>
           <span class="footer-col-title">Navigation</span>
           <ul class="footer-list">
-            <li><a href="#about" class="footer-link">Perspective</a></li>
+            <li><a href="#about" class="footer-link">About</a></li>
             <li><a href="#experience" class="footer-link">Experience</a></li>
-            <li><a href="#tech" class="footer-link">Systems</a></li>
+            <li><a href="#tech" class="footer-link">Tech Stack</a></li>
           </ul>
         </div>
         <div>
