@@ -126,7 +126,7 @@
     .hero p { 
         font-size: 1.25rem; 
         color: var(--neutral-600); 
-        max-width: 850px;
+        max-width: 850px; 
         line-height: 1.6;
         font-weight: 400;
         text-wrap: balance;
@@ -443,7 +443,6 @@
     .timeline-body {
         font-size: 1rem;
         color: var(--charcoal);
-        max-width: 700px;
     }
 
     .timeline-body ul { list-style: none; }
@@ -464,10 +463,10 @@
         border-radius: 50%;
     }
 
-    /* --- IPHONE PREVIEW --- */
+    /* --- IPHONE PREVIEW (Side-by-Side) --- */
     .timeline-visual {
-        margin-top: 2rem;
         max-width: 280px; 
+        width: 100%;
     }
     .iphone-bezel {
         background: #1a1a1a;
@@ -518,6 +517,22 @@
         letter-spacing: 0.1em;
         text-align: center;
         text-wrap: balance;
+    }
+
+    @media (min-width: 900px) {
+        .timeline-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 6rem;
+        }
+        .timeline-text-content {
+            flex: 1;
+        }
+        .timeline-visual {
+            margin-top: 0;
+            flex-shrink: 0;
+        }
     }
 
     /* --- MARTECH ECOSYSTEM --- */
@@ -618,10 +633,10 @@
         height: 100%;
     }
     .edu-header {
-        min-height: 90px; /* Condensed header footprint */
+        min-height: 90px; 
     }
     .edu-blurb {
-        margin-top: 0.75rem; /* Reduced space between title and text */
+        margin-top: 0.75rem;
         font-size: 0.9rem;
         color: #555;
         line-height: 1.6;
@@ -629,12 +644,12 @@
         padding-left: 1.5rem;
         text-align: justify;
         hyphens: auto;
-        min-height: 80px; /* Condensed blurb footprint */
+        min-height: 80px; 
         text-wrap: balance;
     }
     .edu-year {
         margin-top: auto; 
-        padding-top: 0.75rem; /* Reduced space before year */
+        padding-top: 0.75rem;
         font-size: 0.85rem;
         font-weight: 800;
         color: #888;
@@ -650,6 +665,7 @@
         .nav-links { display: none; }
         .edu-header, .edu-blurb { min-height: auto; text-align: left; }
         .brand-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+        .timeline-visual { margin-top: 2rem; }
     }
   </style>
 </head>
@@ -781,16 +797,18 @@
             <!-- PENSKE -->
             <div class="timeline-item">
                 <div class="timeline-content">
-                    <span class="timeline-date">2022 — 2024</span>
-                    <span class="timeline-impact">17% YoY Sales Increase</span>
-                    <h3 class="timeline-heading">Penske Media Corp.</h3>
-                    <span class="timeline-subhead">Digital & Subscription Marketing Manager</span>
-                    <div class="timeline-body">
-                        <ul>
-                            <li>Recognized when subscribers were losing interest; built a re-engagement series that successfully brought back 15% of that group.</li>
-                            <li>Created helpful playbooks for Rolling Stone and Women's Wear Daily that balanced reaching revenue goals with keeping the audience happy.</li>
-                            <li>Personalized messages for a 4M+ audience, making every interaction feel more relevant and less transactional.</li>
-                        </ul>
+                    <div class="timeline-text-content">
+                        <span class="timeline-date">2022 — 2024</span>
+                        <span class="timeline-impact">17% YoY Sales Increase</span>
+                        <h3 class="timeline-heading">Penske Media Corp.</h3>
+                        <span class="timeline-subhead">Digital & Subscription Marketing Manager</span>
+                        <div class="timeline-body">
+                            <ul>
+                                <li>Recognized when subscribers were losing interest; built a re-engagement series that successfully brought back 15% of that group.</li>
+                                <li>Created helpful playbooks for Rolling Stone and Women's Wear Daily that balanced reaching revenue goals with keeping the audience happy.</li>
+                                <li>Personalized messages for a 4M+ audience, making every interaction feel more relevant and less transactional.</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="timeline-visual">
                         <div class="iphone-bezel">
@@ -809,16 +827,18 @@
             <!-- AJ MADISON -->
             <div class="timeline-item">
                 <div class="timeline-content">
-                    <span class="timeline-date">2018 — 2022</span>
-                    <span class="timeline-impact">18% Lower CPA</span>
-                    <h3 class="timeline-heading">AJ Madison</h3>
-                    <span class="timeline-subhead">Marketing Operations & Lifecycle Manager</span>
-                    <div class="timeline-body">
-                        <ul>
-                            <li>Respected the customer’s timeline by supporting 6–18 month purchase windows instead of just pushing short-term sales.</li>
-                            <li>Built the first helpful program for trade professionals to improve outreach and long-term relationships with builders.</li>
-                            <li>Made updates via SMS and email that removed friction for customers after they made a purchase.</li>
-                        </ul>
+                    <div class="timeline-text-content">
+                        <span class="timeline-date">2018 — 2022</span>
+                        <span class="timeline-impact">18% Lower CPA</span>
+                        <h3 class="timeline-heading">AJ Madison</h3>
+                        <span class="timeline-subhead">Marketing Operations & Lifecycle Manager</span>
+                        <div class="timeline-body">
+                            <ul>
+                                <li>Respected the customer’s timeline by supporting 6–18 month purchase windows instead of just pushing short-term sales.</li>
+                                <li>Built the first helpful program for trade professionals to improve outreach and long-term relationships with builders.</li>
+                                <li>Made updates via SMS and email that removed friction for customers after they made a purchase.</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="timeline-visual">
                         <div class="iphone-bezel">
@@ -837,15 +857,17 @@
             <!-- WARP + WEFT -->
             <div class="timeline-item">
                 <div class="timeline-content">
-                    <span class="timeline-date">2017 — 2018</span>
-                    <span class="timeline-impact">ROI Increased by 108%</span>
-                    <h3 class="timeline-heading">Warp + Weft</h3>
-                    <span class="timeline-subhead">E-Commerce & Community Manager</span>
-                    <div class="timeline-body">
-                        <ul>
-                            <li>Improved performance by ensuring the way we welcomed people matched the way we helped them stay.</li>
-                            <li>Made the online shopping experience clearer and easier to use, which naturally increased sales.</li>
-                        </ul>
+                    <div class="timeline-text-content">
+                        <span class="timeline-date">2017 — 2018</span>
+                        <span class="timeline-impact">ROI Increased by 108%</span>
+                        <h3 class="timeline-heading">Warp + Weft</h3>
+                        <span class="timeline-subhead">E-Commerce & Community Manager</span>
+                        <div class="timeline-body">
+                            <ul>
+                                <li>Improved performance by ensuring the way we welcomed people matched the way we helped them stay.</li>
+                                <li>Made the online shopping experience clearer and easier to use, which naturally increased sales.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -853,15 +875,17 @@
             <!-- ISSEY MIYAKE -->
             <div class="timeline-item">
                 <div class="timeline-content">
-                    <span class="timeline-date">2015 — 2017</span>
-                    <span class="timeline-impact">14% YoY Revenue Increase</span>
-                    <h3 class="timeline-heading">Issey Miyake USA</h3>
-                    <span class="timeline-subhead">E-Commerce Strategist & Manager</span>
-                    <div class="timeline-body">
-                        <ul>
-                            <li>Introduced a more personalized way to communicate with luxury customers in the US market.</li>
-                            <li>Ensured the online experience felt as high-end and thoughtful as the brand itself.</li>
-                        </ul>
+                    <div class="timeline-text-content">
+                        <span class="timeline-date">2015 — 2017</span>
+                        <span class="timeline-impact">14% YoY Revenue Increase</span>
+                        <h3 class="timeline-heading">Issey Miyake USA</h3>
+                        <span class="timeline-subhead">E-Commerce Strategist & Manager</span>
+                        <div class="timeline-body">
+                            <ul>
+                                <li>Introduced a more personalized way to communicate with luxury customers in the US market.</li>
+                                <li>Ensured the online experience felt as high-end and thoughtful as the brand itself.</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="timeline-visual">
                         <div class="iphone-bezel">
@@ -965,7 +989,7 @@
           <span class="footer-col-title">Navigation</span>
           <ul class="footer-list">
             <li><a href="#about" class="footer-link">Perspective</a></li>
-            <li><a href="#experience" class="footer-link">Impact Milestones</a></li>
+            <li><a href="#experience" class="footer-link">Experience</a></li>
             <li><a href="#tech" class="footer-link">MarTech Ecosystem</a></li>
           </ul>
         </div>
