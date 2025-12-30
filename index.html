@@ -11,23 +11,24 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Marla Harris - Data-Driven Storyteller. Title earned in fitting rooms, and through messy spreadsheets...">
-  <title>Marla Harris — Strategy & Marketing</title>
-  
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Marla Harris - Senior Manager, Subscription & Lifecycle Marketing. Professional Portfolio & Resume.">
+  <title>Marla Harris — Senior Manager, Subscription & Lifecycle Marketing</title>
+   
+  <!-- High-impact corporate font: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
+   
   <style>
-    /* --- BRAND DNA: EDITORIAL LUXURY --- */
     :root {
-      --ink: #0a0a0a;        
-      --charcoal: #333333;   
-      --neutral-600: #757575;
+      --ink: #0a0a0a;       
+      --charcoal: #1a1a1a;  
+      --neutral-600: #555555;
+      --neutral-200: #eeeeee;
       --paper: #ffffff;
-      --accent: #990049; 
-      --accent-dim: rgba(153, 0, 73, 0.6);
-      --line: rgba(0, 0, 0, 0.08); 
-      --bg-subtle: #fafafa;
+      --accent: #003366; /* Deep Corporate Navy */
+      --accent-pink: #990049; /* Signature Pink */
+      --accent-soft: rgba(0, 51, 102, 0.05);
+      --line: #e5e7eb; 
     }
     
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -37,801 +38,994 @@
       font-family: 'Inter', sans-serif;
       color: var(--charcoal);
       background: var(--paper);
-      line-height: 1.6;
-      overflow-x: hidden;
+      line-height: 1.5;
       font-weight: 400;
-      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
     }
     
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 3rem; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
     
     h1, h2, h3, h4 {
-      font-family: 'Playfair Display', serif;
-      font-weight: 400;
-      line-height: 1.2;
+      font-weight: 800;
+      line-height: 1.1;
       color: var(--ink);
+      letter-spacing: -0.03em;
+      text-wrap: balance;
     }
 
-    h1 { font-size: clamp(3.5rem, 6vw, 5.5rem); letter-spacing: -0.03em; }
-    h2 { font-size: clamp(2.5rem, 4vw, 3.5rem); letter-spacing: -0.02em; }
-    h3 { font-size: 1.75rem; }
+    h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1.5rem; }
+    h2 { font-size: 2.25rem; margin-bottom: 2rem; }
+    h3 { font-size: 1.5rem; margin-bottom: 0.75rem; }
     
-    .meta {
-        font-family: 'Inter', sans-serif;
-        font-size: 0.75rem;
+    .section-label {
+        font-size: 0.7rem;
         text-transform: uppercase;
         letter-spacing: 0.2em; 
-        font-weight: 600;
-        color: var(--neutral-600);
+        font-weight: 800;
+        color: var(--accent);
         display: block;
+        margin-bottom: 1rem;
     }
 
-    /* Buttons */
-    .btn-group { display: flex; gap: 3rem; justify-content: center; margin-top: 3rem; align-items: center; }
-    
-    .btn {
-      text-decoration: none;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
-      position: relative;
-      padding-bottom: 5px;
-      font-weight: 400;
-      color: var(--ink);
-    }
-    
-    .btn::after {
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 1px;
-        bottom: 0;
-        left: 0;
-        background-color: var(--accent);
-        transition: width 0.4s ease;
-    }
-    
-    .btn:hover::after { width: 100%; }
-    .btn-primary { color: var(--ink); }
-    .btn-secondary { color: var(--charcoal); opacity: 0.7; }
-    .btn-secondary:hover { opacity: 1; }
-
-    /* Header */
+    /* --- NAVIGATION --- */
     header {
-      background: transparent;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(8px);
       position: fixed;
       top: 0;
       width: 100%;
       z-index: 1000;
-      transition: all 0.4s ease;
-      padding: 1.5rem 0;
-    }
-    
-    header.scrolled {
-      background: rgba(255, 255, 255, 0.98);
-      padding: 0.5rem 0;
-      box-shadow: 0 1px 0px rgba(0,0,0,0.05);
+      border-bottom: 1px solid var(--line);
+      padding: 1rem 0;
     }
     
     nav { display: flex; justify-content: space-between; align-items: center; }
     
     .logo {
-      font-family: 'Playfair Display', serif; 
-      font-size: 1.25rem; 
+      font-size: 1.1rem; 
       color: var(--ink); 
       text-decoration: none; 
-      font-weight: 500; 
-      letter-spacing: -0.01em; 
-      z-index: 1001;
+      font-weight: 900; 
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
     }
     
-    .nav-links { display: flex; gap: 2.5rem; }
-    
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
     .nav-link {
       font-size: 0.75rem; 
       text-transform: uppercase; 
-      letter-spacing: 0.15em; 
+      letter-spacing: 0.1em; 
       color: var(--neutral-600); 
       text-decoration: none; 
-      font-weight: 400; 
-      transition: color 0.3s ease; 
-      position: relative;
+      font-weight: 700; 
+      transition: all 0.2s ease;
     }
-    
     .nav-link:hover { color: var(--accent); }
 
-    /* Hero */
+    .nav-btn {
+        background: var(--accent);
+        color: #fff;
+        padding: 0.5rem 1.2rem;
+        border-radius: 4px;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-weight: 700;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    /* --- HERO --- */
     .hero {
-      padding: 160px 0 80px;
-      min-height: auto;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
-      background: var(--paper); 
+      padding: 10rem 0 4rem;
     }
     
-    .hero-content {
-        max-width: 900px;
-    }
-
-    .hero-sub {
-        color: var(--accent);
-        margin-bottom: 2rem;
-        display: block;
-        font-size: 0.7rem;
-        letter-spacing: 0.3em;
-        text-transform: uppercase;
-    }
-
+    .hero-content { max-width: 1000px; }
+    .hero-title span { color: var(--accent); }
     .hero p { 
         font-size: 1.25rem; 
-        color: var(--charcoal); 
-        max-width: 650px; 
-        margin: 2rem auto 0; 
-        font-family: 'Playfair Display', serif; 
-        font-style: italic;
+        color: var(--neutral-600); 
+        max-width: 850px;
+        line-height: 1.6;
         font-weight: 400;
-        opacity: 0.8;
+        text-wrap: balance;
     }
 
-    /* Methodology */
-    .methodology-section {
-        padding: 5rem 0;
+    .contact-cta { display: flex; align-items: center; gap: 1.5rem; margin-top: 3rem; }
+    .btn-main {
+        background: var(--accent);
+        color: #fff;
+        padding: 0.9rem 2rem;
+        border-radius: 4px;
+        text-decoration: none;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        cursor: pointer;
+        border: none;
+        transition: all 0.2s;
+    }
+    .btn-main:hover { background: #002244; transform: translateY(-2px); }
+    
+    .btn-outline {
+        background: transparent;
+        color: var(--accent);
+        border: 1px solid var(--accent);
+        padding: 0.9rem 2rem;
+        border-radius: 4px;
+        text-decoration: none;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        cursor: pointer;
+        transition: all 0.2s;
+        display: inline-flex;
+        align-items: center; gap: 0.5rem;
+    }
+    .btn-outline:hover {
+        background: var(--accent-soft);
+        transform: translateY(-2px);
+    }
+
+    .social-link { color: var(--accent); font-size: 1.25rem; transition: color 0.2s; }
+    .social-link:hover { opacity: 0.8; }
+
+    /* --- BRAND BAR --- */
+    .brand-bar {
+        margin-top: 6rem;
+        padding: 3rem 0;
         border-top: 1px solid var(--line);
-        background: var(--bg-subtle);
+    }
+    .brand-bar-label {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: #aaa;
+        font-weight: 800;
+        margin-bottom: 2rem;
+        display: block;
+        text-align: center;
+    }
+    .brand-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 2rem;
+        align-items: center;
+        text-align: center;
+    }
+    .brand-name {
+        font-size: 0.8rem;
+        font-weight: 900;
+        color: #333;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        opacity: 0.6;
+        transition: opacity 0.3s;
+    }
+    .brand-name:hover { opacity: 1; }
+
+    /* --- DASHBOARD --- */
+    .dashboard {
+        background: #f9fafb;
+        padding: 4rem 0;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+    }
+    .dash-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+    }
+    .dash-item {
+        background: #fff;
+        padding: 2rem;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+    }
+    .dash-val { font-size: 2.5rem; font-weight: 900; color: var(--ink); display: block; letter-spacing: -0.04em; }
+    .dash-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--neutral-600); font-weight: 700; margin-top: 0.5rem; display: block; }
+    .dash-item.highlight { border-top: 4px solid var(--accent); }
+    
+    .dash-attribution {
+        text-align: center;
+        font-size: 0.95rem;
+        color: var(--accent); 
+        margin-top: 3rem;
+        max-width: 950px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.8;
+        font-weight: 500;
+        padding: 2.5rem;
+        background: #ffffff;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        text-wrap: balance;
     }
 
-    .method-grid {
+    .dash-attribution strong {
+        color: var(--ink);
+        font-weight: 800;
+    }
+
+    /* --- PERSPECTIVE SECTION --- */
+    .about-section {
+        padding: 8rem 0;
+    }
+    .about-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 0.6fr; 
+        gap: 5rem;
+        align-items: start;
+    }
+    .about-philosophy {
+        font-size: 1.15rem;
+        color: var(--charcoal);
+        line-height: 1.8;
+        font-weight: 400;
+    }
+    .about-philosophy h2 { font-size: 2.25rem; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
+    .about-philosophy span {
+        color: var(--accent);
+        font-weight: 700;
+    }
+    .strategic-advantage {
+        margin-top: 3rem;
+        padding: 2rem;
+        background: var(--accent-soft);
+        border-radius: 6px;
+        font-size: 1rem;
+        border-left: 4px solid var(--accent);
+        color: var(--ink);
+    }
+    .strategic-advantage strong {
+        color: var(--accent);
+        text-transform: uppercase;
+        font-size: 0.7rem;
+        letter-spacing: 0.15em;
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+
+    .programs-card {
+        background: #ffffff;
+        border: 1px solid var(--line);
+        padding: 2.5rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+    }
+    .programs-card h4 {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--accent-pink);
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--line);
+    }
+    .programs-list {
+        list-style: none;
+    }
+    .programs-list li {
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: var(--ink);
+        padding: 0.75rem 0;
+        border-bottom: 1px solid #f9fafb;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+    .programs-list li:last-child { border-bottom: none; }
+    .programs-list li::before {
+        content: '\f00c'; 
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        color: var(--accent-pink);
+        font-size: 0.7rem;
+    }
+
+    /* --- STRATEGIC CORE --- */
+    .expertise-section {
+        padding: 0 0 8rem;
+        border-bottom: 1px solid var(--line);
+    }
+    .expertise-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 0;
+        gap: 3rem;
     }
-
-    .method-step {
-        padding: 4rem 3rem;
-        border-right: 1px solid var(--line);
-        position: relative;
-        transition: background-color 0.4s ease;
-        background: var(--bg-subtle);
-        cursor: default;
-        min-height: 250px;
-        display: flex;
-        flex-direction: column;
-        opacity: 1; 
-        transform: translateY(0); 
-    }
-
-    .method-step:last-child { border-right: none; }
-    .method-step:hover { background: #ffffff; }
-    
-    .method-num {
-        font-family: 'Inter', sans-serif;
-        font-size: 0.85rem;
-        color: var(--accent);
+    .expertise-item h4 {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
         margin-bottom: 1rem;
-        font-weight: 500;
-        display: block;
-    }
-
-    .method-title {
-        font-family: 'Playfair Display', serif;
-        font-size: 2rem;
         color: var(--ink);
-        margin-bottom: 1rem;
-        line-height: 1.2;
+        border-bottom: 2px solid var(--accent-pink);
+        display: inline-block;
+        padding-bottom: 4px;
     }
-
-    .method-desc {
-        font-family: 'Inter', sans-serif;
-        font-size: 1rem;
-        color: var(--charcoal);
+    .expertise-item p {
+        font-size: 0.9rem;
+        color: var(--neutral-600);
         line-height: 1.6;
+        text-wrap: balance;
     }
 
-    /* Results Banner */
-    .results-banner {
-        padding: 5rem 0;
-        border-bottom: 1px solid var(--line);
-        background: white;
-    }
-
-    .metrics-row {
-        display: flex;
-        justify-content: center;
-        gap: 4rem; 
-        flex-wrap: wrap;
+    /* --- STYLIZED TIMELINE --- */
+    .timeline-section { padding: 8rem 0; }
+    
+    .timeline {
+        position: relative;
         max-width: 1000px;
         margin: 0 auto;
     }
 
-    .metric-item { text-align: center; flex: 1 1 200px; }
-    .metric-value {
-        font-family: 'Playfair Display', serif;
-        font-size: 3rem; 
-        color: var(--ink);
-        line-height: 1;
-        margin-bottom: 0.75rem;
-        display: block;
-    }
-    .metric-value.highlight { color: var(--accent); }
-    .metric-label {
-        font-family: 'Inter', sans-serif;
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        letter-spacing: 0.15em;
-        font-weight: 500;
-        color: var(--neutral-600);
-        margin-top: 0.5rem;
-        display: block;
+    .timeline::after {
+        content: '';
+        position: absolute;
+        width: 2px;
+        background-color: var(--line);
+        top: 0;
+        bottom: 0;
+        left: 20px;
+        margin-left: -1px;
     }
 
-    /* Work Section */
-    .work-section { padding: 6rem 0; background: var(--paper); }
-    .work-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 5rem;
-        align-items: center;
-    }
-
-    .work-container.reverse { direction: rtl; }
-    .work-container.reverse .work-content { direction: ltr; }
-    
-    /* Visual Cards (Static, Luxe) */
-    .strategy-visual {
-        background: var(--bg-subtle);
-        border: 1px solid var(--line);
-        aspect-ratio: 4/3;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 3rem;
+    .timeline-item {
+        padding: 10px 40px;
         position: relative;
-        transition: border-color 0.5s ease;
+        background-color: inherit;
+        width: 100%;
+        margin-bottom: 60px;
     }
 
-    .strategy-visual:hover {
-        border-color: var(--accent-dim);
+    .timeline-item::after {
+        content: '';
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        right: -6px;
+        background-color: var(--paper);
+        border: 3px solid var(--accent);
+        top: 15px;
+        border-radius: 50%;
+        z-index: 1;
+        left: 14px;
     }
 
-    .strategy-visual::before {
-        content: ''; position: absolute; top: 1.5rem; left: 1.5rem; right: 1.5rem; bottom: 1.5rem;
-        border: 1px solid var(--accent); opacity: 0.1;
-        pointer-events: none;
+    .timeline-content {
+        padding: 0 20px;
+        position: relative;
     }
 
-    .sv-large { font-family: 'Playfair Display', serif; font-size: 5rem; color: var(--accent); line-height: 1; margin-bottom: 1rem; text-align: center;}
-    .sv-small { font-family: 'Inter', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--ink); text-align: center; }
-
-    /* Content Styling */
-    .work-content { padding: 1rem 0; }
-    .work-meta {
-        color: var(--neutral-600);
-        border-bottom: 1px solid var(--accent);
-        padding-bottom: 4px;
-        margin-bottom: 1.5rem;
-        display: inline-block;
-        font-family: 'Inter', sans-serif;
+    .timeline-date {
+        font-weight: 800;
         font-size: 0.75rem;
+        color: var(--neutral-600);
+        margin-bottom: 0.5rem;
+        display: block;
         text-transform: uppercase;
-        letter-spacing: 0.2em;
-        font-weight: 600;
+        letter-spacing: 0.1em;
     }
 
-    .work-quote {
-        font-family: 'Playfair Display', serif;
-        font-style: italic;
-        font-size: 1.35rem;
+    .timeline-impact {
+        font-size: 2.5rem;
+        font-weight: 900;
+        color: var(--accent);
+        letter-spacing: -0.04em;
+        line-height: 1;
+        margin-bottom: 0.5rem;
+        display: block;
+    }
+
+    .timeline-heading {
+        font-size: 1.5rem;
+        font-weight: 800;
         color: var(--ink);
-        margin: 0 0 2rem;
-        line-height: 1.4;
+        margin-bottom: 0.25rem;
     }
 
-    /* Case Study Block */
-    .case-study-block {
-        margin-top: 2.5rem;
-        padding-left: 2rem;
-        border-left: 2px solid var(--line);
+    .timeline-subhead {
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: var(--neutral-600);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 1.5rem;
+        display: block;
     }
 
-    .cs-grid { display: grid; gap: 2rem; }
-    .cs-item { position: relative; }
-    .cs-label {
-        font-family: 'Inter', sans-serif; 
-        font-size: 0.7rem;
+    .timeline-body {
+        font-size: 1rem;
+        color: var(--charcoal);
+        max-width: 700px;
+    }
+
+    .timeline-body ul { list-style: none; }
+    .timeline-body li {
+        margin-bottom: 0.75rem;
+        padding-left: 1.5rem;
+        position: relative;
+    }
+
+    .timeline-body li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0.65rem;
+        width: 6px;
+        height: 6px;
+        background-color: var(--accent-pink);
+        border-radius: 50%;
+    }
+
+    /* --- IPHONE PREVIEW --- */
+    .timeline-visual {
+        margin-top: 2rem;
+        max-width: 280px; 
+    }
+    .iphone-bezel {
+        background: #1a1a1a;
+        border-radius: 36px;
+        padding: 10px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        aspect-ratio: 9/19; 
+        overflow: hidden;
+        position: relative;
+        border: 1px solid rgba(255,255,255,0.1);
+    }
+    .iphone-screen { 
+        width: 100%; 
+        height: 100%; 
+        background: #fff; 
+        border-radius: 28px; 
+        overflow: hidden; 
+        position: relative; 
+    }
+    .iphone-bezel::before {
+        content: '';
+        position: absolute;
+        top: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 18px;
+        background: #1a1a1a;
+        border-radius: 20px;
+        z-index: 10;
+    }
+    .iphone-scroll { 
+        position: absolute; 
+        width: 100%; 
+        transition: transform 7s cubic-bezier(0.45, 0.05, 0.55, 0.95); 
+    }
+    .iphone-bezel:hover .iphone-scroll { 
+        transform: translateY(calc(-100% + 500px)); 
+    }
+    .prev-img { width: 100%; display: block; }
+    
+    .visual-caption {
+        margin-top: 1.25rem;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: var(--accent-pink);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        text-align: center;
+        text-wrap: balance;
+    }
+
+    /* --- MARTECH ECOSYSTEM --- */
+    .tech-stack { padding: 8rem 0; background: #000; color: #fff; }
+    .tech-stack h2 { 
+        color: var(--accent-pink); 
+        font-size: 3rem; 
+        font-weight: 900; 
+        margin-bottom: 4rem; 
+        letter-spacing: -0.04em;
+    }
+    .tech-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 3rem;
+    }
+    .tech-col h4 { 
+        font-size: 0.75rem; 
+        font-weight: 800; 
+        text-transform: uppercase; 
+        color: #fff; 
+        margin-bottom: 1.5rem; 
+        letter-spacing: 0.15em;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+    .tech-list { list-style: none; font-size: 0.9rem; color: #bbb; }
+    .tech-list li { margin-bottom: 0.75rem; font-weight: 500; }
+    .tech-micro-case {
+        display: block;
+        font-size: 0.75rem;
+        color: var(--accent-pink);
+        margin-top: 0.25rem;
+        font-weight: 700;
+        line-height: 1.3;
+    }
+
+    /* --- FOOTER --- */
+    footer { 
+        background: #000; 
+        color: #fff; 
+        padding: 6rem 0 4rem; 
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .footer-top {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 4rem;
+        padding-bottom: 4rem;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        margin-bottom: 3rem;
+    }
+    .footer-brand .logo { color: #fff; font-size: 1.5rem; margin-bottom: 0.5rem; display: block; }
+    .footer-brand p { font-size: 0.85rem; color: #888; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; }
+    
+    .footer-col-title { 
+        font-size: 0.7rem; 
         text-transform: uppercase; 
         letter-spacing: 0.2em; 
-        color: var(--accent); 
-        margin-bottom: 0.5rem; 
+        color: var(--accent-pink); 
+        font-weight: 800; 
+        margin-bottom: 1.5rem; 
         display: block;
+    }
+    .footer-list { list-style: none; }
+    .footer-list li { margin-bottom: 0.75rem; }
+    .footer-link { 
+        color: #bbb; 
+        text-decoration: none; 
+        font-size: 0.9rem; 
+        font-weight: 500; 
+        transition: color 0.2s; 
+    }
+    .footer-link:hover { color: #fff; }
+
+    .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.7rem;
+        color: #555;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
         font-weight: 700;
     }
-    .cs-text {
-        font-family: 'Inter', sans-serif; 
-        font-size: 0.95rem; 
-        color: var(--charcoal); 
-        line-height: 1.6;
-    }
+    .back-to-top { color: #888; text-decoration: none; border-bottom: 1px solid #333; padding-bottom: 2px; }
+    .back-to-top:hover { color: #fff; border-color: #fff; }
 
-    /* Brands */
-    .brands { padding: 5rem 0; border-top: 1px solid var(--line); }
-    .brand-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 3rem 5rem; max-width: 1000px; margin: 0 auto; }
-    .brand-item {
-      font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--neutral-600); cursor: default;
-      transition: all 0.5s ease; opacity: 0.5;
-    }
-    .brand-item:hover { color: var(--accent); opacity: 1; transform: translateY(-5px); }
-
-    /* About Section */
-    .about { padding: 8rem 0; background: var(--bg-subtle); border-top: 1px solid var(--line); }
-    
-    .bra-quote-hero {
-      font-family: 'Playfair Display', serif; font-style: italic; font-size: 3.5rem;
-      color: var(--accent); margin: 6rem auto 0; line-height: 1.1; max-width: 900px; text-align: center;
-    }
-
-    /* Capabilities Grid - Enforce Evenness */
-    .capabilities-grid {
+    /* --- REFINED SYMMETRY LOGIC --- */
+    .academic-grid {
         display: grid;
-        gap: 3rem;
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+    }
+    .edu-card {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+    .edu-header {
+        min-height: 90px; /* Condensed header footprint */
+    }
+    .edu-blurb {
+        margin-top: 0.75rem; /* Reduced space between title and text */
+        font-size: 0.9rem;
+        color: #555;
+        line-height: 1.6;
+        border-left: 2px solid var(--accent-pink);
+        padding-left: 1.5rem;
+        text-align: justify;
+        hyphens: auto;
+        min-height: 80px; /* Condensed blurb footprint */
+        text-wrap: balance;
+    }
+    .edu-year {
+        margin-top: auto; 
+        padding-top: 0.75rem; /* Reduced space before year */
+        font-size: 0.85rem;
+        font-weight: 800;
+        color: #888;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
     }
 
-    @media (min-width: 600px) {
-        .capabilities-grid {
-            grid-template-columns: repeat(2, 1fr); /* 2x2 Layout */
-        }
-    }
-
-    @media (min-width: 1100px) {
-        .capabilities-grid {
-            grid-template-columns: repeat(4, 1fr); /* 4 in a row */
-        }
-    }
-
-    /* Contact & Social */
-    .contact { padding: 6rem 0 4rem; text-align: center; background: white; border-top: 1px solid var(--line); }
-    .star-decoration { font-size: 1.5rem; color: var(--accent); margin-bottom: 2rem; display: block; }
-    
-    .social-links { display: flex; justify-content: center; gap: 2rem; margin-top: 3rem; }
-    .social-link {
-        color: var(--ink); font-size: 1.2rem; transition: all 0.3s; opacity: 0.6; text-decoration: none;
-    }
-    .social-link:hover { color: var(--accent); opacity: 1; transform: translateY(-3px); }
-
-    /* Footer */
-    footer {
-        background: var(--paper); border-top: 1px solid var(--line); padding: 3rem 0; text-align: center;
-    }
-    .footer-text { color: var(--neutral-600); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; }
-
-    /* Subtle Entry Animation */
-    .fade-in {
-        opacity: 0; 
-        transform: translateY(20px);
-        transition: opacity 1s ease-out, transform 1s ease-out;
-    }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-    /* Mobile */
-    .mobile-menu-btn { display: none; background:none; border:none; font-size:1.5rem; cursor: pointer; color: var(--ink); }
-    .mobile-menu { display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: white; z-index: 2000; padding-top: 5rem; }
-    .close-menu { background: none; border: none; font-size: 2rem; color: var(--ink); cursor: pointer; position: absolute; top: 2rem; right: 2rem; }
-    .mobile-nav-links { display: flex; flex-direction: column; align-items: center; gap: 2rem; }
-    .mobile-nav-link { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--ink); text-decoration: none; }
-
-    @media (max-width: 768px) {
-      .container { padding: 0 1.5rem; }
-      .nav-links { display: none; }
-      .mobile-menu-btn { display: block; }
-      .hero { padding: 8rem 0; height: auto; min-height: 80vh; }
-      .hero h1 { font-size: 3rem; }
-      .method-grid { grid-template-columns: 1fr; }
-      .method-step { border-right: none; border-bottom: 1px solid var(--line); }
-      .work-container, .work-container.reverse { grid-template-columns: 1fr; direction: ltr; gap: 3rem; }
-      .work-content { direction: ltr; }
-      .bra-quote-hero { font-size: 2.5rem; margin: 4rem auto 0; }
+    @media (max-width: 900px) {
+        .about-grid, .academic-grid { grid-template-columns: 1fr; gap: 3rem; }
+        .expertise-grid { grid-template-columns: 1fr; }
+        .dash-grid, .tech-grid { grid-template-columns: 1fr; }
+        .footer-top { grid-template-columns: 1fr; gap: 3rem; }
+        .nav-links { display: none; }
+        .edu-header, .edu-blurb { min-height: auto; text-align: left; }
+        .brand-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
     }
   </style>
 </head>
 <body>
-  
+
   <header>
     <div class="container">
       <nav>
-        <a href="#" class="logo">Marla Harris</a>
+        <a href="index.html" class="logo">Marla Harris</a>
         <div class="nav-links">
-          <a href="#" class="nav-link" style="color: var(--accent);">Home</a>
-          <a href="creative.html" class="nav-link">Creative & Copy</a>
-          <a href="#about" class="nav-link">About</a>
-          <a href="#contact" class="nav-link">Contact</a>
+          <a href="#about" class="nav-link">Perspective</a>
+          <a href="#experience" class="nav-link">Experience</a>
+          <a href="#tech" class="nav-link">Systems</a>
+          <a href="mailto:va.mvharris@gmail.com" class="nav-link">Contact Me</a>
+          <a href="https://drive.google.com/uc?export=download&id=1zpS4LUS2TSw32w5XmqTEnNl8OKiDuut-" class="nav-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-pdf"></i> Download Resume</a>
         </div>
-        <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
       </nav>
-    </div>
-    <div class="mobile-menu">
-        <button class="close-menu"><i class="fas fa-times"></i></button>
-        <div class="mobile-nav-links">
-            <a href="#" class="mobile-nav-link" style="color: var(--accent);">Home</a>
-            <a href="creative.html" class="mobile-nav-link">Creative & Copy</a>
-            <a href="#about" class="mobile-nav-link">About</a>
-            <a href="#contact" class="mobile-nav-link">Contact</a>
-        </div>
     </div>
   </header>
 
-  <section class="hero" id="home">
+  <section class="hero">
     <div class="container hero-content">
-      <span class="hero-sub meta">// Marketing & Strategy</span>
-      <h1>Data-Driven Storyteller</h1>
-      <p>I learned the how and why behind why people buy in fitting rooms. Now I find those stories in your data.</p>
+      <span class="section-label">Senior Manager, Subscription & Lifecycle Marketing</span>
+      <h1 class="hero-title">I Turn Subscriber Data Into Loyalty & Revenue</h1>
+      <p>I pair rigorous analysis with customer-first thinking for premium and lifestyle brands like Rolling Stone, Samsung, and Issey Miyake to move people from a single click to a lasting relationship.</p>
       
-      <div class="btn-group">
-        <a href="#work" class="btn btn-primary">View Work</a>
-        <a href="creative.html" class="btn btn-secondary">Creative Portfolio</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="results-banner fade-in">
-    <div class="container">
-      <div class="metrics-row">
-        <div class="metric-item">
-          <span class="metric-value" data-target="49.5" data-suffix="M+">0M+</span>
-          <span class="metric-label">Total Sent</span>
-        </div>
-        <div class="metric-item">
-          <span class="metric-value" data-target="20.9" data-suffix="%">0%</span>
-          <span class="metric-label">Avg. Open Rate</span>
-        </div>
-        <div class="metric-item">
-          <span class="metric-value" data-target="80" data-suffix="k+">0k+</span>
-          <span class="metric-label">Unique Clicks</span>
-        </div>
-        <div class="metric-item">
-          <span class="metric-value highlight" data-target="120" data-prefix="$" data-suffix="k+">$0k+</span>
-          <span class="metric-label">Revenue Generated</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="methodology" class="methodology-section fade-in">
-    <div class="container">
-      <div class="method-grid">
-        <div class="method-step">
-          <span class="method-num">01.</span>
-          <h3 class="method-title">Operational Infrastructure</h3>
-          <p class="method-desc">I build scalable systems that organize complexity. From messy spreadsheets to creative workflows, I create the structures that allow creativity to function efficiently.</p>
-        </div>
-        
-        <div class="method-step">
-          <span class="method-num">02.</span>
-          <h3 class="method-title">Pattern Recognition</h3>
-          <p class="method-desc">Leveraging historical data and consumer insights, I identify the hidden trends that drive real behavior. It’s not psychic ability—it’s just good data.</p>
-        </div>
-        
-        <div class="method-step">
-          <span class="method-num">03.</span>
-          <h3 class="method-title">Performance Optimization</h3>
-          <p class="method-desc">I focus on refining and optimizing every touchpoint. My goal is turning ambitious concepts into launched digital products and consistent YoY growth.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="work" class="work-section">
-    <div class="container work-grid">
-      
-      <div class="work-container fade-in">
-        <div class="strategy-visual">
-             <div class="sv-large">2.5M</div>
-             <div class="sv-small">Subscribers Managed</div>
-        </div>
-        <div class="work-content">
-            <span class="work-meta">Subscription Marketing</span>
-            <h2>Penske Media Corporation</h2>
-            <p class="work-quote">"Directed subscription strategy and product development for a portfolio of iconic media brands (Rolling Stone, Billboard, WWD)."</p>
-            
-            <div class="case-study-block">
-                <div class="cs-grid">
-                    <div class="cs-item">
-                        <span class="cs-label">The Role</span>
-                        <p class="cs-text">Owned the end-to-end audience engagement roadmap, leveraging data-driven strategies to grow subscriber loyalty and lifetime value. Scaled high-impact promotional frameworks and balanced creative vision with performance goals across multi-channel campaigns.</p>
-                    </div>
-                    <div class="cs-item">
-                        <span class="cs-label">The Tech</span>
-                        <p class="cs-text">Salesforce Marketing Cloud, Journey Architecture, Copywriting.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+      <div class="contact-cta">
+        <a href="mailto:va.mvharris@gmail.com" class="btn-main">Contact Me</a>
+        <a href="https://drive.google.com/uc?export=download&id=1zpS4LUS2TSw32w5XmqTEnNl8OKiDuut-" class="btn-outline" target="_blank" rel="noopener noreferrer"><i class="fas fa-download"></i> Download Resume</a>
+        <a href="https://www.linkedin.com/in/marlavharris/" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fab fa-linkedin-in"></i></a>
       </div>
 
-      <div class="work-container reverse fade-in">
-        <div class="strategy-visual">
-             <div class="sv-large">59%</div>
-             <div class="sv-small">Of All Web Sales</div>
-        </div>
-        <div class="work-content">
-            <span class="work-meta">Growth Marketing</span>
-            <h2>Museum of Sex</h2>
-            <p class="work-quote">"Navigated strict industry regulations to drive growth through compliant paid acquisition and strategic retention."</p>
-            
-            <div class="case-study-block">
-                <div class="cs-grid">
-                    <div class="cs-item">
-                        <span class="cs-label">The Role</span>
-                        <p class="cs-text">Growth Marketing & Paid Ads. Overcoming advertising bans by building high-intent, compliant funnels.</p>
-                    </div>
-                    <div class="cs-item">
-                        <span class="cs-label">The Tech</span>
-                        <p class="cs-text">Paid Media Strategy, Regulatory Compliance, DTC Revenue Strategy.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div>
-
-      <div class="work-container fade-in">
-        <div class="strategy-visual">
-             <div class="sv-large">+14%</div>
-             <div class="sv-small">YoY Conversions</div>
-        </div>
-        <div class="work-content">
-            <span class="work-meta">E-Commerce Management</span>
-            <h2>Bao Bao Issey Miyake</h2>
-            <p class="work-quote">"Mixing technical backend operations with high-fashion marketing strategy."</p>
-            
-            <div class="case-study-block">
-                <div class="cs-grid">
-                    <div class="cs-item">
-                        <span class="cs-label">The Role</span>
-                        <p class="cs-text">Managing the full stack: from ERP integrations and inventory to email creative and A/B testing.</p>
-                    </div>
-                    <div class="cs-item">
-                        <span class="cs-label">The Tech</span>
-                        <p class="cs-text">Shopify Plus, ERP Integration, Klaviyo, Technical CRM.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="brands" class="brands">
-    <div class="container">
-      <div class="brand-grid">
-        <div class="brand-item">Rolling Stone</div>
-        <div class="brand-item">Billboard</div>
-        <div class="brand-item">Women's Wear Daily</div>
-        <div class="brand-item">Bao Bao Issey Miyake</div>
-        <div class="brand-item">AJ Madison</div>
-        <div class="brand-item">Museum of Sex</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="about" class="about fade-in">
-    <div class="container">
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4rem;">
-        
-        <!-- COLUMN 1: BIO -->
-        <div>
-          <span class="meta" style="color: var(--accent); margin-bottom: 1rem;">// The Story</span>
-          <h2 style="margin-bottom: 2rem;">From Bra Fitter to Data Leader</h2>
-          
-          <p style="font-size: 1.1rem; color: var(--ink); margin-bottom: 1.5rem; line-height: 1.6;">
-            Former bra fitter with a psychic‑like ability to predict trends. Just kidding, it’s all in the data.
-          </p>
-
-          <p style="color: var(--charcoal); margin-bottom: 1.5rem;">
-            I’m an ex–fashion design student turned luxury marketer obsessed with making everything look more expensive—even a $5.99 subscription. The philosophy is simple: <strong>"If I can sell a $300 bra, I can sell anything."</strong>
-          </p>
-          
-          <p style="color: var(--charcoal); margin-bottom: 1.5rem;">
-             For 8+ years, I’ve worked at the intersection of product, marketing, and technology, turning messy spreadsheets and marketing tech into strategies that drive 17% YoY revenue growth.
-          </p>
-
-          <p style="color: var(--neutral-600); margin-bottom: 1.5rem;">
-             Now? I’m pivoting. I went back to school for my Master’s in Public Administration to combine analytics, storytelling, and marketing in ways that strengthen the relationship between audiences and businesses.
-          </p>
-        </div>
-
-        <!-- COLUMN 2: PHILOSOPHY & CURRENT -->
-        <div style="display: flex; flex-direction: column; justify-content: flex-start; padding-top: 1rem;">
-          <blockquote style="border-left: 2px solid var(--accent); padding-left: 2rem; margin: 0 0 3rem 0;">
-            <p style="font-family: 'Playfair Display', serif; font-size: 1.3rem; line-height: 1.5; color: var(--ink); margin-bottom: 1rem;">
-              "Making money and taking care of communities aren’t contradictions. The competition isn’t my colleagues—it’s creating engaging content that sells."
-            </p>
-          </blockquote>
-          
-          <div style="background: white; padding: 2rem; border: 1px solid var(--line);">
-             <span class="meta" style="color: var(--accent); margin-bottom: 1rem;">// What I'm Up To</span>
-             <ul style="list-style: none; margin-top: 1rem;">
-                 <li style="margin-bottom: 1rem; font-size: 0.9rem; color: var(--charcoal);">
-                    <strong style="color: var(--ink);">The Tech:</strong> Exploring "vibe coding" (which built this site), freelancing for an AI-driven search engine for sewists, and finally coming for SQL.
-                 </li>
-                 <li style="margin-bottom: 1rem; font-size: 0.9rem; color: var(--charcoal);">
-                    <strong style="color: var(--ink);">The Master's:</strong> Deep into MPA coursework on Communication Strategy, Marketing for Good, and AI Regulation.
-                 </li>
-                 <li style="font-size: 0.9rem; color: var(--charcoal);">
-                    <strong style="color: var(--ink);">The Life:</strong> Crochet, vinyls, and hanging out with my dog, Edgar Allan Pittie.
-                 </li>
-             </ul>
+      <div class="brand-bar">
+          <span class="brand-bar-label">Featured in campaigns for</span>
+          <div class="brand-grid">
+              <span class="brand-name">Rolling Stone</span>
+              <span class="brand-name">Billboard</span>
+              <span class="brand-name">Women's Wear Daily</span>
+              <span class="brand-name">Issey Miyake</span>
+              <span class="brand-name">Samsung</span>
+              <span class="brand-name">True Refrigeration</span>
+              <span class="brand-name">Sub Zero / Wolf</span>
+              <span class="brand-name">Viking</span>
+              <span class="brand-name">LG</span>
+              <span class="brand-name">GE</span>
           </div>
-        </div>
       </div>
-
-      <!-- SKILLS SECTION -->
-      <div style="margin-top: 6rem; border-top: 1px solid var(--line); padding-top: 4rem;">
-        <span class="meta" style="color: var(--accent); margin-bottom: 2rem; display: block;">// Capabilities & Expertise</span>
-        
-        <div class="capabilities-grid">
-            
-            <!-- Skill Group 1 -->
-            <div>
-                <h4 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; margin-bottom: 1rem; color: var(--ink);">Storytelling & Content</h4>
-                <p style="font-size: 0.9rem; color: var(--charcoal); line-height: 1.6;">
-                    Storytelling that sells without sounding like marketing. Opinionated copywriting, multi-channel content strategy (email, SMS, social), and brand voice development.
-                </p>
-            </div>
-
-            <!-- Skill Group 2 -->
-            <div>
-                <h4 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; margin-bottom: 1rem; color: var(--ink);">Analytics & Data</h4>
-                <p style="font-size: 0.9rem; color: var(--charcoal); line-height: 1.6;">
-                    Customer psychology, data-backed insights, A/B & multivariate testing, market research, and transforming user experiences.
-                </p>
-            </div>
-
-            <!-- Skill Group 3 -->
-            <div>
-                <h4 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; margin-bottom: 1rem; color: var(--ink);">Brand & Marketing</h4>
-                <p style="font-size: 0.9rem; color: var(--charcoal); line-height: 1.6;">
-                    Luxury branding, value-based messaging, campaign planning, email flows that convert, e-commerce strategy, and merchandising.
-                </p>
-            </div>
-
-            <!-- Skill Group 4 -->
-            <div>
-                <h4 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; margin-bottom: 1rem; color: var(--ink);">Collaboration & Strategy</h4>
-                <p style="font-size: 0.9rem; color: var(--charcoal); line-height: 1.6;">
-                    Community-centered thinking (e.g., AJ Madison community fridge), corporate responsibility frameworks, and cross-functional problem solving.
-                </p>
-            </div>
-            
-        </div>
-      </div>
-
     </div>
   </section>
 
-  <section id="contact" class="contact fade-in">
+  <div class="dashboard">
+    <div class="container dash-grid">
+        <div class="dash-item">
+            <span class="dash-val" data-target="17" data-format="% YoY">0</span>
+            <span class="dash-label">Subscriber Growth</span>
+        </div>
+        <div class="dash-item">
+            <span class="dash-val" data-target="20.95" data-format="%">0</span>
+            <span class="dash-label">Avg. Open Rate (vs. 18.5% industry avg.)</span>
+        </div>
+        <div class="dash-item">
+            <span class="dash-val" data-target="18" data-format="%">0</span>
+            <span class="dash-label">Lower Cost Per Action</span>
+        </div>
+        <div class="dash-item highlight">
+            <span class="dash-val" data-target="500" data-format="$K+" style="color:var(--accent)">0</span>
+            <span class="dash-label">Revenue Growth from Lifecycle Optimization</span>
+        </div>
+    </div>
+    <div class="dash-attribution">
+        These metrics reflect end-to-end ownership of lifecycle strategy, segmentation, and execution—not team or company averages. I directly managed the programs that drove these results.
+    </div>
+  </div>
+
+  <section id="about" class="about-section">
     <div class="container">
-      <span class="star-decoration">✦</span>
-      <h2>Let's Get To Work</h2>
-      <div class="btn-group" style="margin-top: 3rem;">
-        <a href="mailto:va.mvharris@gmail.com" class="btn btn-primary">Get in Touch</a>
-      </div>
-      
-      <div class="social-links">
-        <a href="https://www.linkedin.com/in/marlavharris/" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-        <a href="https://www.instagram.com/marlavharris/" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-        <a href="mailto:va.mvharris@gmail.com" class="social-link"><i class="far fa-envelope"></i></a>
-      </div>
+        <span class="section-label">Perspective</span>
+        <div class="about-grid">
+            <div class="about-philosophy">
+                <h2>Finding the Story in the Data</h2>
+                <p>I look for the people behind the numbers, <span>decoding customer behavior</span> and translating those insights into better ways to stay connected. I built and owned reporting that revealed exactly why people were staying or leaving—directly informing how we spoke to them.</p>
+                
+                <div class="strategic-advantage">
+                    <strong>Strategic Advantage</strong>
+                    My background in Public Policy trains me to analyze complex situations and tell clear stories—the exact skills needed to build trust with customers.
+                </div>
+            </div>
+            
+            <div class="programs-card">
+                <h4>Customer Journeys Grew</h4>
+                <ul class="programs-list">
+                    <li>Onboarding & Welcome Journeys</li>
+                    <li>Staying Relevant & Habit Formation</li>
+                    <li>Keeping Customers Coming Back</li>
+                    <li>Reconnecting with Former Customers</li>
+                    <li>Long-Term Purchase Support (6–18m)</li>
+                    <li>Helpful Cross-Sells & Recommendations</li>
+                    <li>Loyalty & Relationship Building</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <section class="expertise-section">
+    <div class="container">
+        <div class="expertise-grid">
+            <div class="expertise-item">
+                <h4>Understanding Customer Behavior</h4>
+                <p>Decoding customer actions to decide the best timing and message for every interaction, ensuring we never reach out without a reason.</p>
+            </div>
+            <div class="expertise-item">
+                <h4>Turning Data into Decisions</h4>
+                <p>Led and mentored a 5-person team while remaining hands-on in the data to ensure every decision was backed by what customers actually did.</p>
+            </div>
+            <div class="expertise-item">
+                <h4>Earning Customer Trust</h4>
+                <p>Ensuring the brand always feels premium and helpful, meeting high standards of quality without sacrificing performance.</p>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <section id="experience" class="timeline-section">
+    <div class="container">
+        <span class="section-label">Impact Milestones</span>
+        <div class="timeline">
+            
+            <!-- PENSKE -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-date">2022 — 2024</span>
+                    <span class="timeline-impact">17% YoY Sales Increase</span>
+                    <h3 class="timeline-heading">Penske Media Corp.</h3>
+                    <span class="timeline-subhead">Digital & Subscription Marketing Manager</span>
+                    <div class="timeline-body">
+                        <ul>
+                            <li>Recognized when subscribers were losing interest; built a re-engagement series that successfully brought back 15% of that group.</li>
+                            <li>Created helpful playbooks for Rolling Stone and Women's Wear Daily that balanced reaching revenue goals with keeping the audience happy.</li>
+                            <li>Personalized messages for a 4M+ audience, making every interaction feel more relevant and less transactional.</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-visual">
+                        <div class="iphone-bezel">
+                            <div class="iphone-screen">
+                                <div class="iphone-scroll">
+                                    <img src="HALSEY%20-%20BB%20BAU%20(2)%20(3).gif" class="prev-img" alt="Rolling Stone Campaign" onerror="this.style.display='none';">
+                                    <img src="wwd-met-gala-marlaharris-portfolio.png" class="prev-img" alt="Women's Wear Daily Met Gala Campaign" onerror="this.style.display='none';">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="visual-caption">Driving 17% YoY growth via personalized messaging</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AJ MADISON -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-date">2018 — 2022</span>
+                    <span class="timeline-impact">18% Lower CPA</span>
+                    <h3 class="timeline-heading">AJ Madison</h3>
+                    <span class="timeline-subhead">Marketing Operations & Lifecycle Manager</span>
+                    <div class="timeline-body">
+                        <ul>
+                            <li>Respected the customer’s timeline by supporting 6–18 month purchase windows instead of just pushing short-term sales.</li>
+                            <li>Built the first helpful program for trade professionals to improve outreach and long-term relationships with builders.</li>
+                            <li>Made updates via SMS and email that removed friction for customers after they made a purchase.</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-visual">
+                        <div class="iphone-bezel">
+                            <div class="iphone-screen">
+                                <div class="iphone-scroll">
+                                    <img src="Screenshot%202025-10-30%20224348.png" class="prev-img" alt="AJ Madison Performance" onerror="this.style.display='none';">
+                                    <img src="Screenshot%202025-10-30%20224357.png" class="prev-img" alt="AJ Madison Results" onerror="this.style.display='none';">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="visual-caption">Supporting 6–18 month purchase journeys</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WARP + WEFT -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-date">2017 — 2018</span>
+                    <span class="timeline-impact">ROI Increased by 108%</span>
+                    <h3 class="timeline-heading">Warp + Weft</h3>
+                    <span class="timeline-subhead">E-Commerce & Community Manager</span>
+                    <div class="timeline-body">
+                        <ul>
+                            <li>Improved performance by ensuring the way we welcomed people matched the way we helped them stay.</li>
+                            <li>Made the online shopping experience clearer and easier to use, which naturally increased sales.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ISSEY MIYAKE -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-date">2015 — 2017</span>
+                    <span class="timeline-impact">14% YoY Revenue Increase</span>
+                    <h3 class="timeline-heading">Issey Miyake USA</h3>
+                    <span class="timeline-subhead">E-Commerce Strategist & Manager</span>
+                    <div class="timeline-body">
+                        <ul>
+                            <li>Introduced a more personalized way to communicate with luxury customers in the US market.</li>
+                            <li>Ensured the online experience felt as high-end and thoughtful as the brand itself.</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-visual">
+                        <div class="iphone-bezel">
+                            <div class="iphone-screen">
+                                <div class="iphone-scroll">
+                                    <img src="bao_bao_email_1.jpg" class="prev-img" alt="Bao Bao Email 1" onerror="this.style.display='none';">
+                                    <img src="bao_bao_email_SS17.jpg" class="prev-img" alt="Bao Bao Campaign" onerror="this.style.display='none';">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="visual-caption">Aligning digital journeys with luxury standards</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+  </section>
+
+  <section id="tech" class="tech-stack">
+    <div class="container">
+        <h2>MarTech Ecosystem</h2>
+        <div class="tech-grid">
+            <div class="tech-col">
+                <h4>Customer Experience</h4>
+                <ul class="tech-list">
+                    <li>Salesforce Marketing Cloud</li>
+                    <li>Klaviyo / Piano <span class="tech-micro-case">Earning 17% YoY subscriber growth</span></li>
+                    <li>Listrak / SMS Support</li>
+                </ul>
+            </div>
+            <div class="tech-col">
+                <h4>Analytics</h4>
+                <ul class="tech-list">
+                    <li>GA4 / Looker <span class="tech-micro-case">Revealing stories that improved the journey</span></li>
+                    <li>Power BI / Excel (Adv)</li>
+                    <li>SQL for Cohort Analysis</li>
+                </ul>
+            </div>
+            <div class="tech-col">
+                <h4>Commerce / Web</h4>
+                <ul class="tech-list">
+                    <li>Shopify / Magento</li>
+                    <li>NetSuite / Drupal</li>
+                    <li>Checkout Flow Optimization</li>
+                </ul>
+            </div>
+            <div class="tech-col">
+                <h4>Operations</h4>
+                <ul class="tech-list">
+                    <li>Adobe Creative Suite</li>
+                    <li>HTML/CSS Foundations</li>
+                    <li>Jira / Monday</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <section style="padding: 6rem 0; border-top: 1px solid var(--line);">
+    <div class="container">
+        <span class="section-label">Academic Background</span>
+        <div class="academic-grid">
+            <!-- BARUCH -->
+            <div class="edu-card">
+                <div class="edu-header">
+                    <h3>Baruch College</h3>
+                    <p style="font-size: 0.85rem; font-weight: 800; color: var(--accent); text-transform: uppercase; margin-bottom: 0.4rem;">Marxe School of Public Affairs</p>
+                    <p style="font-size: 0.95rem; color: var(--ink); font-weight: 700; line-height: 1.3;">MPA & Bachelor of Public Affairs</p>
+                </div>
+                <div class="edu-blurb">
+                    Training in public policy analysis provides a rigorous framework to navigate complex data sets—building trust through clear, customer-first communication.
+                </div>
+                <div class="edu-year">Expected 2027</div>
+            </div>
+
+            <!-- AI -->
+            <div class="edu-card">
+                <div class="edu-header">
+                    <h3>Art Institute of NY</h3>
+                    <p style="font-size: 0.85rem; font-weight: 800; color: var(--accent); text-transform: uppercase; margin-bottom: 0.4rem;">Associate of Applied Science</p>
+                    <p style="font-size: 0.95rem; color: var(--ink); font-weight: 700; line-height: 1.3;">Fashion Design & Merchandising</p>
+                </div>
+                <div class="edu-blurb">
+                    Trained in visual aesthetics informing my insistence on brand integrity—ensuring high performance never comes at the cost of premium presentation.
+                </div>
+                <div class="edu-year">Class of 2009</div>
+            </div>
+        </div>
     </div>
   </section>
 
   <footer>
     <div class="container">
-        <p class="footer-text">&copy; 2025 Marla Harris. All Rights Reserved.</p>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="logo">Marla Harris</span>
+          <p>Senior Manager, Subscription & Lifecycle Marketing</p>
+        </div>
+        <div>
+          <span class="footer-col-title">Navigation</span>
+          <ul class="footer-list">
+            <li><a href="#about" class="footer-link">Perspective</a></li>
+            <li><a href="#experience" class="footer-link">Impact Milestones</a></li>
+            <li><a href="#tech" class="footer-link">MarTech Ecosystem</a></li>
+          </ul>
+        </div>
+        <div>
+          <span class="footer-col-title">Connect</span>
+          <ul class="footer-list">
+            <li><a href="https://www.linkedin.com/in/marlavharris/" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a></li>
+            <li><a href="mailto:va.mvharris@gmail.com" class="footer-link">Email Inquiries</a></li>
+            <li><a href="https://drive.google.com/uc?export=download&id=1zpS4LUS2TSw32w5XmqTEnNl8OKiDuut-" class="footer-link" target="_blank" rel="noopener noreferrer">Download Resume</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div>© 2025 MARLA HARRIS // NEW YORK, NY</div>
+        <div style="display: flex; gap: 1.5rem; align-items: center;">
+          <a href="https://www.linkedin.com/in/marlavharris/" target="_blank" rel="noopener noreferrer" style="color:var(--accent); font-size: 1.25rem; text-decoration: none;"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="back-to-top">Back to Top</a>
+        </div>
+      </div>
     </div>
   </footer>
 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // Sticky Header
-        const header = document.querySelector('header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
+    function animateValue(obj, start, end, duration, format) {
+        let startTimestamp = null;
+        const precision = (end.toString().split('.')[1] || []).length;
+        
+        const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            const current = (progress * (end - start) + start).toFixed(precision);
+            
+            let val = current;
+            if (format.includes('% YoY')) val += '% YoY';
+            else if (format.includes('%')) val += '%';
+            if (format.includes('$')) val = '$' + val;
+            if (format.includes('k+')) val += 'k+';
+            if (format.includes('K+')) val += 'K+';
+            
+            obj.innerHTML = val;
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            }
+        };
+        window.requestAnimationFrame(step);
+    }
+
+    const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const target = parseFloat(entry.target.getAttribute('data-target'));
+                const format = entry.target.getAttribute('data-format');
+                animateValue(entry.target, 0, target, 2000, format);
+                statsObserver.unobserve(entry.target);
             }
         });
+    }, { threshold: 0.5 });
 
-        // Mobile Menu
-        const mobileBtn = document.querySelector('.mobile-menu-btn');
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const closeBtn = document.querySelector('.close-menu');
-        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
-
-        if(mobileBtn) {
-            mobileBtn.addEventListener('click', () => {
-                mobileMenu.style.display = 'block';
-            });
-        }
-        
-        if(closeBtn) {
-            closeBtn.addEventListener('click', () => {
-                mobileMenu.style.display = 'none';
-            });
-        }
-
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.style.display = 'none';
-            });
-        });
-        
-        // Scroll Animations (Simple Fade In Only)
-        const observerOptions = {
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        const hiddenElements = document.querySelectorAll('.fade-in, .method-step');
-        hiddenElements.forEach((el) => observer.observe(el));
-
-        // Counting Animation
-        const countUpObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const counters = entry.target.querySelectorAll('.metric-value');
-                    counters.forEach(counter => {
-                        const target = parseFloat(counter.getAttribute('data-target'));
-                        const suffix = counter.getAttribute('data-suffix') || '';
-                        const prefix = counter.getAttribute('data-prefix') || '';
-                        const duration = 2000; // ms
-                        const start = 0;
-                        const startTime = performance.now();
-                        
-                        function updateCount(currentTime) {
-                            const elapsed = currentTime - startTime;
-                            const progress = Math.min(elapsed / duration, 1);
-                            
-                            // Ease out quart
-                            const ease = 1 - Math.pow(1 - progress, 4);
-                            
-                            const current = start + (target - start) * ease;
-                            
-                            // Determine decimals based on target (if integer, 0, else 1)
-                            const isFloat = target % 1 !== 0;
-                            const formatted = isFloat ? current.toFixed(1) : Math.floor(current);
-                            
-                            counter.innerText = `${prefix}${formatted}${suffix}`;
-                            
-                            if (progress < 1) {
-                                requestAnimationFrame(updateCount);
-                            } else {
-                                counter.innerText = `${prefix}${target}${suffix}`; // Ensure final value is exact
-                            }
-                        }
-                        
-                        requestAnimationFrame(updateCount);
-                    });
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        const resultsSection = document.querySelector('.results-banner');
-        if (resultsSection) countUpObserver.observe(resultsSection);
-    });
+    document.querySelectorAll('.dash-val').forEach(stat => statsObserver.observe(stat));
   </script>
 
 </body>
