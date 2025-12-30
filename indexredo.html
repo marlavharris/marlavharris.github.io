@@ -401,6 +401,9 @@
     .timeline-content {
         padding: 0 20px;
         position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
     }
 
     .timeline-date {
@@ -463,7 +466,7 @@
         border-radius: 50%;
     }
 
-    /* --- IPHONE PREVIEW (Side-by-Side) --- */
+    /* --- IPHONE PREVIEW --- */
     .timeline-visual {
         max-width: 280px; 
         width: 100%;
@@ -519,13 +522,25 @@
         text-wrap: balance;
     }
 
+    /* --- ALTERNATING LOGIC (Zig-Zag) --- */
     @media (min-width: 900px) {
         .timeline-content {
-            display: flex;
+            flex-direction: row;
             justify-content: space-between;
             align-items: flex-start;
             gap: 6rem;
         }
+        
+        /* Zig: Role 1, 3 - Content Left, Visual Right */
+        .timeline-item:nth-child(odd) .timeline-content {
+            flex-direction: row;
+        }
+        
+        /* Zag: Role 2, 4 - Visual Left, Content Right */
+        .timeline-item:nth-child(even) .timeline-content {
+            flex-direction: row-reverse;
+        }
+
         .timeline-text-content {
             flex: 1;
         }
@@ -665,7 +680,7 @@
         .nav-links { display: none; }
         .edu-header, .edu-blurb { min-height: auto; text-align: left; }
         .brand-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-        .timeline-visual { margin-top: 2rem; }
+        .timeline-visual { margin-top: 2rem; margin-left: auto; margin-right: auto; }
     }
   </style>
 </head>
@@ -794,7 +809,7 @@
         <span class="section-label">Impact Milestones</span>
         <div class="timeline">
             
-            <!-- PENSKE -->
+            <!-- PENSKE (Odd 1: Zig) -->
             <div class="timeline-item">
                 <div class="timeline-content">
                     <div class="timeline-text-content">
@@ -824,7 +839,7 @@
                 </div>
             </div>
 
-            <!-- AJ MADISON -->
+            <!-- AJ MADISON (Even 2: Zag) -->
             <div class="timeline-item">
                 <div class="timeline-content">
                     <div class="timeline-text-content">
@@ -854,7 +869,7 @@
                 </div>
             </div>
 
-            <!-- WARP + WEFT -->
+            <!-- WARP + WEFT (Odd 3: Zig) -->
             <div class="timeline-item">
                 <div class="timeline-content">
                     <div class="timeline-text-content">
@@ -872,7 +887,7 @@
                 </div>
             </div>
 
-            <!-- ISSEY MIYAKE -->
+            <!-- ISSEY MIYAKE (Even 4: Zag - Swapped order for visual interest) -->
             <div class="timeline-item">
                 <div class="timeline-content">
                     <div class="timeline-text-content">
