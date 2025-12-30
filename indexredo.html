@@ -11,556 +11,887 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Marla Harris — Marketing Strategy, Growth Architecture, and Data-Driven Storytelling for Global Media and Luxury Brands.">
-  <title>MARLA HARRIS — STRATEGY & NARRATIVE</title>
-  
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Marla Harris - Senior Manager, Lifecycle Marketing. Professional Portfolio & Resume.">
+  <title>Marla Harris — Senior Manager, Subscription & Lifecycle Marketing</title>
+   
+  <!-- High-impact corporate font: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
+   
   <style>
     :root {
-      --ink: #121212;        
-      --charcoal: #3a3a3a;   
-      --paper: #f9f7f4; 
-      --accent: #80002a; 
-      --line: rgba(18, 18, 18, 0.1);
-      --ease: cubic-bezier(0.23, 1, 0.32, 1);
+      --ink: #0a0a0a;       
+      --charcoal: #1a1a1a;  
+      --neutral-600: #555555;
+      --neutral-200: #eeeeee;
+      --paper: #ffffff;
+      --accent: #003366; /* Deep Corporate Navy */
+      --accent-pink: #990049; /* Signature Pink */
+      --accent-soft: rgba(0, 51, 102, 0.05);
+      --line: #e5e7eb; 
     }
     
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 140px; }
+    html { scroll-behavior: smooth; }
     
     body {
       font-family: 'Inter', sans-serif;
-      color: var(--ink);
+      color: var(--charcoal);
       background: var(--paper);
-      line-height: 1.7;
-      overflow-x: hidden;
+      line-height: 1.5;
+      font-weight: 400;
       -webkit-font-smoothing: antialiased;
     }
+    
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+    
+    h1, h2, h3, h4 {
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--ink);
+      letter-spacing: -0.03em;
+    }
 
-    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 400; }
-    .serif-italic { font-family: 'Playfair Display', serif; font-style: italic; }
-
-    .caps-meta {
-        font-size: 0.65rem;
+    h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1.5rem; }
+    h2 { font-size: 2.25rem; margin-bottom: 2rem; }
+    h3 { font-size: 1.5rem; margin-bottom: 0.75rem; }
+    
+    .section-label {
+        font-size: 0.7rem;
         text-transform: uppercase;
-        letter-spacing: 0.3em;
-        font-weight: 700;
+        letter-spacing: 0.2em; 
+        font-weight: 800;
         color: var(--accent);
         display: block;
         margin-bottom: 1rem;
     }
 
-    .container { max-width: 1300px; margin: 0 auto; padding: 0 4rem; }
-
-    /* HEADER & NAV */
+    /* --- NAVIGATION --- */
     header {
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(8px);
       position: fixed;
-      top: 0; width: 100%; z-index: 2000;
-      padding: 2.5rem 0;
-      transition: all 0.5s var(--ease);
-      background: transparent;
-    }
-    
-    header.scrolled {
-      padding: 1.2rem 0;
-      background: rgba(249, 247, 244, 0.98);
-      backdrop-filter: blur(20px);
+      top: 0;
+      width: 100%;
+      z-index: 1000;
       border-bottom: 1px solid var(--line);
+      padding: 1rem 0;
     }
     
-    nav { display: flex; justify-content: space-between; align-items: center; position: relative; }
-    .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; text-decoration: none; color: var(--ink); font-weight: 700; letter-spacing: -0.02em; z-index: 2001; }
+    nav { display: flex; justify-content: space-between; align-items: center; }
     
-    .nav-links { display: flex; gap: 4rem; }
-    .nav-link { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em; text-decoration: none; color: var(--charcoal); transition: color 0.3s; position: relative; }
-    .nav-link::after { content: ''; position: absolute; width: 0; height: 1px; bottom: -4px; left: 0; background: var(--accent); transition: width 0.3s; }
+    .logo {
+      font-size: 1.1rem; 
+      color: var(--ink); 
+      text-decoration: none; 
+      font-weight: 900; 
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+    }
+    
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-link {
+      font-size: 0.75rem; 
+      text-transform: uppercase; 
+      letter-spacing: 0.1em; 
+      color: var(--neutral-600); 
+      text-decoration: none; 
+      font-weight: 700; 
+      transition: all 0.2s ease;
+    }
     .nav-link:hover { color: var(--accent); }
-    .nav-link:hover::after { width: 100%; }
 
-    .mobile-toggle {
-        display: none;
-        background: none; border: none; cursor: pointer; padding: 0.5rem; z-index: 2001;
-    }
-    .mobile-toggle span {
-        display: block; width: 24px; height: 1px; background: var(--ink); margin: 6px 0; transition: 0.3s;
+    .nav-btn {
+        background: var(--accent);
+        color: #fff;
+        padding: 0.5rem 1.2rem;
+        border-radius: 4px;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-weight: 700;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
     }
 
-    .mobile-nav {
-        position: fixed;
-        top: 0; right: 0; bottom: 0; left: 0;
-        background: var(--paper);
-        z-index: 2000;
-        display: flex; flex-direction: column; justify-content: center; align-items: center;
-        gap: 3rem; transform: translateY(-100%); transition: transform 0.6s var(--ease);
-    }
-    .mobile-nav.open { transform: translateY(0); }
-
-    /* HERO */
+    /* --- HERO --- */
     .hero {
-      min-height: 95vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding-top: 220px;
-      padding-bottom: 100px;
+      padding: 10rem 0 4rem;
     }
-
-    .hero-title {
-        font-size: clamp(3rem, 9.5vw, 8rem);
-        line-height: 0.92;
-        letter-spacing: -0.05em;
-        margin-bottom: 4rem;
-    }
-
-    .hero-flex {
-        display: grid;
-        grid-template-columns: 1fr 1.5fr;
-        gap: 4rem;
-        align-items: flex-end;
-    }
-
-    .hero-sub {
-        font-size: 1.4rem;
-        max-width: 520px;
-        color: var(--charcoal);
-        font-family: 'Playfair Display', serif;
-        font-style: italic;
-        line-height: 1.5;
-    }
-
-    .hero-stats {
-        display: flex;
-        gap: 5rem;
-        border-top: 1px solid var(--line);
-        padding-top: 3rem;
-    }
-
-    .hero-stat-item b { font-family: 'Playfair Display', serif; font-size: 2.8rem; display: block; line-height: 1; margin-bottom: 0.5rem; }
-    .hero-stat-item span { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--neutral-600); font-weight: 700; }
-
-    /* ARCHIVE SECTION */
-    .section-header {
-        padding: 10rem 0 4rem;
-        border-bottom: 1px solid var(--line);
-        margin-bottom: 6rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
-    }
-
-    .section-header h2 { font-size: clamp(2.5rem, 6vw, 4.5rem); letter-spacing: -0.03em; }
-
-    .work-grid { display: grid; grid-template-columns: 1fr; gap: 12rem; }
-
-    .work-item {
-        display: grid;
-        grid-template-columns: 0.85fr 1.15fr;
-        gap: 6rem;
-    }
-
-    .work-visual {
-        background: #eee;
-        aspect-ratio: 4/5;
-        position: relative;
-        overflow: hidden;
-        border: 1px solid rgba(0,0,0,0.05);
-        background-color: #e5e1da;
-    }
-
-    .work-visual img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 1.2s var(--ease);
-    }
-
-    .work-item:hover .work-visual img {
-        transform: scale(1.08);
-    }
-
-    .work-info { display: flex; flex-direction: column; justify-content: center; }
-    .work-info h3 { font-size: clamp(2rem, 4vw, 3.5rem); margin-bottom: 1.5rem; letter-spacing: -0.02em; }
-    .work-info p { font-size: 1.2rem; color: var(--charcoal); margin-bottom: 3.5rem; max-width: 580px; }
     
-    .work-details {
+    .hero-content { max-width: 1000px; }
+    .hero-title span { color: var(--accent); }
+    .hero p { 
+        font-size: 1.25rem; 
+        color: var(--neutral-600); 
+        max-width: 850px;
+        line-height: 1.6;
+        font-weight: 400;
+    }
+
+    .contact-cta { display: flex; align-items: center; gap: 1.5rem; margin-top: 3rem; }
+    .btn-main {
+        background: var(--accent);
+        color: #fff;
+        padding: 0.9rem 2rem;
+        border-radius: 4px;
+        text-decoration: none;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        cursor: pointer;
+        border: none;
+        transition: all 0.2s;
+    }
+    .btn-main:hover { background: #002244; transform: translateY(-2px); }
+    
+    .btn-outline {
+        background: transparent;
+        color: var(--accent);
+        border: 1px solid var(--accent);
+        padding: 0.9rem 2rem;
+        border-radius: 4px;
+        text-decoration: none;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        cursor: pointer;
+        transition: all 0.2s;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    .btn-outline:hover {
+        background: var(--accent-soft);
+        transform: translateY(-2px);
+    }
+
+    .social-link { color: var(--accent); font-size: 1.25rem; transition: color 0.2s; }
+    .social-link:hover { opacity: 0.8; }
+
+    /* --- DASHBOARD --- */
+    .dashboard {
+        background: #f9fafb;
+        padding: 4rem 0;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+    }
+    .dash-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+    }
+    .dash-item {
+        background: #fff;
+        padding: 2rem;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+    }
+    .dash-val { font-size: 2.5rem; font-weight: 900; color: var(--ink); display: block; letter-spacing: -0.04em; }
+    .dash-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--neutral-600); font-weight: 700; margin-top: 0.5rem; display: block; }
+    .dash-item.highlight { border-top: 4px solid var(--accent); }
+    .dash-attribution {
+        text-align: center;
+        font-size: 0.85rem;
+        color: var(--accent-pink); 
+        margin-top: 3rem;
+        max-width: 850px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.6;
+        font-weight: 600;
+    }
+
+    /* --- PERSPECTIVE SECTION --- */
+    .about-section {
+        padding: 8rem 0;
+    }
+    .about-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 3rem;
-        padding-top: 3.5rem;
-        border-top: 1px solid var(--line);
-    }
-
-    .detail-item h4 { font-family: 'Inter', sans-serif; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700; margin-bottom: 1.25rem; }
-    .detail-item p { font-size: 0.95rem; color: var(--charcoal); line-height: 1.6; }
-
-    /* EXPERTISE */
-    .capabilities {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 5rem 8rem;
-        margin-bottom: 10rem;
-    }
-
-    .cap-item { padding-bottom: 4rem; border-bottom: 1px solid var(--line); }
-    .cap-item h3 { font-size: 2.2rem; margin-bottom: 1.5rem; }
-    .cap-item p { font-size: 1.05rem; color: var(--charcoal); line-height: 1.7; }
-
-    /* STORY */
-    .story-section {
-        display: grid;
-        grid-template-columns: 1.2fr 0.8fr;
-        gap: 8rem;
-        padding: 12rem 0;
-    }
-
-    .story-content p { font-size: 1.45rem; margin-bottom: 3rem; font-family: 'Playfair Display', serif; line-height: 1.6; color: var(--charcoal); }
-    
-    .story-aside {
-        background: var(--ink);
-        color: var(--paper);
-        padding: 6rem 4rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-    .story-aside h4 { font-size: 2.5rem; margin-bottom: 3rem; }
-    .tech-pill {
-        display: inline-block;
-        padding: 0.6rem 1rem;
-        border: 1px solid rgba(255,255,255,0.2);
-        font-size: 0.65rem;
-        text-transform: uppercase;
-        letter-spacing: 0.15em;
-        margin: 0 0.7rem 0.7rem 0;
-    }
-
-    /* FOOTER */
-    footer {
-        padding: 12rem 0 6rem;
-        border-top: 1px solid var(--line);
-        margin-top: 8rem;
-    }
-
-    .footer-masthead {
-        display: grid;
-        grid-template-columns: 1.5fr 1fr 1fr;
         gap: 6rem;
-        margin-bottom: 10rem;
+        align-items: start;
     }
-
-    .masthead-col h4 {
-        font-family: 'Playfair Display', serif;
-        font-size: clamp(2rem, 4.5vw, 2.8rem);
-        margin-bottom: 2.5rem;
-        line-height: 1.1;
-    }
-
-    .masthead-col p {
+    .about-philosophy {
         font-size: 1.1rem;
         color: var(--charcoal);
-        max-width: 420px;
+        line-height: 1.7;
+        font-weight: 400;
+    }
+    .about-philosophy h2 { font-size: 1.8rem; margin-bottom: 1.5rem; }
+    .about-philosophy span {
+        color: var(--accent);
+        font-weight: 700;
+    }
+    .about-philosophy .strategic-advantage {
+        margin-top: 2rem;
+        padding: 1.5rem;
+        background: var(--accent-soft);
+        border-radius: 4px;
+        font-size: 0.95rem;
+        border-left: 3px solid var(--accent);
     }
 
-    .footer-links { list-style: none; }
-    .footer-links li { margin-bottom: 1.25rem; }
-    .footer-links a {
-        text-decoration: none;
-        color: var(--ink);
-        font-size: 0.95rem;
-        font-weight: 500;
-        transition: color 0.3s;
+    /* --- LIFECYCLE FOCUS --- */
+    .programs-owned {
+        background: #fcfcfc;
+        border: 1px solid var(--line);
+        padding: 2.5rem;
+        border-radius: 8px;
     }
-    .footer-links a:hover { color: var(--accent); }
+    .programs-list {
+        list-style: none;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+    .programs-list li {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--ink);
+        padding-left: 1.5rem;
+        position: relative;
+    }
+    .programs-list li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0.6rem;
+        width: 6px;
+        height: 6px;
+        background: var(--accent-pink);
+        border-radius: 50%;
+    }
+
+    /* --- STRATEGIC CORE --- */
+    .expertise-section {
+        padding: 0 0 8rem;
+        border-bottom: 1px solid var(--line);
+    }
+    .expertise-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3rem;
+    }
+    .expertise-item h4 {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 1rem;
+        color: var(--ink);
+        border-bottom: 2px solid var(--accent-pink);
+        display: inline-block;
+        padding-bottom: 4px;
+    }
+    .expertise-item p {
+        font-size: 0.9rem;
+        color: var(--neutral-600);
+        line-height: 1.6;
+    }
+
+    /* --- STYLIZED TIMELINE --- */
+    .timeline-section { padding: 8rem 0; }
+    
+    .timeline {
+        position: relative;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .timeline::after {
+        content: '';
+        position: absolute;
+        width: 2px;
+        background-color: var(--line);
+        top: 0;
+        bottom: 0;
+        left: 20px;
+        margin-left: -1px;
+    }
+
+    .timeline-item {
+        padding: 10px 40px;
+        position: relative;
+        background-color: inherit;
+        width: 100%;
+        margin-bottom: 60px;
+    }
+
+    .timeline-item::after {
+        content: '';
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        right: -6px;
+        background-color: var(--paper);
+        border: 3px solid var(--accent);
+        top: 15px;
+        border-radius: 50%;
+        z-index: 1;
+        left: 14px;
+    }
+
+    .timeline-content {
+        padding: 0 20px;
+        position: relative;
+    }
+
+    .timeline-date {
+        font-weight: 800;
+        font-size: 0.75rem;
+        color: var(--neutral-600);
+        margin-bottom: 0.5rem;
+        display: block;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
+
+    .timeline-impact {
+        font-size: 2.5rem;
+        font-weight: 900;
+        color: var(--accent);
+        letter-spacing: -0.04em;
+        line-height: 1;
+        margin-bottom: 0.5rem;
+        display: block;
+    }
+
+    .timeline-heading {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--ink);
+        margin-bottom: 0.25rem;
+    }
+
+    .timeline-subhead {
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: var(--neutral-600);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 1.5rem;
+        display: block;
+    }
+
+    .timeline-body {
+        font-size: 1rem;
+        color: var(--charcoal);
+        max-width: 700px;
+    }
+
+    .timeline-body ul { list-style: none; }
+    .timeline-body li {
+        margin-bottom: 0.75rem;
+        padding-left: 1.5rem;
+        position: relative;
+    }
+
+    .timeline-body li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0.65rem;
+        width: 6px;
+        height: 6px;
+        background-color: var(--accent-pink);
+        border-radius: 50%;
+    }
+
+    /* --- IPHONE PREVIEW --- */
+    .timeline-visual {
+        margin-top: 2rem;
+        max-width: 280px; 
+        position: relative;
+    }
+    .iphone-bezel {
+        background: #1a1a1a;
+        border-radius: 36px;
+        padding: 10px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        aspect-ratio: 9/19; 
+        overflow: hidden;
+        position: relative;
+        border: 1px solid rgba(255,255,255,0.1);
+    }
+    .iphone-screen { 
+        width: 100%; 
+        height: 100%; 
+        background: #fff; 
+        border-radius: 28px; 
+        overflow: hidden; 
+        position: relative; 
+    }
+    .iphone-bezel::before {
+        content: '';
+        position: absolute;
+        top: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 18px;
+        background: #1a1a1a;
+        border-radius: 20px;
+        z-index: 10;
+    }
+    .iphone-scroll { 
+        position: absolute; 
+        width: 100%; 
+        transition: transform 7s cubic-bezier(0.45, 0.05, 0.55, 0.95); 
+    }
+    .iphone-bezel:hover .iphone-scroll { 
+        transform: translateY(calc(-100% + 500px)); 
+    }
+    .prev-img { width: 100%; display: block; }
+    .visual-label {
+        position: absolute;
+        bottom: -20px;
+        left: 0;
+        right: 0;
+        background: var(--ink);
+        color: #fff;
+        font-size: 0.65rem;
+        font-weight: 800;
+        text-align: center;
+        padding: 6px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        z-index: 20;
+    }
+
+    /* --- MARTECH ECOSYSTEM --- */
+    .tech-stack { padding: 8rem 0; background: #000; color: #fff; }
+    .tech-stack h2 { 
+        color: var(--accent-pink); 
+        font-size: 3rem; 
+        font-weight: 900; 
+        margin-bottom: 4rem; 
+        letter-spacing: -0.04em;
+    }
+    .tech-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 3rem;
+    }
+    .tech-col h4 { 
+        font-size: 0.75rem; 
+        font-weight: 800; 
+        text-transform: uppercase; 
+        color: #fff; 
+        margin-bottom: 1.5rem; 
+        letter-spacing: 0.15em;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+    .tech-list { list-style: none; font-size: 0.9rem; color: #bbb; }
+    .tech-list li { margin-bottom: 0.85rem; font-weight: 500; }
+    .tech-micro-case {
+        display: block;
+        font-size: 0.75rem;
+        color: var(--accent-pink);
+        margin-top: 0.25rem;
+        font-weight: 700;
+        line-height: 1.3;
+    }
+
+    /* --- FOOTER --- */
+    footer { 
+        background: #000; 
+        color: #fff; 
+        padding: 6rem 0 4rem; 
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .footer-top {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 4rem;
+        padding-bottom: 4rem;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        margin-bottom: 3rem;
+    }
+    .footer-brand .logo { color: #fff; font-size: 1.5rem; margin-bottom: 0.5rem; display: block; }
+    .footer-brand p { font-size: 0.85rem; color: #888; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; }
+    
+    .footer-col-title { 
+        font-size: 0.7rem; 
+        text-transform: uppercase; 
+        letter-spacing: 0.2em; 
+        color: var(--accent-pink); 
+        font-weight: 800; 
+        margin-bottom: 1.5rem; 
+        display: block;
+    }
+    .footer-list { list-style: none; }
+    .footer-list li { margin-bottom: 0.75rem; }
+    .footer-link { 
+        color: #bbb; 
+        text-decoration: none; 
+        font-size: 0.9rem; 
+        font-weight: 500; 
+        transition: color 0.2s; 
+    }
+    .footer-link:hover { color: #fff; }
 
     .footer-bottom {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding-top: 4rem;
-        border-top: 1px solid var(--line);
-    }
-
-    .footer-signature {
-        font-family: 'Playfair Display', serif;
-        font-style: italic;
-        font-size: 1.5rem;
-        color: var(--accent);
-    }
-
-    .copyright {
         font-size: 0.7rem;
+        color: #555;
         text-transform: uppercase;
-        letter-spacing: 0.25em;
-        color: var(--neutral-600);
+        letter-spacing: 0.15em;
+        font-weight: 700;
     }
+    .back-to-top { color: #888; text-decoration: none; border-bottom: 1px solid #333; padding-bottom: 2px; }
+    .back-to-top:hover { color: #fff; border-color: #fff; }
 
-    .reveal { opacity: 0; transform: translateY(50px); transition: all 1.4s var(--ease); }
-    .reveal.active { opacity: 1; transform: translateY(0); }
-
-    @media (max-width: 1024px) {
-        .container { padding: 0 3rem; }
-        .hero { padding-top: 160px; }
-        .hero-flex, .work-item, .story-section, .footer-masthead { grid-template-columns: 1fr; gap: 5rem; }
+    @media (max-width: 900px) {
+        .about-grid, .expertise-grid { grid-template-columns: 1fr; }
+        .dash-grid, .tech-grid { grid-template-columns: 1fr; }
+        .footer-top { grid-template-columns: 1fr; gap: 3rem; }
         .nav-links { display: none; }
-        .mobile-toggle { display: block; }
-        .hero-stats { gap: 4rem; flex-wrap: wrap; }
     }
   </style>
 </head>
 <body>
 
-  <header id="main-header">
+  <header>
     <div class="container">
       <nav>
-        <a href="#" class="logo">M.HARRIS</a>
+        <a href="index.html" class="logo">Marla Harris</a>
         <div class="nav-links">
-          <a href="#work" class="nav-link">Archive</a>
-          <a href="#capabilities" class="nav-link">Expertise</a>
-          <a href="#story" class="nav-link">Perspective</a>
-          <a href="#contact" class="nav-link">Connect</a>
+          <a href="#about" class="nav-link">Perspective</a>
+          <a href="#experience" class="nav-link">Experience</a>
+          <a href="#tech" class="nav-link">Systems</a>
+          <a href="mailto:va.mvharris@gmail.com" class="nav-link">Contact</a>
+          <a href="https://drive.google.com/uc?export=download&id=1zpS4LUS2TSw32w5XmqTEnNl8OKiDuut-" class="nav-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-pdf"></i> Case Studies & Metrics</a>
         </div>
-        <button class="mobile-toggle" aria-label="Toggle Menu">
-            <span></span>
-            <span></span>
-        </button>
       </nav>
     </div>
   </header>
 
-  <div class="mobile-nav">
-      <a href="#work" class="nav-link">Archive</a>
-      <a href="#capabilities" class="nav-link">Expertise</a>
-      <a href="#story" class="nav-link">Perspective</a>
-      <a href="#contact" class="nav-link">Connect</a>
+  <section class="hero">
+    <div class="container hero-content">
+      <span class="section-label">Senior Manager, Subscription & Lifecycle Marketing</span>
+      <h1 class="hero-title">Driving Growth by Finding the Story in Customer Data</h1>
+      <p>I pair rigorous analysis with customer-first thinking to move people from transactional clicks to long-term loyalty.</p>
+      
+      <div class="contact-cta">
+        <a href="mailto:va.mvharris@gmail.com" class="btn-main">Review My Retention Strategy</a>
+        <a href="https://drive.google.com/uc?export=download&id=1zpS4LUS2TSw32w5XmqTEnNl8OKiDuut-" class="btn-outline" target="_blank" rel="noopener noreferrer"><i class="fas fa-download"></i> See Detailed Metrics</a>
+        <a href="https://www.linkedin.com/in/marlavharris/" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <div class="dashboard">
+    <div class="container dash-grid">
+        <div class="dash-item">
+            <span class="dash-val" data-target="17" data-format="% YoY">0</span>
+            <span class="dash-label">Subscriber Conversion Growth</span>
+        </div>
+        <div class="dash-item">
+            <span class="dash-val" data-target="20.95" data-format="%">0</span>
+            <span class="dash-label">Avg. Open Rate (vs. 18.5% benchmark)</span>
+        </div>
+        <div class="dash-item">
+            <span class="dash-val" data-target="18" data-format="%">0</span>
+            <span class="dash-label">Lower CPA via Segmentation</span>
+        </div>
+        <div class="dash-item highlight">
+            <span class="dash-val" data-target="120" data-format="$k+" style="color:var(--accent)">0</span>
+            <span class="dash-label">Incremental Revenue (from performance optimizations)</span>
+        </div>
+    </div>
+    <div class="dash-attribution">
+        Metrics reflect lifecycle programs I optimized end-to-end, spanning strategy, segmentation, messaging, creative direction, testing, and reporting.
+    </div>
   </div>
 
-  <main>
-    <section class="hero container">
-      <div class="hero-content">
-        <span class="caps-meta" style="margin-bottom: 2rem;">// Strategy & Narrative Architecture</span>
-        <h1 class="hero-title">Bridging the Gap Between <span class="serif-italic">Messy Data</span> & Luxury Storytelling.</h1>
-        <div class="hero-flex">
-            <p class="hero-sub">Marketing and communications leader with 8+ years of experience building audience-centered lifecycle, brand, and partnership programs for global media and consumer brands.</p>
-            <div class="hero-stats">
-                <div class="hero-stat-item"><b>17%</b><span>YoY Revenue Growth</span></div>
-                <div class="hero-stat-item"><b>4M+</b><span>Subscribers Managed</span></div>
-                <div class="hero-stat-item"><b>108%</b><span>Paid Media ROI</span></div>
+  <section id="about" class="about-section">
+    <div class="container">
+        <span class="section-label">Perspective</span>
+        <div class="about-grid">
+            <div class="about-philosophy">
+                <h2>Finding the Story in the Data</h2>
+                <p>I look for the people behind the numbers, translating behavioral signals into <span>lifecycle strategy, retention-focused messaging, and optimized systems.</span> I built and owned Looker and GA4 reporting to surface engagement patterns—directly informing timing and offer strategy.</p>
+                
+                <div class="strategic-advantage">
+                    <strong>Strategic Advantage:</strong> My MPA in Public Policy & Communications trains me to analyze complex systems and craft clear narratives—the exact skills needed for customer-first marketing.
+                </div>
+            </div>
+            
+            <div class="programs-owned">
+                <h4 style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 1.5rem;">Lifecycle Programs Grew</h4>
+                <ul class="programs-list">
+                    <li>Onboarding & Welcome Journeys</li>
+                    <li>Engagement & Habit Formation</li>
+                    <li>Renewal & Churn Prevention</li>
+                    <li>Win-Back & Reactivation</li>
+                    <li>Long-Horizon Replenishment (6–18 months)</li>
+                    <li>Cross-Sell & Accessory Attach</li>
+                    <li>Loyalty & Retention Frameworks</li>
+                </ul>
             </div>
         </div>
-      </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="work" class="container">
-      <div class="section-header reveal">
-          <h2>Selected Archive</h2>
-          <span class="caps-meta">VOL. 2015—2025</span>
-      </div>
-
-      <div class="work-grid">
-          <article class="work-item reveal">
-              <div class="work-visual">
-                  <img src="2.29 BAU (Karol G) (1).gif" alt="Rolling Stone / Karol G Performance Creative" onerror="this.src='https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=1200'">
-              </div>
-              <div class="work-info">
-                  <span class="caps-meta">01 / Revenue Innovation</span>
-                  <h3>Penske Media Corporation</h3>
-                  <p>Shaping subscription and lifecycle products for Rolling Stone, Billboard, and WWD. Transforming 30M+ annual sends into stable revenue channels through audience behavior analysis.</p>
-                  <div class="work-details">
-                      <div class="detail-item">
-                          <h4>The Impact</h4>
-                          <p>Introduced behavior-informed tactics driving 17% YoY sales growth. Defined the subscription cadence and format for 4M+ audience members.</p>
-                      </div>
-                      <div class="detail-item">
-                          <h4>The Ecosystem</h4>
-                          <p>Salesforce Marketing Cloud, Piano, CRM Analytics, Cohort Analysis.</p>
-                      </div>
-                  </div>
-              </div>
-          </article>
-
-          <article class="work-item reveal">
-              <div class="work-visual">
-                  <img src="Screenshot 2025-10-30 224348.png" alt="AjMadison Dashboard & CRM Interface" onerror="this.src='https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=1200'">
-              </div>
-              <div class="work-info">
-                  <span class="caps-meta">02 / Systems & Scale</span>
-                  <h3>AJ Madison</h3>
-                  <p>Building foundational lifecycle, trade, and partner marketing systems across ecommerce and B2B channels. Managed a $1M+ co-op portfolio across 12 major appliance brands.</p>
-                  <div class="work-details">
-                      <div class="detail-item">
-                          <h4>The Impact</h4>
-                          <p>Conceived a national community fridge program featured in The New York Times. Scaled AJ Madison’s first dedicated trade email program.</p>
-                      </div>
-                      <div class="detail-item">
-                          <h4>The Ecosystem</h4>
-                          <p>Lifecycle Strategy, Event Marketing, Vendor Relations, Meta Ads.</p>
-                      </div>
-                  </div>
-              </div>
-          </article>
-
-          <article class="work-item reveal">
-              <div class="work-visual">
-                  <img src="bao_bao_email_SS17.jpg" alt="Bao Bao Issey Miyake SS17 Digital Creative" onerror="this.src='https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1200'">
-              </div>
-              <div class="work-info">
-                  <span class="caps-meta">03 / Brand Stewardship</span>
-                  <h3>Issey Miyake USA</h3>
-                  <p>Preserving established global design codes while building the brand’s foundational CRM and digital storytelling strategy for product drops and site enhancements.</p>
-                  <div class="work-details">
-                      <div class="detail-item">
-                          <h4>The Impact</h4>
-                          <p>Ensured luxury brand codes remained intact across all digital touchpoints. Introduced audience-appropriate lifecycle messaging.</p>
-                      </div>
-                      <div class="detail-item">
-                          <h4>The Ecosystem</h4>
-                          <p>Luxury CRM Strategy, UX Analysis, Multi-Channel Storytelling.</p>
-                      </div>
-                  </div>
-              </div>
-          </article>
-      </div>
-    </section>
-
-    <section id="capabilities" class="container">
-        <div class="section-header reveal">
-            <h2>Expertise</h2>
-            <span class="caps-meta">Core Competencies</span>
-        </div>
-        <div class="capabilities reveal">
-            <div class="cap-item">
-                <h3>Lifecycle & CRM</h3>
-                <p>Advanced segmentation, journey architecture, and retention frameworks across Email, SMS, and direct products.</p>
+  <section class="expertise-section">
+    <div class="container">
+        <div class="expertise-grid">
+            <div class="expertise-item">
+                <h4>Behavioral Logic</h4>
+                <p>Optimized complex dynamic segmentation based on triggers, readiness-based timing, and cohort-level performance analysis.</p>
             </div>
-            <div class="cap-item">
-                <h3>Narrative Strategy</h3>
-                <p>Message hierarchy, positioning, and voice development that transforms raw data into credible, human narratives.</p>
+            <div class="expertise-item">
+                <h4>Player-Coach Leadership</h4>
+                <p>Led and mentored a 5-person team while remaining hands-on in logic, testing frameworks, and end-to-end performance analysis.</p>
             </div>
-            <div class="cap-item">
-                <h3>Subscription Products</h3>
-                <p>Scaling durable engagement through registration walls, onboarding flows, and newsletter productization.</p>
-            </div>
-            <div class="cap-item">
-                <h3>Marketing Ops</h3>
-                <p>Budget ownership, vendor management ($1M+ co-op portfolios), and building cross-functional systems (Creative/Engineering/Analytics).</p>
+            <div class="expertise-item">
+                <h4>Brand Integrity</h4>
+                <p>Ensured premium brand codes and customer expectations were met across global luxury standards without sacrificing performance targets.</p>
             </div>
         </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="story" class="container reveal">
-        <div class="story-section">
-            <div class="story-content">
-                <span class="caps-meta">Perspective</span>
-                <p>I learned the how and why behind why people buy in luxury fitting rooms. Now, I find those same stories in messy spreadsheets and performance dashboards.</p>
-                <p>My approach is rooted in cultural context and behavioral analysis. I believe that scaling a business and taking care of a community aren't contradictions—they are both dependent on clear, honest communication.</p>
-                <p>Currently pursuing my Master of Public Administration at Baruch College to further refine the intersection of data analysis, policy, and brand communication.</p>
-            </div>
-            <div class="story-aside">
-                <div>
-                    <h4>Technical Foundations</h4>
-                    <div class="tech-stack">
-                        <span class="tech-pill">SFMC</span>
-                        <span class="tech-pill">Piano</span>
-                        <span class="tech-pill">Klaviyo</span>
-                        <span class="tech-pill">GA4</span>
-                        <span class="tech-pill">Looker</span>
-                        <span class="tech-pill">HTML/CSS</span>
-                        <span class="tech-pill">SQL</span>
-                        <span class="tech-pill">Python</span>
-                        <span class="tech-pill">Shopify</span>
-                        <span class="tech-pill">Jira</span>
+  <section id="experience" class="timeline-section">
+    <div class="container">
+        <span class="section-label">Impact Milestones</span>
+        <div class="timeline">
+            
+            <!-- PENSKE -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-date">2022 — 2024</span>
+                    <span class="timeline-impact">17% YoY Sales Increase</span>
+                    <h3 class="timeline-heading">Penske Media Corp.</h3>
+                    <span class="timeline-subhead">Digital & Subscription Marketing Manager</span>
+                    <div class="timeline-body">
+                        <ul>
+                            <li>Identified a 22% churn risk cohort via custom Looker dashboards; built a win-back series that recovered 15% of the segment.</li>
+                            <li>Built repeatable promotional playbooks for Rolling Stone and WWD that balanced list health with revenue targets.</li>
+                            <li>Optimized messaging across a 4M+ subscriber audience, increasing annual conversion efficiency.</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-visual">
+                        <div class="iphone-bezel">
+                            <div class="iphone-screen">
+                                <div class="iphone-scroll">
+                                    <img src="HALSEY%20-%20BB%20BAU%20(2)%20(3).gif" class="prev-img" alt="Rolling Stone Campaign" onerror="this.style.display='none';">
+                                    <img src="wwd-met-gala-marlaharris-portfolio.png" class="prev-img" alt="WWD Met Gala Campaign" onerror="this.style.display='none';">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="visual-label">Part of flows driving 17% YoY growth</div>
                     </div>
                 </div>
-                <div style="margin-top: 3rem;">
-                    <span class="caps-meta" style="color: rgba(255,255,255,0.5);">Academic</span>
-                    <p style="font-size: 0.8rem; line-height: 1.4;">Master of Public Administration, Data Analysis & Communication<br>Baruch College (Expected 2027)</p>
+            </div>
+
+            <!-- AJ MADISON -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-date">2018 — 2022</span>
+                    <span class="timeline-impact">18% Lower CPA</span>
+                    <h3 class="timeline-heading">AJ Madison</h3>
+                    <span class="timeline-subhead">Marketing Operations & Lifecycle Manager</span>
+                    <div class="timeline-body">
+                        <ul>
+                            <li>Optimized systems aligned to customer readiness across 6–18 month purchase windows, rather than short-term promotional cadence.</li>
+                            <li>Built the first B2B trade program to increase builder outreach and long-term retention.</li>
+                            <li>Launched SMS integration with post-purchase email automation, reducing customer friction.</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-visual">
+                        <div class="iphone-bezel">
+                            <div class="iphone-screen">
+                                <div class="iphone-scroll">
+                                    <img src="Screenshot%202025-10-30%20224348.png" class="prev-img" alt="AJ Madison Performance" onerror="this.style.display='none';">
+                                    <img src="Screenshot%202025-10-30%20224357.png" class="prev-img" alt="AJ Madison Results" onerror="this.style.display='none';">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="visual-label">Supported 6-18 month purchase windows</div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <footer id="contact">
-      <div class="container">
-        <div class="footer-masthead reveal">
-            <div class="masthead-col">
-                <h4>Let’s build systems <br>where none exist.</h4>
-                <p>Currently available for selective strategic partnerships and consulting roles within media, e-commerce, and public sectors.</p>
+            <!-- WARP + WEFT -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-date">2017 — 2018</span>
+                    <span class="timeline-impact">+108% ROI Grew</span>
+                    <h3 class="timeline-heading">Warp + Weft</h3>
+                    <span class="timeline-subhead">E-Commerce & Community Manager</span>
+                    <div class="timeline-body">
+                        <ul>
+                            <li>Increased performance by aligning acquisition messaging with core retention programs.</li>
+                            <li>Optimized Shopify replatforming to improve PDP clarity and site-wide conversion architecture.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="masthead-col">
-                <span class="caps-meta">Contact</span>
-                <ul class="footer-links">
-                    <li><a href="mailto:va.mvharris@gmail.com">va.mvharris@gmail.com</a></li>
-                    <li><a href="tel:7183144431">718.314.4431</a></li>
-                    <li><a href="#">New York, NY</a></li>
+
+            <!-- ISSEY MIYAKE -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-date">2015 — 2017</span>
+                    <span class="timeline-impact">14% YoY Revenue Increase</span>
+                    <h3 class="timeline-heading">Issey Miyake USA</h3>
+                    <span class="timeline-subhead">E-Commerce Strategist & Manager</span>
+                    <div class="timeline-body">
+                        <ul>
+                            <li>Built foundational CRM and email segmentation standards for the US luxury market.</li>
+                            <li>Increased digital brand alignment with strict global guidelines and aesthetic codes.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+  </section>
+
+  <section id="tech" class="tech-stack">
+    <div class="container">
+        <h2>MarTech Ecosystem</h2>
+        <div class="tech-grid">
+            <div class="tech-col">
+                <h4>CRM / Automation</h4>
+                <ul class="tech-list">
+                    <li>Salesforce Marketing Cloud</li>
+                    <li>Klaviyo / Piano <span class="tech-micro-case">Built automated programs driving 17% YoY growth</span></li>
+                    <li>Listrak / SMS Strategy</li>
                 </ul>
             </div>
-            <div class="masthead-col">
-                <span class="caps-meta">Connect</span>
-                <ul class="footer-links">
-                    <li><a href="https://linkedin.com/in/marlavharris/" target="_blank">LinkedIn</a></li>
-                    <li><a href="creative.html">Creative Archive</a></li>
-                    <li><a href="#">Analytical Focus</a></li>
+            <div class="tech-col">
+                <h4>Analytics</h4>
+                <ul class="tech-list">
+                    <li>GA4 / Looker <span class="tech-micro-case">Built reporting that directly informed optimization</span></li>
+                    <li>Power BI / Excel (Adv)</li>
+                    <li>SQL (In Progress)</li>
+                </ul>
+            </div>
+            <div class="tech-col">
+                <h4>Commerce / UX</h4>
+                <ul class="tech-list">
+                    <li>Shopify / Magento</li>
+                    <li>NetSuite / Drupal</li>
+                    <li>PDP Optimization</li>
+                </ul>
+            </div>
+            <div class="tech-col">
+                <h4>Operations</h4>
+                <ul class="tech-list">
+                    <li>Adobe Creative Suite</li>
+                    <li>HTML/CSS Foundations</li>
+                    <li>Jira / Monday</li>
                 </ul>
             </div>
         </div>
-        
-        <div class="footer-bottom">
-            <span class="footer-signature">M. Harris</span>
-            <span class="copyright">© 2025 MARLA HARRIS. ALL RIGHTS RESERVED.</span>
+    </div>
+  </section>
+
+  <section style="padding: 6rem 0; border-top: 1px solid var(--line);">
+    <div class="container">
+        <span class="section-label">Academic Background</span>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;">
+            <div>
+                <h3 style="font-size: 1.25rem;">Baruch College</h3>
+                <p style="font-size: 0.85rem; font-weight: 800; color: var(--accent); text-transform: uppercase; margin-bottom: 0.5rem;">Austin W. Marxe School of Public & International Affairs</p>
+                <div style="margin-top: 1rem;">
+                  <p style="font-size: 1rem; color: var(--ink); font-weight: 700; line-height: 1.3;">Master of Public Administration (MPA)</p>
+                  <p style="font-size: 1rem; color: var(--ink); font-weight: 700; line-height: 1.3;">Bachelor of Public Affairs</p>
+                </div>
+                <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #888;">Expected 2027 | GPA: 3.5</p>
+            </div>
+            <div>
+                <h3 style="font-size: 1.25rem;">Art Institute of New York</h3>
+                <p style="font-size: 0.85rem; font-weight: 800; color: var(--accent); text-transform: uppercase; margin-bottom: 0.5rem;">Associate of Applied Science (A.A.S.)</p>
+                <div style="margin-top: 1rem;">
+                  <p style="font-size: 1rem; color: var(--ink); font-weight: 700; line-height: 1.3;">Fashion Design & Merchandising</p>
+                </div>
+                <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #888;">Class of 2009</p>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="logo">Marla Harris</span>
+          <p>Senior Manager, Subscription & Lifecycle Marketing</p>
+        </div>
+        <div>
+          <span class="footer-col-title">Navigation</span>
+          <ul class="footer-list">
+            <li><a href="#about" class="footer-link">Perspective</a></li>
+            <li><a href="#experience" class="footer-link">Impact Milestones</a></li>
+            <li><a href="#tech" class="footer-link">MarTech Ecosystem</a></li>
+          </ul>
+        </div>
+        <div>
+          <span class="footer-col-title">Connect</span>
+          <ul class="footer-list">
+            <li><a href="https://www.linkedin.com/in/marlavharris/" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a></li>
+            <li><a href="mailto:va.mvharris@gmail.com" class="footer-link">Email Inquiries</a></li>
+            <li><a href="https://drive.google.com/uc?export=download&id=1zpS4LUS2TSw32w5XmqTEnNl8OKiDuut-" class="footer-link" target="_blank" rel="noopener noreferrer">Download Portfolio</a></li>
+          </ul>
         </div>
       </div>
-    </footer>
-  </main>
+      
+      <div class="footer-bottom">
+        <div>© 2025 MARLA HARRIS // NEW YORK, NY</div>
+        <div style="display: flex; gap: 1.5rem; align-items: center;">
+          <a href="https://www.linkedin.com/in/marlavharris/" target="_blank" rel="noopener noreferrer" style="color:var(--accent); font-size: 1.25rem; text-decoration: none;"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="back-to-top">Back to Top</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const reveals = document.querySelectorAll('.reveal');
-        const observerOptions = { threshold: 0.15 };
-
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    revealObserver.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        reveals.forEach(el => revealObserver.observe(el));
-
-        const header = document.getElementById('main-header');
-        const mobileToggle = document.querySelector('.mobile-toggle');
-        const mobileNav = document.querySelector('.mobile-nav');
-        const navLinks = document.querySelectorAll('.nav-link');
-        let lastScroll = 0;
-
-        mobileToggle.addEventListener('click', () => {
-            mobileNav.classList.toggle('open');
-            document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
-        });
-
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileNav.classList.remove('open');
-                document.body.style.overflow = '';
-            });
-        });
-
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            if (currentScroll > 50) header.classList.add('scrolled');
-            else header.classList.remove('scrolled');
-
-            if (currentScroll > 150 && currentScroll > lastScroll && !mobileNav.classList.contains('open')) {
-                header.style.transform = 'translateY(-100%)';
-            } else {
-                header.style.transform = 'translateY(0)';
+    function animateValue(obj, start, end, duration, format) {
+        let startTimestamp = null;
+        const precision = (end.toString().split('.')[1] || []).length;
+        
+        const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            const current = (progress * (end - start) + start).toFixed(precision);
+            
+            let val = current;
+            if (format.includes('% YoY')) val += '% YoY';
+            else if (format.includes('%')) val += '%';
+            if (format.includes('$')) val = '$' + val;
+            if (format.includes('k+')) val += 'k+';
+            
+            obj.innerHTML = val;
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
             }
-            lastScroll = currentScroll;
+        };
+        window.requestAnimationFrame(step);
+    }
+
+    const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const target = parseFloat(entry.target.getAttribute('data-target'));
+                const format = entry.target.getAttribute('data-format');
+                animateValue(entry.target, 0, target, 2000, format);
+                statsObserver.unobserve(entry.target);
+            }
         });
-    });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.dash-val').forEach(stat => statsObserver.observe(stat));
   </script>
+
 </body>
 </html>
