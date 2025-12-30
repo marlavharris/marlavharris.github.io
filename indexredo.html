@@ -409,8 +409,9 @@
         gap: 4rem;
     }
 
-    /* Alternating Visuals Logic */
-    .timeline-item:nth-child(even) .timeline-content {
+    /* Updated: Specific Alignment Logic */
+    /* Only Aj Madison (the 2nd item) is aligned right */
+    .timeline-item:nth-child(2) .timeline-content {
         flex-direction: row-reverse;
     }
 
@@ -668,7 +669,7 @@
         .brand-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
         
         /* Force single column for timeline on mobile */
-        .timeline-content, .timeline-item:nth-child(even) .timeline-content { 
+        .timeline-content, .timeline-item:nth-child(2) .timeline-content { 
             flex-direction: column; 
             gap: 2rem; 
         }
@@ -832,7 +833,7 @@
                 </div>
             </div>
 
-            <!-- AJ MADISON -->
+            <!-- AJ MADISON (Aligned Right) -->
             <div class="timeline-item">
                 <div class="timeline-content">
                     <div class="timeline-text">
@@ -880,7 +881,7 @@
                 </div>
             </div>
 
-            <!-- ISSEY MIYAKE -->
+            <!-- ISSEY MIYAKE (Aligned Left) -->
             <div class="timeline-item">
                 <div class="timeline-content">
                     <div class="timeline-text">
