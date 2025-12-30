@@ -599,18 +599,33 @@
     .back-to-top { color: #888; text-decoration: none; border-bottom: 1px solid #333; padding-bottom: 2px; }
     .back-to-top:hover { color: #fff; border-color: #fff; }
 
-    /* --- PERFECTLY SYMMETRICAL ACADEMIC BLURBS --- */
+    /* --- PERFECT SYMMETRY LOGIC --- */
+    .edu-card {
+        display: flex;
+        flex-direction: column;
+    }
+    .edu-header {
+        min-height: 110px; /* Equalizes the Title/School/Degree block footprint */
+    }
     .edu-blurb {
-        margin-top: 1.25rem;
+        margin-top: 1.5rem;
         font-size: 0.9rem;
         color: #555;
-        line-height: 1.65;
+        line-height: 1.7;
         border-left: 2px solid var(--accent-pink);
         padding-left: 1.5rem;
         text-align: justify;
         hyphens: auto;
-        min-height: 80px; /* Equalizes box height on desktop */
+        min-height: 100px; /* Equalizes the blurb footprint */
         text-wrap: balance;
+    }
+    .edu-year {
+        margin-top: 1.5rem;
+        font-size: 0.85rem;
+        font-weight: 800;
+        color: #888;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
     }
 
     @media (max-width: 900px) {
@@ -619,8 +634,7 @@
         .dash-grid, .tech-grid { grid-template-columns: 1fr; }
         .footer-top { grid-template-columns: 1fr; gap: 3rem; }
         .nav-links { display: none; }
-        .brand-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; } 
-        .edu-blurb { text-align: left; min-height: auto; }
+        .edu-header, .edu-blurb { min-height: auto; text-align: left; }
     }
   </style>
 </head>
@@ -896,28 +910,30 @@
     <div class="container">
         <span class="section-label">Academic Background</span>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;">
-            <div>
-                <h3 style="font-size: 1.25rem;">Baruch College</h3>
-                <p style="font-size: 0.85rem; font-weight: 800; color: var(--accent); text-transform: uppercase; margin-bottom: 0.5rem;">Austin W. Marxe School of Public & International Affairs</p>
-                <div style="margin-top: 1rem;">
-                  <p style="font-size: 1rem; color: var(--ink); font-weight: 700; line-height: 1.3;">Master of Public Administration (MPA)</p>
-                  <p style="font-size: 1rem; color: var(--ink); font-weight: 700; line-height: 1.3;">Bachelor of Public Affairs</p>
+            <!-- BARUCH -->
+            <div class="edu-card">
+                <div class="edu-header">
+                    <h3>Baruch College</h3>
+                    <p style="font-size: 0.85rem; font-weight: 800; color: var(--accent); text-transform: uppercase; margin-bottom: 0.4rem;">Marxe School of Public Affairs</p>
+                    <p style="font-size: 0.95rem; color: var(--ink); font-weight: 700; line-height: 1.3;">MPA & Bachelor of Public Affairs</p>
                 </div>
                 <div class="edu-blurb">
-                  Training in public policy analysis provides a rigorous framework to navigate complex data sets and build trust through clear, customer-first communication.
+                  Trained in public policy analysis provides the analytical framework to navigate complex data—building trust through clear, customer-first communication.
                 </div>
-                <p style="margin-top: 0.75rem; font-size: 0.85rem; color: #888;">Expected 2027</p>
+                <div class="edu-year">Expected 2027</div>
             </div>
-            <div>
-                <h3 style="font-size: 1.25rem;">Art Institute of New York</h3>
-                <p style="font-size: 0.85rem; font-weight: 800; color: var(--accent); text-transform: uppercase; margin-bottom: 0.5rem;">Associate of Applied Science (A.A.S.)</p>
-                <div style="margin-top: 1rem;">
-                  <p style="font-size: 1rem; color: var(--ink); font-weight: 700; line-height: 1.3;">Fashion Design & Merchandising</p>
+
+            <!-- AI -->
+            <div class="edu-card">
+                <div class="edu-header">
+                    <h3>Art Institute of NY</h3>
+                    <p style="font-size: 0.85rem; font-weight: 800; color: var(--accent); text-transform: uppercase; margin-bottom: 0.4rem;">Associate of Applied Science</p>
+                    <p style="font-size: 0.95rem; color: var(--ink); font-weight: 700; line-height: 1.3;">Fashion Design & Merchandising</p>
                 </div>
                 <div class="edu-blurb">
                   Trained in visual aesthetics informing my insistence on brand integrity—ensuring high performance never comes at the cost of premium presentation.
                 </div>
-                <p style="margin-top: 0.75rem; font-size: 0.85rem; color: #888;">Class of 2009</p>
+                <div class="edu-year">Class of 2009</div>
             </div>
         </div>
     </div>
