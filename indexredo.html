@@ -193,77 +193,97 @@
     .dash-val { font-size: 2.5rem; font-weight: 900; color: var(--ink); display: block; letter-spacing: -0.04em; }
     .dash-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--neutral-600); font-weight: 700; margin-top: 0.5rem; display: block; }
     .dash-item.highlight { border-top: 4px solid var(--accent); }
+    
     .dash-attribution {
         text-align: center;
-        font-size: 0.85rem;
-        color: var(--accent-pink); 
+        font-size: 0.9rem;
+        color: var(--accent); 
         margin-top: 3rem;
-        max-width: 850px;
+        max-width: 950px;
         margin-left: auto;
         margin-right: auto;
-        line-height: 1.6;
-        font-weight: 600;
+        line-height: 1.7;
+        font-weight: 500;
+        padding: 2rem;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
     }
 
-    /* --- PERSPECTIVE SECTION --- */
+    /* --- REDESIGNED PERSPECTIVE SECTION --- */
     .about-section {
         padding: 8rem 0;
     }
     .about-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 6rem;
+        grid-template-columns: 1.4fr 0.6fr; 
+        gap: 5rem;
         align-items: start;
     }
     .about-philosophy {
-        font-size: 1.1rem;
+        font-size: 1.15rem;
         color: var(--charcoal);
-        line-height: 1.7;
+        line-height: 1.8;
         font-weight: 400;
     }
-    .about-philosophy h2 { font-size: 1.8rem; margin-bottom: 1.5rem; }
+    .about-philosophy h2 { font-size: 2.25rem; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
     .about-philosophy span {
         color: var(--accent);
         font-weight: 700;
     }
-    .about-philosophy .strategic-advantage {
-        margin-top: 2rem;
-        padding: 1.5rem;
+    .strategic-advantage {
+        margin-top: 3rem;
+        padding: 2rem;
         background: var(--accent-soft);
-        border-radius: 4px;
-        font-size: 0.95rem;
-        border-left: 3px solid var(--accent);
+        border-radius: 6px;
+        font-size: 1rem;
+        border-left: 4px solid var(--accent);
+        color: var(--ink);
+    }
+    .strategic-advantage strong {
+        color: var(--accent);
+        text-transform: uppercase;
+        font-size: 0.7rem;
+        letter-spacing: 0.15em;
+        display: block;
+        margin-bottom: 0.5rem;
     }
 
-    /* --- CUSTOMER JOURNEY FOCUS --- */
-    .programs-owned {
-        background: #fcfcfc;
+    .programs-card {
+        background: #ffffff;
         border: 1px solid var(--line);
         padding: 2.5rem;
-        border-radius: 8px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+    }
+    .programs-card h4 {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--accent-pink);
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--line);
     }
     .programs-list {
         list-style: none;
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 0.75rem;
     }
     .programs-list li {
-        font-size: 0.9rem;
-        font-weight: 600;
+        font-size: 0.85rem;
+        font-weight: 700;
         color: var(--ink);
-        padding-left: 1.5rem;
-        position: relative;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid #f9fafb;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
     }
+    .programs-list li:last-child { border-bottom: none; }
     .programs-list li::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0.6rem;
-        width: 6px;
-        height: 6px;
-        background: var(--accent-pink);
-        border-radius: 50%;
+        content: '\f00c'; 
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        color: var(--accent-pink);
+        font-size: 0.7rem;
     }
 
     /* --- STRATEGIC CORE --- */
@@ -486,7 +506,7 @@
         border-bottom: 1px solid rgba(255,255,255,0.15);
     }
     .tech-list { list-style: none; font-size: 0.9rem; color: #bbb; }
-    .tech-list li { margin-bottom: 0.85rem; font-weight: 500; }
+    .tech-list li { margin-bottom: 0.75rem; font-weight: 500; }
     .tech-micro-case {
         display: block;
         font-size: 0.75rem;
@@ -548,7 +568,8 @@
     .back-to-top:hover { color: #fff; border-color: #fff; }
 
     @media (max-width: 900px) {
-        .about-grid, .expertise-grid { grid-template-columns: 1fr; }
+        .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+        .expertise-grid { grid-template-columns: 1fr; }
         .dash-grid, .tech-grid { grid-template-columns: 1fr; }
         .footer-top { grid-template-columns: 1fr; gap: 3rem; }
         .nav-links { display: none; }
@@ -606,7 +627,7 @@
         </div>
     </div>
     <div class="dash-attribution">
-        These results reflect a customer-first approach to strategy, listening to data, and creating messages people actually want to read.
+        Metrics reflect lifecycle programs I optimized end-to-end, spanning strategy, segmentation, messaging, creative direction, testing, and reporting. <strong>These are not team or company metrics.</strong> I directly managed the strategy, segmentation, and execution that drove these results.
     </div>
   </div>
 
@@ -619,18 +640,19 @@
                 <p>I look for the people behind the numbers, listening to what customer behavior is telling us and <span>translating those insights into better ways to stay connected.</span> I built and owned reporting that revealed exactly why people were staying or leaving—directly informing how we spoke to them.</p>
                 
                 <div class="strategic-advantage">
-                    <strong>Strategic Advantage:</strong> My MPA in Public Policy & Communications trains me to analyze complex situations and tell clear stories—the exact skills needed to build trust with customers.
+                    <strong>Strategic Advantage</strong>
+                    My MPA in Public Policy & Communications trains me to analyze complex situations and tell clear stories—the exact skills needed to build trust with customers.
                 </div>
             </div>
             
-            <div class="programs-owned">
-                <h4 style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 1.5rem;">Customer Journeys Grew</h4>
+            <div class="programs-card">
+                <h4>Customer Journeys Grew</h4>
                 <ul class="programs-list">
                     <li>Onboarding & Welcome Journeys</li>
                     <li>Staying Relevant & Habit Formation</li>
                     <li>Keeping Customers Coming Back</li>
                     <li>Reconnecting with Former Customers</li>
-                    <li>Long-Term Purchase Support (6–18 months)</li>
+                    <li>Long-Term Purchase Support (6–18m)</li>
                     <li>Helpful Cross-Sells & Recommendations</li>
                     <li>Loyalty & Relationship Building</li>
                 </ul>
@@ -814,6 +836,9 @@
                 <div style="margin-top: 1rem;">
                   <p style="font-size: 1rem; color: var(--ink); font-weight: 700; line-height: 1.3;">Fashion Design & Merchandising</p>
                 </div>
+                <p style="margin-top: 0.75rem; font-size: 0.9rem; color: #666; font-style: italic;">
+                  This background in visual aesthetics informs my insistence on brand integrity—performance never comes at the cost of premium presentation.
+                </p>
                 <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #888;">Class of 2009</p>
             </div>
         </div>
