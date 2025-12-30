@@ -209,7 +209,7 @@
         border-bottom: 1px solid var(--line);
     }
 
-    /* --- REDESIGNED PERSPECTIVE SECTION --- */
+    /* --- PERSPECTIVE SECTION --- */
     .about-section {
         padding: 8rem 0;
     }
@@ -424,13 +424,12 @@
     .timeline-visual {
         margin-top: 2rem;
         max-width: 280px; 
-        position: relative;
     }
     .iphone-bezel {
         background: #1a1a1a;
         border-radius: 36px;
         padding: 10px;
-        box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         aspect-ratio: 9/19; 
         overflow: hidden;
         position: relative;
@@ -465,20 +464,16 @@
         transform: translateY(calc(-100% + 500px)); 
     }
     .prev-img { width: 100%; display: block; }
-    .visual-label {
-        position: absolute;
-        bottom: -20px;
-        left: 0;
-        right: 0;
-        background: var(--ink);
-        color: #fff;
-        font-size: 0.65rem;
-        font-weight: 800;
-        text-align: center;
-        padding: 6px;
+    
+    /* Elegant Integrated Caption */
+    .visual-caption {
+        margin-top: 1.25rem;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: var(--accent-pink);
         text-transform: uppercase;
         letter-spacing: 0.1em;
-        z-index: 20;
+        text-align: center;
     }
 
     /* --- MARTECH ECOSYSTEM --- */
@@ -506,7 +501,7 @@
         border-bottom: 1px solid rgba(255,255,255,0.15);
     }
     .tech-list { list-style: none; font-size: 0.9rem; color: #bbb; }
-    .tech-list li { margin-bottom: 0.75rem; font-weight: 500; }
+    .tech-list li { margin-bottom: 0.85rem; font-weight: 500; }
     .tech-micro-case {
         display: block;
         font-size: 0.75rem;
@@ -708,7 +703,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="visual-label">Part of messages driving 17% YoY growth</div>
+                        <div class="visual-caption">Driving 17% YoY growth via personalized messaging</div>
                     </div>
                 </div>
             </div>
@@ -736,7 +731,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="visual-label">Supported 6-18 month customer timelines</div>
+                        <div class="visual-caption">Supporting 6–18 month purchase journeys</div>
                     </div>
                 </div>
             </div>
@@ -769,6 +764,17 @@
                             <li>Introduced a more personalized way to communicate with luxury customers in the US market.</li>
                             <li>Ensured the online experience felt as high-end and thoughtful as the brand itself.</li>
                         </ul>
+                    </div>
+                    <div class="timeline-visual">
+                        <div class="iphone-bezel">
+                            <div class="iphone-screen">
+                                <div class="iphone-scroll">
+                                    <img src="bao_bao_email_1.jpg" class="prev-img" alt="Bao Bao Email 1" onerror="this.style.display='none';">
+                                    <img src="bao_bao_email_SS17.jpg" class="prev-img" alt="Bao Bao Campaign" onerror="this.style.display='none';">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="visual-caption">Aligning digital journeys with luxury standards</div>
                     </div>
                 </div>
             </div>
