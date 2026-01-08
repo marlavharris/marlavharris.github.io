@@ -12,8 +12,8 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Marla Harris - Senior Manager, Subscription & Lifecycle Marketing. Professional Portfolio & Resume.">
-  <title>Marla Harris — Senior Manager, Subscription & Lifecycle Marketing</title>
+  <meta name="description" content="Marla Harris - Senior Manager, Subscription & Lifecycle Strategy. Professional Portfolio & Resume.">
+  <title>Marla Harris — Senior Manager, Subscription & Lifecycle Strategy</title>
    
   <!-- High-impact corporate font: Inter -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -284,29 +284,27 @@
         margin-bottom: 0.5rem;
     }
 
-    .programs-card {
+    .methodology-card {
         background: #ffffff;
         border: 1px solid var(--line);
         padding: 2.5rem;
         border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.03);
     }
-    .programs-card h4 {
-        font-size: 0.75rem;
+    .methodology-card h4 {
+        font-size: 0.8rem;
         text-transform: uppercase;
         letter-spacing: 0.15em;
         color: var(--accent-pink);
-        margin-bottom: 2rem;
-        padding-bottom: 1rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.75rem;
         border-bottom: 1px solid var(--line);
     }
-    .programs-list li {
-        font-size: 0.95rem;
-        font-weight: 700;
-        padding: 0.75rem 0;
-        border-bottom: 1px solid #f9fafb;
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
+    .methodology-text {
+        font-size: 1.05rem;
+        font-weight: 500;
+        color: var(--charcoal);
+        line-height: 1.6;
     }
 
     /* --- STRATEGIC CORE --- */
@@ -441,8 +439,26 @@
         content: ''; position: absolute; top: 15px; left: 50%; transform: translateX(-50%);
         width: 60px; height: 18px; background: #1a1a1a; border-radius: 20px; z-index: 10;
     }
-    .iphone-scroll { position: absolute; width: 100%; transition: transform 1s cubic-bezier(0.45, 0.05, 0.55, 0.95); }
-    .iphone-bezel:hover .iphone-scroll { transform: translateY(calc(-100% + 450px)); }
+    
+    /* Continuous seamless vertical loop */
+    .iphone-scroll { 
+        position: absolute; 
+        width: 100%; 
+        display: flex;
+        flex-direction: column;
+        animation: scrollLoop 20s linear infinite;
+    }
+    
+    /* Speed up slightly on hover if desired, or pause */
+    .iphone-bezel:hover .iphone-scroll { 
+        animation-play-state: paused; 
+    }
+
+    @keyframes scrollLoop {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-50%); } /* Jump back to start point of duplicated set */
+    }
+
     .prev-img { width: 100%; display: block; }
     .visual-caption {
         margin-top: 1.25rem; 
@@ -556,7 +572,7 @@
           <a href="#experience" class="nav-link">Experience</a>
           <a href="#tech" class="nav-link">Tech Stack</a>
           <a href="mailto:va.mvharris@gmail.com" class="nav-link track-contact">Contact</a>
-          <a href="https://drive.google.com/uc?export=download&id=1zpS4LUS2TSw32w5XmqTEnNl8OKiDuut-&utm_source=portfolio&utm_medium=website&utm_campaign=resume_download_nav" 
+          <a href="https://drive.google.com/uc?export=download&id=1Qp9E4M5lb6H1U13fuZxTbpfwlgNR-K_9&utm_source=portfolio&utm_medium=website&utm_campaign=resume_download_nav" 
              class="nav-btn track-resume" 
              onclick="trackLead('Resume Download - Nav')"
              target="_blank" rel="noopener noreferrer"><i class="fas fa-file-pdf"></i> Download Resume</a>
@@ -567,13 +583,13 @@
 
   <section class="hero">
     <div class="container hero-content">
-      <span class="section-label">Senior Manager, Subscription & Lifecycle Marketing</span>
-      <h1 class="hero-title">I Turn Subscriber Data Into Loyalty & Revenue</h1>
-      <p>I pair rigorous analysis with customer-first thinking for premium and lifestyle brands like Rolling Stone, Samsung, and Issey Miyake to move people from a single click to a lasting relationship.</p>
+      <span class="section-label">Senior Manager, Subscription & Lifecycle Strategy</span>
+      <h1 class="hero-title">I lead lifecycle strategies that maintain performance through market and platform shifts.</h1>
+      <p>Driving sustainable revenue growth requires a strategy that accounts for the world outside the dashboard. I specialize in designing resilient lifecycle architectures for complex enterprise portfolios—ensuring high-performance engagement that withstands shifting pricing models and platform algorithms.</p>
       
       <div class="contact-cta">
         <a href="mailto:va.mvharris@gmail.com" class="btn-main track-contact">Contact Me</a>
-        <a href="https://drive.google.com/uc?export=download&id=1zpS4LUS2TSw32w5XmqTEnNl8OKiDuut-&utm_source=portfolio&utm_medium=website&utm_campaign=resume_download_hero" 
+        <a href="https://drive.google.com/uc?export=download&id=1Qp9E4M5lb6H1U13fuZxTbpfwlgNR-K_9&utm_source=portfolio&utm_medium=website&utm_campaign=resume_download_hero" 
            class="btn-outline track-resume" 
            onclick="trackLead('Resume Download - Hero')"
            target="_blank" rel="noopener noreferrer"><i class="fas fa-download"></i> Download Resume</a>
@@ -581,10 +597,10 @@
       </div>
 
       <div class="brand-bar">
-          <span class="brand-bar-label">Featured in campaigns for</span>
+          <span class="brand-bar-label">Selected Brands</span>
           <div class="brand-grid">
-              <span class="brand-name">Rolling Stone</span>
-              <span class="brand-name">Billboard</span>
+              <span class="brand-name">Rolling Stone Magazine</span>
+              <span class="brand-name">Billboard Pro Magazine</span>
               <span class="brand-name">Women's Wear Daily</span>
               <span class="brand-name">Issey Miyake</span>
               <span class="brand-name">Samsung</span>
@@ -618,7 +634,7 @@
         </div>
     </div>
     <div class="dash-attribution">
-        Metrics reflect direct ownership of lifecycle programs across 4M+ subscribers. I managed the end-to-end strategies that drove these results.
+        Metrics reflect strategic ownership of lifecycle programs across 4M+ subscribers. Results driven by systems designed for long-term operational resilience.
     </div>
   </div>
 
@@ -627,24 +643,18 @@
         <span class="section-label">About</span>
         <div class="about-grid">
             <div class="about-philosophy">
-                <h2>Finding the Story in the Data</h2>
-                <p>I look for the people behind the numbers, decoding customer behavior and translating those insights into better ways to stay connected. I built and owned reporting that revealed exactly why people were staying or leaving.</p>
+                <h2>Optimizing for long-term operational durability</h2>
+                <p>I focus on the external variables that impact internal performance—specifically how customer behavior reacts to economic pressure and platform volatility. My approach ensures lifecycle systems adapt proactively before performance declines, protecting organizational revenue through market cycles.</p>
                 <div class="strategic-advantage">
                     <strong>Strategic Advantage</strong>
-                    My background in Public Policy trains me to analyze complex situations and tell clear stories—the exact skills needed to build trust with customers.
+                    Advanced training in policy and systems analysis provides the toolkit to anticipate how external shifts shape audience behavior—enabling proactive strategy rather than reactive troubleshooting.
                 </div>
             </div>
-            <div class="programs-card">
-                <h4>Strategic Architecture</h4>
-                <ul class="programs-list">
-                    <li>Conversion & Onboarding</li>
-                    <li>Engagement & Retention</li>
-                    <li>Churn Mitigation</li>
-                    <li>Winback & Reactivation</li>
-                    <li>Consideration Cycles</li>
-                    <li>Behavioral Upsell</li>
-                    <li>Loyalty Loops</li>
-                </ul>
+            <div class="methodology-card">
+                <h4>Contextual Lifecycle Design</h4>
+                <div class="methodology-text">
+                    This strategic approach integrates external market intelligence—industry cycles, economic patterns, and policy shifts—with internal behavioral data. By aligning outreach to customer readiness windows and demand shifts, I build lifecycle architectures that balance aggressive growth with sustainable, long-term brand engagement.
+                </div>
             </div>
         </div>
     </div>
@@ -654,16 +664,16 @@
     <div class="container">
         <div class="expertise-grid">
             <div class="expertise-item">
-                <h4>Customer Behavior</h4>
-                <p>Decoding customer actions to decide the best timing and message for every interaction.</p>
+                <h4>Behavior Under Constraint</h4>
+                <p>Anticipating how audiences respond to pricing friction, economic pressure, and platform shifts.</p>
             </div>
             <div class="expertise-item">
-                <h4>Data-Driven Decisions</h4>
-                <p>Ensuring every decision is backed by hands-on data analysis of what customers actually do.</p>
+                <h4>Systems-Level Decision Making</h4>
+                <p>Designing lifecycle architecture that maintains efficacy even as operational inputs change.</p>
             </div>
             <div class="expertise-item">
-                <h4>Brand Integrity</h4>
-                <p>Ensuring the brand always feels premium and helpful, meeting high standards of quality.</p>
+                <h4>Strategic Durability</h4>
+                <p>Prioritizing long-term trust and recurring revenue over short-term optimization lifts.</p>
             </div>
         </div>
     </div>
@@ -682,9 +692,9 @@
                         <span class="timeline-subhead">Digital & Subscription Marketing Manager</span>
                         <div class="timeline-body">
                             <ul>
-                                <li>Built a re-engagement series that successfully brought back 15% of disengaged subscribers.</li>
-                                <li>Created playbooks for Rolling Stone and Women's Wear Daily balancing revenue goals with audience health.</li>
-                                <li>Personalized messaging for a 4M+ audience to make interactions more relevant.</li>
+                                <li>Owned lifecycle and subscription strategy across a multi-brand portfolio, designing engagement systems resilient to traffic volatility and pricing pressure.</li>
+                                <li>Created playbooks for Rolling Stone Magazine and Billboard Pro Magazine balancing revenue goals with audience health.</li>
+                                <li>Implemented behavioral segmentation for a 4M+ audience to increase relevance and retention.</li>
                             </ul>
                         </div>
                     </div>
@@ -711,9 +721,9 @@
                         <span class="timeline-subhead">Operations & Lifecycle Manager</span>
                         <div class="timeline-body">
                             <ul>
-                                <li>Supported 6–18 month purchase windows by respecting the customer’s timeline.</li>
-                                <li>Built the first successful program for trade professionals to improve builder relationships.</li>
-                                <li>Optimized SMS and email flows to remove post-purchase friction.</li>
+                                <li>Led lifecycle strategy for high-consideration purchases where customer behavior shifts with market conditions.</li>
+                                <li>Established the first strategic program for trade professionals to improve builder and designer relationships.</li>
+                                <li>Optimized cross-channel flows to reduce post-purchase friction in long-cycle journeys.</li>
                             </ul>
                         </div>
                     </div>
@@ -740,8 +750,8 @@
                         <span class="timeline-subhead">E-Commerce & Community Manager</span>
                         <div class="timeline-body">
                             <ul>
-                                <li>Matched onboarding experience with long-term retention strategies.</li>
-                                <li>Streamlined online shopping usability, naturally increasing conversion rates.</li>
+                                <li>Aligned onboarding architecture with long-term retention goals.</li>
+                                <li>Optimized digital conversion funnels resulting in a significant ROI increase.</li>
                             </ul>
                         </div>
                     </div>
@@ -757,8 +767,8 @@
                         <span class="timeline-subhead">E-Commerce Strategist & Manager</span>
                         <div class="timeline-body">
                             <ul>
-                                <li>Introduced personalized communication flows for luxury US customers.</li>
-                                <li>Maintained a high-end digital experience consistent with luxury brand standards.</li>
+                                <li>Managed personalized communication strategy for luxury US market segments.</li>
+                                <li>Maintained high-end digital standards across all customer touchpoints.</li>
                             </ul>
                         </div>
                     </div>
@@ -825,8 +835,8 @@
         
         <div class="availability-box">
             <div class="availability-text">
-                <h4>Current Status</h4>
-                <p>Completing advanced studies in Public Policy while applying data-driven strategy to enterprise lifecycle goals.</p>
+                <h4>Current Focus</h4>
+                <p>Applying systems and policy analysis to lifecycle strategy while completing advanced academic training.</p>
             </div>
             <div class="availability-status">Available for full-time senior roles</div>
         </div>
@@ -838,7 +848,7 @@
                     <p style="font-size: 0.95rem; font-weight: 800; color: var(--accent); text-transform: uppercase;">Marxe School of Public Affairs</p>
                     <p style="font-size: 1.1rem; font-weight: 700;">MPA & Bachelor of Public Affairs</p>
                 </div>
-                <div class="edu-blurb">Training in public policy analysis provides a robust framework to navigate complex data sets and build customer trust.</div>
+                <div class="edu-blurb">Training in policy analysis provides a robust framework to navigate complex organizational datasets and build stakeholder trust.</div>
                 <div class="edu-year">Expected 2027</div>
             </div>
             <div class="edu-card">
@@ -847,7 +857,7 @@
                     <p style="font-size: 0.95rem; font-weight: 800; color: var(--accent); text-transform: uppercase;">AAS</p>
                     <p style="font-size: 1.1rem; font-weight: 700;">Fashion Design & Merchandising</p>
                 </div>
-                <div class="edu-blurb">Visual aesthetics training informing my insistence on brand integrity—ensuring performance never costs premium presentation.</div>
+                <div class="edu-blurb">Visual aesthetics training informing a rigorous standard for brand integrity and premium customer presentation.</div>
                 <div class="edu-year">Class of 2009</div>
             </div>
         </div>
@@ -859,7 +869,7 @@
       <div class="footer-top">
         <div class="footer-brand">
           <span class="logo">Marla Harris</span>
-          <p>Subscription & Lifecycle Marketing</p>
+          <p>Subscription & Lifecycle Strategy • Operational Resilience</p>
         </div>
         <div>
           <span class="footer-col-title">Navigation</span>
@@ -874,7 +884,7 @@
           <ul class="footer-list">
             <li><a href="https://www.linkedin.com/in/marlavharris/" target="_blank" class="footer-link">LinkedIn</a></li>
             <li><a href="mailto:va.mvharris@gmail.com" class="footer-link track-contact">Email</a></li>
-            <li><a href="https://drive.google.com/uc?export=download&id=1zpS4LUS2TSw32w5XmqTEnNl8OKiDuut-&utm_source=portfolio&utm_medium=website&utm_campaign=resume_download_footer" 
+            <li><a href="https://drive.google.com/uc?export=download&id=1Qp9E4M5lb6H1U13fuZxTbpfwlgNR-K_9&utm_source=portfolio&utm_medium=website&utm_campaign=resume_download_footer" 
                    class="footer-link track-resume" 
                    onclick="trackLead('Resume Download - Footer')"
                    target="_blank" rel="noopener noreferrer">Download Resume</a></li>
@@ -889,6 +899,16 @@
   </footer>
 
   <script>
+    // Duplication logic for seamless infinite vertical scroll
+    document.addEventListener('DOMContentLoaded', () => {
+        const scrolls = document.querySelectorAll('.iphone-scroll');
+        scrolls.forEach(scroll => {
+            // Clone the existing items to create a seamless loop
+            const clone = scroll.innerHTML;
+            scroll.innerHTML += clone;
+        });
+    });
+
     const mobileToggle = document.querySelector('.mobile-toggle');
     const navLinks = document.querySelector('.nav-links');
     if (mobileToggle) {
